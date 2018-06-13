@@ -3,4 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="ActivityBackground">#5ef5f5f5</color>
+    <color name="cardBackground">#076a97</color>
 </resources>

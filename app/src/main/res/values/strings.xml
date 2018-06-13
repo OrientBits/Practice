@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Practice</string>
+    <string name="current_Affairs">Current Affairs</string>
+    <string name="mathematics">Mathematics</string>
+    <string name="reasoning">Reasoning</string>
+    <string name="computer">Computer</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="physics">Physics</string>
+    <string name="biology">Biology</string>
+    <string name="history">History</string>
+    <string name="geography">Geography</string>
+    <string name="entertainment">Entertainment</string>
+
+
 </resources>
