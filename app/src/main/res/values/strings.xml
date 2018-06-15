@@ -10,6 +10,10 @@
     <string name="history">History</string>
     <string name="geography">Geography</string>
     <string name="entertainment">Entertainment</string>
-
+    <string name="title_activity_current_affairs">CurrentAffairs</string>
+    <string name="user_name">Rohit Rana</string>
+    <string name="action_settings">Setting</string>
+    <string name="user_level">Level 1</string>
+    <string name="profile_picture">Profile Picture</string>
 
 </resources>

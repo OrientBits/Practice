@@ -16,6 +16,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CurrentAffairsActivity"
+            android:label="@string/current_Affairs"
+            android:parentActivityName=".HomeActivity" />
+
+        <activity android:name=".ComputerActivity"
+            android:label="@string/computer"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".MathematicsActivity"
+            android:label="@string/mathematics"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".ReasoningActivity"
+            android:label="@string/reasoning"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".ChemistryActivity"
+            android:label="@string/chemistry"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".PhysicsActivity"
+            android:label="@string/physics"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".BiologyActivity"
+            android:label="@string/biology"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".GeographyActivity"
+            android:label="@string/geography"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".HistoryActivity"
+            android:label="@string/history"
+            android:parentActivityName=".HomeActivity"/>
+
+        <activity android:name=".EntertainmentActivity"
+            android:label="@string/entertainment"
+            android:parentActivityName=".HomeActivity"/>
+
     </application>
 
 </manifest>

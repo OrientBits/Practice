@@ -7,117 +7,255 @@
     android:background="@color/ActivityBackground"
     tools:context=".HomeActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/profile_area"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="5dp">
 
             <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+                android:id="@+id/profile_picture_card_view"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:elevation="12dp"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="4dp"
+                android:innerRadius="0dp"
+                android:shape="ring"
+                android:thicknessRatio="1.9"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_gravity="center_horizontal">
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/current_Affairs" />
+                <ImageView
+                    android:layout_height="80dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/profile_picture"
+                    android:src="@drawable/ic_profile_picture_24dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="@string/profile_picture">
+                </ImageView>
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/user_name"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/mathematics" />
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
-
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/chemistry" />
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
-
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/biology" />
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
-
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/history" />
-            </android.support.v7.widget.CardView>
+            <TextView
+                android:id="@+id/user_levl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/cardBackground"
+                android:text="@string/user_level"
+                android:gravity="center_horizontal"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="7dp"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_gravity="center_horizontal"/>
 
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_below="@id/profile_area"
+            android:baselineAligned="false">
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/computer" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/current_affairs_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/current_Affairs"
+                        android:src="@drawable/ic_current_affairs_24dp" />
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/reasoning" />
-            </android.support.v7.widget.CardView>
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/current_Affairs" />
+                </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/mathematics_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/physics" />
-            </android.support.v7.widget.CardView>
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/mathematics"
+                        android:src="@drawable/ic_mathematics_24dp" />
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/mathematics" />
+                </android.support.v7.widget.CardView>
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/geography" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/chemistry_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/HomeCardView"
-                app:cardBackgroundColor="@color/cardBackground">
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/chemistry"
+                        android:src="@drawable/ic_expriment24dp" />
 
-                <TextView
-                    style="@style/TextViewOfCardView"
-                    android:text="@string/entertainment" />
-            </android.support.v7.widget.CardView>
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/chemistry" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/biology_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/biology"
+                        android:src="@drawable/ic_biology_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/biology" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/history_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/history"
+                        android:src="@drawable/ic_history_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/history" />
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/computer_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/computer"
+                        android:src="@drawable/ic_laptop_mac_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/computer" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/reasoning_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/reasoning"
+                        android:src="@drawable/ic_reasoning_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/reasoning" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/physics_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/physics"
+                        android:src="@drawable/ic_physics_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/physics" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/geography_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/geography"
+                        android:src="@drawable/ic_geology_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/geography" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/entertainment_card_view"
+                    style="@style/HomeCardView"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <ImageView
+                        style="@style/ImageViewOnCardView"
+                        android:contentDescription="@string/entertainment"
+                        android:src="@drawable/ic_entertainment_24dp" />
+
+                    <TextView
+                        style="@style/TextViewOfCardView"
+                        android:text="@string/entertainment" />
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
 
 
         </LinearLayout>
-    </LinearLayout>
+
+    </RelativeLayout>
+
 </ScrollView>
