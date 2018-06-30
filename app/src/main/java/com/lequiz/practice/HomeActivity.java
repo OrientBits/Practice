@@ -1,6 +1,7 @@
 package com.lequiz.practice;
 
-import android.content.Intent;
+
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,25 +11,28 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.GridView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
+
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    Toolbar toolbar;
 
     protected CardView currentAffairs, computer, mathematics, reasoning, science,
             english, geography, history, technology, sport, special, entertainment;
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.category_list);
+
+        toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
+
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -36,121 +40,37 @@ public class HomeActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        currentAffairs = findViewById(R.id.current_affairs_card_view);
-        computer = findViewById(R.id.computer_card_view);
-        mathematics = findViewById(R.id.mathematics_card_view);
-        reasoning = findViewById(R.id.reasoning_card_view);
-        science = findViewById(R.id.science_card_view);
-        english = findViewById(R.id.english_card_view);
-        geography = findViewById(R.id.geography_card_view);
-        history = findViewById(R.id.history_card_view);
-        technology = findViewById(R.id.technology_card_view);
-        sport = findViewById(R.id.sport_card_view);
-        special = findViewById(R.id.special_card_view);
-        entertainment = findViewById(R.id.entertainment_card_view);
-
-        currentAffairs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, CurrentAffairsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        computer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ComputerActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mathematics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MathematicsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        reasoning.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ReasoningActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        science.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ScienceActivity.class);
-                startActivity(intent);
-            }
-        });
+        getActionBar().setHomeButtonEnabled(true);
 
 
-        english.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, EnglishActivity.class);
-                startActivity(intent);
-            }
-        });
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
 
-        geography.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, GeographyActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        technology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, TechnologyActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (navigationView != null) {
+            setupDrawerContent(navigationView);
+        }
 
 
-        sport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SportActivity.class);
-                startActivity(intent);
-            }
-        });
+        ArrayList<Word> arrayList = new ArrayList<>();
+        arrayList.add(new Word("Current Affairs", R.drawable.current_affairs));
+        arrayList.add(new Word("Computer", R.drawable.computer));
+        arrayList.add(new Word("Mathematics", R.drawable.mathematics));
+        arrayList.add(new Word("Reasoning", R.drawable.reasoning));
+        arrayList.add(new Word("General Science", R.drawable.science));
+        arrayList.add(new Word("English", R.drawable.english));
+        arrayList.add(new Word("Technology", R.drawable.technology));
+        arrayList.add(new Word("Sport", R.drawable.history));// here should be sport image but i'm using history
+        arrayList.add(new Word("Special", R.drawable.special));
+        arrayList.add(new Word("Entertainment", R.drawable.entertainment));
+
+        WordAdapter wordAdapter = new WordAdapter(this, arrayList);
+        GridView gridView = findViewById(R.id.list);
+        gridView.setAdapter(wordAdapter);
 
 
-        special.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SpecialActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        entertainment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, EntertainmentActivity.class);
-                startActivity(intent);
-            }
-        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -164,9 +84,6 @@ public class HomeActivity extends AppCompatActivity {
         int res_if = item.getItemId();
         switch (res_if)
         {
-            case R.id.search:
-                Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_LONG).show();
-                break;
             case R.id.profile:
                 Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
                 break;
@@ -196,5 +113,51 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
         return true;
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        int res_id = menuItem.getItemId();
+
+                        switch (res_id)
+                        {
+                            case R.id.profile:
+                                Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.home_activity:
+                                Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.leaderboard:
+                                Toast.makeText(getApplicationContext(), "Leaderboard", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.notifications:
+                                Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.payment:
+                                Toast.makeText(getApplicationContext(), "Payment", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.settings:
+                                Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.invite_friends:
+                                Toast.makeText(getApplicationContext(), "Invite Friends", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.feedback:
+                                Toast.makeText(getApplicationContext(), "Feedback", Toast.LENGTH_LONG).show();
+                                break;
+                            case R.id.help:
+                                Toast.makeText(getApplicationContext(), "Help", Toast.LENGTH_LONG).show();
+                                break;
+                        }
+
+
+                        mDrawerLayout.closeDrawers();
+
+                        return true;
+                    }
+                });
     }
 }

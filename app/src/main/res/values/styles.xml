@@ -9,8 +9,8 @@
     </style>
 
     <style name="HomeCardView">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_width">175dp</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginTop">15dp</item>
