@@ -1,6 +1,6 @@
 <resources>
     <!--   color for the app bar and other primary UI elements -->
-    <color name="colorPrimary">#a8ff4000</color>
+    <color name="colorPrimary">#ffffff</color>
 
     <!--   a darker variant of the primary color, used for
            the status bar (on Android 5.0+) and contextual app bars -->

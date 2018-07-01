@@ -14,13 +14,8 @@
     <string name="computer">Computer</string>
 
     <!--Category name for Science-->
-    <string name="science">Science</string>
+    <string name="general_science">General Science</string>
 
-    <!--Category name for History-->
-    <string name="history">History</string>
-
-    <!--Category name for Geography-->
-    <string name="geography">Geography</string>
 
     <!--Category fpr technology-->
     <string name="technology">Technology</string>

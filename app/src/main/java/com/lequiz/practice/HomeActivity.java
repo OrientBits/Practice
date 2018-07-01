@@ -1,6 +1,7 @@
 package com.lequiz.practice;
 
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -41,16 +42,14 @@ public class HomeActivity extends AppCompatActivity {
         mToggle.syncState();
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
 
-        if (navigationView != null) {
-            setupDrawerContent(navigationView);
-        }
+            setupDrawerContent(navigationView); // always true
+
 
 
         ArrayList<Word> arrayList = new ArrayList<>();
@@ -61,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         arrayList.add(new Word("General Science", R.drawable.science));
         arrayList.add(new Word("English", R.drawable.english));
         arrayList.add(new Word("Technology", R.drawable.technology));
-        arrayList.add(new Word("Sport", R.drawable.history));// here should be sport image but i'm using history
+        arrayList.add(new Word("Sport", R.drawable.sport));
         arrayList.add(new Word("Special", R.drawable.special));
         arrayList.add(new Word("Entertainment", R.drawable.entertainment));
 
@@ -119,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         int res_id = menuItem.getItemId();
 
                         switch (res_id)

@@ -34,19 +34,11 @@
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".ScienceActivity"
-            android:label="@string/science"
+            android:label="@string/general_science"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".GeographyActivity"
-            android:label="@string/geography"
-            android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".HistoryActivity"
-            android:label="@string/history"
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".EntertainmentActivity"
