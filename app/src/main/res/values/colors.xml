@@ -19,6 +19,7 @@
 
     <color name="textColor">#00121e</color>
 
+
     <!--category text view color-->
     <color name="current_affairs">#7A7773</color>
     <color name="computer">#9C54A4</color>
