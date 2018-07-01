@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
 
     protected CardView currentAffairs, computer, mathematics, reasoning, science,
-            english, geography, history, technology, sport, special, entertainment;
+            english,technology, sport, special, entertainment;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +42,16 @@ public class HomeActivity extends AppCompatActivity {
         mToggle.syncState();
 
 
-    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
 
 
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
 
-            setupDrawerContent(navigationView); // always true
-
+        if (navigationView != null) {
+            setupDrawerContent(navigationView);
+        }
 
 
         ArrayList<Word> arrayList = new ArrayList<>();
@@ -60,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         arrayList.add(new Word("General Science", R.drawable.science));
         arrayList.add(new Word("English", R.drawable.english));
         arrayList.add(new Word("Technology", R.drawable.technology));
-        arrayList.add(new Word("Sport", R.drawable.sport));
+        arrayList.add(new Word("Sport", R.drawable.history));// here should be sport image but i'm using history
         arrayList.add(new Word("Special", R.drawable.special));
         arrayList.add(new Word("Entertainment", R.drawable.entertainment));
 
@@ -118,7 +120,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
                         int res_id = menuItem.getItemId();
 
                         switch (res_id)

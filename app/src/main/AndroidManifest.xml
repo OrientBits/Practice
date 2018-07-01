@@ -33,7 +33,7 @@
             android:label="@string/reasoning"
             android:parentActivityName=".HomeActivity" />
         <activity
-            android:name=".ScienceActivity"
+            android:name=".GeneralScienceActivity"
             android:label="@string/general_science"
             android:parentActivityName=".HomeActivity" />
         <activity
@@ -44,9 +44,12 @@
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
             android:parentActivityName=".HomeActivity" />
+
         <activity android:name=".SportActivity" />
+
         <activity android:name=".TechnologyActivity" />
-        <activity android:name=".SpecialActivity"></activity>
+
+        <activity android:name=".SpecialActivity"/>
     </application>
 
 </manifest>
