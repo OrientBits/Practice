@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         gridView.setAdapter(wordAdapter);
 
 
+
     }
 
     @Override

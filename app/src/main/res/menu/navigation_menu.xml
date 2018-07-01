@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/nav_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_activity"
+            android:checkable="true"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home"/>
+        <item
+            android:id="@+id/leaderboard"
+            android:checkable="true"
+            android:icon="@drawable/ic_leaderboard"
+            android:title="@string/leaderboard"/>
+        <item
+            android:id="@+id/notifications"
+            android:checkable="true"
+            android:icon="@drawable/ic_notifications"
+            android:title="@string/notifications"/>
+    </group>
+
+    <group
+        android:id="@+id/nav_meddile"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/payment"
+            android:checkable="true"
+            android:icon="@drawable/ic_payment"
+            android:title="@string/payment"/>
+
+        <item
+            android:id="@+id/settings"
+            android:checkable="true"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings"/>
+
+        <item
+            android:id="@+id/invite_friends"
+            android:checkable="true"
+            android:icon="@drawable/ic_invite_friends"
+            android:title="@string/invite_friends"/>
+
+    </group>
+
+    <group
+        android:id="@+id/nav_lower"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/feedback"
+            android:checkable="true"
+            android:icon="@drawable/ic_send_feedback"
+            android:title="@string/send_feedback"/>
+
+        <item
+            android:id="@+id/help"
+            android:checkable="true"
+            android:icon="@drawable/ic_help"
+            android:title="@string/help"/>
+    </group>
+</menu>
