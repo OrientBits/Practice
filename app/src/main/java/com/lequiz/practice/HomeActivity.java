@@ -43,7 +43,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -62,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
         arrayList.add(new Word("General Science", R.drawable.science));
         arrayList.add(new Word("English", R.drawable.english));
         arrayList.add(new Word("Technology", R.drawable.technology));
-        arrayList.add(new Word("Sport", R.drawable.history));// here should be sport image but i'm using history
+        arrayList.add(new Word("Sport", R.drawable.sport));// here should be sport image but i'm using history
         arrayList.add(new Word("Special", R.drawable.special));
         arrayList.add(new Word("Entertainment", R.drawable.entertainment));
 
