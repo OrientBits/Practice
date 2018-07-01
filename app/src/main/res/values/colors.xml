@@ -21,4 +21,19 @@
 
 
 
+
+
+    <!--category text view color-->
+    <color name="current_affairs">#7A7773</color>
+    <color name="computer">#9C54A4</color>
+    <color name="mathematics">#2F653D</color>
+    <color name="reasoning">#116E92</color>
+    <color name="general_science">#40B6AD</color>
+    <color name="english">#D8B857</color>
+    <color name="technology">#6E42A3</color>
+    <color name="sport">#CB4432</color>
+    <color name="special">#186C7D</color>
+    <color name="entertainment">#543A34</color>
+
+
 </resources>

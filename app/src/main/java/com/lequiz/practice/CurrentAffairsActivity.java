@@ -19,16 +19,16 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
 
         ArrayList<Word> arrayList = new ArrayList<>();
-        arrayList.add(new Word("Current Affairs",R.drawable.current_affairs));
-        arrayList.add(new Word("Computer",R.drawable.computer));
-        arrayList.add(new Word("Mathematics",R.drawable.mathematics));
-        arrayList.add(new Word("Reasoning",R.drawable.reasoning));
-        arrayList.add(new Word("General Science",R.drawable.science));
-        arrayList.add(new Word("English",R.drawable.english));
-        arrayList.add(new Word("Technology",R.drawable.technology));
-        arrayList.add(new Word("Sport",R.drawable.sport));
-        arrayList.add(new Word("Special",R.drawable.special));
-        arrayList.add(new Word("Entertainment",R.drawable.entertainment));
+        arrayList.add(new Word("Current Affairs",R.drawable.current_affairs,R.color.current_affairs));
+        arrayList.add(new Word("Computer",R.drawable.computer,R.color.computer));
+        arrayList.add(new Word("Mathematics",R.drawable.mathematics,R.color.mathematics));
+        arrayList.add(new Word("Reasoning",R.drawable.reasoning,R.color.reasoning));
+        arrayList.add(new Word("General Science",R.drawable.science,R.color.general_science));
+        arrayList.add(new Word("English",R.drawable.english,R.color.english));
+        arrayList.add(new Word("Technology",R.drawable.technology,R.color.technology));
+        arrayList.add(new Word("Sport",R.drawable.sport,R.color.sport));
+        arrayList.add(new Word("Special",R.drawable.special,R.color.special));
+        arrayList.add(new Word("Entertainment",R.drawable.entertainment,R.color.entertainment));
 
         WordAdapter wordAdapter = new WordAdapter(this,arrayList);
         GridView gridView = findViewById(R.id.list);
