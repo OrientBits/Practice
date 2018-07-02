@@ -74,6 +74,11 @@
                     android:textColor="@color/textColor"
                     android:textSize="15sp" />
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
                 <ProgressBar
 
                     android:id="@+id/progress_bar_on_home"
@@ -97,6 +102,16 @@
                     android:progress="50"
 
                     android:progressDrawable="@drawable/progress_gradient" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1024 XP"
+                    android:textSize="6sp"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/progress_bar_XP"
+                    android:textColor="@color/colorPrimary"
+                  />
+                </FrameLayout>
 
             </LinearLayout>
 
