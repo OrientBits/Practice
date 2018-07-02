@@ -8,6 +8,9 @@
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#c540c6ff</color>
+    <color name="skyBlueOnProgressHome">#52D0FE</color>
+    <color name="darkBlueOnProgressHome">#1F597E</color>
+    <color name="grayOnProgressHome">#B6B3B3</color>
 
     <!--Activity background color-->
     <color name="ActivityBackground">#55f5f5f5</color>
