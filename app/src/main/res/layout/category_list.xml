@@ -112,8 +112,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:numColumns="2"
-            android:paddingEnd="5dp"
-            android:paddingStart="5dp" />
+            android:padding="5dp" />
 
 
     </LinearLayout>
