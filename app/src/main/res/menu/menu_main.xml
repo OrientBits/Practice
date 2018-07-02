@@ -5,14 +5,20 @@
 
     <item
         android:id="@+id/profile"
-        android:title="Profile"
-        android:icon="@drawable/ic_profile_holo_black"
-        app:showAsAction="always"/>
+        android:checkable="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile_android_studio"
+        android:title="@string/profile_picture"
+        android:visible="true"
+        app:showAsAction="always" />
     <item
         android:id="@+id/notifications"
-        android:title="Notifications"
-        android:icon="@drawable/ic_notification_holo_black"
-        app:showAsAction="always"/>
+        android:checkable="true"
+        android:enabled="true"
+        android:icon="@drawable/ic_notification_android_studio"
+        android:title="@string/notifications"
+        android:visible="true"
+        app:showAsAction="always" />
 
 
     <item
