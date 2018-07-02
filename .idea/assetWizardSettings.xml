@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_home_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_group_add_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -45,9 +45,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="imageAsset" value="C:\Users\Ramshek Rana\Downloads\2x\round_account_circle_black_48dp.png" />
-                                      <entry key="outputName" value="ic_home" />
+                                      <entry key="outputName" value="ic_invite_friends" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="0f6600" />
+                                      <entry key="themeColor" value="e54e00" />
                                     </map>
                                   </option>
                                 </PersistentState>

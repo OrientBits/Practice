@@ -3,33 +3,53 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:minHeight="80dp">
+    android:maxHeight="130dp">
+
 
     <android.support.v7.widget.CardView
         android:id="@+id/current_affairs_card_view"
-        style="@style/HomeCardView"
+        android:layout_width="160dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:elevation="15dp"
+        android:focusable="true"
         app:cardCornerRadius="15dp"
+        android:foreground="?android:selectableItemBackground"
         app:cardElevation="3dp">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="81dp"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardElevation="0dp">
 
             <ImageView
                 android:id="@+id/category_image"
-                style="@style/ImageViewOnCardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
                 android:contentDescription="@string/current_Affairs"
                 android:scaleType="fitXY"
-                android:src="@drawable/current_affairs" />
+                android:src="@drawable/current_affairs"/>
+
         </android.support.v7.widget.CardView>
+
 
         <TextView
             android:id="@+id/category_text_view"
-            style="@style/TextViewOfCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/trebuchet_ms"
+            android:gravity="center"
+            android:padding="7dp"
+            android:textSize="16sp"
             android:text="@string/current_Affairs"
-            android:padding="6dp"/>
+            android:textStyle="bold" />
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>
