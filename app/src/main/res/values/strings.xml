@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practice</string>
+    <string name="app_name">LeQuiz</string>
 
     <!-- Category name for Current_affairs [CHAR LIMIT=20] -->
     <string name="current_Affairs">Current Affairs</string>
