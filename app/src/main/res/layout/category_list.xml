@@ -38,7 +38,8 @@
                     android:innerRadius="0dp"
                     android:shape="ring"
                     android:thicknessRatio="1.9"
-                    app:cardCornerRadius="40dp">
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="5dp">
 
                     <ImageView
                         android:id="@+id/profile_picture"
