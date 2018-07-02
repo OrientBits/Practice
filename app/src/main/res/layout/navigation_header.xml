@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_width="320dp"
+    android:layout_height="170dp"
     android:background="@drawable/header_image"
     android:elevation="5dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:orientation="vertical"
-    android:paddingLeft="25dp">
-
-
+    >
     <ImageView
         android:id="@+id/profile_picture"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="80dp"
         android:contentDescription="@string/profile_picture"
         android:src="@drawable/profile" />
 
@@ -21,16 +22,19 @@
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
+        android:paddingTop="4dp"
         android:text="@string/user_name"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="true"/>
 
     <TextView
         android:id="@+id/user_mobile_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="6dp"
-        android:text="@string/user_mobile_no" />
+        android:paddingTop="1dp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/user_email_id" />
 
 </LinearLayout>
