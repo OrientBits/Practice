@@ -40,11 +40,14 @@
     <!--user level string-->
     <string name="user_level">Level 1</string>
 
+    <!--user xp value-->
+    <string name="level_xp">1024 XP</string>
     <!--content Discription of profile image-->
     <string name="profile_picture">Profile Picture</string>
 
     <!--user mobiile no-->
     <string name="user_mobile_no">9876543210</string>
+
 
     <!--for navigation drawer layout-->
     <string name="open">Open</string>
