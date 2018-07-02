@@ -111,6 +111,7 @@
                     android:id="@+id/progress_bar_XP"
                     android:textColor="@color/colorPrimary"
                   />
+
                 </FrameLayout>
 
             </LinearLayout>
