@@ -46,7 +46,6 @@
     <!--user mobiile no-->
     <string name="user_mobile_no">9876543210</string>
 
-
     <!--for navigation drawer layout-->
     <string name="open">Open</string>
     <string name="close">Close</string>
