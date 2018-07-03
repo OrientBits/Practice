@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         arrayList.add(new Word("General Science", R.drawable.science,R.color.general_science));
         arrayList.add(new Word("English", R.drawable.english,R.color.english));
         arrayList.add(new Word("Technology", R.drawable.technology,R.color.technology));
-        arrayList.add(new Word("Sport", R.drawable.sport,R.color.sport));
+        arrayList.add(new Word("Sports", R.drawable.sport,R.color.sport));
         arrayList.add(new Word("Special", R.drawable.special,R.color.special));
         arrayList.add(new Word("Entertainment", R.drawable.entertainment,R.color.entertainment));
 
