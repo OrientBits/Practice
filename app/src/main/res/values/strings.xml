@@ -21,7 +21,7 @@
     <string name="technology">Technology</string>
 
     <!--Category for sport-->
-    <string name="sport">Sport</string>
+    <string name="sport">Sports</string>
 
     <!--Category for special-->
     <string name="special">Special</string>
@@ -33,6 +33,7 @@
     <string name="english">English</string>
 
     <!--name of the current user-->
+    <string name="user_first_name">Maheshwari</string>
     <string name="user_name">Sandeep Maheshwari</string>
 
     <string name="user_email_id">sandeepmaheshwari@gmail.com</string>
@@ -43,11 +44,14 @@
     <!--user xp value-->
     <string name="level_xp">1024 XP</string>
     <!--content Discription of profile image-->
-    <string name="profile_picture">Profile Picture</string>
+    <string name="profile">Profile</string>
 
-    <!--user mobiile no-->
+    <!--user mobile no-->
     <string name="user_mobile_no">9876543210</string>
+    <string name="design">design</string>
 
+    <!--wishing good morning-->
+    <string name="wishing">Good Morning</string>
 
     <!--for navigation drawer layout-->
     <string name="open">Open</string>

@@ -12,8 +12,8 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_affairs);
 
-        toolbar = findViewById(R.id.category_toolbar);
-        setSupportActionBar(toolbar);
+//        toolbar = findViewById(R.id.category_toolbar);
+//        setSupportActionBar(toolbar);
 
     }
 }

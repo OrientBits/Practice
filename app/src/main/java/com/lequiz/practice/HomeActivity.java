@@ -2,6 +2,8 @@ package com.lequiz.practice;
 
 
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -10,12 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Objects;
+
+import static android.view.Gravity.RIGHT;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -34,6 +40,23 @@ public class HomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
+
+
+
+//        ActionBar actionBar = getActionBar();
+//        assert actionBar != null;
+//        actionBar.setDisplayOptions(actionBar.getDisplayOptions() | ActionBar.DISPLAY_SHOW_CUSTOM);
+//        ImageView imageView = new ImageView(actionBar.getThemedContext());
+//        imageView.setScaleType(ImageView.ScaleType.CENTER);
+//        imageView.setImageResource(R.drawable.home_design_image1);
+//        @SuppressLint("RtlHardcoded") ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(
+//                ActionBar.LayoutParams.WRAP_CONTENT,
+//                ActionBar.LayoutParams.WRAP_CONTENT, RIGHT
+//                | Gravity.CENTER_VERTICAL);
+//        layoutParams.rightMargin = 40;
+//        imageView.setLayoutParams(layoutParams);
+//        actionBar.setCustomView(imageView);
+
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);

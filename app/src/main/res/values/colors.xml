@@ -14,7 +14,7 @@
 
 
     <!--category text view color-->
-    <color name="current_affairs">#7A7773</color>
+    <color name="current_affairs">#61E0BD</color>
     <color name="computer">#9C54A4</color>
     <color name="mathematics">#2F653D</color>
     <color name="reasoning">#116E92</color>

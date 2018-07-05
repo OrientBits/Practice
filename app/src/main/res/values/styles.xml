@@ -8,6 +8,10 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -18,12 +22,12 @@
 
     <style name="category_card_view">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_height">120dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">12dp</item>
-        <item name="android:layout_marginStart">10dp</item>
-        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
         <item name="android:clickable">true</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
@@ -31,25 +35,27 @@
     <style name="category_text_view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">30dp</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">bottom</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:layout_marginBottom">2dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:fontFamily">@font/trebuchet_ms</item>
 
     </style>
 
 
     <style name="MyCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
     </style>
 
 
     <style name="MyCustomPopupTheme" parent="ThemeOverlay.AppCompat.Light">
-        <!--<item name="android:background">#031f3b</item>-->
-        <!--<item name="android:textColorPrimary">@color/colorPrimary</item>-->
+        <item name="android:background">#021d37</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
     </style>
-
 
 
 </resources>
