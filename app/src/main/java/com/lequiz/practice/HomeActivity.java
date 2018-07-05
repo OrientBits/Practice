@@ -46,8 +46,6 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
-
-
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         setupDrawerContent(navigationView); // default true
