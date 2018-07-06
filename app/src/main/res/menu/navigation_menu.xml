@@ -46,7 +46,7 @@
         <item
             android:id="@+id/invite_friends"
             android:checkable="true"
-            android:icon="@drawable/ic_invite_friends"
+            android:icon="@drawable/ic_invite_friend"
             android:title="@string/invite_friends"/>
 
     </group>

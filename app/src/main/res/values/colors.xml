@@ -12,6 +12,9 @@
     <color name="darkBlueOnProgressHome">#1F597E</color>
     <color name="grayOnProgressHome">#B6B3B3</color>
 
+    <!--navigation drawer icon color-->
+    <color name="navigationIconColor">#005979</color>
+
 
     <!--category text view color-->
     <color name="current_affairs">#61E0BD</color>
