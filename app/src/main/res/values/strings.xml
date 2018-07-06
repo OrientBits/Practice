@@ -53,6 +53,10 @@
     <!--wishing good morning-->
     <string name="wishing">Good Morning</string>
 
+    <!--header_background_image-->
+    <string name="header_background_image">navigation background image</string>
+
+
     <!--for navigation drawer layout-->
     <string name="open">Open</string>
     <string name="close">Close</string>

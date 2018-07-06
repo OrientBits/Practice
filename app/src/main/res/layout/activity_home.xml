@@ -426,13 +426,40 @@
 </ScrollView>
 
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+    <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@android:color/white"
-        app:headerLayout="@layout/navigation_header"
-        app:menu="@menu/navigation_menu" />
+        android:layout_gravity=""
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/drawer_bg"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:alpha="1"
+            android:contentDescription="@string/header_background_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/drawer_image1" >
+
+
+
+        </ImageView>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:headerLayout="@layout/navigation_header"
+            app:itemIconTint="@color/colorPrimary"
+            app:menu="@menu/navigation_menu">
+
+        </android.support.design.widget.NavigationView>
+
+    </RelativeLayout>
+
+
+
+
 </android.support.v4.widget.DrawerLayout>
 

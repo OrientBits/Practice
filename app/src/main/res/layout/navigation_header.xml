@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
-    android:layout_height="170dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/header_image"
     android:elevation="5dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -13,7 +12,7 @@
         android:id="@+id/profile_picture_card_view"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:clickable="true"
         android:elevation="15dp"
         android:focusable="true"
@@ -45,14 +44,15 @@
         android:text="@string/user_name"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="#006AA2" />
 
     <TextView
         android:id="@+id/user_mobile_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="1dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#80000000"
         android:textSize="13sp"
         android:text="@string/user_email_id" />
+
 </LinearLayout>
