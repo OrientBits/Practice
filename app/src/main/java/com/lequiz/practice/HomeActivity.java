@@ -151,9 +151,6 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.feedback:
                                 Toast.makeText(getApplicationContext(), "Feedback", Toast.LENGTH_LONG).show();
                                 break;
-                            case R.id.help:
-                                Toast.makeText(getApplicationContext(), "Help", Toast.LENGTH_LONG).show();
-                                break;
                             case R.id.about_us:
                                 Toast.makeText(getApplicationContext(), "About us", Toast.LENGTH_LONG).show();
                                 break;

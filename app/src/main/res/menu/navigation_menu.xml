@@ -61,11 +61,6 @@
             android:title="@string/send_feedback"/>
 
         <item
-            android:id="@+id/help"
-            android:checkable="true"
-            android:title="@string/help"/>
-
-        <item
             android:id="@+id/about_us"
             android:checkable="true"
             android:title="@string/about_us"/>
