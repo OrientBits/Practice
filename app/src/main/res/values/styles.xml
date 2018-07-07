@@ -4,15 +4,18 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
 
         <item name="windowActionBar">false</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="android:windowActionBarOverlay">true</item>
     </style>
+
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -45,6 +48,8 @@
     </style>
 
 
+
+
     <style name="MyCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:windowActionBarOverlay">true</item>
         <!-- Support library compatibility -->
@@ -55,6 +60,10 @@
     <style name="MyCustomPopupTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">#021d37</item>
         <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.Light.ActionBar" parent="ThemeOverlay.AppCompat.Light">
+
     </style>
 
 
