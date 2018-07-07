@@ -34,16 +34,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        /*
-        * this is used for status bar to make visible
-        * */
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
 
-        toolbar = findViewById(R.id.category_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
+        Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
