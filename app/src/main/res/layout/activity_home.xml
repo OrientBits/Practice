@@ -14,22 +14,18 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appBar"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:fitsSystemWindows="true">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsingToolbar"
+
+            <LinearLayout
+                android:id="@+id/appBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
-                app:contentScrim="@color/colorPrimary"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -119,27 +115,6 @@
                     </LinearLayout>
 
                 </RelativeLayout>  <!-- image sample-->
-
-
-                <include
-                    android:id="@+id/category_toolbar"
-                    layout="@layout/toolbar"
-                    app:layout_collapseMode="pin" />
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
 
                 <GridLayout
                     android:id="@+id/Category_item"
@@ -456,11 +431,16 @@
                 </GridLayout>    <!--category item-->
 
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
 
 
+        </ScrollView>
+
+        <include
+            android:id="@+id/category_toolbar"
+            layout="@layout/toolbar" />
 
     </android.support.design.widget.CoordinatorLayout>
+
 
 
     <!--navigation drawer layout -->

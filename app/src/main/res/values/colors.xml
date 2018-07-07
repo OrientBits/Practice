@@ -4,7 +4,7 @@
 
     <!--   a darker variant of the primary color, used for
            the status bar (on Android 5.0+) and contextual app bars -->
-    <color name="colorPrimaryDark">#cccccc</color>
+    <color name="colorPrimaryDark">@android:color/transparent</color>
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#c540c6ff</color>
@@ -27,4 +27,5 @@
     <color name="sport">#CB4432</color>
     <color name="special">#186C7D</color>
     <color name="entertainment">#543A34</color>
+
 </resources>
