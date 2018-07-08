@@ -28,8 +28,35 @@
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
             android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".TechnologyActivity"
+            android:label="@string/technology"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".CurrentAffairsActivity"
+            android:label="@string/current_Affairs"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".ComputerActivity"
+            android:label="@string/computer"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".GeneralScienceActivity"
+            android:label="@string/general_science"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".EnglishActivity"
+            android:label="@string/english"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".SportsActivity"
+            android:label="@string/sports"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".SpecialActivity"
+            android:label="@string/special"
+            android:parentActivityName=".HomeActivity"/>
 
-        <activity android:name=".TechnologyActivity" />
 
     </application>
 

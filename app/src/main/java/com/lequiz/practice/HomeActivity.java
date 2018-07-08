@@ -1,6 +1,7 @@
 package com.lequiz.practice;
 
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;;
 import android.support.design.widget.NavigationView;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -25,15 +27,15 @@ public class HomeActivity extends AppCompatActivity {
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
-    protected CardView computer, mathematics, reasoning,
-            english, technology, sport, special, entertainment;
+    protected CardView currentAffairs, computer, mathematics, reasoning,
+            generalScience, english, technology, sports, special, entertainment;
+
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
 
 
         toolbar = findViewById(R.id.toolbar);
@@ -43,18 +45,103 @@ public class HomeActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
-
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
-
+        // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         setupDrawerContent(navigationView); // default true
+
+
+        currentAffairs = findViewById(R.id.current_affairs_card_view);
+        computer = findViewById(R.id.computer_card_view);
+        mathematics = findViewById(R.id.mathematics_card_view);
+        reasoning = findViewById(R.id.reasoning_card_view);
+        generalScience = findViewById(R.id.general_science_card_view);
+        english = findViewById(R.id.english_card_view);
+        technology = findViewById(R.id.technology_card_view);
+        sports = findViewById(R.id.sports_card_view);
+        special = findViewById(R.id.special_card_view);
+        entertainment = findViewById(R.id.entertainment_card_view);
+
+        currentAffairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,CurrentAffairsActivity.class);
+                startActivity(intent);
+            }
+        });
+        computer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,ComputerActivity.class);
+                startActivity(intent);
+            }
+        });
+        mathematics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,MathematicsActivity.class);
+                startActivity(intent);
+            }
+        });
+        reasoning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,ReasoningActivity.class);
+                startActivity(intent);
+            }
+        });
+        generalScience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,GeneralScienceActivity.class);
+                startActivity(intent);
+            }
+        });
+        english.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,EnglishActivity.class);
+                startActivity(intent);
+            }
+        });
+        technology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,TechnologyActivity.class);
+                startActivity(intent);
+            }
+        });
+        sports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,SportsActivity.class);
+                startActivity(intent);
+            }
+        });
+        special.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,SpecialActivity.class);
+                startActivity(intent);
+            }
+        });
+        entertainment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,EntertainmentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
     } // onCreate method
 

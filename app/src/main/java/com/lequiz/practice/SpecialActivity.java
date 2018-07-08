@@ -6,16 +6,16 @@ import android.support.v7.widget.Toolbar;
 
 import java.util.Objects;
 
-
-public class EntertainmentActivity extends AppCompatActivity {
+public class SpecialActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entertainment);
+        setContentView(R.layout.activity_special);
 
-        toolbar = findViewById(R.id.entertainment_toolbar);
+        toolbar = findViewById(R.id.special_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
