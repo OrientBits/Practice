@@ -12,6 +12,10 @@
     <color name="skyBlueOnProgressHome">#52D0FE</color>
     <color name="darkBlueOnProgressHome">#1F597E</color>
     <color name="grayOnProgressHome">#B6B3B3</color>
+    <color name="blueOnPopup">#021D37</color>
+    <color name="blueOnHomeText">#04F9FE</color>
+    <color name="purpleOnHomeText">#7F47DD</color>
+
 
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#005979</color>

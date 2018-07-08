@@ -2,6 +2,8 @@ package com.lequiz.practice;
 
 
 import android.content.Intent;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Build;
 import android.support.annotation.NonNull;;
 import android.support.design.widget.NavigationView;
@@ -16,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -41,6 +44,18 @@ public class HomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
+
+        TextView txt = (TextView) findViewById(R.id.user_name);
+        Shader textShader=new LinearGradient(0,0, 180, 0,
+                new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
+                new float[]{0, 1}, Shader.TileMode.CLAMP);
+        txt.getPaint().setShader(textShader);
+
+        TextView txt1 = (TextView) findViewById(R.id.wishing);
+        Shader textShader1=new LinearGradient(0,0, 180, 0,
+                new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
+                new float[]{0, 1}, Shader.TileMode.CLAMP);
+        txt1.getPaint().setShader(textShader1);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
