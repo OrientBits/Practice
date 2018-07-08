@@ -107,7 +107,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int res_id = menuItem.getItemId();
-
                 switch (res_id) {
                     case R.id.profile:
                         Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();

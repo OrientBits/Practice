@@ -17,14 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CurrentAffairsActivity"
-            android:label="@string/current_Affairs"
-            android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".ComputerActivity"
-            android:label="@string/computer"
-            android:parentActivityName=".HomeActivity" />
-        <activity
             android:name=".MathematicsActivity"
             android:label="@string/mathematics"
             android:parentActivityName=".HomeActivity" />
@@ -33,23 +25,12 @@
             android:label="@string/reasoning"
             android:parentActivityName=".HomeActivity" />
         <activity
-            android:name=".GeneralScienceActivity"
-            android:label="@string/general_science"
-            android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".EnglishActivity"
-            android:label="@string/english"
-            android:parentActivityName=".HomeActivity" />
-        <activity
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
             android:parentActivityName=".HomeActivity" />
 
-        <activity android:name=".SportActivity" />
-
         <activity android:name=".TechnologyActivity" />
 
-        <activity android:name=".SpecialActivity"/>
     </application>
 
 </manifest>

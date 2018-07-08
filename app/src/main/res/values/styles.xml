@@ -12,6 +12,8 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
 
+              <!--for drawer layout-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
 
@@ -47,6 +49,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

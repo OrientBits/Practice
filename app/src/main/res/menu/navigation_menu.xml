@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-
     <group
         android:id="@+id/for_only_line"
         android:checkableBehavior="single">

@@ -165,22 +165,22 @@
                             app:cardCornerRadius="17dp"
                             app:cardElevation="5dp"/>
 
-                        <android.support.v7.widget.CardView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginEnd="47dp"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginTop="9.5dp"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:shape="ring"
-                            android:thicknessRatio="1.9"
-                            app:cardCornerRadius="17dp"
-                            app:cardElevation="5dp"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginEnd="47dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="9.5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:shape="ring"
+                        android:thicknessRatio="1.9"
+                        app:cardCornerRadius="17dp"
+                        app:cardElevation="5dp"/>
 
 
                 </RelativeLayout>
@@ -227,9 +227,9 @@
             android:layout_width="320dp"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:fitsSystemWindows="true"
             app:headerLayout="@layout/navigation_header"
-            app:itemIconTint="@color/colorPrimary"
+            app:itemIconTint="@android:color/black"
+            app:itemTextColor="@android:color/black"
             app:menu="@menu/navigation_menu">
 
         </android.support.design.widget.NavigationView>
