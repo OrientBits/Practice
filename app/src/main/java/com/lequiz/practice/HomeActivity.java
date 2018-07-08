@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
- // user name on home page gradient
+        // user name on home page gradient
         TextView txt = findViewById(R.id.user_name);
         Shader textShader=new LinearGradient(0,0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
