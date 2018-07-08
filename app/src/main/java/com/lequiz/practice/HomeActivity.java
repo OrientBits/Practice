@@ -4,8 +4,8 @@ package com.lequiz.practice;
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import android.os.Build;
-import android.support.annotation.NonNull;;
+
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -45,6 +45,9 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
+
+
+ // user name on home page gradient
         TextView txt = findViewById(R.id.user_name);
         Shader textShader=new LinearGradient(0,0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
@@ -56,6 +59,10 @@ public class HomeActivity extends AppCompatActivity {
                 new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt1.getPaint().setShader(textShader1);
+
+
+
+
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);

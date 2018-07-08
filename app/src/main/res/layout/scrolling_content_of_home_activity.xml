@@ -14,7 +14,7 @@
     <GridLayout
         android:id="@+id/Category_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginBottom="1dp"
         android:columnCount="2"
         android:columnOrderPreserved="false"
@@ -26,14 +26,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/current_affairs_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -41,7 +38,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/current_Affairs"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/current_affairs" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/current_affairs"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -55,14 +53,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/computer_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -70,7 +65,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/computer"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/computer" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/computer"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -86,14 +82,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/mathematics_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -101,7 +94,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/mathematics"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/mathematics" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/mathematics"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -115,14 +109,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/reasoning_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -130,7 +121,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/reasoning"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/reasoning" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/reasoning"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -146,14 +138,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/general_science_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -161,7 +150,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/general_science"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/general_science" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/general_science"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -175,14 +165,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/english_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -190,7 +177,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/english"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/english" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/english"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -206,14 +194,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/technology_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -221,7 +206,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/technology"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/technology" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/technology"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -235,14 +221,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/sports_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -250,7 +233,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/sports"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sport" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/sport"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -266,14 +250,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/special_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -281,7 +262,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/special"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/special" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/special"/>
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -295,14 +277,11 @@
         <android.support.v7.widget.CardView
             android:id="@+id/entertainment_card_view"
             style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="8dp">
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_gravity="top"
-                android:elevation="0dp"
+                style="@style/inside_cardView_another_cardView"
                 app:cardElevation="0dp">
 
                 <ImageView
@@ -310,7 +289,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/entertainment"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/entertainment" />
+                    android:minHeight="87dp"
+                    android:src="@drawable/entertainment"/>
             </android.support.v7.widget.CardView>
 
             <TextView
