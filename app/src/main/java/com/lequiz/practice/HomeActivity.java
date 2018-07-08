@@ -45,13 +45,13 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
-        TextView txt = (TextView) findViewById(R.id.user_name);
+        TextView txt = findViewById(R.id.user_name);
         Shader textShader=new LinearGradient(0,0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt.getPaint().setShader(textShader);
 
-        TextView txt1 = (TextView) findViewById(R.id.wishing);
+        TextView txt1 = findViewById(R.id.wishing);
         Shader textShader1=new LinearGradient(0,0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText),getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
