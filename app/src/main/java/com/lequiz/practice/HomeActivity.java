@@ -2,9 +2,12 @@ package com.lequiz.practice;
 
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 
+import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -237,7 +240,7 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Invite Friends", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.feedback:
-                        Toast.makeText(getApplicationContext(), "Feedback", Toast.LENGTH_LONG).show();
+                        makeFeedBackIntent();
                         break;
                     case R.id.about_us:
                         Toast.makeText(getApplicationContext(), "About us", Toast.LENGTH_LONG).show();
@@ -248,6 +251,23 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void makeFeedBackIntent()
+    {
+        String osVersion = Build.VERSION.RELEASE;
+        Intent chooser;
+        String locale = getResources().getConfiguration().locale.getDisplayCountry();
+        String manufacturerAndModal = Build.MANUFACTURER+" : "+Build.MODEL;
+        String msgtxt = "-----------------------------------------------------"+"\n"+"Support Diagnostics (Do Not Delete)"+"\n"+"-----------------------------------------------------"+"\n"+"U: "+getString(R.string.user_name)+"\n"+"V: "+osVersion+"\n"+"M: "+manufacturerAndModal+"\n"+"S: "+Build.VERSION.SDK_INT+"\n"+"G: "+locale+"\n"+"-----------------------------------------------------"+"\n\n";
+        Intent feedbackIntent = new Intent(Intent.ACTION_SEND);
+        feedbackIntent.setData(Uri.parse("mailto:"));
+        String []to={"feedback@lequiz.com"};
+        feedbackIntent.putExtra(feedbackIntent.EXTRA_EMAIL, to);
+        feedbackIntent.putExtra(feedbackIntent.EXTRA_SUBJECT,"FEEDBACK FROM PRECIOUS USERS");
+        feedbackIntent.putExtra(feedbackIntent.EXTRA_TEXT,msgtxt);
+        feedbackIntent.setType("message/rfc822");
+        chooser = feedbackIntent.createChooser(feedbackIntent,"Send Feedback Through Email");
+        startActivity(chooser);
     }
 
 
