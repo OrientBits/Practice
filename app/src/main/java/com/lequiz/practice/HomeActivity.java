@@ -10,7 +10,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,12 +46,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+// toolbar implementation
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
-
-
 
         // user name on home page gradient
         TextView txt = findViewById(R.id.user_name);
@@ -65,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-
+    // open drawer when navigation button is tappeed
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
@@ -73,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
+
 
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -222,7 +224,11 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.home_activity:
-                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_LONG).show();
+//                        if (findViewById(R.id.fragment_container_at_home_activity)!=null)
+//                        {
+//                            FragmentManager fragmentManager = getSupportFragmentManager();
+//                            fragmentManager.beginTransaction().add(R.id.fragment_container_at_home_activity,new NavHome(),null).commit();
+//                        }
                         break;
                     case R.id.leaderboard:
                         Toast.makeText(getApplicationContext(), "Leaderboard", Toast.LENGTH_LONG).show();
@@ -258,15 +264,18 @@ public class HomeActivity extends AppCompatActivity {
         Intent chooser;
         String locale = getResources().getConfiguration().locale.getDisplayCountry();
         String manufacturerAndModal = Build.MANUFACTURER+" : "+Build.MODEL;
-        String msgtxt = "-----------------------------------------------------"+"\n"+"Support Diagnostics (Do Not Delete)"+"\n"+"-----------------------------------------------------"+"\n"+"U: "+getString(R.string.user_name)+"\n"+"V: "+osVersion+"\n"+"M: "+manufacturerAndModal+"\n"+"S: "+Build.VERSION.SDK_INT+"\n"+"G: "+locale+"\n"+"-----------------------------------------------------"+"\n\n";
+        String msgtxt = "-----------------------------------------------------"+"\n";
+        msgtxt = msgtxt +"Support Diagnostics (Do Not Delete)"+"\n"+"-----------------------------------------------------"+"\n";
+        msgtxt = msgtxt +"U: "+getString(R.string.user_name)+"\n"+"V: "+osVersion+"\n"+"M: "+manufacturerAndModal+"\n"+"S: "+Build.VERSION.SDK_INT+"\n"+"G: "+locale+"\n";
+        msgtxt = msgtxt +"-----------------------------------------------------"+"\n\n";
         Intent feedbackIntent = new Intent(Intent.ACTION_SEND);
         feedbackIntent.setData(Uri.parse("mailto:"));
         String []to={"feedback@lequiz.com"};
-        feedbackIntent.putExtra(feedbackIntent.EXTRA_EMAIL, to);
-        feedbackIntent.putExtra(feedbackIntent.EXTRA_SUBJECT,"FEEDBACK FROM PRECIOUS USERS");
-        feedbackIntent.putExtra(feedbackIntent.EXTRA_TEXT,msgtxt);
+        feedbackIntent.putExtra(Intent.EXTRA_EMAIL, to);
+        feedbackIntent.putExtra(Intent.EXTRA_SUBJECT,"FEEDBACK FROM PRECIOUS USERS");
+        feedbackIntent.putExtra(Intent.EXTRA_TEXT,msgtxt);
         feedbackIntent.setType("message/rfc822");
-        chooser = feedbackIntent.createChooser(feedbackIntent,"Send Feedback Through Email");
+        chooser = Intent.createChooser(feedbackIntent,"Send Feedback Through Email");
         startActivity(chooser);
     }
 

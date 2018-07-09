@@ -18,12 +18,23 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="paddingPercent" value="15" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="clipartAsset">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_assessment_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_more_vert_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,9 +45,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="imageAsset" value="C:\Users\Ramshek Rana\Downloads\2x\round_account_circle_black_48dp.png" />
-                                      <entry key="outputName" value="ic_leaderboard" />
+                                      <entry key="outputName" value="ic_3dot" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="005979" />
+                                      <entry key="themeColor" value="003fbc" />
                                     </map>
                                   </option>
                                 </PersistentState>
