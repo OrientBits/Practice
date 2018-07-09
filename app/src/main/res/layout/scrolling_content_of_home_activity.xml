@@ -17,8 +17,8 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="1dp"
         android:columnCount="2"
-        android:columnOrderPreserved="false"
         android:padding="5dp"
+        android:columnOrderPreserved="false"
         android:rowCount="5">
 
         <!--Row 1-->
