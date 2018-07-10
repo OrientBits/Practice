@@ -36,16 +36,15 @@
 
     </android.support.v7.widget.CardView>
 
-
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/user_name"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:background="@android:color/transparent"
+        android:fontFamily="@font/trebuchet_ms"
         android:textColor="#006AA2"/>
 
     <TextView

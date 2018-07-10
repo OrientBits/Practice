@@ -155,7 +155,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_search_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_home_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -165,9 +165,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="1d1d1d" />
-                            <entry key="outputName" value="ic_home_24px" />
+                            <entry key="color" value="0034aa" />
+                            <entry key="opacityPercent" value="90" />
+                            <entry key="outputName" value="ic_home_black_24dp" />
                             <entry key="sourceFile" value="F:\Android Project\HomePageIcon\svg file for 24dp icon\home-24px.svg" />
                           </map>
                         </option>

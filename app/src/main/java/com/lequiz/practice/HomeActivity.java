@@ -57,20 +57,10 @@ public class HomeActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
         // user name on home page gradient
-        TextView txt = findViewById(R.id.user_name);
-        Shader textShader = new LinearGradient(0, 0, 180, 0,
-                new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
-                new float[]{0, 1}, Shader.TileMode.CLAMP);
-        txt.getPaint().setShader(textShader);
-
-        TextView txt1 = findViewById(R.id.wishing);
-        Shader textShader1 = new LinearGradient(0, 0, 180, 0,
-                new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
-                new float[]{0, 1}, Shader.TileMode.CLAMP);
-        txt1.getPaint().setShader(textShader1);
+        userNameInGradient();
 
 
-        // open drawer when navigation button is tappeed
+        // open drawer when navigation button is tapped
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
@@ -79,10 +69,8 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
-
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
         setupDrawerContent(navigationView); // default true
 
 
@@ -248,7 +236,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    private void setupDrawerContent(NavigationView navigationView) {
+    private void setupDrawerContent(final NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -313,5 +301,17 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(chooser);
     }
 
+    public void userNameInGradient(){
+    TextView txt = findViewById(R.id.user_name);
+    Shader textShader = new LinearGradient(0, 0, 180, 0,
+            new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
+            new float[]{0, 1}, Shader.TileMode.CLAMP);
+        txt.getPaint().setShader(textShader);
 
+    TextView txt1 = findViewById(R.id.wishing);
+    Shader textShader1 = new LinearGradient(0, 0, 180, 0,
+            new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
+            new float[]{0, 1}, Shader.TileMode.CLAMP);
+        txt1.getPaint().setShader(textShader1);
+    }
 } // activity class
