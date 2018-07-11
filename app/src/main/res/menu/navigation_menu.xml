@@ -37,17 +37,19 @@
 
     </group>
 
-    <item android:title="@string/communicate">
-        <menu>
+    <group
+        android:id="@+id/nav_lower"
+        android:checkableBehavior="single">
 
-            <item
-                android:id="@+id/feedback"
-                android:title="@string/send_feedback" />
+        <item
+            android:id="@+id/feedback"
+            android:title="@string/settings" />
 
-            <item
-                android:id="@+id/about_us"
-                android:title="@string/about_us" />
-        </menu>
+        <item
+            android:id="@+id/about_us"
+            android:title="@string/invite_friends" />
 
-    </item>
+    </group>
+
+
 </menu>

@@ -10,5 +10,4 @@
         android:id="@+id/computer_toolbar"
         layout="@layout/category_toolbar"
         />
-
 </android.support.constraint.ConstraintLayout>
