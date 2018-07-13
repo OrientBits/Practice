@@ -10,6 +10,7 @@ import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,22 +36,22 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class HomeActivity extends AppCompatActivity {
 
-
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-
-    protected CardView currentAffairs, computer, mathematics, reasoning,
-            generalScience, english, technology, sports, special, entertainment;
-
+    protected CircleImageView profile_header, profile_home;
+    protected CardView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
 // toolbar implementation
         toolbar = findViewById(R.id.toolbar);
@@ -71,7 +73,10 @@ public class HomeActivity extends AppCompatActivity {
 
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerview = navigationView.getHeaderView(0);
+        profile_header = headerview.findViewById(R.id.profile_header);
         setupDrawerContent(navigationView); // default true
+
 
 
         currentAffairs = findViewById(R.id.current_affairs_card_view);
@@ -84,6 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         sports = findViewById(R.id.sports_card_view);
         special = findViewById(R.id.special_card_view);
         entertainment = findViewById(R.id.entertainment_card_view);
+        profile_home = findViewById(R.id.profile_home);
 
         currentAffairs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,8 +162,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        profile_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PA = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(PA);
+            }
+        });
+        profile_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PA = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(PA);
+            }
+        });
+
 
     } // onCreate method
+
 
 
     //show a dialog message when click back button exit of nor also drawer layout closed or not
@@ -205,13 +227,17 @@ public class HomeActivity extends AppCompatActivity {
         int res_if = item.getItemId();
         switch (res_if) {
             case R.id.profile:
-                Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
+                Intent profileA = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(profileA);
                 break;
             case R.id.notifications:
-                Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_LONG).show();
+                Intent NavNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                startActivity(NavNotification);
                 break;
             case R.id.leaderboard:
-                Toast.makeText(getApplicationContext(), "LeaderBoard", Toast.LENGTH_LONG).show();
+                Intent NavLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                startActivity(NavLeaderboard);
+
                 break;
             case R.id.lesson_factory:
                 Toast.makeText(getApplicationContext(), "Lesson Factory", Toast.LENGTH_LONG).show();
@@ -220,13 +246,24 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Quiz Factory", Toast.LENGTH_LONG).show();
                 break;
             case R.id.invite_friends:
-                Toast.makeText(getApplicationContext(), "Invite Friends", Toast.LENGTH_LONG).show();
+                try {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Le Quiz");
+                    String sAux = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
+                    sAux = sAux + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
+                    i.putExtra(Intent.EXTRA_TEXT, sAux);
+                    startActivity(Intent.createChooser(i, "Invite Friend"));
+                } catch (Exception e) {
+                    //e.toString();
+                }
                 break;
             case R.id.rate:
                 Toast.makeText(getApplicationContext(), "Rate us", Toast.LENGTH_LONG).show();
                 break;
             case R.id.settings:
-                Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+                Intent NavSettings = new Intent(HomeActivity.this, NavSettings.class);
+                startActivity(NavSettings);
                 break;
         }
         if (mToggle.onOptionsItemSelected(item)) {
@@ -242,44 +279,65 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int res_id = menuItem.getItemId();
                 switch (res_id) {
-                    case R.id.profile:
-                        Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_LONG).show();
-                        break;
                     case R.id.home_activity:
-//                        if (findViewById(R.id.fragment_container_at_home_activity)!=null)
-//                        {
-//                            FragmentManager fragmentManager = getSupportFragmentManager();
-//                            fragmentManager.beginTransaction().add(R.id.fragment_container_at_home_activity,new NavHome(),null).commit();
-//                        }
+                        mDrawerLayout.closeDrawers();
                         break;
+
                     case R.id.leaderboard:
-                        Toast.makeText(getApplicationContext(), "Leaderboard", Toast.LENGTH_LONG).show();
+                        Intent NavLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                        startActivity(NavLeaderboard);
                         break;
+
                     case R.id.notifications:
-                        Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_LONG).show();
+                        Intent NavNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                        startActivity(NavNotification);
                         break;
+
                     case R.id.payment:
-                        Toast.makeText(getApplicationContext(), "Payment", Toast.LENGTH_LONG).show();
+                        Intent NavPayment = new Intent(HomeActivity.this, NavPayment.class);
+                        startActivity(NavPayment);
                         break;
+
                     case R.id.settings:
-                        Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+                        Intent NavSettings = new Intent(HomeActivity.this, NavSettings.class);
+                        startActivity(NavSettings);
                         break;
+
                     case R.id.invite_friends:
-                        Toast.makeText(getApplicationContext(), "Invite Friends", Toast.LENGTH_LONG).show();
+                        try {
+                            Intent i = new Intent(Intent.ACTION_SEND);
+                            i.setType("text/plain");
+                            i.putExtra(Intent.EXTRA_SUBJECT, "Le Quiz");
+                            String sAux = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
+                            sAux = sAux + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
+                            i.putExtra(Intent.EXTRA_TEXT, sAux);
+                            startActivity(Intent.createChooser(i, "Invite Friend"));
+                        } catch (Exception e) {
+                            //e.toString();
+                        }
+                            menuItem.setCheckable(false);
+                            mDrawerLayout.closeDrawers();
                         break;
+
                     case R.id.feedback:
                         makeFeedBackIntent();
+                        menuItem.setCheckable(false);
+                        mDrawerLayout.closeDrawers();
                         break;
-                    case R.id.about_us:
-                        Toast.makeText(getApplicationContext(), "About us", Toast.LENGTH_LONG).show();
-                        break;
-                }
 
-                mDrawerLayout.closeDrawers();
+                    case R.id.about_us:
+                        menuItem.setCheckable(true);
+                        Intent NavAboutUs = new Intent(HomeActivity.this, NavAboutUs.class);
+                        startActivity(NavAboutUs);
+                        break;
+
+                }
                 return true;
             }
         });
+
     }
+
 
     public void makeFeedBackIntent() {
         String osVersion = Build.VERSION.RELEASE;
@@ -301,17 +359,17 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(chooser);
     }
 
-    public void userNameInGradient(){
-    TextView txt = findViewById(R.id.user_name);
-    Shader textShader = new LinearGradient(0, 0, 180, 0,
-            new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
-            new float[]{0, 1}, Shader.TileMode.CLAMP);
+    public void userNameInGradient() {
+        TextView txt = findViewById(R.id.user_name);
+        Shader textShader = new LinearGradient(0, 0, 180, 0,
+                new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
+                new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt.getPaint().setShader(textShader);
 
-    TextView txt1 = findViewById(R.id.wishing);
-    Shader textShader1 = new LinearGradient(0, 0, 180, 0,
-            new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
-            new float[]{0, 1}, Shader.TileMode.CLAMP);
+        TextView txt1 = findViewById(R.id.wishing);
+        Shader textShader1 = new LinearGradient(0, 0, 180, 0,
+                new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
+                new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt1.getPaint().setShader(textShader1);
     }
 } // activity class

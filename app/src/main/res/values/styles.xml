@@ -25,7 +25,6 @@
     <style name="category_card_view">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">120dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">12dp</item>
@@ -39,9 +38,9 @@
     <style name="inside_cardView_another_cardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">35dp</item>
         <item name="android:layout_gravity">top</item>
         <item name="android:elevation">0dp</item>
-        <item name="android:minHeight">87dp</item>
     </style>
 
     <style name="category_text_view">
@@ -53,7 +52,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:layout_marginBottom">2dp</item>
         <item name="android:fontFamily">@font/trebuchet_ms</item>
-        <item name="android:minHeight">30dp</item>
 
     </style>
 

@@ -61,6 +61,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+
     <!--navigation strings and action bar menu-->
     <string name="home">Home</string>
     <string name="leaderboard">Leaderboard</string>

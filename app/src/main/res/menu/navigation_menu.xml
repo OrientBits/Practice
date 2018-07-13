@@ -39,15 +39,15 @@
 
     <group
         android:id="@+id/nav_lower"
-        android:checkableBehavior="single">
+        android:checkableBehavior="none">
 
         <item
             android:id="@+id/feedback"
-            android:title="@string/settings" />
+            android:title="@string/send_feedback" />
 
         <item
             android:id="@+id/about_us"
-            android:title="@string/invite_friends" />
+            android:title="@string/about_us" />
 
     </group>
 

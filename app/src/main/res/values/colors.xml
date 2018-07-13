@@ -10,7 +10,7 @@
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#c50baaed</color>
     <color name="skyBlueOnProgressHome">#52D0FE</color>
-    <color name="darkBlueOnProgressHome">#1F597E</color>
+    <color name="darkBlueOnProgressHome">#1f597e</color>
     <color name="grayOnProgressHome">#B6B3B3</color>
     <color name="blueOnPopup">#021D37</color>
     <color name="blueOnHomeText">#04F9FE</color>
