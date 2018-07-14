@@ -7,16 +7,19 @@
     android:orientation="vertical"
     tools:context=".SplashActivity">
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
         android:contentDescription="@string/about_us"
-        android:src="@mipmap/ic_launcher_foreground" />
+        android:src="@drawable/splash_screen" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="India's Learning Earning App"
-        android:textColor="@color/blueOnPopup"
-        android:textSize="25sp"/>
+        android:textColor="#6E4C72"
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

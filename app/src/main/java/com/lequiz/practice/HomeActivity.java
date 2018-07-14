@@ -304,19 +304,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.invite_friends:
-                        try {
-                            Intent i = new Intent(Intent.ACTION_SEND);
-                            i.setType("text/plain");
-                            i.putExtra(Intent.EXTRA_SUBJECT, "Le Quiz");
-                            String sAux = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
-                            sAux = sAux + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
-                            i.putExtra(Intent.EXTRA_TEXT, sAux);
-                            startActivity(Intent.createChooser(i, "Invite Friend"));
-                        } catch (Exception e) {
-                            //e.toString();
-                        }
-                            menuItem.setCheckable(false);
-                            mDrawerLayout.closeDrawers();
+                       Intent NavInviteFriend = new Intent(HomeActivity.this, NavInviteFriend.class);
+                       startActivity(NavInviteFriend);
                         break;
 
                     case R.id.feedback:

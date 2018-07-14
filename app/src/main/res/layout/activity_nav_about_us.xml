@@ -10,7 +10,7 @@
 
     <include
     android:id="@+id/nav_about_us_toolbar"
-    layout="@layout/category_toolbar"
+    layout="@layout/default_toolbar"
     />
 
 <LinearLayout
