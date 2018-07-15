@@ -239,24 +239,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(NavLeaderboard);
 
                 break;
-            case R.id.lesson_factory:
-                Toast.makeText(getApplicationContext(), "Lesson Factory", Toast.LENGTH_LONG).show();
-                break;
             case R.id.quiz_factory:
                 Toast.makeText(getApplicationContext(), "Quiz Factory", Toast.LENGTH_LONG).show();
                 break;
             case R.id.invite_friends:
-                try {
-                    Intent i = new Intent(Intent.ACTION_SEND);
-                    i.setType("text/plain");
-                    i.putExtra(Intent.EXTRA_SUBJECT, "Le Quiz");
-                    String sAux = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
-                    sAux = sAux + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
-                    i.putExtra(Intent.EXTRA_TEXT, sAux);
-                    startActivity(Intent.createChooser(i, "Invite Friend"));
-                } catch (Exception e) {
-                    //e.toString();
-                }
+                Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+                startActivity(navFriends);
                 break;
             case R.id.rate:
                 Toast.makeText(getApplicationContext(), "Rate us", Toast.LENGTH_LONG).show();
