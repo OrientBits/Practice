@@ -56,7 +56,14 @@
         <item name="android:minHeight">30dp</item>
 
     </style>
+<!---Action Bar Style Learn Section -->
+    <style name="ActionBarLearnSection" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_back_button_tech</item>
 
+    <!-- Support library compatibility -->
+    <item name="windowActionBarOverlay">true</item>
+    </style>
 
 
 
@@ -73,5 +80,21 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Learn section Styles -->
+
+    <!--Topic Text -->
+<style name="Topic_Text_Style">
+    <item  name="android:textSize">27sp</item>
+    <item name="android:textStyle">bold</item>
+</style>
+
+    <!--Inner Relative Layout on Learn Section -->
+    <style name="Inner_Relative_Layout">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+
+
 
 </resources>

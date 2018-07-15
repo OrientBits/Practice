@@ -76,6 +76,8 @@
     <string name="about_us">About us</string>
     <string name="communicate">Communicate</string>
 
+    <!-- Strings for learn section -->
+    <string name="subHeadingOnLearnSection">Play Quiz | Read Our Lessons</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -15,6 +15,9 @@
     <color name="blueOnPopup">#021D37</color>
     <color name="blueOnHomeText">#04F9FE</color>
     <color name="purpleOnHomeText">#7F47DD</color>
+    <color name="blueGradientTech">#00FFFF</color>
+    <color name="grayOnLearnSectionText">#95989A</color>
+    <color name="white">#fff</color>
 
 
     <!--navigation drawer icon color-->
