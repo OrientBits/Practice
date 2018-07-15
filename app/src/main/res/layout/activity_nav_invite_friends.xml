@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".NavInviteFriends">
+
+    <include
+        android:id="@+id/nav_invite_friend_toolbar"
+        layout="@layout/default_toolbar" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/nav_invite_friend_toolbar"
+            android:background="@color/white"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/invite_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/invite_friends"
+                android:scaleType="center"
+                android:src="@drawable/invite_friend" />
+
+            <TextView
+                android:id="@+id/invite_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/invite_image"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="LearnEarn Quiz is better with friends!"
+                android:textColor="@color/darkBlueOnProgressHome"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+
+            <Button
+                android:id="@+id/email_button"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/invite_text"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_email"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:elevation="4dp"
+                android:paddingEnd="37dp"
+                android:paddingStart="12dp"
+                android:text="email"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/sms_button"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/email_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_sms"
+                android:drawableStart="@drawable/ic_sms_black_24dp"
+                android:elevation="4dp"
+                android:paddingEnd="37dp"
+                android:paddingStart="12dp"
+                android:text="sms"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/whatsapp_button"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/sms_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_whatsapp"
+                android:drawableStart="@drawable/ic_whatsapp_inbutton"
+                android:elevation="4dp"
+                android:paddingEnd="37dp"
+                android:paddingStart="12dp"
+                android:text="whatsapp"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/share_button"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@id/whatsapp_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_share"
+                android:drawableStart="@drawable/ic_share_black_24dp"
+                android:elevation="4dp"
+                android:paddingEnd="37dp"
+                android:paddingStart="12dp"
+                android:text="share"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

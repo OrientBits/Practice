@@ -280,47 +280,49 @@ public class HomeActivity extends AppCompatActivity {
                 int res_id = menuItem.getItemId();
                 switch (res_id) {
                     case R.id.home_activity:
-                        mDrawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.leaderboard:
-                        Intent NavLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
-                        startActivity(NavLeaderboard);
-                        break;
-
-                    case R.id.notifications:
-                        Intent NavNotification = new Intent(HomeActivity.this, NavNotifications.class);
-                        startActivity(NavNotification);
-                        break;
-
-                    case R.id.payment:
-                        Intent NavPayment = new Intent(HomeActivity.this, NavPayment.class);
-                        startActivity(NavPayment);
-                        break;
-
-                    case R.id.settings:
-                        Intent NavSettings = new Intent(HomeActivity.this, NavSettings.class);
-                        startActivity(NavSettings);
-                        break;
-
-                    case R.id.invite_friends:
-                       Intent NavInviteFriend = new Intent(HomeActivity.this, NavInviteFriend.class);
-                       startActivity(NavInviteFriend);
-                        break;
-
-                    case R.id.feedback:
-                        makeFeedBackIntent();
+                        menuItem.setChecked(false);
                         menuItem.setCheckable(false);
                         mDrawerLayout.closeDrawers();
                         break;
 
+                    case R.id.leaderboard:
+                        Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                        startActivity(navLeaderboard);
+                        break;
+
+                    case R.id.notifications:
+                        Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                        startActivity(navNotification);
+                        break;
+
+                    case R.id.payment:
+                        Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
+                        startActivity(navPayment);
+                        break;
+
+                    case R.id.settings:
+                        Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
+                        startActivity(navSettings);
+                        break;
+
+                    case R.id.invite_friends:
+                        Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+                        startActivity(navFriends);
+                        break;
+
+                    case R.id.feedback:
+                        mDrawerLayout.closeDrawers();
+                        makeFeedBackIntent();
+                        break;
+
                     case R.id.about_us:
-                        menuItem.setCheckable(true);
                         Intent NavAboutUs = new Intent(HomeActivity.this, NavAboutUs.class);
                         startActivity(NavAboutUs);
                         break;
 
                 }
+                menuItem.setChecked(false);
+                menuItem.setCheckable(false);
                 return true;
             }
         });

@@ -82,14 +82,15 @@
             android:label="@string/about_us"
             android:parentActivityName=".NavAboutUs" />
 
+
+        <activity android:name=".NavInviteFriends"
+            android:label="@string/invite_friends"
+            android:parentActivityName=".NavInviteFriends"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".NavInviteFriend"
-            android:label="@string/invite_friends"
-            android:parentActivityName=".NavInviteFriend">
-        </activity>
     </application>
 
 </manifest>

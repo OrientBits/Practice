@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="India's Learning Earning App"
-        android:textColor="#6E4C72"
+        android:textColor="#3a0041"
         android:textSize="25sp"
         tools:ignore="HardcodedText" />
 
