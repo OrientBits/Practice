@@ -24,7 +24,10 @@ public class TechnologyActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+
+
         // Heading TextView gradient
+
 
         TextView learnHeaderTech = findViewById(R.id.text_on_tech_learn_topic);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
@@ -37,7 +40,5 @@ public class TechnologyActivity extends AppCompatActivity {
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
-
-
     }
 }
