@@ -23,11 +23,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/lesson_factory"
-        android:title="@string/lession_factory"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/quiz_factory"
         android:title="@string/quiz_factory"
         app:showAsAction="never" />
