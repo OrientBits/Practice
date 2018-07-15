@@ -4,7 +4,6 @@
     app:theme="@style/AppTheme.PopupOverlay">
 
 
-
     <item
         android:id="@+id/notifications"
         android:checkable="true"
@@ -21,31 +20,31 @@
     <item
         android:id="@+id/leaderboard"
         android:title="@string/leaderboard"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/lesson_factory"
         android:title="@string/lession_factory"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/quiz_factory"
         android:title="@string/quiz_factory"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/invite_friends"
         android:title="@string/invite_friends"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/rate"
-         android:title="@string/rate"
-        app:showAsAction="never"/>
+        android:title="@string/rate"
+        app:showAsAction="never" />
     <item
         android:id="@+id/settings"
         android:title="@string/settings"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
 
 </menu>
