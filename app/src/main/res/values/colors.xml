@@ -3,7 +3,7 @@
     <color name="colorPrimary">#607D8B</color>
     <color name="colorPrimaryDark">#455A64</color>
     <color name="lightPrimaryColor">#CFD8DC</color>
-    <color name="white">@android:color/background_light</color>
+
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
