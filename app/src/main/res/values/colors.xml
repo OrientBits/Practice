@@ -3,7 +3,7 @@
     <color name="colorPrimary">#607D8B</color>
     <color name="colorPrimaryDark">#455A64</color>
     <color name="lightPrimaryColor">#CFD8DC</color>
-    <color name="white">@android:color/background_light</color>
+
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
@@ -13,6 +13,9 @@
     <color name="blueOnPopup">#021D37</color>
     <color name="blueOnHomeText">#04F9FE</color>
     <color name="purpleOnHomeText">#7F47DD</color>
+    <color name="blueGradientTech">#00FFFF</color>
+    <color name="grayOnLearnSectionText">#95989A</color>
+    <color name="white">#fff</color>
 
 
     <!--navigation drawer icon color-->

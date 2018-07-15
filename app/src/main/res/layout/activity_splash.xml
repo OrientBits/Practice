@@ -13,13 +13,4 @@
         android:layout_margin="10dp"
         android:contentDescription="@string/about_us"
         android:src="@drawable/splash_screen" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="India's Learning Earning App"
-        android:textColor="#3a0041"
-        android:textSize="25sp"
-        tools:ignore="HardcodedText" />
-
 </LinearLayout>
