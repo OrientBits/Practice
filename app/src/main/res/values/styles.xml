@@ -92,15 +92,6 @@
 
 
 
-    <style name="ThemeOverlay.AppCompat.navTheme">
-
-        <!-- Color of text and icon when SELECTED -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-
-        <!-- Background color when SELECTED -->
-        <item name="colorControlHighlight">#000000</item>
-
-    </style>
 
 
 </resources>
