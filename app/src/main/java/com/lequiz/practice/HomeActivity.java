@@ -41,6 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public MenuItem menuItem;
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_header, profile_home;
@@ -264,53 +265,94 @@ public class HomeActivity extends AppCompatActivity {
     private void setupDrawerContent(final NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
                 int res_id = menuItem.getItemId();
+                menuItem.setChecked(true);
+                menuItem.setCheckable(true);
+                Handler handler = new Handler();
                 switch (res_id) {
                     case R.id.home_activity:
-                        menuItem.setChecked(false);
-                        menuItem.setCheckable(false);
-                        mDrawerLayout.closeDrawers();
                         break;
 
                     case R.id.leaderboard:
-                        Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
-                        startActivity(navLeaderboard);
+                        final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(navLeaderboard);
+                            }
+                        },500);
                         break;
 
                     case R.id.notifications:
-                        Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
-                        startActivity(navNotification);
+                        final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(navNotification);
+                            }
+                        },500);
                         break;
 
                     case R.id.payment:
-                        Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
-                        startActivity(navPayment);
+                        final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(navPayment);
+                            }
+                        },500);
                         break;
 
                     case R.id.settings:
-                        Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
-                        startActivity(navSettings);
+                        final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(navSettings);
+                            }
+                        },500);
                         break;
 
                     case R.id.invite_friends:
-                        Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
-                        startActivity(navFriends);
+                        final Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(navFriends);
+                            }
+                        },500);
                         break;
 
                     case R.id.feedback:
-                        mDrawerLayout.closeDrawers();
-                        makeFeedBackIntent();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                makeFeedBackIntent();
+                            }
+                        },500);
                         break;
 
                     case R.id.about_us:
-                        Intent NavAboutUs = new Intent(HomeActivity.this, NavAboutUs.class);
-                        startActivity(NavAboutUs);
-                        break;
+                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavAboutUs.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(NavAboutUs);
+                            }
+                        },500);
 
+                        break;
                 }
-                menuItem.setChecked(false);
-                menuItem.setCheckable(false);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mDrawerLayout.closeDrawers();
+                        menuItem.setChecked(false);
+                        menuItem.setCheckable(false);
+                    }
+                },100);
                 return true;
             }
         });
