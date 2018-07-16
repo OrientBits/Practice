@@ -19,48 +19,49 @@
         <activity
             android:name=".MathematicsActivity"
             android:label="@string/mathematics"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".MathematicsActivity" />
         <activity
             android:name=".ReasoningActivity"
             android:label="@string/reasoning"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".ReasoningActivity" />
         <activity
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".EntertainmentActivity" />
         <activity
             android:name=".TechnologyActivity"
             android:label="@string/technology"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".TechnologyActivity" />
         <activity
             android:name=".CurrentAffairsActivity"
             android:label="@string/current_Affairs"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".CurrentAffairsActivity" />
         <activity
             android:name=".ComputerActivity"
             android:label="@string/computer"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".ComputerActivity" />
         <activity
             android:name=".GeneralScienceActivity"
             android:label="@string/general_science"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".GeneralScienceActivity" />
         <activity
             android:name=".EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".EnglishActivity" />
         <activity
             android:name=".SportsActivity"
             android:label="@string/sports"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".SportsActivity" />
         <activity
             android:name=".SpecialActivity"
             android:label="@string/special"
-            android:parentActivityName=".HomeActivity" />
-        <activity android:name=".HomeActivity" />
+            android:parentActivityName=".SpecialActivity" />
+        <activity
+            android:name=".HomeActivity" />
+
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/profile"
-            android:parentActivityName=".HomeActivity" />
+            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".NavLeaderboard"
             android:label="@string/leaderboard"
