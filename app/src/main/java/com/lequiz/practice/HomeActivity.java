@@ -265,8 +265,10 @@ public class HomeActivity extends AppCompatActivity {
     private void setupDrawerContent(final NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
                 int res_id = menuItem.getItemId();
+                menuItem.setChecked(true);
+                menuItem.setCheckable(true);
                 Handler handler = new Handler();
                 switch (res_id) {
                     case R.id.home_activity:
@@ -347,10 +349,10 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         mDrawerLayout.closeDrawers();
+                        menuItem.setChecked(false);
+                        menuItem.setCheckable(false);
                     }
-                },300);
-                menuItem.setChecked(false);
-                menuItem.setCheckable(false);
+                },100);
                 return true;
             }
         });

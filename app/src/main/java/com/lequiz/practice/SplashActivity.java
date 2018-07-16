@@ -1,16 +1,12 @@
 package com.lequiz.practice;
 
 import android.content.Intent;
-import android.net.Uri;
+
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.VideoView;
-
 import com.felipecsl.gifimageview.library.GifImageView;
-
 import org.apache.commons.io.IOUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -29,9 +25,9 @@ public class SplashActivity extends AppCompatActivity {
             gifImageView.setBytes(bytes);
             gifImageView.startAnimation();
         }
-        catch (IOException ex)
+        catch(IOException ex)
         {
-
+// here is your catch statement
         }
         new Handler().postDelayed(new Runnable() {
             @Override
