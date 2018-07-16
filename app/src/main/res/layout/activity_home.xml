@@ -180,8 +180,8 @@
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/navigation_header"
             app:itemBackground="@drawable/nav_item_background"
-            app:itemIconTint="@drawable/nav_item_text_color"
-            app:itemTextColor="@drawable/nav_item_text_color"
+            app:itemIconTint="@color/navigationIconColor"
+            app:itemTextColor="@color/navigationIconColor"
             android:background="@android:color/transparent"
             app:menu="@menu/navigation_menu">
 
