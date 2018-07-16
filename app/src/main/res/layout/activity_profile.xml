@@ -126,6 +126,7 @@
                     android:textSize="27sp"
                     tools:ignore="HardcodedText" />
 
+
                 <TextView
                     android:id="@+id/leader_board_ranking"
                     android:layout_width="match_parent"
