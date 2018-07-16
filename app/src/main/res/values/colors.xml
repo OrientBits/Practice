@@ -17,8 +17,10 @@
     <color name="purpleOnHomeText">#7F47DD</color>
     <color name="blueGradientTech">#00FFFF</color>
     <color name="grayOnLearnSectionText">#95989A</color>
-
-
+    <color name="greenOnCurrentAffairs">#7DF790</color>
+    <color name="yellowOnCurrentAffairs">#FCEE21</color>
+    <color name="yellowOnEntertainment">#FFFF00</color>
+    <color name="orangeOnEntertainment">#F15A24</color>
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#013e54</color>
     <color name="green">#1bb62a</color>

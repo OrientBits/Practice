@@ -85,6 +85,30 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Content Description Learn Section -->
+
+    <string name="start_button_current_affairs">Current Affairs Start Button</string>
+    <string name="play_button_current_affairs">Current Affairs Play Button</string>
+    <string name="start_button_technology">Technology Start Button</string>
+    <string name="play_button_technology">Technology Play Button</string>
+    <string name="start_button_entertainment">Entertainment Start Button</string>
+    <string name="play_button_entertainment">Entertainment Play Button</string>
+    <string name="start_button_sports">Sports Start Button</string>
+    <string name="play_button_sports">Sports Play Button</string>
+    <string name="start_button_computer">Computer Start Button</string>
+    <string name="play_button_computer">Computer Play Button</string>
+    <string name="start_button_mathematics">Mathematics Start Button</string>
+    <string name="play_button_mathematics">Mathematics Play Button</string>
+    <string name="start_button_current_reasoning">Reasoning Affairs Start Button</string>
+    <string name="play_button_current_reasoning">Reasoning Affairs Play Button</string>
+    <string name="start_button_general_science">General Science Start Button</string>
+    <string name="play_button_general_science">General Science Play Button</string>
+    <string name="start_button__english">English Science Start Button</string>
+    <string name="play_button__english">English Science Play Button</string>
+    <string name="start_button__special">English Science Start Button</string>
+    <string name="play_button__special">English Science Play Button</string>
+
+    <string name="start_your_quiz">Start Your Quiz</string>
 
 
 </resources>
