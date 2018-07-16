@@ -41,7 +41,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public MenuItem menuItem;
     protected DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_header, profile_home;
