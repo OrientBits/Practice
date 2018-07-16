@@ -281,7 +281,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        },500);
+                        },400);
                         break;
 
                     case R.id.notifications:
@@ -291,7 +291,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        },500);
+                        },400);
                         break;
 
                     case R.id.payment:
@@ -301,7 +301,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        },500);
+                        },400);
                         break;
 
                     case R.id.settings:
@@ -311,7 +311,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        },500);
+                        },400);
                         break;
 
                     case R.id.invite_friends:
@@ -322,7 +322,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        },500);
+                        },400);
                         break;
 
                     case R.id.feedback:
@@ -331,7 +331,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 makeFeedBackIntent();
                             }
-                        },500);
+                        },200);
                         break;
 
                     case R.id.about_us:
@@ -341,18 +341,14 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(NavAboutUs);
                             }
-                        },500);
+                        },400);
 
                         break;
                 }
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+
                         mDrawerLayout.closeDrawers();
                         menuItem.setChecked(false);
                         menuItem.setCheckable(false);
-                    }
-                },100);
                 return true;
             }
         });

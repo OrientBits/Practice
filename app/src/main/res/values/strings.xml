@@ -39,7 +39,7 @@
     <string name="user_email_id">sandeepmaheshwari@gmail.com</string>
 
     <!--user level string-->
-    <string name="user_level">Level 1</string>
+    <string name="user_level">Level 6</string>
 
     <!--user xp value-->
     <string name="level_xp">1024 XP</string>
@@ -77,6 +77,8 @@
     <string name="about_us">About us</string>
     <string name="communicate">Communicate</string>
     <string name="earning">00</string>
+
+    <string name="user_ranking">01</string>
 
     <!-- Strings for learn section -->
     <string name="subHeadingOnLearnSection">Play Quiz | Read Our Lessons</string>
