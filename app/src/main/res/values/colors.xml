@@ -1,9 +1,9 @@
 <resources>
     <!--   color for the app bar and other primary UI elements -->
-    <color name="colorPrimary">#607D8B</color>
-    <color name="colorPrimaryDark">#455A64</color>
-    <color name="lightPrimaryColor">#CFD8DC</color>
-
+    <color name="colorPrimary">#2979FF</color>
+    <color name="colorPrimaryDark">#2962FF</color>
+    <color name="lightPrimaryColor">#E3F2FD</color>
+    <color name="white">@android:color/background_light</color>
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
@@ -17,11 +17,11 @@
     <color name="purpleOnHomeText">#7F47DD</color>
     <color name="blueGradientTech">#00FFFF</color>
     <color name="grayOnLearnSectionText">#95989A</color>
-    <color name="white">#fff</color>
 
 
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#005979</color>
+    <color name="green">#1bb62a</color>
 
 
     <!--category text view color-->

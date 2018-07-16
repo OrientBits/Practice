@@ -178,8 +178,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/navigation_header"
-            app:itemIconTint="@drawable/drawer_item_color_state"
-            app:itemTextColor="@drawable/drawer_item_color_state"
+            app:theme="@style/ThemeOverlay.AppCompat.navTheme"
             android:background="@android:color/transparent"
             app:menu="@menu/navigation_menu">
 
