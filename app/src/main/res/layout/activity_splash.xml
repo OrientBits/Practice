@@ -6,11 +6,9 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".SplashActivity">
-    <ImageView
+    <com.felipecsl.gifimageview.library.GifImageView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:contentDescription="@string/about_us"
-        android:src="@drawable/splash_screen" />
+        android:id="@+id/splash_gif_id"/>
 </LinearLayout>
