@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="190dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="5dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:background="@drawable/drawer_image1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".HomeActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_header"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="40dp"
-        android:foreground="?android:selectableItemBackground"
-        android:src="@drawable/profile_image"
-        app:civ_border_color="@android:color/white"
-        android:clickable="true"
-        android:focusable="true"
-        app:civ_border_width="1dp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/skyBlueOnProgressHome"
+        android:scaleType="centerCrop"
+        android:src="@drawable/drawer_image1"
+        tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/user_name"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/trebuchet_ms"
-        android:textColor="#c822124d"/>
-
-    <TextView
-        android:id="@+id/user_mobile_no"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="1dp"
-        android:textColor="#80000000"
-        android:textSize="13sp"
-        android:background="@android:color/transparent"
-        android:text="@string/user_email_id" />
+        android:orientation="vertical"
+        android:paddingBottom="9dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-</LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_header"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:src="@drawable/profile_image"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/trebuchet_ms"
+            android:text="@string/user_name"
+            android:textColor="#c822124d"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/user_mobile_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingTop="1dp"
+            android:text="@string/user_email_id"
+            android:textColor="#80000000"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
