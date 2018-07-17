@@ -79,9 +79,9 @@
             android:label="@string/settings"
             android:parentActivityName=".NavSettings" />
         <activity
-            android:name=".NavAboutUs"
+            android:name=".NavRateUs"
             android:label="@string/about_us"
-            android:parentActivityName=".NavAboutUs" />
+            android:parentActivityName=".NavRateUs" />
 
 
         <activity android:name=".NavInviteFriends"

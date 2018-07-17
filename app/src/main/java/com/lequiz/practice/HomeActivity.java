@@ -3,34 +3,27 @@ package com.lequiz.practice;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,8 +66,8 @@ public class HomeActivity extends AppCompatActivity {
 
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
-        View headerview = navigationView.getHeaderView(0);
-        profile_header = headerview.findViewById(R.id.profile_header);
+        View headerView = navigationView.getHeaderView(0);
+        profile_header = headerView.findViewById(R.id.profile_image);
         setupDrawerContent(navigationView); // default true
 
 
@@ -269,10 +262,8 @@ public class HomeActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 menuItem.setCheckable(true);
                 Handler handler = new Handler();
-                switch (res_id) {
-                    case R.id.home_activity:
-                        break;
-
+                switch (res_id)
+                {
                     case R.id.leaderboard:
                         final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
                         handler.postDelayed(new Runnable() {
@@ -333,12 +324,12 @@ public class HomeActivity extends AppCompatActivity {
                         },200);
                         break;
 
-                    case R.id.about_us:
-                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavAboutUs.class);
+                    case R.id.rate_us:
+                        final Intent NavRateUs = new Intent(HomeActivity.this, NavRateUs.class);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startActivity(NavAboutUs);
+                                startActivity(NavRateUs);
                             }
                         },400);
 
@@ -388,4 +379,5 @@ public class HomeActivity extends AppCompatActivity {
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt1.getPaint().setShader(textShader1);
     }
+
 } // activity class

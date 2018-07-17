@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".NavAboutUs">
+    tools:context=".NavRateUs">
 
     <include
     android:id="@+id/nav_about_us_toolbar"

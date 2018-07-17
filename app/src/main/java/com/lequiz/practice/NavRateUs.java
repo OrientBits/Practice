@@ -6,13 +6,13 @@ import android.support.v7.widget.Toolbar;
 
 import java.util.Objects;
 
-public class NavAboutUs extends AppCompatActivity {
+public class NavRateUs extends AppCompatActivity {
 
     protected Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_about_us);
+        setContentView(R.layout.activity_nav_rate_us);
 
         toolbar = findViewById(R.id.nav_about_us_toolbar);
         setSupportActionBar(toolbar);
