@@ -164,9 +164,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="003e56" />
-                            <entry key="outputName" value="ic_whatsapp_inbutton" />
+                            <entry key="color" value="006085" />
+                            <entry key="opacityPercent" value="90" />
+                            <entry key="outputName" value="ic_home_black_24dp" />
                             <entry key="sourceFile" value="C:\Users\Ramshek Rana\Downloads\ic_whatsapp_inbutton.svg" />
                           </map>
                         </option>
