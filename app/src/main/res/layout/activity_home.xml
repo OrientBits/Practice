@@ -130,6 +130,9 @@
                         android:thicknessRatio="1.9"
                         app:cardCornerRadius="20dp"
                         app:cardElevation="5dp"/>
+
+
+
                 </LinearLayout>
 
                 <android.support.v7.widget.Toolbar
@@ -153,41 +156,22 @@
 
     <!--navigation drawer layout -->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        android:background="@android:color/white">
 
-        <ImageView
-            android:id="@+id/drawer_bg"
-            android:layout_width="match_parent"
-            android:layout_height="650dp"
-            android:alpha="1"
-            android:layout_marginBottom="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:contentDescription="@string/header_background_image"
-            android:scaleType="fitXY"
-            android:src="@drawable/drawer_image1">
-        </ImageView>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            android:layout_gravity="start"
             app:headerLayout="@layout/navigation_header"
             app:itemBackground="@drawable/nav_item_background"
             app:itemIconTint="@color/navigationIconColor"
             app:itemTextColor="@color/navigationIconColor"
-            android:background="@android:color/transparent"
+            android:background="@color/white"
             app:menu="@menu/navigation_menu">
-
         </android.support.design.widget.NavigationView>
 
-    </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>
 
