@@ -21,6 +21,8 @@
     <color name="yellowOnCurrentAffairs">#FCEE21</color>
     <color name="yellowOnEntertainment">#FFFF00</color>
     <color name="orangeOnEntertainment">#F15A24</color>
+   <color name="greenOnComputer">#2EDDA4</color>
+    <color name="blueOnComputer">#69F8E1</color>
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#092e3b</color>
     <color name="green">#1bb62a</color>
