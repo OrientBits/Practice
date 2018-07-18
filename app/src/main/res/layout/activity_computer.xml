@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="99dp"
-        android:id="@+id/text_on_tech_learn_topic"
+        android:id="@+id/text_on_computer_learn_topic"
         android:theme="@style/Topic_Text_Style"
         android:text="@string/computer"
         android:layout_marginStart="16dp" />
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:layout_below="@+id/text_on_tech_learn_topic"
+        android:layout_below="@+id/text_on_computer_learn_topic"
         android:layout_marginStart="16dp"
         android:text="@string/subHeadingOnLearnSection"/>
 
@@ -39,7 +39,7 @@
         android:background="@drawable/rounded_layout_learn_computer"
         android:layout_marginBottom="3dp"
         android:theme="@style/Inner_Relative_Layout"
-        android:id="@+id/relative_card_view_type_tech"
+        android:id="@+id/relative_card_view_type_computer"
         android:layout_marginRight="16dp">
 
         <ImageView
@@ -58,7 +58,7 @@
             android:contentDescription="@string/start_button_computer"
             android:src="@drawable/play_button_computer"
             android:layout_alignParentStart="true"
-            android:id="@+id/play_button_tech"
+            android:id="@+id/play_button_computer"
             tools:ignore="ContentDescription" />
 
         <TextView

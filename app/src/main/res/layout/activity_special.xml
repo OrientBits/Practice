@@ -1,13 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="286dp"
+    android:background="@drawable/special_background_image"
     android:fitsSystemWindows="true"
     tools:context=".SpecialActivity">
     <include
         android:id="@+id/special_toolbar"
+        android:layout_alignParentTop="true"
         layout="@layout/category_toolbar"
-        />
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:id="@+id/text_on_special_learn_topic"
+        android:theme="@style/Topic_Text_Style"
+        android:text="@string/special"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@+id/text_on_special_learn_topic"
+        android:layout_marginStart="16dp"
+        android:text="@string/subHeadingOnLearnSection"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:elevation="2dp"
+        android:background="@drawable/rounded_layout_learn_special"
+        android:layout_marginBottom="3dp"
+        android:theme="@style/Inner_Relative_Layout"
+        android:id="@+id/relative_card_view_type_special"
+        android:layout_marginRight="16dp">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:contentDescription="@string/start_button_special"
+            android:layout_height="65dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/start_arrow_button"
+            android:layout_alignParentEnd="true"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:contentDescription="@string/play_button_special"
+            android:src="@drawable/play_button_special"
+            android:layout_alignParentStart="true"
+            android:id="@+id/play_button_special"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/hey_user_name"
+            android:layout_alignParentStart="true"
+            android:paddingTop="7dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="58dp"
+            tools:ignore="RelativeOverlap" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Your Quiz"
+            android:textColor="@color/white"
+            android:layout_below="@+id/hey_user_name"
+            android:paddingTop="3dp"
+            android:layout_marginStart="58dp"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
