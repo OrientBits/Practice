@@ -1,8 +1,11 @@
 package com.lequiz.practice;
 
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import java.util.Objects;
 
@@ -20,5 +23,20 @@ public class ComputerActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Heading TextView gradient
+
+
+        TextView learnHeaderTech = findViewById(R.id.text_on_tech_learn_topic);
+        Shader textShader = new LinearGradient(0, 0, 180, 0,
+                new int[]{getResources().getColor(R.color.greenOnComputer), getResources().getColor(R.color.blueOnComputer)},
+                new float[]{0, 1}, Shader.TileMode.CLAMP);
+        learnHeaderTech.getPaint().setShader(textShader);
+
+        // Hey UserName Initilization on learn section
+
+        TextView heyUserName = findViewById(R.id.hey_user_name);
+        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+        heyUserName.setText(heyUserNameMaker);
     }
 }
