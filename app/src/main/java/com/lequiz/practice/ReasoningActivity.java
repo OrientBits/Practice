@@ -37,7 +37,7 @@ public class ReasoningActivity extends AppCompatActivity {
         // Gradient Heading
         // Heading TextView gradient
 
-        TextView learnHeaderTech = findViewById(R.id.text_on_reasoning_learn_topic);
+        TextView learnHeaderTech = findViewById(R.id.heading_on_reasoning);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.darkPinkOnReasoning), getResources().getColor(R.color.lightPinkOnReasoning)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);

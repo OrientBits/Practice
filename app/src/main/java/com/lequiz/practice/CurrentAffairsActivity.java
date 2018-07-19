@@ -1,7 +1,10 @@
 package com.lequiz.practice;
 
+import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +26,15 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Back Button Optimization
+
+        Drawable drawable= getResources().getDrawable(R.drawable.back_button_current_affairs);
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
+
+        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+
 
         // Heading Text Gradient
 

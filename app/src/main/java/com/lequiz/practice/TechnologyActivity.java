@@ -1,7 +1,10 @@
 package com.lequiz.practice;
 
+import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,12 +27,19 @@ public class TechnologyActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        // Bitmap Optimization
+
+        Drawable drawable= getResources().getDrawable(R.drawable.ic_back_button_tech);
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
+
+        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
 
 
         // Heading TextView gradient
 
 
-        TextView learnHeaderTech = findViewById(R.id.text_on_tech_learn_topic);
+        TextView learnHeaderTech = findViewById(R.id.heading_on_technology);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueGradientTech), getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);

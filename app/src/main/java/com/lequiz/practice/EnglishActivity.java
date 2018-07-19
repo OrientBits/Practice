@@ -37,7 +37,7 @@ public class EnglishActivity extends AppCompatActivity {
         // Heading TextView gradient
 
 
-        TextView learnHeaderTech = findViewById(R.id.text_on_english_learn_topic);
+        TextView learnHeaderTech = findViewById(R.id.heading_on_english);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.pinkOnEnglish), getResources().getColor(R.color.blueOnEnglish)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);

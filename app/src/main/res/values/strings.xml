@@ -98,8 +98,8 @@
     <string name="play_button_computer">Computer Play Button</string>
     <string name="start_button_mathematics">Mathematics Start Button</string>
     <string name="play_button_mathematics">Mathematics Play Button</string>
-    <string name="start_button_current_reasoning">Reasoning Affairs Start Button</string>
-    <string name="play_button_current_reasoning">Reasoning Affairs Play Button</string>
+    <string name="start_button_reasoning">Reasoning Affairs Start Button</string>
+    <string name="play_button_reasoning">Reasoning Affairs Play Button</string>
     <string name="start_button_general_science">General Science Start Button</string>
     <string name="play_button_general_science">General Science Play Button</string>
     <string name="start_button_english">English Science Start Button</string>
