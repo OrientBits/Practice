@@ -39,7 +39,7 @@
         android:background="@drawable/rounded_layout_learn_entertainment"
         android:layout_marginBottom="3dp"
         android:theme="@style/Inner_Relative_Layout"
-        android:id="@+id/relative_card_view_type_tech"
+        android:id="@+id/relative_card_view_type_entertainment"
         android:layout_marginRight="16dp"
         >
         <ImageView
