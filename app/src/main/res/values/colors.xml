@@ -23,6 +23,26 @@
     <color name="orangeOnEntertainment">#F15A24</color>
    <color name="greenOnComputer">#2EDDA4</color>
     <color name="blueOnComputer">#69F8E1</color>
+    <color name="pinkOnEnglish">#F869D5</color>
+    <color name="blueOnEnglish">#5650DE</color>
+    <color name="yellowOnMathematics">#CCD71C</color>
+    <color name="purpleOnMathematics">#0079A8</color>
+    <color name="lightPinkOnReasoning">#F869D5</color>
+    <color name="darkPinkOnReasoning">#F00B51</color>
+    <color name="purpleOnSpecial">#005176</color>
+    <color name="redOnSpecial">#D8413E</color>
+    <color name="redOnSpecialBackgrpund">#F1BBBB</color>
+    <color name="pinkBackgroundSports">#F8ACCD</color>
+    <color name="greenBackgroundCurrentAffairs">#BFFFFF</color>
+    <color name="blueOnComputerBackground">#B4F5FF</color>
+    <color name="greenOnMathematicsbackground">#BDD6A2</color>
+    <color name="pinkOnReasoningBackground">#EDAACA</color>
+    <color name="pinkOnEnglishBackground">#EEADEC</color>
+    <color name="blueOnTechnologyBackground">#B3F9F7</color>
+    <color name="orangeOnEntertainmentBackground">#FFDEB2</color>
+    <color name="redOnGeneralScienceBackground">#F0B1B1</color>
+    <color name="brownOnGeneralScience">#BF8000</color>
+    <color name="redOnGeneralScience">#FF0900</color>
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#092e3b</color>
     <color name="green">#1bb62a</color>
