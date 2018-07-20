@@ -9,8 +9,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".ProfileActivity">
-
-
+    
 
     <include
         android:id="@+id/profile_toolbar"
@@ -111,11 +110,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:weightSum="10"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.8"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
                 android:text="Paytm Number"
@@ -124,10 +125,10 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
                 android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="18dp"
                 android:elevation="10dp"
                 android:textSize="20sp"
                 app:cardCornerRadius="20dp">
@@ -145,8 +146,9 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:text="Leaderboard Ranking"
                 android:textSize="27sp"
@@ -155,12 +157,13 @@
             <TextView
                 android:id="@+id/leader_board_ranking"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_horizontal|center_vertical"
                 android:textColor="@color/grayOnLearnSectionText"
                 android:text="@string/user_ranking"
-                android:textSize="97sp"/>
+                android:paddingBottom="10dp"/>
 
         </LinearLayout>
 
