@@ -34,14 +34,14 @@ public class ComputerActivity extends AppCompatActivity {
 
         getSupportActionBar().setHomeAsUpIndicator(newdrawable);
 
+        // Gradient Heading
         // Heading TextView gradient
 
-
-        TextView txt = findViewById(R.id.text_on_computer_learn_topic);
+        TextView learnHeaderTech = findViewById(R.id.heading_on_computer);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.greenOnComputer), getResources().getColor(R.color.blueOnComputer)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
-        txt.getPaint().setShader(textShader);
+        learnHeaderTech.getPaint().setShader(textShader);
 
         // Hey UserName Initilization on learn section
 

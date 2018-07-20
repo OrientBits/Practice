@@ -37,9 +37,9 @@ public class MathematicsActivity extends AppCompatActivity {
         // Heading TextView gradient
 
 
-        TextView learnHeaderTech = findViewById(R.id.text_on_mathematics_learn_topic);
+        TextView learnHeaderTech = findViewById(R.id.heading_on_mathematics);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
-                new int[]{getResources().getColor(R.color.yellowOnMathematics), getResources().getColor(R.color.purpleOnMathematics)},
+                new int[]{getResources().getColor(R.color.purpleOnMathematics), getResources().getColor(R.color.yellowOnMathematics)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         learnHeaderTech.getPaint().setShader(textShader);
 
