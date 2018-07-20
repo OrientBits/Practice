@@ -12,23 +12,27 @@ import java.io.InputStream;
 
 public class SplashActivity extends AppCompatActivity {
 
-    public static int SPLASH_TIME_OUT=2855;
+    public static int SPLASH_TIME_OUT=1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        GifImageView gifImageView = (GifImageView) findViewById(R.id.splash_gif_id);
-        try
-        {
-            InputStream inputStream = getAssets().open("splash.gif");
-            byte [] bytes = IOUtils.toByteArray(inputStream);
-            gifImageView.setBytes(bytes);
-            gifImageView.startAnimation();
-        }
-        catch(IOException ex)
-        {
-// here is your catch statement
-        }
+
+
+//        GifImageView gifImageView = (GifImageView) findViewById(R.id.splash_gif_id);
+//        try
+//        {
+//            InputStream inputStream = getAssets().open("splash.gif");
+//            byte [] bytes = IOUtils.toByteArray(inputStream);
+//            gifImageView.setBytes(bytes);
+//            gifImageView.startAnimation();
+//        }
+//        catch(IOException ex)
+//        {
+//          // here is your catch statement
+//        }
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
