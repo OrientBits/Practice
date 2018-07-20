@@ -39,7 +39,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:contentDescription="@string/current_Affairs"
                     android:scaleType="centerCrop"
                     android:minHeight="87dp"
@@ -51,8 +51,9 @@
                 android:text="@string/current_Affairs"
                 android:textColor="@color/current_affairs" />
 
-
         </android.support.v7.widget.CardView>
+
+
         <!--column 2-->
         <android.support.v7.widget.CardView
             android:id="@+id/computer_card_view"
@@ -66,7 +67,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:contentDescription="@string/computer"
                     android:scaleType="centerCrop"
                     android:minHeight="87dp"

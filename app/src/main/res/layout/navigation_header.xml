@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
+<!--for line at the top of the items-->
     <View
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
@@ -31,14 +32,20 @@
         app:civ_border_color="@color/white"
         app:civ_border_width="4dp"/>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="5dp"
+    android:layout_toEndOf="@id/profile_image"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/profile_image"
         android:fontFamily="@font/trebuchet_ms"
+        android:textAlignment="textStart"
         android:text="@string/user_name"
         android:textColor="@color/white"
         android:textSize="15sp"
@@ -48,13 +55,13 @@
         android:id="@+id/user_mobil_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/user_name"
-        android:layout_marginStart="12dp"
-        android:layout_toEndOf="@id/profile_image"
         android:background="@android:color/transparent"
         android:paddingTop="1dp"
+        android:textAlignment="textStart"
         android:text="@string/user_mobile_no"
         android:textColor="@color/white"
         android:textSize="13sp" />
+</LinearLayout>
+
 
 </RelativeLayout>

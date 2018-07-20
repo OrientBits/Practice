@@ -271,7 +271,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        },400);
+                        },300);
                         break;
 
                     case R.id.notifications:
@@ -281,7 +281,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        },400);
+                        },300);
                         break;
 
                     case R.id.payment:
@@ -291,7 +291,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        },400);
+                        },300);
                         break;
 
                     case R.id.settings:
@@ -301,7 +301,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        },400);
+                        },300);
                         break;
 
                     case R.id.invite_friends:
@@ -312,10 +312,10 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        },400);
+                        },300);
                         break;
 
-                    case R.id.feedback:
+                    case R.id.send_feedback:
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -324,14 +324,14 @@ public class HomeActivity extends AppCompatActivity {
                         },200);
                         break;
 
-                    case R.id.rate_us:
-                        final Intent NavRateUs = new Intent(HomeActivity.this, NavRateUs.class);
+                    case R.id.about_us:
+                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavRateUs.class);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startActivity(NavRateUs);
+                                startActivity(NavAboutUs);
                             }
-                        },400);
+                        },300);
 
                         break;
                 }

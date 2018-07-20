@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    tools:openDrawer="start">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -123,20 +124,19 @@
                         android:shape="ring"
                         android:thicknessRatio="1.9"
                         app:cardCornerRadius="20dp"
-                        app:cardElevation="5dp"/>
+                        app:cardElevation="5dp" />
 
                 </LinearLayout>
 
-                    <android.support.v7.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:background="@android:color/transparent"
-                        android:paddingEnd="10dp"
-                        android:paddingStart="0dp"
-                        app:layout_collapseMode="pin"
-                        app:popupTheme="@style/AppTheme.PopupOverlay" />
-
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@android:color/transparent"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
             </android.support.design.widget.CollapsingToolbarLayout>
@@ -149,22 +149,34 @@
 
 
     <!--navigation drawer layout -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true">
 
-
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/drawer_background"
+            tools:ignore="ContentDescription" />
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/drawer_background"
-            android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:background="@android:color/transparent"
             app:headerLayout="@layout/navigation_header"
             app:itemBackground="@drawable/nav_item_background"
             app:itemIconTint="@color/navigationIconColor"
-            app:itemTextColor="@color/navigationIconColor"
-            app:menu="@menu/navigation_menu"/>
+            app:itemTextColor="@color/navigationTextColor"
+            app:menu="@menu/navigation_menu" />
 
+    </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>
+

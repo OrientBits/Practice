@@ -35,15 +35,15 @@
 
     <group
         android:id="@+id/nav_lower"
-        android:checkableBehavior="none">
+        android:checkableBehavior="single">
 
         <item
-            android:id="@+id/feedback"
-            android:title="@string/feedback" />
+            android:id="@+id/send_feedback"
+            android:title="@string/send_feedback" />
 
         <item
-            android:id="@+id/rate_us"
-            android:title="@string/rate_us" />
+            android:id="@+id/about_us"
+            android:title="@string/about_us" />
 
     </group>
 
