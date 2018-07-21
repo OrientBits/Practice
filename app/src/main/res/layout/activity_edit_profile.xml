@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<!--    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@color/darkGreenOnToolBarSettings"/>  -->
+    <include
+       android:id="@+id/edit_profile_toolbar"
+        layout="@layout/toolbar_on_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="102dp"
+        android:layout_marginTop="18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/userImageProfileView"
+        android:layout_height="105dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_image" />
+    <TextView
+        android:id="@+id/changeAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/changeAvatar"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/ripple_text_view_settings"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hardCodedName"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hardCodePhone"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.hbb20.CountryCodePicker
+        android:layout_width="wrap_content"
+        android:id="@+id/countryCodePickerOnEditProfile"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content">
+    </com.hbb20.CountryCodePicker>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hardCodeEmail"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hardCodeLocation"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/location_edit_text_on_profile"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/hardCodeSave"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/ripple_text_view_settings"
+        android:layout_gravity="end"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+</LinearLayout>

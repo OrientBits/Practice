@@ -87,6 +87,10 @@
         <activity android:name=".NavInviteFriends"
             android:label="@string/invite_friends"
             android:parentActivityName=".NavInviteFriends"/>
+        <activity
+            android:name=".EditProfileActivity"
+            android:label="@string/edit_profile"
+            android:parentActivityName=".EditProfileActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
