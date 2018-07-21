@@ -106,8 +106,21 @@
     <string name="play_button_english">English Science Play Button</string>
     <string name="start_button_special">English Science Start Button</string>
     <string name="play_button_special">English Science Play Button</string>
-
+    <string name="ACCOUNT">ACCOUNT</string>
+    <string name="edit_profile">Edit Profile</string>
     <string name="start_your_quiz">Start Your Quiz</string>
-
+    <string name="Change_Password">Change Password</string>
+    <string name="SYSTEM">SYSTEM</string>
+    <string name="Push_notifications">Push Notifications</string>
+    <string name="On">On</string>
+    <string name="Off">Off</string>
+    <string name="Night_Mode">Night Mode</string>
+    <string name="Sound">Sound</string>
+    <string name="Enable_in_app_sounds">Enable in-app sounds</string>
+    <string name="Language">Language</string>
+    <string name="English">English</string>
+    <string name="Hindi">Hindi</string>
+    <string name="Terms_of_use">Terms Of Use</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>
