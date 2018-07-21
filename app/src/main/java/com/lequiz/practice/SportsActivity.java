@@ -26,7 +26,6 @@ public class SportsActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         // Size troubleshoot Learn Section
         Drawable drawable= getResources().getDrawable(R.drawable.back_arrow_sports);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
