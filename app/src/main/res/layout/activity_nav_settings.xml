@@ -39,6 +39,7 @@
         android:background="@color/grayOnProgressHome"
         />
     <TextView
+        android:id="@+id/edit_profile_on_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_profile"

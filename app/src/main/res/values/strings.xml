@@ -122,5 +122,11 @@
     <string name="Hindi">Hindi</string>
     <string name="Terms_of_use">Terms Of Use</string>
     <string name="sign_out">Sign Out</string>
+    <string name="changeAvatar">CHANGE AVATAR</string>
+    <string name="hardCodedName">Name</string>
+    <string name="hardCodePhone">Phone</string>
+    <string name="hardCodeEmail">E-mail</string>
+    <string name="hardCodeLocation">Location</string>
+    <string name="hardCodeSave">SAVE</string>
 
 </resources>
