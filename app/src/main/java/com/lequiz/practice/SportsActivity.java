@@ -26,7 +26,6 @@ public class SportsActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         // Size troubleshoot Learn Section
         Drawable drawable= getResources().getDrawable(R.drawable.back_arrow_sports);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
@@ -43,7 +42,7 @@ public class SportsActivity extends AppCompatActivity {
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         learnHeaderTech.getPaint().setShader(textShader);
 
-        //UserName Initilization
+        //UserName Initilization UU
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
