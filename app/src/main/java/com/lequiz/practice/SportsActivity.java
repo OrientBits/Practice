@@ -42,7 +42,7 @@ public class SportsActivity extends AppCompatActivity {
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         learnHeaderTech.getPaint().setShader(textShader);
 
-        //UserName Initilization
+        //UserName Initilization UU
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
