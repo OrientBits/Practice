@@ -43,6 +43,8 @@
     <color name="redOnGeneralScienceBackground">#F0B1B1</color>
     <color name="brownOnGeneralScience">#BF8000</color>
     <color name="redOnGeneralScience">#FF0900</color>
+    <color name="greenOnToolBarSettings">#289497</color>
+    <color name="darkGreenOnToolBarSettings">#126770</color>
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#c8052733</color>
     <color name="navigationTextColor">#041d26</color>
