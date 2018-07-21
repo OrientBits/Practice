@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    android:background="@color/white"
+
     android:gravity="center_vertical"
+
     android:orientation="vertical"
+
     tools:context=".SplashActivity">
 
-
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="10dp"
-        android:padding="110dp"
-        android:src="@drawable/splash_screen"
-        tools:ignore="ContentDescription" />
 
+        android:layout_width="wrap_content"
+
+        android:layout_height="50dp"
+
+        android:layout_gravity="center_horizontal"
+
+        android:layout_margin="10dp"
+
+        android:contentDescription="@string/about_us"
+
+        android:src="@drawable/splash_screen" />
+
+</LinearLayout>
     <!--<com.felipecsl.gifimageview.library.GifImageView-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_gravity="center_horizontal"-->
         <!--android:id="@+id/splash_gif_id"/>-->
 
-</LinearLayout>
