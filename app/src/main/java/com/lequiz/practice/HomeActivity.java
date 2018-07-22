@@ -323,6 +323,13 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.about_us:
+                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavRateUs.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(NavAboutUs);
+                            }
+                        },300);
 
                         break;
                 }
@@ -343,6 +350,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void makeFeedBackIntent() {
+
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto","", null));
         String osVersion = Build.VERSION.RELEASE;
