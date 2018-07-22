@@ -1,14 +1,22 @@
 package com.lequiz.practice;
 
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toolbar;
+
 import com.hbb20.CountryCodePicker;
+
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -28,7 +36,7 @@ public class EditProfileActivity extends AppCompatActivity {
        Window window = getWindow();
        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.darkGreenOnToolBarSettings));
+       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.colorPrimaryDark));
 
 //       TextView textViewChangeAvatar = findViewById(R.id.changeAvatar);
        final EditText editTextOfLocationOnEditProfile = findViewById(R.id.location_edit_text_on_profile);
