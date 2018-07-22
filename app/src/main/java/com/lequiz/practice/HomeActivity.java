@@ -347,7 +347,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void makeFeedBackIntent() {
-
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto","", null));
         String osVersion = Build.VERSION.RELEASE;
