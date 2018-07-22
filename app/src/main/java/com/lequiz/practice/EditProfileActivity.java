@@ -28,7 +28,7 @@ public class EditProfileActivity extends AppCompatActivity {
        Window window = getWindow();
        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.colorPrimaryDark));
+       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.darkGreenOnToolBarSettings));
 
 //       TextView textViewChangeAvatar = findViewById(R.id.changeAvatar);
        final EditText editTextOfLocationOnEditProfile = findViewById(R.id.location_edit_text_on_profile);
