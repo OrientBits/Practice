@@ -64,7 +64,6 @@ public class NavSettings extends AppCompatActivity {
 
 
 
-
     }
     public void createAlertDialogWithRadioButton()
         {
