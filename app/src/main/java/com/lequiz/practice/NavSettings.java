@@ -65,7 +65,6 @@ public class NavSettings extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(NavSettings.this,R.color.darkGreenOnToolBarSettings));
 
-
     }
     public void createAlertDialogWithRadioButton()
         {
