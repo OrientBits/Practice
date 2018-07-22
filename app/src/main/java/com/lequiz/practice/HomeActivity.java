@@ -323,13 +323,6 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.about_us:
-                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavRateUs.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(NavAboutUs);
-                            }
-                        }, 200);
 
                         break;
                 }
