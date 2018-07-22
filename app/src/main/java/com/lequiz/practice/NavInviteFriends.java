@@ -50,7 +50,7 @@ public class NavInviteFriends extends AppCompatActivity {
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto","", null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Le-Quiz The Learning Earning app");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Le-Quiz The Learn Earn app");
                 String MWLink = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
                 MWLink = MWLink + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
                 emailIntent.putExtra(Intent.EXTRA_TEXT, MWLink);
