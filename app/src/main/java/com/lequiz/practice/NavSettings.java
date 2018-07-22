@@ -1,15 +1,19 @@
 package com.lequiz.practice;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -60,6 +64,7 @@ public class NavSettings extends AppCompatActivity {
 
 
 
+
     }
     public void createAlertDialogWithRadioButton()
         {
@@ -67,7 +72,6 @@ public class NavSettings extends AppCompatActivity {
             final AlertDialog.Builder builder = new AlertDialog.Builder(NavSettings.this);
             builder.setTitle("Night Mode");
             builder.setSingleChoiceItems(value, -1, new DialogInterface.OnClickListener() {
-                        @SuppressLint("SetTextI18n")
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             switch (i)
@@ -97,7 +101,6 @@ public class NavSettings extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavSettings.this);
         builder.setTitle("Language");
         builder.setSingleChoiceItems(value, -1, new DialogInterface.OnClickListener() {
-                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i)

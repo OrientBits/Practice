@@ -65,12 +65,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="4dp"
-        android:background="@color/grayOnProgressHome" />
-
-    <RelativeLayout
+        android:background="@color/grayOnProgressHome"
+        />
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,25 +78,26 @@
             android:clickable="false"
             android:textSize="16sp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="22dp"
-            tools:ignore="RelativeOverlap" />
-
+            android:layout_marginTop="22dp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switchOnPushNotifications"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp" />
-    </RelativeLayout>
+            android:layout_marginEnd="20dp"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:paddingStart="2dp"
-        android:paddingEnd="0dp"
         android:clickable="true"
         android:focusable="true"
         android:layout_marginStart="20dp"
@@ -109,26 +110,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Night_Mode"
-        android:textSize="16sp" />
+        android:textSize="16sp"
 
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/On"
-        android:id="@+id/on_off_textView" />
-
+        android:id="@+id/on_off_textView"
+       />
     </LinearLayout>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:paddingStart="2dp"
-            android:paddingEnd="0dp"
+            android:layout_weight="1"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
@@ -137,31 +139,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Sound"
-                android:textSize="16sp" />
-
+                android:textSize="16sp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Enable_in_app_sounds" />
-        </LinearLayout>
+                android:text="@string/Enable_in_app_sounds"
+                />
 
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switchOnSound"
-            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="20dp"
             />
 
-    </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:paddingStart="2dp"
-        android:paddingEnd="0dp"
         android:clickable="true"
         android:focusable="true"
         android:id="@+id/language_text_view"
