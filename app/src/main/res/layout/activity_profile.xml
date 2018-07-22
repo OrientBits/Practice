@@ -13,7 +13,7 @@
 
     <include
         android:id="@+id/profile_toolbar"
-        layout="@layout/category_toolbar" />
+        layout="@layout/toolbar_on_setting" />
 
     <ScrollView
         android:layout_width="match_parent"
