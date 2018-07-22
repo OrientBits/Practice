@@ -17,7 +17,11 @@ public class NavPayment extends AppCompatActivity {
         toolbar = findViewById(R.id.nav_payment_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_settings);
+
     }
 }
