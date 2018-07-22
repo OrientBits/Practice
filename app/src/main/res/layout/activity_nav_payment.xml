@@ -112,6 +112,7 @@
         android:text="Grab It"
         tools:ignore="HardcodedText" />
     </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>
