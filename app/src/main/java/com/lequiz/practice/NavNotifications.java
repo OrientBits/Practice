@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class NavNotifications extends AppCompatActivity {
 
-     private Toolbar toolbar;
+     protected Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
