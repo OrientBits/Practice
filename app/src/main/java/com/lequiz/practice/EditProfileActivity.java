@@ -24,6 +24,12 @@ public class EditProfileActivity extends AppCompatActivity {
        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
+// for status bar color
+       Window window = getWindow();
+       window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+       window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.colorPrimaryDark));
+
 //       TextView textViewChangeAvatar = findViewById(R.id.changeAvatar);
        final EditText editTextOfLocationOnEditProfile = findViewById(R.id.location_edit_text_on_profile);
        countryCodePicker = findViewById(R.id.countryCodePickerOnEditProfile);
@@ -37,11 +43,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
 
-// for status bar color
-       Window window = getWindow();
-       window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-       window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-       window.setStatusBarColor(ContextCompat.getColor(EditProfileActivity.this,R.color.colorPrimaryDark));
 
 }
 
