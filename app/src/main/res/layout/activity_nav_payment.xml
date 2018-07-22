@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -53,35 +52,35 @@
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="1. Grab This Place"
-            />
+            tools:ignore="HardcodedText" />
         <TextView
             android:layout_width="wrap_content"
             android:padding="12dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="2. Grab This Place"
-            />
+            tools:ignore="HardcodedText" />
         <TextView
             android:layout_width="wrap_content"
             android:padding="12dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="3. Grab This Place"
-            />
+            tools:ignore="HardcodedText" />
         <TextView
             android:layout_width="wrap_content"
             android:padding="12dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="4. Grab This Place"
-            />
+            tools:ignore="HardcodedText" />
         <TextView
             android:layout_width="wrap_content"
             android:padding="12dp"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="5. Grab This Place"
-            />
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -96,12 +95,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:textSize="100dp"
-        android:text="$0"/>
+        android:text="$0"
+        android:textSize="100sp"
+        tools:ignore="HardcodedText" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:padding="10dp"
@@ -109,7 +110,7 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_layout_blue"
         android:text="Grab It"
-       />
+        tools:ignore="HardcodedText" />
     </LinearLayout>
     </ScrollView>
 
