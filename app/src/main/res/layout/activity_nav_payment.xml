@@ -1,118 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
+    android:fitsSystemWindows="true"
     tools:context=".NavPayment">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:background="@color/darkGreenOnToolBarSettings"/>
+
     <include
         android:id="@+id/nav_payment_toolbar"
         layout="@layout/toolbar_on_setting"
         />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-    <FrameLayout
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_layout_blue"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:text="@string/usersPaidMonthly"
-        />
-</FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_layout_gray"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:text="1. Grab This Place"
-            tools:ignore="HardcodedText" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:text="2. Grab This Place"
-            tools:ignore="HardcodedText" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:text="3. Grab This Place"
-            tools:ignore="HardcodedText" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:text="4. Grab This Place"
-            tools:ignore="HardcodedText" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:padding="12dp"
-            android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:text="5. Grab This Place"
-            tools:ignore="HardcodedText" />
-
-    </LinearLayout>
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_marginStart="16dp"
-    android:text="@string/balanceHardCode"
-    android:textSize="28sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="$0"
-        android:textSize="100sp"
-        tools:ignore="HardcodedText" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:padding="10dp"
-        android:layout_gravity="end"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rounded_layout_blue"
-        android:text="Grab It"
-        tools:ignore="HardcodedText" />
-    </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

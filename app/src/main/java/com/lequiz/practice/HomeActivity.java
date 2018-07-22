@@ -269,7 +269,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        }, 300);
+                        }, 200);
                         break;
 
                     case R.id.notifications:
@@ -279,7 +279,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        }, 300);
+                        }, 200);
                         break;
 
                     case R.id.payment:
@@ -289,7 +289,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        }, 300);
+                        }, 200);
                         break;
 
                     case R.id.settings:
@@ -299,7 +299,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        }, 300);
+                        }, 200);
                         break;
 
                     case R.id.invite_friends:
@@ -310,7 +310,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        }, 300);
+                        }, 200);
                         break;
 
                     case R.id.send_feedback:
@@ -329,7 +329,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(NavAboutUs);
                             }
-                        }, 300);
+                        }, 200);
 
                         break;
                 }
@@ -341,7 +341,7 @@ public class HomeActivity extends AppCompatActivity {
                         menuItem.setChecked(false);
                         menuItem.setCheckable(false);
                     }
-                }, 1000);
+                }, 500);
                 return true;
             }
         });
