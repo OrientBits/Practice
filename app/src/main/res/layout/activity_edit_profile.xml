@@ -124,7 +124,6 @@
                     android:inputType="textEmailAddress"
                     android:text="India"
                     tools:ignore="HardcodedText" />
-
             </android.support.design.widget.TextInputLayout>
 
 
