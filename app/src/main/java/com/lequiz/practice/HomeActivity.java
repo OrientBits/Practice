@@ -269,7 +269,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        }, 200);
+                        }, 300);
                         break;
 
                     case R.id.notifications:
@@ -279,7 +279,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        }, 200);
+                        }, 300);
                         break;
 
                     case R.id.payment:
@@ -289,7 +289,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        }, 200);
+                        }, 300);
                         break;
 
                     case R.id.settings:
@@ -299,7 +299,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        }, 200);
+                        }, 300);
                         break;
 
                     case R.id.invite_friends:
@@ -310,7 +310,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        }, 200);
+                        }, 300);
                         break;
 
                     case R.id.send_feedback:
@@ -323,6 +323,13 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.about_us:
+                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavRateUs.class);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(NavAboutUs);
+                            }
+                        }, 300);
 
                         break;
                 }
@@ -334,7 +341,7 @@ public class HomeActivity extends AppCompatActivity {
                         menuItem.setChecked(false);
                         menuItem.setCheckable(false);
                     }
-                }, 500);
+                }, 1000);
                 return true;
             }
         });
@@ -343,21 +350,23 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void makeFeedBackIntent() {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","", null));
         String osVersion = Build.VERSION.RELEASE;
+        Intent chooser;
         String locale = getResources().getConfiguration().locale.getDisplayCountry();
         String manufacturerAndModal = Build.MANUFACTURER + " : " + Build.MODEL;
         String msgtxt = "-----------------------------------------------------" + "\n";
         msgtxt = msgtxt + "Support Diagnostics (Do Not Delete)" + "\n" + "-----------------------------------------------------" + "\n";
         msgtxt = msgtxt + "U: " + getString(R.string.user_name) + "\n" + "V: " + osVersion + "\n" + "M: " + manufacturerAndModal + "\n" + "S: " + Build.VERSION.SDK_INT + "\n" + "G: " + locale + "\n";
         msgtxt = msgtxt + "-----------------------------------------------------" + "\n\n";
-        String subjectMsg = "Feedback From "+getString(R.string.user_name);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subjectMsg);
+        Intent feedbackIntent = new Intent(Intent.ACTION_SEND);
+        feedbackIntent.setData(Uri.parse("mailto:"));
         String[] to = {"feedback@lequiz.com"};
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
-        emailIntent.putExtra(Intent.EXTRA_TEXT, msgtxt);
-        startActivity(emailIntent);
+        feedbackIntent.putExtra(Intent.EXTRA_EMAIL, to);
+        feedbackIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK FROM PRECIOUS USERS");
+        feedbackIntent.putExtra(Intent.EXTRA_TEXT, msgtxt);
+        feedbackIntent.setType("message/rfc822");
+        chooser = Intent.createChooser(feedbackIntent, "Send Feedback Through Email");
+        startActivity(chooser);
     }
 
     public void userNameInGradient() {
