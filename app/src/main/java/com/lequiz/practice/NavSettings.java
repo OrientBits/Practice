@@ -3,19 +3,22 @@ package com.lequiz.practice;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.Objects;
 
 public class NavSettings extends AppCompatActivity {
     AlertDialog alertDialogRadioButtons;
+
+
     protected Toolbar toolbar;
 
     @Override
@@ -27,9 +30,6 @@ public class NavSettings extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_settings);
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.greenOnToolBarSettings)));
 
         // Edit Profile Click Event
         TextView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
@@ -58,6 +58,12 @@ public class NavSettings extends AppCompatActivity {
         });
 
 
+
+        // for status bar color
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(NavSettings.this,R.color.colorPrimaryDark));
 
 
     }
