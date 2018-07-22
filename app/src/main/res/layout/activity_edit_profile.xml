@@ -1,107 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-<!--    <View
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:background="@color/darkGreenOnToolBarSettings"/>  -->
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".EditProfileActivity">
+
     <include
-       android:id="@+id/edit_profile_toolbar"
-        layout="@layout/toolbar_on_setting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="102dp"
-        android:layout_marginTop="18dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/userImageProfileView"
-        android:layout_height="105dp"
-        android:layout_gravity="center_horizontal"
-        android:padding="5dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile_image" />
-    <TextView
-        android:id="@+id/changeAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/changeAvatar"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@drawable/ripple_text_view_settings"/>
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hardCodedName"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hardCodePhone"/>
-    <LinearLayout
+        android:id="@+id/edit_profile_toolbar"
+        layout="@layout/toolbar_on_setting" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <com.hbb20.CountryCodePicker
-        android:layout_width="wrap_content"
-        android:id="@+id/countryCodePickerOnEditProfile"
-        android:layout_marginStart="20dp"
-        android:layout_height="wrap_content">
-    </com.hbb20.CountryCodePicker>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content" />
-    </LinearLayout>
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hardCodeEmail"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userImageProfileView"
+                android:layout_width="102dp"
+                android:layout_height="105dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_image" />
+
+            <TextView
+                android:id="@+id/changeAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ripple_text_view_settings"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/changeAvatar" />
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content" />
+            <!--this is for user name -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
 
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_height="wrap_content"
-        android:text="@string/hardCodeLocation"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:id="@+id/location_edit_text_on_profile"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="@string/hardCodeSave"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@drawable/ripple_text_view_settings"
-        android:layout_gravity="end"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
-        />
+                <EditText
+                    android:id="@+id/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hardCodedName"
+                    android:inputType="textEmailAddress" />
 
+            </android.support.design.widget.TextInputLayout>
+
+            <!--this is for mobile no-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/countryCodePickerOnEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/user_mobile_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone"
+                        android:inputType="textEmailAddress"
+                        tools:ignore="HardcodedText" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <!--this is for email id-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="HardcodedText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--this is for location -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/location_edit_text_on_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Location"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="HardcodedText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/profile_button_save_changes"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:background="@drawable/default_button_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Save Changes"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                tools:ignore="HardcodedText" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
