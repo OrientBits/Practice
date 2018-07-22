@@ -78,11 +78,6 @@
             android:name=".NavSettings"
             android:label="@string/settings"
             android:parentActivityName=".NavSettings" />
-        <activity
-            android:name=".NavRateUs"
-            android:label="@string/about_us"
-            android:parentActivityName=".NavRateUs" />
-
 
         <activity android:name=".NavInviteFriends"
             android:label="@string/invite_friends"
