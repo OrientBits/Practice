@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         setupDrawerContent(navigationView); // default true
 
 
+
         currentAffairs = findViewById(R.id.current_affairs_card_view);
         computer = findViewById(R.id.computer_card_view);
         mathematics = findViewById(R.id.mathematics_card_view);
@@ -173,6 +174,7 @@ public class HomeActivity extends AppCompatActivity {
     } // onCreate method
 
 
+
     //show a dialog message when click back button exit of nor also drawer layout closed or not
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -231,11 +233,10 @@ public class HomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.quiz_factory:
-                Intent NavQuizFactory = new Intent(HomeActivity.this, QuizFactory.class);
-                startActivity(NavQuizFactory);
+                Toast.makeText(getApplicationContext(), "Quiz Factory", Toast.LENGTH_LONG).show();
                 break;
             case R.id.invite_friends:
-                Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
+                Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
                 startActivity(navFriends);
                 break;
             case R.id.rate:
@@ -261,7 +262,8 @@ public class HomeActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 menuItem.setCheckable(true);
                 Handler handler = new Handler();
-                switch (res_id) {
+                switch (res_id)
+                {
                     case R.id.leaderboard:
                         final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
                         handler.postDelayed(new Runnable() {
@@ -269,7 +271,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        }, 200);
+                        },300);
                         break;
 
                     case R.id.notifications:
@@ -279,7 +281,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        }, 200);
+                        },300);
                         break;
 
                     case R.id.payment:
@@ -289,7 +291,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        }, 200);
+                        },300);
                         break;
 
                     case R.id.settings:
@@ -299,18 +301,18 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        }, 200);
+                        },300);
                         break;
 
                     case R.id.invite_friends:
-                        final Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
+                        final Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
 
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        }, 200);
+                        },300);
                         break;
 
                     case R.id.send_feedback:
@@ -319,29 +321,17 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 makeFeedBackIntent();
                             }
-                        }, 200);
+                        },200);
                         break;
 
                     case R.id.about_us:
-                        final Intent NavAboutUs = new Intent(HomeActivity.this, NavRateUs.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(NavAboutUs);
-                            }
-                        }, 200);
 
                         break;
                 }
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
                         mDrawerLayout.closeDrawers();
                         menuItem.setChecked(false);
                         menuItem.setCheckable(false);
-                    }
-                }, 500);
                 return true;
             }
         });
@@ -350,23 +340,21 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void makeFeedBackIntent() {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto","", null));
         String osVersion = Build.VERSION.RELEASE;
-        Intent chooser;
         String locale = getResources().getConfiguration().locale.getDisplayCountry();
         String manufacturerAndModal = Build.MANUFACTURER + " : " + Build.MODEL;
         String msgtxt = "-----------------------------------------------------" + "\n";
         msgtxt = msgtxt + "Support Diagnostics (Do Not Delete)" + "\n" + "-----------------------------------------------------" + "\n";
         msgtxt = msgtxt + "U: " + getString(R.string.user_name) + "\n" + "V: " + osVersion + "\n" + "M: " + manufacturerAndModal + "\n" + "S: " + Build.VERSION.SDK_INT + "\n" + "G: " + locale + "\n";
         msgtxt = msgtxt + "-----------------------------------------------------" + "\n\n";
-        Intent feedbackIntent = new Intent(Intent.ACTION_SEND);
-        feedbackIntent.setData(Uri.parse("mailto:"));
+        String subjectMsg = "Feedback From "+getString(R.string.user_name);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subjectMsg);
         String[] to = {"feedback@lequiz.com"};
-        feedbackIntent.putExtra(Intent.EXTRA_EMAIL, to);
-        feedbackIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK FROM PRECIOUS USERS");
-        feedbackIntent.putExtra(Intent.EXTRA_TEXT, msgtxt);
-        feedbackIntent.setType("message/rfc822");
-        chooser = Intent.createChooser(feedbackIntent, "Send Feedback Through Email");
-        startActivity(chooser);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, msgtxt);
+        startActivity(emailIntent);
     }
 
     public void userNameInGradient() {

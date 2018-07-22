@@ -120,29 +120,26 @@
                     android:id="@+id/location_edit_text_on_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="India"
                     android:hint="Location"
                     android:inputType="textEmailAddress"
+                    android:text="India"
                     tools:ignore="HardcodedText" />
 
             </android.support.design.widget.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/profile_button_save_changes"
-                android:layout_width="200dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="20dp"
-                android:background="@drawable/default_button_background"
+                android:layout_gravity="end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ripple_text_view_settings"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="Save Changes"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                tools:ignore="HardcodedText" />
-
+                android:padding="10dp"
+                android:text="@string/hardCodeSave"
+                />
 
         </LinearLayout>
 
