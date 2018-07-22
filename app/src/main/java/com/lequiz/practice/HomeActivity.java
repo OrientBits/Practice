@@ -71,7 +71,6 @@ public class HomeActivity extends AppCompatActivity {
         setupDrawerContent(navigationView); // default true
 
 
-
         currentAffairs = findViewById(R.id.current_affairs_card_view);
         computer = findViewById(R.id.computer_card_view);
         mathematics = findViewById(R.id.mathematics_card_view);
@@ -174,7 +173,6 @@ public class HomeActivity extends AppCompatActivity {
     } // onCreate method
 
 
-
     //show a dialog message when click back button exit of nor also drawer layout closed or not
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -233,10 +231,11 @@ public class HomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.quiz_factory:
-                Toast.makeText(getApplicationContext(), "Quiz Factory", Toast.LENGTH_LONG).show();
+                Intent NavQuizFactory = new Intent(HomeActivity.this, QuizFactory.class);
+                startActivity(NavQuizFactory);
                 break;
             case R.id.invite_friends:
-                Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+                Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
                 startActivity(navFriends);
                 break;
             case R.id.rate:
@@ -262,8 +261,7 @@ public class HomeActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 menuItem.setCheckable(true);
                 Handler handler = new Handler();
-                switch (res_id)
-                {
+                switch (res_id) {
                     case R.id.leaderboard:
                         final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
                         handler.postDelayed(new Runnable() {
@@ -271,7 +269,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navLeaderboard);
                             }
-                        },300);
+                        }, 300);
                         break;
 
                     case R.id.notifications:
@@ -281,7 +279,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navNotification);
                             }
-                        },300);
+                        }, 300);
                         break;
 
                     case R.id.payment:
@@ -291,7 +289,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navPayment);
                             }
-                        },300);
+                        }, 300);
                         break;
 
                     case R.id.settings:
@@ -301,18 +299,18 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(navSettings);
                             }
-                        },300);
+                        }, 300);
                         break;
 
                     case R.id.invite_friends:
-                        final Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+                        final Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
 
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 startActivity(navFriends);
                             }
-                        },300);
+                        }, 300);
                         break;
 
                     case R.id.send_feedback:
@@ -321,7 +319,7 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 makeFeedBackIntent();
                             }
-                        },200);
+                        }, 200);
                         break;
 
                     case R.id.about_us:
@@ -331,14 +329,19 @@ public class HomeActivity extends AppCompatActivity {
                             public void run() {
                                 startActivity(NavAboutUs);
                             }
-                        },300);
+                        }, 300);
 
                         break;
                 }
 
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
                         mDrawerLayout.closeDrawers();
                         menuItem.setChecked(false);
                         menuItem.setCheckable(false);
+                    }
+                }, 1000);
                 return true;
             }
         });

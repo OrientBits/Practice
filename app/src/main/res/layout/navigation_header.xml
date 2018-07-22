@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="157dp"
+    android:layout_height="146dp"
     android:background="@android:color/transparent"
     android:elevation="5dp"
     android:orientation="vertical"
@@ -12,9 +12,9 @@
 <!--for line at the top of the items-->
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
+        android:layout_height="1dp"
         android:layout_below="@id/profile_image"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="15dp"
         android:background="#6572858c"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -23,7 +23,7 @@
         android:layout_height="75dp"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="45dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:selectableItemBackground"
@@ -36,6 +36,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="5dp"
+    android:layout_marginTop="20dp"
     android:layout_toEndOf="@id/profile_image"
     android:gravity="center_vertical"
     android:orientation="vertical">

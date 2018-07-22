@@ -132,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@android:color/transparent"
-                    android:paddingEnd="10dp"
+                    android:paddingEnd="7dp"
                     android:paddingStart="0dp"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />

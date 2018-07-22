@@ -56,9 +56,7 @@
             android:name=".SpecialActivity"
             android:label="@string/special"
             android:parentActivityName=".SpecialActivity" />
-        <activity
-            android:name=".HomeActivity" />
-
+        <activity android:name=".HomeActivity" />
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".ProfileActivity" />
@@ -82,11 +80,10 @@
             android:name=".NavRateUs"
             android:label="@string/about_us"
             android:parentActivityName=".NavRateUs" />
-
-
-        <activity android:name=".NavInviteFriends"
+        <activity
+            android:name=".NavInviteFriends"
             android:label="@string/invite_friends"
-            android:parentActivityName=".NavInviteFriends"/>
+            android:parentActivityName=".NavInviteFriends" />
         <activity
             android:name=".EditProfileActivity"
             android:label="@string/edit_profile"
@@ -96,6 +93,11 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".QuizFactory"
+            android:label="@string/quiz_factory"
+            android:parentActivityName=".QuizFactory">
+
+        </activity>
     </application>
 
 </manifest>

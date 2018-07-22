@@ -9,23 +9,25 @@
 
     <include
         android:id="@+id/nav_invite_friend_toolbar"
-        layout="@layout/default_toolbar" />
+        layout="@layout/toolbar_on_setting" />
 
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/nav_invite_friend_toolbar">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/nav_invite_friend_toolbar"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
+            android:gravity="center_vertical"
             android:weightSum="14">
 
             <ImageView
                 android:id="@+id/invite_image"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="7"
+                android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:contentDescription="@string/invite_friends"
                 android:src="@drawable/invite_friend" />
@@ -33,21 +35,21 @@
             <TextView
                 android:id="@+id/invite_text"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="LearnEarn Quiz is better with friends!"
                 android:textColor="@color/darkBlueOnProgressHome"
                 android:textSize="16sp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 tools:ignore="HardcodedText" />
 
 
             <Button
                 android:id="@+id/email_button"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="15dp"
-                android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
@@ -63,12 +65,11 @@
             <Button
                 android:id="@+id/sms_button"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_weight="1"
                 android:background="@drawable/button_sms"
                 android:drawableStart="@drawable/ic_sms_black_24dp"
                 android:elevation="4dp"
@@ -81,12 +82,11 @@
             <Button
                 android:id="@+id/whatsapp_button"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_weight="1"
                 android:background="@drawable/button_whatsapp"
                 android:drawableStart="@drawable/ic_whatsapp_inbutton"
                 android:elevation="4dp"
@@ -99,16 +99,15 @@
             <Button
                 android:id="@+id/share_button"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_weight="1"
                 android:background="@drawable/button_share"
                 android:drawableStart="@drawable/ic_share_black_24dp"
                 android:elevation="4dp"
-                android:paddingEnd="30dp"
+                android:paddingEnd="10dp"
                 android:paddingStart="12dp"
                 android:text="share"
                 android:textColor="@android:color/white"
@@ -116,5 +115,5 @@
 
         </LinearLayout>
 
-
+</ScrollView>
 </RelativeLayout>
