@@ -210,6 +210,5 @@
                 android:layout_marginBottom="4dp"
                 android:text="@string/sign_out" />
         </LinearLayout>
-
     </ScrollView>
 </LinearLayout>
