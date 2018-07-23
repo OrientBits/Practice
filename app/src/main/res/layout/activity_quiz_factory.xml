@@ -44,7 +44,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     tools:ignore="HardcodedText">
-
                 </Spinner>
 
             </RelativeLayout>
