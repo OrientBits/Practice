@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,177 +25,115 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-
                 android:id="@+id/userImageProfileView"
-
                 android:layout_width="102dp"
-
                 android:layout_height="105dp"
-
                 android:layout_gravity="center_horizontal"
-
                 android:layout_marginTop="18dp"
-
                 android:clickable="true"
-
                 android:focusable="true"
-
                 android:padding="5dp"
-
                 android:scaleType="centerCrop"
-
                 android:src="@drawable/profile_image" />
 
             <TextView
-
                 android:id="@+id/changeAvatar"
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_gravity="center_horizontal"
-
                 android:background="@drawable/ripple_text_view_settings"
-
                 android:clickable="true"
-
                 android:focusable="true"
-
                 android:text="@string/changeAvatar" />
 
             <TextView
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="24dp"
-
                 android:layout_marginTop="5dp"
-
                 android:text="@string/hardCodedName" />
 
             <EditText
-
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginEnd="20dp"
-
-                android:layout_marginStart="20dp" />
+                android:layout_marginStart="20dp"
+                android:inputType="textPersonName"
+                tools:ignore="LabelFor" />
 
             <TextView
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="24dp"
-
                 android:layout_marginTop="5dp"
-
                 android:text="@string/hardCodePhone" />
 
             <LinearLayout
-
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content">
 
                 <com.hbb20.CountryCodePicker
-
                     android:id="@+id/countryCodePickerOnEditProfile"
-
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
-
                     android:layout_marginStart="20dp">
 
                 </com.hbb20.CountryCodePicker>
 
                 <EditText
-
                     android:layout_width="match_parent"
-
                     android:layout_height="wrap_content"
-
-                    android:layout_marginEnd="20dp" />
+                    android:layout_marginEnd="20dp"
+                    android:inputType="number"
+                    tools:ignore="LabelFor" />
 
             </LinearLayout>
 
             <TextView
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="24dp"
-
                 android:layout_marginTop="5dp"
-
                 android:text="@string/hardCodeEmail" />
 
 
             <EditText
-
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginEnd="20dp"
-
-                android:layout_marginStart="20dp" />
+                android:layout_marginStart="20dp"
+                android:inputType="textEmailAddress"
+                tools:ignore="LabelFor" />
 
 
             <TextView
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="24dp"
-
                 android:layout_marginTop="5dp"
-
                 android:text="@string/hardCodeLocation" />
 
             <EditText
-
                 android:id="@+id/location_edit_text_on_profile"
-
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-
                 android:layout_marginEnd="20dp"
-
-                android:layout_marginStart="20dp" />
+                android:layout_marginStart="20dp"
+                android:inputType="textCapSentences"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_gravity="end"
-
                 android:layout_marginBottom="10dp"
-
                 android:layout_marginEnd="20dp"
-
                 android:background="@drawable/ripple_text_view_settings"
-
                 android:clickable="true"
-
                 android:focusable="true"
-
                 android:padding="10dp"
+                android:text="@string/hardCodeSave" />
 
-                android:text="@string/hardCodeSave"
-
-                />
         </LinearLayout>
 
     </ScrollView>
