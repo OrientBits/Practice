@@ -11,7 +11,6 @@
     <!--this is used in navigation drawer item background color-->
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>
 
-
     <color name="darkBlueOnProgressHome">#1f597e</color>
     <color name="grayOnProgressHome">#B6B3B3</color>
     <color name="blueOnPopup">#03294d</color>
