@@ -35,7 +35,6 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(QuizFactory.this,R.color.darkGreenOnToolBarSettings));
 
-
 //        for spinner chooser
         spinner = findViewById(R.id.spinner_to_choose_category);
 
