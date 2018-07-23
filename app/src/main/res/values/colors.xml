@@ -2,7 +2,7 @@
     <!--   color for the app bar and other primary UI elements -->
     <color name="colorPrimary">#325368</color>
     <color name="colorPrimaryDark">#284050</color>
-    <color name="lightPrimaryColor">#E3F2FD</color>
+    <color name="activityBackgroundColor">#e9e9e9</color>
     <color name="white">@android:color/background_light</color>
 
     <!--   a secondary color for controls like checkboxes and text fields -->
