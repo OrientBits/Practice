@@ -133,8 +133,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@android:color/transparent"
-                    android:paddingEnd="5dp"
-                    android:paddingStart="0dp"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
 
