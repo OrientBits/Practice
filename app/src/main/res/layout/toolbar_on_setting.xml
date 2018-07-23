@@ -6,7 +6,6 @@
     android:elevation="4dp"
     android:background="@color/greenOnToolBarSettings"
     android:fitsSystemWindows="true"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-   >
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
 </android.support.v7.widget.Toolbar>
