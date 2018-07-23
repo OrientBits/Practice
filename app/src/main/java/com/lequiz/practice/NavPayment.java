@@ -19,7 +19,7 @@ public class NavPayment extends AppCompatActivity {
 
         toolbar = findViewById(R.id.nav_payment_toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+       Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // for status bar color
