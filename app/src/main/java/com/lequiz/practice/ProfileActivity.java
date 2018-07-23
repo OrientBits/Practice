@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-       // getSupportActionBar().setHomeAsUpIndicator(R.drawable.simple_back_arrow_profile);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.simple_back_arrow_profile);
         getSupportActionBar().setTitle(null);
 
 
