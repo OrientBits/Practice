@@ -73,6 +73,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
+
     }
 
     @Override
