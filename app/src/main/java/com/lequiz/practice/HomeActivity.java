@@ -233,7 +233,8 @@ public class HomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.quiz_factory:
-                Toast.makeText(getApplicationContext(), "Quiz Factory", Toast.LENGTH_LONG).show();
+                Intent QuizFactory= new Intent(HomeActivity.this, QuizFactory.class);
+                startActivity(QuizFactory);
                 break;
             case R.id.invite_friends:
                 Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
