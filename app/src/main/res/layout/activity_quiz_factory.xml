@@ -38,13 +38,13 @@
                     android:textSize="25sp"
                     tools:ignore="HardcodedText" />
 
+
                 <Spinner
+                    android:id="@+id/spinner_to_choose_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    tools:ignore="HardcodedText">
-
-                </Spinner>
+                    tools:ignore="HardcodedText"/>
 
             </RelativeLayout>
 
@@ -143,21 +143,18 @@
 
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+
                 <Button
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
                     android:layout_margin="10dp"
                     android:background="@drawable/default_button_background"
                     android:text="Submit"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     tools:ignore="HardcodedText" />
 
-            </RelativeLayout>
         </LinearLayout>
 
 
