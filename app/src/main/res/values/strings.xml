@@ -131,4 +131,7 @@
     <string name="usersPaidMonthly">Users Paid (Month)</string>
     <string name="balanceHardCode">Won Balance</string>
 
+
+    <!--spinner title-->
+    <string name="spinner_title">Choose Category</string>
 </resources>

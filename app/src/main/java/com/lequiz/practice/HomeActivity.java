@@ -330,9 +330,15 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                 }
 
-                mDrawerLayout.closeDrawers();
-                menuItem.setChecked(false);
-                menuItem.setCheckable(false);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mDrawerLayout.closeDrawers();
+                        menuItem.setChecked(false);
+                        menuItem.setCheckable(false);
+                    }
+                },100);
+
                 return true;
             }
         });

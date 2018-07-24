@@ -27,7 +27,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         // for status bar color
         Window window = getWindow();
