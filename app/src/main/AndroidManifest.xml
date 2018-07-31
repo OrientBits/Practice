@@ -74,6 +74,7 @@
             android:parentActivityName=".SpecialActivity" />
 
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".ProfileActivity"
             android:parentActivityName=".ProfileActivity" />
         <activity

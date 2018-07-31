@@ -31,7 +31,6 @@ public class ComputerActivity extends AppCompatActivity {
         Drawable drawable= getResources().getDrawable(R.drawable.back_button_computer);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
         Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
         getSupportActionBar().setHomeAsUpIndicator(newdrawable);
 
         // Gradient Heading
