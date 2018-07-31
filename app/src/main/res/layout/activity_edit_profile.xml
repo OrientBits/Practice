@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/edit_profile_toolbar"
-        layout="@layout/toolbar_on_setting" />
+        layout="@layout/setting_toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"

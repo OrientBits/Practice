@@ -37,7 +37,6 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
 
         // Heading Text Gradient
-
         TextView learnHeaderTech = findViewById(R.id.heading_on_current_affairs);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueGradientTech), getResources().getColor(R.color.greenOnCurrentAffairs), getResources().getColor(R.color.yellowOnCurrentAffairs)},

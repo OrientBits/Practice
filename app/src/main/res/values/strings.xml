@@ -129,7 +129,7 @@
     <string name="hardCodeLocation">Location</string>
     <string name="hardCodeSave">SAVE</string>
     <string name="usersPaidMonthly">Users Paid (Month)</string>
-    <string name="balanceHardCode">Won Balance</string>
+    <string name="userWonBalance"> 100 </string>
 
 
     <!--spinner title-->

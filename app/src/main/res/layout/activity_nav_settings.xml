@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/nav_settings_toolbar"
-        layout="@layout/toolbar_on_setting"/>
+        layout="@layout/setting_toolbar"/>
 
 
     <ScrollView

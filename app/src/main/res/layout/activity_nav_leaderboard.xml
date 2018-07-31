@@ -8,6 +8,6 @@
 
     <include
         android:id="@+id/nav_leaderboard_toolbar"
-        layout="@layout/toolbar_on_setting"
+        layout="@layout/setting_toolbar"
         />
 </android.support.constraint.ConstraintLayout>

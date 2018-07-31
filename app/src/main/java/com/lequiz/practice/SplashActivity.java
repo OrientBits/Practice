@@ -1,21 +1,23 @@
 package com.lequiz.practice;
 
 import android.content.Intent;
-
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.felipecsl.gifimageview.library.GifImageView;
-import org.apache.commons.io.IOUtils;
-import java.io.IOException;
-import java.io.InputStream;
+import android.view.WindowManager;
+
 
 public class SplashActivity extends AppCompatActivity {
 
-    public static int SPLASH_TIME_OUT=1000;
+    public static int SPLASH_TIME_OUT = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_splash);
 
 
@@ -36,10 +38,10 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(SplashActivity.this,HomeActivity.class);
+                Intent homeIntent = new Intent(SplashActivity.this, HomeActivity.class);
                 startActivity(homeIntent);
                 finish();
             }
-        },SPLASH_TIME_OUT );
+        }, SPLASH_TIME_OUT);
     }
 }

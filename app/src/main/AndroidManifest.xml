@@ -9,54 +9,70 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".MathematicsActivity"
             android:label="@string/mathematics"
             android:parentActivityName=".MathematicsActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".ReasoningActivity"
             android:label="@string/reasoning"
             android:parentActivityName=".ReasoningActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
             android:parentActivityName=".EntertainmentActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".TechnologyActivity"
             android:label="@string/technology"
             android:parentActivityName=".TechnologyActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".CurrentAffairsActivity"
             android:label="@string/current_Affairs"
             android:parentActivityName=".CurrentAffairsActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".ComputerActivity"
             android:label="@string/computer"
             android:parentActivityName=".ComputerActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".GeneralScienceActivity"
             android:label="@string/general_science"
             android:parentActivityName=".GeneralScienceActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".EnglishActivity"
             android:label="@string/english"
             android:parentActivityName=".EnglishActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".SportsActivity"
             android:label="@string/sports"
             android:parentActivityName=".SportsActivity" />
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".SpecialActivity"
             android:label="@string/special"
             android:parentActivityName=".SpecialActivity" />
-        <activity android:name=".HomeActivity" />
+
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".ProfileActivity" />
@@ -89,7 +105,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".QuizFactory"
+        <activity
+            android:name=".QuizFactory"
             android:label="@string/quiz_factory"
             android:parentActivityName=".QuizFactory">
 

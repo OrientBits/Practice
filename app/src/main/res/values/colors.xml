@@ -1,17 +1,18 @@
 <resources>
-    <!--   color for the app bar and other primary UI elements -->
-    <color name="colorPrimary">#325368</color>
-    <color name="colorPrimaryDark">#284050</color>
-    <color name="activityBackgroundColor">#e9e9e9</color>
+    <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
+    <color name="colorPrimary">#1E88E5</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="activityBackgroundColor">#f4f4f4</color>
     <color name="white">@android:color/background_light</color>
+
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
 
     <!--this is used in navigation drawer item background color-->
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>
-
     <color name="darkBlueOnProgressHome">#1f597e</color>
+
     <color name="grayOnProgressHome">#B6B3B3</color>
     <color name="blueOnPopup">#03294d</color>
     <color name="pinkOnSports">#ED1E79</color>
@@ -34,11 +35,11 @@
     <color name="darkPinkOnReasoning">#F00B51</color>
     <color name="purpleOnSpecial">#005176</color>
     <color name="redOnSpecial">#D8413E</color>
-    <color name="redOnSpecialBackgrpund">#F1BBBB</color>
+    <color name="redOnSpecialBackground">#F1BBBB</color>
     <color name="pinkBackgroundSports">#F8ACCD</color>
     <color name="greenBackgroundCurrentAffairs">#BFFFFF</color>
     <color name="blueOnComputerBackground">#B4F5FF</color>
-    <color name="greenOnMathematicsbackground">#BDD6A2</color>
+    <color name="greenOnMathematicsBackground">#BDD6A2</color>
     <color name="pinkOnReasoningBackground">#EDAACA</color>
     <color name="pinkOnEnglishBackground">#EEADEC</color>
     <color name="blueOnTechnologyBackground">#B3F9F7</color>
@@ -47,24 +48,24 @@
     <color name="brownOnGeneralScience">#BF8000</color>
     <color name="redOnGeneralScience">#FF0900</color>
     <color name="greenOnToolBarSettings">#289497</color>
-    <color name="darkGreenOnToolBarSettings">#126770</color>
     <color name="darkGray">#666666</color>
+
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#c8052733</color>
     <color name="navigationTextColor">#041d26</color>
     <color name="green">#1bb62a</color>
 
     <!--category text view color-->
-    <color name="current_affairs">#61E0BD</color>
-    <color name="computer">#9C54A4</color>
-    <color name="mathematics">#2F653D</color>
-    <color name="reasoning">#116E92</color>
+    <color name="current_affairs">#56e2bc</color>
+    <color name="computer">#53EECA</color>
+    <color name="mathematics">#479A77</color>
+    <color name="reasoning">#F3368D</color>
     <color name="general_science">#40B6AD</color>
-    <color name="english">#D8B857</color>
-    <color name="technology">#6E42A3</color>
+    <color name="english">#A15CDA</color>
+    <color name="technology">#41A0ED</color>
     <color name="sport">#CB4432</color>
-    <color name="special">#186C7D</color>
-    <color name="entertainment">#543A34</color>
+    <color name="special">#065175</color>
+    <color name="entertainment">#F47C1C</color>
 
 
 </resources>

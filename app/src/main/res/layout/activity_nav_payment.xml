@@ -5,119 +5,117 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:background="@color/activityBackgroundColor"
     tools:context=".NavPayment">
 
     <include
         android:id="@+id/nav_payment_toolbar"
-        layout="@layout/toolbar_on_setting" />
+        layout="@layout/setting_toolbar" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/rounded_layout_blue">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="@string/usersPaidMonthly"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_margin="6dp"
+            android:background="@android:color/white"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity=""
+                    android:padding="30dp"
+                    android:src="@drawable/payment_background"
+                    tools:ignore="ContentDescription" />
             </FrameLayout>
 
             <LinearLayout
+                android:id="@+id/balance_sections"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/rounded_layout_gray"
+                android:layout_marginTop="0dp"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="1. Grab This Place"
-                    android:textColor="@color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Your Current Balance "
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
                     tools:ignore="HardcodedText" />
 
                 <TextView
+                    android:id="@+id/user_won_balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="2. Grab This Place"
-                    android:textColor="@color/white"
-                    tools:ignore="HardcodedText" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/userWonBalance"
+                    android:textColor="@color/green"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/whatsapp_button"
+                android:layout_width="160dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_whatsapp"
+                android:elevation="4dp"
+                android:text="SEND TO PAYTM"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                tools:ignore="HardcodedText" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="3. Grab This Place"
-                    android:textColor="@color/white"
-                    tools:ignore="HardcodedText" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="4. Grab This Place"
-                    android:textColor="@color/white"
-                    tools:ignore="HardcodedText" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:text="5. Grab This Place"
-                    android:textColor="@color/white"
-                    tools:ignore="HardcodedText" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="560dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@android:color/white"
+                android:elevation="5dp"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/name_font"
+                        android:gravity="center_horizontal"
+                        android:text="TOP 10 LEARNERS THIS MONTH"
+                        android:textColor="@color/purpleOnHomeText"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                <ListView
+                    android:id="@+id/top_10_learners"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/balanceHardCode"
-                android:textSize="28sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="$0"
-                android:textSize="100sp"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/rounded_layout_blue"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="10dp"
-                android:text="Grab It"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                tools:ignore="HardcodedText" />
-
         </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>
