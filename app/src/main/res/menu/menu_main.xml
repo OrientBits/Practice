@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:theme="@style/AppTheme.PopupOverlay">
 
-
     <item
         android:id="@+id/notifications"
         android:checkable="true"
         android:enabled="true"
-        android:icon="@drawable/notifications"
+        android:icon="@drawable/ic_notifications"
         android:title="@string/notifications"
         android:visible="true"
         app:showAsAction="ifRoom" />

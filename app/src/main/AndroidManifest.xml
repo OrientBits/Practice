@@ -20,7 +20,7 @@
 
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/MyMaterialTheme"/>
 
         <activity
             android:theme="@style/AppTheme.NoActionBar"

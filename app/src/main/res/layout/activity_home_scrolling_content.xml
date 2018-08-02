@@ -3,15 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_below="@+id/app_bar"
     android:layout_width="match_parent"
-    android:layout_marginTop="0dp"
-    android:paddingTop="0dp"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/app_bar"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".HomeActivity"
-    tools:showIn="@layout/activity_home">
+    tools:showIn="@layout/activity_home_app_bar">
 
 
     <GridLayout
@@ -20,8 +17,9 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="1dp"
         android:columnCount="2"
-        android:padding="5dp"
+        android:background="@android:color/white"
         android:columnOrderPreserved="false"
+        android:padding="5dp"
         android:rowCount="5">
 
         <!--Row 1-->
@@ -40,9 +38,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/current_Affairs"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/current_affairs"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/current_affairs" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -68,9 +66,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/computer"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/computer"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/computer" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -97,9 +95,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/mathematics"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/mathematics"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mathematics" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -124,9 +122,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/reasoning"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/reasoning"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/reasoning" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -153,9 +151,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/general_science"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/general_science"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/general_science" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -180,9 +178,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/english"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/english"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/english" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -209,9 +207,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/technology"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/technology"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/technology" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -236,9 +234,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/sports"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/sport"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sport" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -265,9 +263,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/special"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/special"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/special" />
             </android.support.v7.widget.CardView>
 
             <TextView
@@ -292,9 +290,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/entertainment"
-                    android:scaleType="centerCrop"
                     android:minHeight="87dp"
-                    android:src="@drawable/entertainment"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/entertainment" />
             </android.support.v7.widget.CardView>
 
             <TextView

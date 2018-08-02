@@ -1,11 +1,10 @@
 package com.lequiz.practice;
 
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -14,17 +13,15 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,13 +30,16 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mToggle;
-    protected CircleImageView profile_header, profile_home;
+    protected ActionBarDrawerToggle mToggle;
+    protected CircleImageView  profile_home;
+    protected ImageView profile_header;
     protected CardView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Toolbar toolbar;
+    boolean doubleBackToExitPressedOnce = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,26 +58,21 @@ public class HomeActivity extends AppCompatActivity {
 
         // open drawer when navigation button is tapped
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
+//        Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int height = displayMetrics.heightPixels;
-        int width = displayMetrics.widthPixels;
-
-        
 
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         View headerView = navigationView.getHeaderView(0);
         profile_header = headerView.findViewById(R.id.profile_image);
-        setupDrawerContent(navigationView); // default true
 
 
 
@@ -169,6 +164,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent PA = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(PA);
+                mDrawerLayout.closeDrawer(GravityCompat.START);
             }
         });
         profile_home.setOnClickListener(new View.OnClickListener() {
@@ -176,45 +172,36 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent PA = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(PA);
+
             }
         });
-
 
     } // onCreate method
 
 
-
-    //show a dialog message when click back button exit of nor also drawer layout closed or not
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                exitByBackKey();
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
             }
-            //moveTaskToBack(false);
-
-            return true;
         }
-        return super.onKeyDown(keyCode, event);
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
-    protected void exitByBackKey() {
-        AlertDialog alertbox = new AlertDialog.Builder(this)
-                .setMessage("Do you want to exit application?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
-                        //close();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                }).show();
-    }
 
 
     @Override
@@ -242,11 +229,11 @@ public class HomeActivity extends AppCompatActivity {
 
                 break;
             case R.id.quiz_factory:
-                Intent QuizFactory= new Intent(HomeActivity.this, QuizFactory.class);
+                Intent QuizFactory = new Intent(HomeActivity.this, QuizFactory.class);
                 startActivity(QuizFactory);
                 break;
             case R.id.invite_friends:
-                Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
+                Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
                 startActivity(navFriends);
                 break;
             case R.id.rate:
@@ -257,107 +244,16 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(NavSettings);
                 break;
         }
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return true;
+
+        return super.onOptionsItemSelected(item);
     }
 
 
-    private void setupDrawerContent(final NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull final MenuItem menuItem) {
-                int res_id = menuItem.getItemId();
-                menuItem.setChecked(true);
-                menuItem.setCheckable(true);
-                Handler handler = new Handler();
-                switch (res_id)
-                {
-                    case R.id.leaderboard:
-                        final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(navLeaderboard);
-                            }
-                        },300);
-                        break;
-
-                    case R.id.notifications:
-                        final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(navNotification);
-                            }
-                        },300);
-                        break;
-
-                    case R.id.payment:
-                        final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(navPayment);
-                            }
-                        },300);
-                        break;
-
-                    case R.id.settings:
-                        final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(navSettings);
-                            }
-                        },300);
-                        break;
-
-                    case R.id.invite_friends:
-                        final Intent navFriends = new Intent(HomeActivity.this,NavInviteFriends.class);
-
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(navFriends);
-                            }
-                        },300);
-                        break;
-
-                    case R.id.send_feedback:
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                makeFeedBackIntent();
-                            }
-                        },200);
-                        break;
-
-                    case R.id.about_us:
-
-                        break;
-                }
-
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mDrawerLayout.closeDrawers();
-                        menuItem.setChecked(false);
-                        menuItem.setCheckable(false);
-                    }
-                },100);
-
-                return true;
-            }
-        });
-
-    }
 
 
     public void makeFeedBackIntent() {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","", null));
+                "mailto", "", null));
         String osVersion = Build.VERSION.RELEASE;
         String locale = getResources().getConfiguration().locale.getDisplayCountry();
         String manufacturerAndModal = Build.MANUFACTURER + " : " + Build.MODEL;
@@ -365,7 +261,7 @@ public class HomeActivity extends AppCompatActivity {
         msgtxt = msgtxt + "Support Diagnostics (Do Not Delete)" + "\n" + "-----------------------------------------------------" + "\n";
         msgtxt = msgtxt + "U: " + getString(R.string.user_name) + "\n" + "V: " + osVersion + "\n" + "M: " + manufacturerAndModal + "\n" + "S: " + Build.VERSION.SDK_INT + "\n" + "G: " + locale + "\n";
         msgtxt = msgtxt + "-----------------------------------------------------" + "\n\n";
-        String subjectMsg = "Feedback From "+getString(R.string.user_name);
+        String subjectMsg = "Feedback From " + getString(R.string.user_name);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subjectMsg);
         String[] to = {"feedback@lequiz.com"};
         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
@@ -386,5 +282,85 @@ public class HomeActivity extends AppCompatActivity {
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt1.getPaint().setShader(textShader1);
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            // Handle navigation view item clicks here.
+            int res_id = item.getItemId();
+            Handler handler = new Handler();
+            switch (res_id) {
+                case R.id.leaderboard:
+                    final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(navLeaderboard);
+                        }
+                    }, 300);
+                    break;
+
+                case R.id.notifications:
+                    final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(navNotification);
+                        }
+                    }, 300);
+                    break;
+
+                case R.id.payment:
+                    final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(navPayment);
+                        }
+                    }, 300);
+                    break;
+
+                case R.id.settings:
+                    final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(navSettings);
+                        }
+                    }, 300);
+                    break;
+
+                case R.id.invite_friends:
+                    final Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(navFriends);
+                        }
+                    }, 300);
+                    break;
+
+                case R.id.send_feedback:
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            makeFeedBackIntent();
+                        }
+                    }, 200);
+                    break;
+
+                case R.id.about_us:
+
+                    break;
+            }
+
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+    }
+
+
 
 } // activity class

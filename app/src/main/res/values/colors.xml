@@ -1,7 +1,7 @@
 <resources>
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
-    <color name="colorPrimary">#1E88E5</color>
-    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00695C</color>
     <color name="activityBackgroundColor">#f4f4f4</color>
     <color name="white">@android:color/background_light</color>
 
@@ -60,7 +60,7 @@
     <color name="computer">#53EECA</color>
     <color name="mathematics">#479A77</color>
     <color name="reasoning">#F3368D</color>
-    <color name="general_science">#40B6AD</color>
+    <color name="general_science">#e15f3b</color>
     <color name="english">#A15CDA</color>
     <color name="technology">#41A0ED</color>
     <color name="sport">#CB4432</color>
