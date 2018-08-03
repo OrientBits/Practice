@@ -1,13 +1,15 @@
 <resources>
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00695C</color>
+    <color name="colorPrimary">#c8157be1</color>
+    <color name="colorPrimaryDark">#f9157be1</color>
     <color name="activityBackgroundColor">#f4f4f4</color>
     <color name="white">@android:color/background_light</color>
 
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
+
+    <color name="overflowIconColor">#f1005eff</color>
 
     <!--this is used in navigation drawer item background color-->
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>
