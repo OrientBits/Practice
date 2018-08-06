@@ -61,6 +61,7 @@
             android:clickable="true"
             android:contentDescription="@string/start_button_current_affairs"
             android:focusable="true"
+            android:foreground="?android:selectableItemBackground"
             android:src="@drawable/start_icon_current_affairs" />
 
         <ImageView

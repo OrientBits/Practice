@@ -6,88 +6,92 @@
     android:background="@drawable/gradient_background_technology"
     android:fitsSystemWindows="false"
     tools:context=".EnglishActivity">
+
     <include
         android:id="@+id/technology_toolbar"
-        android:layout_alignParentTop="true"
         layout="@layout/category_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="322dp"
-        android:contentDescription="@string/technology"
         android:layout_height="187dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/technology"
         android:src="@drawable/technology_background_image" />
 
     <TextView
+        android:id="@+id/heading_on_technology"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
         android:layout_marginStart="16dp"
-        android:theme="@style/Topic_Text_Style"
+        android:layout_marginTop="99dp"
         android:text="@string/technology"
-        android:id="@+id/heading_on_technology"
+        android:theme="@style/Topic_Text_Style"
         tools:ignore="RelativeOverlap" />
 
     <TextView
+        android:id="@+id/subheading_on_technology"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:id="@+id/subheading_on_technology"
         android:layout_below="@+id/heading_on_technology"
         android:layout_marginStart="16dp"
-        android:text="@string/subHeadingOnLearnSection"/>
+        android:text="@string/subHeadingOnLearnSection"
+        android:textSize="14sp" />
 
     <RelativeLayout
+        android:id="@+id/relative_card_view_technology"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:elevation="2dp"
-        android:layout_marginTop="60dp"
         android:layout_below="@+id/subheading_on_technology"
-        android:background="@drawable/rounded_layout_learn_tech"
-        android:theme="@style/Inner_Relative_Layout"
-        android:id="@+id/relative_card_view_technology"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        >
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_layout_learn_tech"
+        android:elevation="2dp"
+        android:theme="@style/Inner_Relative_Layout">
+
         <ImageView
             android:layout_width="58dp"
             android:layout_height="58dp"
+            android:layout_alignParentEnd="true"
             android:clickable="true"
             android:contentDescription="@string/start_button_technology"
             android:focusable="true"
-            android:src="@drawable/start_arrow_button"
-            android:layout_alignParentEnd="true"/>
+            android:foreground="?android:selectableItemBackground"
+            android:src="@drawable/start_arrow_button" />
+
         <ImageView
-            android:contentDescription="@string/play_button_technology"
+            android:id="@+id/play_button_technology"
             android:layout_width="58dp"
             android:layout_height="58dp"
-            android:src="@drawable/play_icon_tech"
             android:layout_alignParentStart="true"
-            android:id="@+id/play_button_technology"/>
+            android:contentDescription="@string/play_button_technology"
+            android:src="@drawable/play_icon_tech" />
+
         <TextView
+            android:id="@+id/hey_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:id="@+id/hey_user_name"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="58dp"
             android:paddingTop="9dp"
             android:textColor="@android:color/white"
-            android:layout_alignParentStart="true"
+            android:textSize="16sp"
             tools:ignore="RelativeOverlap" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/hey_user_name"
+            android:layout_marginStart="58dp"
+            android:paddingTop="3dp"
             android:text="@string/start_your_quiz"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/hey_user_name"
-            android:paddingTop="3dp"
-            android:layout_marginStart="58dp"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </RelativeLayout>

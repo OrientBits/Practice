@@ -1,7 +1,7 @@
 <resources>
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
-    <color name="colorPrimary">#c8157be1</color>
-    <color name="colorPrimaryDark">#f9157be1</color>
+    <color name="colorPrimary">#66FFFF</color>
+    <color name="colorPrimaryDark">#50c9c9</color>
     <color name="activityBackgroundColor">#f4f4f4</color>
     <color name="white">@android:color/background_light</color>
 
@@ -53,7 +53,7 @@
     <color name="darkGray">#666666</color>
 
     <!--navigation drawer icon color-->
-    <color name="navigationIconColor">#c8052733</color>
+    <color name="navigationIconColor">#07394b</color>
     <color name="navigationTextColor">#041d26</color>
     <color name="green">#1bb62a</color>
 

@@ -97,6 +97,7 @@
         <activity
             android:name=".NavInviteFriends"
             android:label="@string/invite_friends"
+            android:screenOrientation="portrait"
             android:parentActivityName=".NavInviteFriends" />
         <activity
             android:name=".EditProfileActivity"
