@@ -47,5 +47,6 @@ public class ComputerActivity extends AppCompatActivity {
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
+
     }
 }
