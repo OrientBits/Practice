@@ -154,7 +154,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_back_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_edit_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -164,9 +164,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="e2f3ff" />
+                            <entry key="color" value="42caff" />
                             <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="back_button_settings" />
+                            <entry key="outputName" value="ic_edit_black_24dp" />
                             <entry key="sourceFile" value="C:\Users\Ramshek Rana\Downloads\ic_whatsapp_inbutton.svg" />
                           </map>
                         </option>

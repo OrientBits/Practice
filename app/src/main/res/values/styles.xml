@@ -11,6 +11,8 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
 
+        <item name="android:windowBackground">@color/activityBackgroundColor</item>
+
         <!--for drawer layout-->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -23,7 +25,7 @@
     </style>
 
 
-<!--this theme for Home activity -->
+    <!--this theme for Home activity -->
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -32,7 +34,8 @@
 
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item> <!-- sets the style for the overflow button -->
+        <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle
+        </item> <!-- sets the style for the overflow button -->
     </style>
 
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
@@ -43,8 +46,6 @@
     <style name="actionOverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/overflowIconColor</item>
     </style>
-
-
 
 
     <style name="category_card_view">
@@ -108,24 +109,17 @@
     </style>
 
     <style name="settingsTextViewOptions">
-        <item name="android:layout_marginStart">20dp</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:layout_marginEnd">20dp</item>
-        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingEnd">12dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/ripple_text_view_settings</item>
-        <item name="android:paddingStart">5dp</item>
+
     </style>
-
-
-
-
-
-
-
-
 
 
 </resources>

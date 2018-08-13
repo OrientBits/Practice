@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+      <requestFocus/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp"
+            android:paddingEnd="80dp"
+            android:paddingStart="85dp"
+            android:paddingTop="80dp"
+            android:src="@drawable/splash_screen"
+            tools:ignore="ContentDescription" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/login_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name_hint"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/login_user_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/Login_btn"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/button_sign_in_rounded"
+            android:onClick="Login_user"
+            android:text="@string/Sign_in"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:linksClickable="true"
+            android:padding="10dp"
+            android:text="Forgot password"
+            android:textColor="#df2100"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:text="or"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+
+        <Button
+            android:id="@+id/Login_with_google_btn"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_sign_in_with_google_rounded_back"
+            android:fontFamily="monospace"
+            android:text="Sign in with Google"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+
+</ScrollView>

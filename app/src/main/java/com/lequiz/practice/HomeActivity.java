@@ -2,6 +2,8 @@ package com.lequiz.practice;
 
 
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -39,12 +41,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected CardView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Toolbar toolbar;
     boolean doubleBackToExitPressedOnce = false;
-
+    @SuppressLint("StaticFieldLeak")
+    public static Activity fa; // finish activity
+    public MenuItem menuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        fa = this; // for only context
 
 
         // toolbar implementation
@@ -250,7 +256,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
     public void makeFeedBackIntent() {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto", "", null));
@@ -286,6 +291,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        menuItem = item;
 
             // Handle navigation view item clicks here.
             int res_id = item.getItemId();
@@ -352,13 +358,21 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     break;
 
                 case R.id.about_us:
-
+                    // this section will be linked with Website directly
                     break;
             }
 
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
+                    menuItem.setCheckable(false);
+                    menuItem.setChecked(false);
+                }
+            },100);
+        return true;
+
     }
 
 

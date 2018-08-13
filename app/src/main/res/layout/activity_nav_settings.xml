@@ -3,211 +3,239 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:background="@color/activityBackgroundColor"
+    android:orientation="vertical"
     tools:context=".NavSettings">
 
     <include
         android:id="@+id/nav_settings_toolbar"
-        layout="@layout/setting_toolbar"/>
+        layout="@layout/setting_toolbar" />
 
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/activityBackgroundColor">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="5dp"
+            android:elevation="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/ACCOUNT"
-                android:textSize="20sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/grayOnProgressHome" />
-
-            <TextView
-                android:id="@+id/edit_profile_on_settings"
-                style="@style/settingsTextViewOptions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/edit_profile" />
-
-            <TextView
-                style="@style/settingsTextViewOptions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Change_Password" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/SYSTEM"
-                android:textSize="20sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/grayOnProgressHome" />
-
-            <!--this is for push notifications -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="22dp"
-                    android:clickable="false"
-                    android:text="@string/Push_notifications"
-                    android:textSize="16sp"
-                    tools:ignore="RelativeOverlap" />
-
-                <Switch
-                    android:id="@+id/switchOnPushNotifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="24dp" />
-            </RelativeLayout>
-
-            <!--this is for Night mode-->
             <LinearLayout
-                android:id="@+id/night_mode_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ripple_text_view_settings"
-                android:clickable="true"
-                android:focusable="true"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:paddingEnd="0dp"
-                android:paddingStart="2dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Night_Mode"
-                    android:textSize="16sp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/ACCOUNT"
+                    android:textColor="@android:color/black"
+                    android:textSize="19sp" />
 
-                    />
-
-                <TextView
-                    android:id="@+id/on_off_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/On" />
-            </LinearLayout>
-
-            <!--this is for sound-->
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
+                <View
                     android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#6572858c" />
+
+                <TextView
+                    android:id="@+id/edit_profile_on_settings"
+                    style="@style/settingsTextViewOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/edit_profile"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/change_password_on_setting"
+                    style="@style/settingsTextViewOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/Change_Password"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="24dp"
+                    android:text="@string/SYSTEM"
+                    android:textColor="@android:color/black"
+                    android:textSize="19sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#6572858c" />
+
+                <!--this is for push notifications -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/Push_notifications"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap" />
+
+                    <Switch
+                        android:id="@+id/switchOnPushNotifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="0dp"
+                        android:gravity="center_vertical" />
+
+                </RelativeLayout>
+
+                <!--this is for Night mode-->
+                <LinearLayout
+                    android:id="@+id/night_mode_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ripple_text_view_settings"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Sound"
+                        android:text="@string/Night_Mode"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/on_off_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Enable_in_app_sounds" />
+                        android:text="@string/On"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
-                <Switch
-                    android:id="@+id/switchOnSound"
+                <!--this is for sound-->
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="24dp" />
+                    android:layout_height="45dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp">
 
-            </RelativeLayout>
+                        <TextView
+                            android:id="@+id/sound_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Sound"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            tools:ignore="RelativeOverlap" />
 
-            <!--this is for language chooser-->
-            <LinearLayout
-                android:id="@+id/language_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ripple_text_view_settings"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:padding="12dp"
-                android:paddingEnd="0dp"
-                android:paddingStart="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/sound_text"
+                            android:text="@string/Enable_in_app_sounds"
+                            android:textSize="13sp" />
+
+                    <Switch
+                        android:id="@+id/switchOnSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="15dp"
+                        android:gravity="top" />
+
+                </RelativeLayout>
+
+                <!--this is for language chooser-->
+                <LinearLayout
+                    android:id="@+id/language_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/ripple_text_view_settings"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Language"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/hindi_english_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Language"
-                    android:textSize="16sp" />
+                    style="@style/settingsTextViewOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ripple_text_view_settings"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/Terms_of_use"
+                    android:textColor="@android:color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#6572858c" />
 
                 <TextView
-                    android:id="@+id/hindi_english_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/english" />
+                    android:id="@+id/setting_sign_out"
+                    style="@style/settingsTextViewOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ripple_text_view_settings"
+                    android:onClick="userLogout"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/Sign_out"
+                    android:textColor="@android:color/black"/>
             </LinearLayout>
 
-            <TextView
-                style="@style/settingsTextViewOptions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Terms_of_use" />
+        </android.support.v7.widget.CardView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1.5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="7dp"
-                android:background="@color/grayOnProgressHome" />
 
-            <TextView
-                style="@style/settingsTextViewOptions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="@string/sign_out" />
-        </LinearLayout>
     </ScrollView>
 </LinearLayout>

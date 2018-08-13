@@ -17,14 +17,15 @@ import java.util.Objects;
 
 public class NavSettings extends AppCompatActivity {
     AlertDialog alertDialogRadioButtons;
-
-
+    private SharedPreferenceConfig sharedPreferenceConfig;
     protected Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_settings);
+
+        sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         toolbar = findViewById(R.id.nav_settings_toolbar);
         setSupportActionBar(toolbar);
@@ -57,15 +58,19 @@ public class NavSettings extends AppCompatActivity {
             }
         });
 
-
-
         // for status bar color
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(NavSettings.this,R.color.colorPrimaryDark));
 
+
+
     }
+
+
+
+
     public void createAlertDialogWithRadioButton()
         {
             CharSequence[] value = {"On","Off"};
@@ -90,12 +95,12 @@ public class NavSettings extends AppCompatActivity {
                         }
 
                     }
-
             );
             alertDialogRadioButtons = builder.create();
             alertDialogRadioButtons.show();
-
     }
+
+
     public void createAlertDialogWithRadioButtonForLanguage()
     {
         CharSequence[] value = {"English","Hindi"};
@@ -124,6 +129,15 @@ public class NavSettings extends AppCompatActivity {
         );
         alertDialogRadioButtons = builder.create();
         alertDialogRadioButtons.show();
+    }
 
+
+
+    public void userLogout(View view)
+    {
+        sharedPreferenceConfig.writeLoginStatus(false);
+        startActivity(new Intent(this,Login.class));
+        finish();
+        HomeActivity.fa.finish();
     }
 }
