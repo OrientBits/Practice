@@ -1,13 +1,14 @@
 <resources>
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
-    <color name="colorPrimary">#66FFFF</color>
-    <color name="colorPrimaryDark">#56d9d9</color>
-    <color name="activityBackgroundColor">#e6e6e6</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="activityBackgroundColor">#f5f5f5</color>
     <color name="white">@android:color/background_light</color>
 
 
     <!--   a secondary color for controls like checkboxes and text fields -->
     <color name="colorAccent">#7728a4</color>
+    <color name="colorAccent2">#c81a3f69</color>
 
     <color name="overflowIconColor">#f1005eff</color>
 
@@ -16,7 +17,7 @@
     <color name="darkBlueOnProgressHome">#1f597e</color>
 
     <color name="grayOnProgressHome">#B6B3B3</color>
-    <color name="blueOnPopup">#03294d</color>
+    <color name="blueOnPopup">#053461</color>
     <color name="pinkOnSports">#ED1E79</color>
     <color name="orangeOnSports">#F7931E</color>
     <color name="blueOnHomeText">#04F9FE</color>

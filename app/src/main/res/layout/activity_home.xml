@@ -42,7 +42,6 @@
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/navigation_header"
             app:itemBackground="@drawable/nav_item_background"
-            app:itemIconTint="@color/navigationIconColor"
             app:itemTextColor="@color/navigationTextColor"
             app:menu="@menu/navigation_menu" />
 

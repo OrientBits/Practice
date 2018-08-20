@@ -1,241 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
-    android:background="@color/activityBackgroundColor"
     android:orientation="vertical"
     tools:context=".NavSettings">
+
 
     <include
         android:id="@+id/nav_settings_toolbar"
         layout="@layout/setting_toolbar" />
 
-
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/activityBackgroundColor">
+        android:scrollbars="none">
 
-        <android.support.v7.widget.CardView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:elevation="10dp">
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginTop="15dp"
+                android:text="@string/ACCOUNT"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorAccent2" />
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/edit_profile_on_settings"
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/ACCOUNT"
-                    android:textColor="@android:color/black"
-                    android:textSize="19sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="#6572858c" />
-
-                <TextView
-                    android:id="@+id/edit_profile_on_settings"
-                    style="@style/settingsTextViewOptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
                     android:text="@string/edit_profile"
-                    android:textColor="@android:color/black" />
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/change_password_on_setting"
-                    style="@style/settingsTextViewOptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:text="@string/Change_Password"
-                    android:textColor="@android:color/black" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/change_password_on_setting"
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/SYSTEM"
-                    android:textColor="@android:color/black"
-                    android:textSize="19sp" />
+                    android:layout_gravity="center"
+                    android:text="@string/Change_Password"
+                    android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="#6572858c" />
+            </android.support.v7.widget.CardView>
 
-                <!--this is for push notifications -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/Push_notifications"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        tools:ignore="RelativeOverlap" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/SYSTEM"
+                android:textSize="18sp" />
 
-                    <Switch
-                        android:id="@+id/switchOnPushNotifications"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginStart="0dp"
-                        android:gravity="center_vertical" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorAccent2" />
 
-                </RelativeLayout>
-
-                <!--this is for Night mode-->
-                <LinearLayout
-                    android:id="@+id/night_mode_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/ripple_text_view_settings"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Night_Mode"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/on_off_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/On"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <!--this is for sound-->
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp">
-
-                        <TextView
-                            android:id="@+id/sound_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Sound"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp"
-                            tools:ignore="RelativeOverlap" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/sound_text"
-                            android:text="@string/Enable_in_app_sounds"
-                            android:textSize="13sp" />
-
-                    <Switch
-                        android:id="@+id/switchOnSound"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:gravity="top" />
-
-                </RelativeLayout>
-
-                <!--this is for language chooser-->
-                <LinearLayout
-                    android:id="@+id/language_text_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/ripple_text_view_settings"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Language"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/hindi_english_textview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/english"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
+            <!--this is for push notifications -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/push_notification_in_setting"
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.9dp">
 
                 <TextView
-                    style="@style/settingsTextViewOptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/ripple_text_view_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:paddingEnd="0dp"
                     android:paddingStart="20dp"
-                    android:text="@string/Terms_of_use"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/Push_notifications"
+                    android:textSize="16sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="24dp"
-                    android:background="#6572858c" />
+                <Switch
+                    android:id="@+id/switchOnPushNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="0dp"
+                    android:shadowColor="@color/colorAccent2" />
+
+            </android.support.v7.widget.CardView>
+
+            <!--this is for Night mode-->
+            <android.support.v7.widget.CardView
+                android:id="@+id/night_mode_text_view"
+                style="@style/settingsCardViewOptions"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.8dp">
 
                 <TextView
-                    android:id="@+id/setting_sign_out"
-                    style="@style/settingsTextViewOptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/ripple_text_view_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/Night_Mode"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/on_off_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="5dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="21dp"
+                    android:text="@string/On"
+                    android:textSize="13sp" />
+
+            </android.support.v7.widget.CardView>
+
+            <!--this is for sound-->
+            <android.support.v7.widget.CardView
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.7dp">
+
+                <TextView
+                    android:id="@+id/sound_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/Sound"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sound_text"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="5dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="21dp"
+                    android:text="@string/Enable_in_app_sounds"
+                    android:textSize="13sp" />
+
+                <Switch
+                    android:id="@+id/switchOnSound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="0dp" />
+            </android.support.v7.widget.CardView>
+
+            <!--this is for language chooser-->
+            <android.support.v7.widget.CardView
+                android:id="@+id/language_text_view"
+                style="@style/settingsCardViewOptions"
+                android:gravity="center_vertical"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/Language"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/hindi_english_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="5dp"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="21dp"
+                    android:text="@string/english"
+                    android:textSize="13sp" />
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/termOfUse_on_setting"
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/Terms_of_use"
+                    android:textSize="16sp" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/setting_sign_out"
+                style="@style/settingsCardViewOptions"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="1.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:onClick="userLogout"
                     android:paddingEnd="0dp"
                     android:paddingStart="20dp"
+                    android:paddingTop="3dp"
                     android:text="@string/Sign_out"
-                    android:textColor="@android:color/black"/>
-            </LinearLayout>
+                    android:textSize="16sp" />
 
-        </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>
 
+
+        </LinearLayout>
 
     </ScrollView>
+
 </LinearLayout>

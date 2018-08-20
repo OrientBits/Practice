@@ -47,8 +47,8 @@ public class SpecialActivity extends AppCompatActivity {
 
     //    Hey UserName Initillization on learn section
 
-        TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
-          heyUserName.setText(heyUserNameMaker);
+//        TextView heyUserName = findViewById(R.id.hey_user_name);
+//        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+//          heyUserName.setText(heyUserNameMaker);
     }
 }

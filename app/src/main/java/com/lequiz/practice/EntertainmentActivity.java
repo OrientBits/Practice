@@ -1,5 +1,6 @@
 package com.lequiz.practice;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -8,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -46,5 +49,15 @@ public class EntertainmentActivity extends AppCompatActivity {
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
+
+
+        ImageView startQuiz = findViewById(R.id.start_image_of_entertainment_quiz);
+        startQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EntertainmentActivity.this,EntertainmentQuiz.class));
+            }
+        });
+
     }
 }

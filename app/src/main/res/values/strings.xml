@@ -15,8 +15,6 @@
     <string name="login_status_preference">com.ramu.sharedPreferenceexample_login_preference_status</string>
 
 
-
-
     <!-- Category name for Current_affairs [CHAR LIMIT=20] -->
     <string name="current_Affairs">Current Affairs</string>
 

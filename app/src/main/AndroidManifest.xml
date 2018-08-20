@@ -8,10 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar" >
         <activity
-            android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,57 +24,46 @@
         <activity
             android:name=".MathematicsActivity"
             android:label="@string/mathematics"
-            android:parentActivityName=".MathematicsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".MathematicsActivity" />
         <activity
             android:name=".ReasoningActivity"
             android:label="@string/reasoning"
-            android:parentActivityName=".ReasoningActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".ReasoningActivity" />
         <activity
             android:name=".EntertainmentActivity"
             android:label="@string/entertainment"
-            android:parentActivityName=".EntertainmentActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".EntertainmentActivity" />
         <activity
             android:name=".TechnologyActivity"
             android:label="@string/technology"
-            android:parentActivityName=".TechnologyActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".TechnologyActivity" />
         <activity
             android:name=".CurrentAffairsActivity"
             android:label="@string/current_Affairs"
-            android:parentActivityName=".CurrentAffairsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".CurrentAffairsActivity" />
         <activity
             android:name=".ComputerActivity"
             android:label="@string/computer"
-            android:parentActivityName=".ComputerActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".ComputerActivity" />
         <activity
             android:name=".GeneralScienceActivity"
             android:label="@string/general_science"
-            android:parentActivityName=".GeneralScienceActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".GeneralScienceActivity" />
         <activity
             android:name=".EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".EnglishActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".EnglishActivity" />
         <activity
             android:name=".SportsActivity"
             android:label="@string/sports"
-            android:parentActivityName=".SportsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".SportsActivity" />
         <activity
             android:name=".SpecialActivity"
             android:label="@string/special"
-            android:parentActivityName=".SpecialActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".SpecialActivity" />
         <activity
             android:name=".ProfileActivity"
-            android:parentActivityName=".ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".NavLeaderboard"
             android:label="@string/leaderboard"
@@ -91,7 +79,8 @@
         <activity
             android:name=".NavSettings"
             android:label="@string/settings"
-            android:parentActivityName=".NavSettings" />
+            android:parentActivityName=".NavSettings"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NavInviteFriends"
             android:label="@string/invite_friends"
@@ -109,13 +98,34 @@
         <activity
             android:name=".QuizFactory"
             android:label="@string/quiz_factory"
-            android:parentActivityName=".QuizFactory"/>
+            android:parentActivityName=".QuizFactory" />
+        <activity
+            android:name=".Login" />
 
-        <activity android:name=".Login"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CurrentAffairsQuiz"
+            android:parentActivityName=".CurrentAffairsQuiz" />
+        <activity
+            android:name=".ComputerQuiz"
+            android:parentActivityName=".ComputerQuiz" />
+        <activity
+            android:name=".MathematicsQuiz"
+            android:parentActivityName=".MathematicsQuiz" />
+        <activity
+            android:name=".ReasoningQuiz"
+            android:parentActivityName=".ReasoningQuiz" />
+        <activity android:name=".GeneralScienceQuiz"
+        android:parentActivityName=".GeneralScienceQuiz"/>
+        <activity android:name=".EnglishQuiz"
+            android:parentActivityName=".EnglishQuiz"/>
+        <activity android:name=".TechnologyQuiz"
+            android:parentActivityName=".TechnologyQuiz"/>
+        <activity android:name=".SportsQuiz"
+            android:parentActivityName=".SportsQuiz"/>
+        <activity android:name=".EntertainmentQuiz"
+            android:parentActivityName=".EntertainmentQuiz">
 
-
-
+        </activity>
     </application>
 
 </manifest>

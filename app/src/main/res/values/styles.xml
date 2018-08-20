@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="colorPrimaryDark">@android:color/transparent</item>
-        <item name="colorAccent">@color/greenOnToolBarSettings</item>
+        <item name="colorAccent">@color/navigationTextColor</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
@@ -108,17 +108,18 @@
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="settingsTextViewOptions">
-        <item name="android:paddingStart">5dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingEnd">12dp</item>
-        <item name="android:textSize">16sp</item>
+    <!--this style is implemented in setting-->
+    <style name="settingsCardViewOptions">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/ripple_text_view_settings</item>
-
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:foreground">@drawable/ripple_text_view_settings</item>
     </style>
 
 

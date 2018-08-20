@@ -3,10 +3,7 @@
 
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/leaderboard"
-            android:icon="@drawable/ic_leaderboard"
-            android:title="@string/leaderboard" />
+
         <item
             android:id="@+id/notifications"
             android:icon="@drawable/ic_notifications"
@@ -20,6 +17,11 @@
             android:id="@+id/payment"
             android:icon="@drawable/ic_payment"
             android:title="@string/payment" />
+
+        <item
+            android:id="@+id/leaderboard"
+            android:icon="@drawable/ic_leaderboard"
+            android:title="@string/leaderboard" />
 
         <item
             android:id="@+id/settings"

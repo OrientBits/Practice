@@ -7,11 +7,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Objects;
 
@@ -32,8 +32,8 @@ public class NavSettings extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        // Edit Profile Click Event
-        TextView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
+        // CardView Profile Click Event
+        CardView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
         edit_profile_on_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +42,7 @@ public class NavSettings extends AppCompatActivity {
             }
         });
         // Night Mode Click Event
-        LinearLayout night_mode_text_view = findViewById(R.id.night_mode_text_view);
+        CardView night_mode_text_view = findViewById(R.id.night_mode_text_view);
         night_mode_text_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class NavSettings extends AppCompatActivity {
             }
         });
         // Language Click Event
-        LinearLayout language_text_view = findViewById(R.id.language_text_view);
+        CardView language_text_view = findViewById(R.id.language_text_view);
        language_text_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,7 +130,6 @@ public class NavSettings extends AppCompatActivity {
         alertDialogRadioButtons = builder.create();
         alertDialogRadioButtons.show();
     }
-
 
 
     public void userLogout(View view)
