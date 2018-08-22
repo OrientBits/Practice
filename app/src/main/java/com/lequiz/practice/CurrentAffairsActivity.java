@@ -1,5 +1,6 @@
 package com.lequiz.practice;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
@@ -8,17 +9,24 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CurrentAffairsActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +42,9 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
         Drawable drawable= getResources().getDrawable(R.drawable.back_button_current_affairs);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
+        Drawable newDrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
 
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(newDrawable);
 
 
         // Heading Text Gradient
@@ -46,13 +54,14 @@ public class CurrentAffairsActivity extends AppCompatActivity {
                 new float[]{0, 1, 2}, Shader.TileMode.CLAMP);
         learnHeaderTech.getPaint().setShader(textShader);
 
-        //UserName Initilization
+        //UserName Initialization
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
 
 
+        // open activity to play quiz
         ImageView startQuiz = findViewById(R.id.start_image_of_current_affairs_quiz);
         startQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,5 +71,43 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         });
 
 
+
+        // news section
+
+
+
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Rishi is going to become manager of Rashi singh");
+        arrayList.add("Today mithlesh will become an Astrologer ");
+        arrayList.add("Ramshek He is so jealous person according to Rishi ");
+        arrayList.add("My heart is dead for me.....");
+        arrayList.add("Rishi is going to become manager of Rashi singh..");
+        arrayList.add("Today mithlesh will become an Astrologer.. ");
+        arrayList.add("Ramshek He is so jealous person according to Rishi.. ");
+        arrayList.add("My heart is dead for me.......");
+        arrayList.add("Rishi is going to become manager of Rashi sing123");
+        arrayList.add("Today mithlesh will become an Astrologer123 ");
+        arrayList.add("Ramshek He is so jealous person according to Rishi 123");
+        arrayList.add("My heart is dead for me.....123");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arrayList);
+
+        ListView newList = findViewById(R.id.current_affairs_news_list);
+
+        newList.setAdapter(arrayAdapter);
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
 }
