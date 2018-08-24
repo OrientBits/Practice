@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.Objects;
 
 public class NavPayment extends AppCompatActivity {
 
     protected Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +22,14 @@ public class NavPayment extends AppCompatActivity {
 
         toolbar = findViewById(R.id.nav_payment_toolbar);
         setSupportActionBar(toolbar);
-       Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // for status bar color
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavPayment.this,R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(NavPayment.this, R.color.colorPrimaryDark));
 
 
 //        String top10User[] = new String[10];
@@ -41,7 +44,7 @@ public class NavPayment extends AppCompatActivity {
 //        top10User[8] = "Neha Devi";
 //        top10User[9] = "Jyotsana Devi";
 //
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,top10User);
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, top10User);
 //
 //        ListView listView = findViewById(R.id.top_10_learners);
 //

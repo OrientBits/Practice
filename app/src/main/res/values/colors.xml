@@ -2,7 +2,7 @@
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="activityBackgroundColor">#f5f5f5</color>
+    <color name="activityBackgroundColor">#f7f7f7</color>
     <color name="white">@android:color/background_light</color>
 
 

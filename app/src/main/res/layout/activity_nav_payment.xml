@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="@color/activityBackgroundColor"
@@ -10,112 +18,37 @@
 
     <include
         android:id="@+id/nav_payment_toolbar"
-        layout="@layout/setting_toolbar" />
+        layout="@layout/setting_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
+
+    <include layout="@layout/payment_list_user"/>
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <!--<ListView-->
+                    <!--android:background="@color/white"-->
+                    <!--android:id="@+id/top_10_learners"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_gravity="center_horizontal"/>-->
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:layout_margin="6dp"
-            android:background="@android:color/white"
-            android:elevation="5dp"
-            android:orientation="vertical"
-            android:paddingBottom="10dp">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="240dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity=""
-                    android:padding="30dp"
-                    android:src="@drawable/payment_background"
-                    tools:ignore="ContentDescription" />
-            </FrameLayout>
-
-            <LinearLayout
-                android:id="@+id/balance_sections"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Your Current Balance "
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:id="@+id/user_won_balance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/userWonBalance"
-                    android:textColor="@color/green"
-                    android:textSize="30sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/whatsapp_button"
-                android:layout_width="160dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_whatsapp"
-                android:elevation="4dp"
-                android:text="SEND TO PAYTM"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                tools:ignore="HardcodedText" />
-
-
-        </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="560dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginStart="6dp"
-                android:background="@android:color/white"
-                android:elevation="5dp"
-                android:orientation="vertical"
-                android:paddingBottom="10dp">
-
-                    <xTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/name_font"
-                        android:gravity="center_horizontal"
-                        android:text="TOP 10 LEARNERS THIS MONTH"
-                        android:textColor="@color/purpleOnHomeText"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
-
-                <ListView
-                    android:id="@+id/top_10_learners"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
 
 </LinearLayout>
+
+</ScrollView>

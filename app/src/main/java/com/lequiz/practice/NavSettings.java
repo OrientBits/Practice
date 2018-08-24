@@ -7,11 +7,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.Objects;
 
@@ -33,7 +33,7 @@ public class NavSettings extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // CardView Profile Click Event
-        CardView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
+        TextView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
         edit_profile_on_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +42,7 @@ public class NavSettings extends AppCompatActivity {
             }
         });
         // Night Mode Click Event
-        CardView night_mode_text_view = findViewById(R.id.night_mode_text_view);
+        LinearLayout night_mode_text_view = findViewById(R.id.night_mode_text_view);
         night_mode_text_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class NavSettings extends AppCompatActivity {
             }
         });
         // Language Click Event
-        CardView language_text_view = findViewById(R.id.language_text_view);
+        LinearLayout language_text_view = findViewById(R.id.language_text_view);
        language_text_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,11 +113,11 @@ public class NavSettings extends AppCompatActivity {
                         switch (i)
                         {
                             case 0:
-                                TextView txtOn = findViewById(R.id.hindi_english_textview);
+                                TextView txtOn = findViewById(R.id.hindi_english_textView);
                                 txtOn.setText("English");
                                 break;
                             case 1:
-                                TextView txtOff = findViewById(R.id.hindi_english_textview);
+                                TextView txtOff = findViewById(R.id.hindi_english_textView);
                                 txtOff.setText("Hindi");
                                 break;
                         }

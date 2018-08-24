@@ -1,7 +1,6 @@
 package com.lequiz.practice;
 
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -30,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
-    protected CircleImageView  profile_home;
+    protected CircleImageView profile_home;
     protected ImageView profile_header;
     protected CardView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Toolbar toolbar;
@@ -206,11 +206,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 2000);
     }
-
 
 
     @Override
@@ -258,7 +257,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
     public void makeFeedBackIntent() {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                 "mailto", "", null));
@@ -277,6 +275,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         startActivity(emailIntent);
     }
 
+    @SuppressLint("SetTextI18n")
     public void userNameInGradient() {
         TextView txt = findViewById(R.id.user_name);
         Shader textShader = new LinearGradient(0, 0, 180, 0,
@@ -284,7 +283,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         txt.getPaint().setShader(textShader);
 
+
         TextView txt1 = findViewById(R.id.wishing);
+
+        int hours = new Time(System.currentTimeMillis()).getHours();
+        if (hours >= 5 && hours < 12) {
+            txt1.setText("Good morning ");
+        } else if (hours >= 12 && hours < 18) {
+            txt1.setText("Good afternoon ");
+        } else if (hours >= 18 && hours < 22) {
+            txt1.setText("Good evening");
+        } else
+            txt1.setText("Good night");
+
         Shader textShader1 = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
@@ -296,88 +307,87 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         menuItem = item;
 
-            // Handle navigation view item clicks here.
-            int res_id = item.getItemId();
-            Handler handler = new Handler();
-            switch (res_id) {
-                case R.id.leaderboard:
-                    final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(navLeaderboard);
-                        }
-                    }, 300);
-                    break;
+        // Handle navigation view item clicks here.
+        int res_id = item.getItemId();
+        Handler handler = new Handler();
+        switch (res_id) {
+            case R.id.leaderboard:
+                final Intent navLeaderboard = new Intent(HomeActivity.this, NavLeaderboard.class);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navLeaderboard);
+                    }
+                }, 300);
+                break;
 
-                case R.id.notifications:
-                    final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(navNotification);
-                        }
-                    }, 300);
-                    break;
+            case R.id.notifications:
+                final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navNotification);
+                    }
+                }, 300);
+                break;
 
-                case R.id.payment:
-                    final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(navPayment);
-                        }
-                    }, 300);
-                    break;
+            case R.id.payment:
+                final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navPayment);
+                    }
+                }, 300);
+                break;
 
-                case R.id.settings:
-                    final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(navSettings);
-                        }
-                    }, 300);
-                    break;
+            case R.id.settings:
+                final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navSettings);
+                    }
+                }, 300);
+                break;
 
-                case R.id.invite_friends:
-                    final Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
+            case R.id.invite_friends:
+                final Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
 
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(navFriends);
-                        }
-                    }, 300);
-                    break;
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navFriends);
+                    }
+                }, 300);
+                break;
 
-                case R.id.send_feedback:
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            makeFeedBackIntent();
-                        }
-                    }, 200);
-                    break;
+            case R.id.send_feedback:
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        makeFeedBackIntent();
+                    }
+                }, 200);
+                break;
 
-                case R.id.about_us:
-                    // this section will be linked with Website directly
-                    break;
+            case R.id.about_us:
+                // this section will be linked with Website directly
+                break;
+        }
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                menuItem.setCheckable(false);
+                menuItem.setChecked(false);
             }
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    DrawerLayout drawer = findViewById(R.id.drawer_layout);
-                    drawer.closeDrawer(GravityCompat.START);
-                    menuItem.setCheckable(false);
-                    menuItem.setChecked(false);
-                }
-            },100);
+        }, 100);
         return true;
 
     }
-
 
 
 } // activity class

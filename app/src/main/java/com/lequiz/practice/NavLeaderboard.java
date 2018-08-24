@@ -1,5 +1,6 @@
 package com.lequiz.practice;
 
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class NavLeaderboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_leaderboard);
+
 
         toolbar = findViewById(R.id.nav_leaderboard_toolbar);
         setSupportActionBar(toolbar);

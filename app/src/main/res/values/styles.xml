@@ -10,8 +10,7 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
-
-        <item name="android:windowBackground">@color/activityBackgroundColor</item>
+        <item name="android:windowBackground">@drawable/rounded_home_background_color</item>
 
         <!--for drawer layout-->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -22,6 +21,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/rounded_home_background_color</item>
     </style>
 
 
@@ -112,13 +112,16 @@
     <style name="settingsCardViewOptions">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">45dp</item>
-        <item name="android:focusable">true</item>
-        <item name="android:clickable">true</item>
         <item name="android:layout_marginStart">5dp</item>
         <item name="android:layout_marginEnd">5dp</item>
         <item name="android:layout_marginTop">6dp</item>
         <item name="android:layout_marginBottom">6dp</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/rounded_background_of_setting_item</item>
         <item name="android:foreground">@drawable/ripple_text_view_settings</item>
     </style>
 

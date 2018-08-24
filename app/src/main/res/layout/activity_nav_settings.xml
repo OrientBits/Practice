@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +28,6 @@
             android:paddingStart="10dp"
             android:paddingTop="5dp">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,35 +43,18 @@
                 android:background="@color/colorAccent2" />
 
 
-            <android.support.v7.widget.CardView
+            <TextView
                 android:id="@+id/edit_profile_on_settings"
                 style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
+                android:gravity="center"
+                android:text="@string/edit_profile" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/edit_profile"
-                    android:textSize="16sp" />
 
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
+            <TextView
                 android:id="@+id/change_password_on_setting"
                 style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/Change_Password"
-                    android:textSize="16sp" />
-
-            </android.support.v7.widget.CardView>
+                android:gravity="center"
+                android:text="@string/Change_Password" />
 
 
             <TextView
@@ -91,46 +72,35 @@
                 android:background="@color/colorAccent2" />
 
             <!--this is for push notifications -->
-            <android.support.v7.widget.CardView
+            <RelativeLayout
                 android:id="@+id/push_notification_in_setting"
-                style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.9dp">
+                style="@style/settingsCardViewOptions">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:text="@string/Push_notifications"
                     android:textSize="16sp" />
 
                 <Switch
                     android:id="@+id/switchOnPushNotifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginStart="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|end"
                     android:shadowColor="@color/colorAccent2" />
-
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <!--this is for Night mode-->
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:id="@+id/night_mode_text_view"
                 style="@style/settingsCardViewOptions"
                 android:gravity="center_vertical"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.8dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="3dp"
                     android:text="@string/Night_Mode"
                     android:textSize="16sp" />
 
@@ -138,118 +108,85 @@
                     android:id="@+id/on_off_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:paddingBottom="5dp"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="21dp"
                     android:text="@string/On"
                     android:textSize="13sp" />
 
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
 
             <!--this is for sound-->
-            <android.support.v7.widget.CardView
-                style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.7dp">
+            <RelativeLayout style="@style/settingsCardViewOptions"
+                android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/sound_text"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="3dp"
-                    android:text="@string/Sound"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sound_text"
-                    android:layout_gravity="bottom"
-                    android:paddingBottom="5dp"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="21dp"
-                    android:text="@string/Enable_in_app_sounds"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/sound_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Sound"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Enable_in_app_sounds"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
 
                 <Switch
                     android:id="@+id/switchOnSound"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginStart="0dp" />
-            </android.support.v7.widget.CardView>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end" />
+
+            </RelativeLayout>
 
             <!--this is for language chooser-->
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:id="@+id/language_text_view"
                 style="@style/settingsCardViewOptions"
                 android:gravity="center_vertical"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.6dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="3dp"
                     android:text="@string/Language"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/hindi_english_textview"
+                    android:id="@+id/hindi_english_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:paddingBottom="5dp"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="21dp"
                     android:text="@string/english"
                     android:textSize="13sp" />
 
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
 
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/termOfUse_on_setting"
-                style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.5dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="3dp"
+                    android:id="@+id/termOfUse_on_setting"
+                    style="@style/settingsCardViewOptions"
+                    android:gravity="center_vertical"
                     android:text="@string/Terms_of_use"
                     android:textSize="16sp" />
 
-            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/setting_sign_out"
-                style="@style/settingsCardViewOptions"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="1.5dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:id="@+id/setting_sign_out"
+                    style="@style/settingsCardViewOptions"
+                    android:gravity="center_vertical"
                     android:onClick="userLogout"
-                    android:paddingEnd="0dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="3dp"
                     android:text="@string/Sign_out"
                     android:textSize="16sp" />
-
-            </android.support.v7.widget.CardView>
 
 
         </LinearLayout>
