@@ -25,7 +25,7 @@
     <string name="reasoning">Reasoning</string>
 
     <!--Category name for Computer-->
-    <string name="computer">Computer</string>
+    <string name="computer">Computer Science</string>
 
     <!--Category name for Science-->
     <string name="general_science">General Science</string>

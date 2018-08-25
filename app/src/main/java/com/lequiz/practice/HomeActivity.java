@@ -23,6 +23,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -85,17 +87,141 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         profile_header = headerView.findViewById(R.id.profile_image);
 
 
+
         currentAffairs = findViewById(R.id.current_affairs_card_view);
+        ViewTreeObserver vto1 = currentAffairs.getViewTreeObserver();
+        vto1.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                currentAffairs.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = currentAffairs.getMeasuredWidth();
+                ViewGroup.LayoutParams params = currentAffairs.getLayoutParams();
+                params.height = (width * 65) / 100;
+                currentAffairs.setLayoutParams(params);
+            }
+        });
+
         computer = findViewById(R.id.computer_card_view);
+        ViewTreeObserver vto2 = computer.getViewTreeObserver();
+        vto2.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                computer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = computer.getMeasuredWidth();
+                ViewGroup.LayoutParams params = computer.getLayoutParams();
+                params.height = (width * 65) / 100;
+                computer.setLayoutParams(params);
+            }
+        });
+
         mathematics = findViewById(R.id.mathematics_card_view);
+        ViewTreeObserver vto3 = mathematics.getViewTreeObserver();
+        vto3.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mathematics.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = mathematics.getMeasuredWidth();
+                ViewGroup.LayoutParams params = mathematics.getLayoutParams();
+                params.height = (width * 65) / 100;
+                mathematics.setLayoutParams(params);
+            }
+        });
+
         reasoning = findViewById(R.id.reasoning_card_view);
+        ViewTreeObserver vto4 = reasoning.getViewTreeObserver();
+        vto4.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                reasoning.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = reasoning.getMeasuredWidth();
+                ViewGroup.LayoutParams params = reasoning.getLayoutParams();
+                params.height = (width * 65) / 100;
+                reasoning.setLayoutParams(params);
+            }
+        });
+
         generalScience = findViewById(R.id.general_science_card_view);
+        ViewTreeObserver vto5 = generalScience.getViewTreeObserver();
+        vto5.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                generalScience.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = generalScience.getMeasuredWidth();
+                ViewGroup.LayoutParams params = generalScience.getLayoutParams();
+                params.height = (width * 65) / 100;
+                generalScience.setLayoutParams(params);
+            }
+        });
+
         english = findViewById(R.id.english_card_view);
+        ViewTreeObserver vto6 = english.getViewTreeObserver();
+        vto6.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                english.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = english.getMeasuredWidth();
+                ViewGroup.LayoutParams params = english.getLayoutParams();
+                params.height = (width * 65) / 100;
+                english.setLayoutParams(params);
+            }
+        });
+
         technology = findViewById(R.id.technology_card_view);
+        ViewTreeObserver vto7 = technology.getViewTreeObserver();
+        vto7.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                technology.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = technology.getMeasuredWidth();
+                ViewGroup.LayoutParams params = technology.getLayoutParams();
+                params.height = (width * 65) / 100;
+                technology.setLayoutParams(params);
+            }
+        });
+
         sports = findViewById(R.id.sports_card_view);
+        ViewTreeObserver vto8 = sports.getViewTreeObserver();
+        vto8.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                sports.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = sports.getMeasuredWidth();
+                ViewGroup.LayoutParams params = sports.getLayoutParams();
+                params.height = (width * 65) / 100;
+                sports.setLayoutParams(params);
+            }
+        });
+
         special = findViewById(R.id.special_card_view);
+        ViewTreeObserver vto9 = special.getViewTreeObserver();
+        vto9.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                special.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = special.getMeasuredWidth();
+                ViewGroup.LayoutParams params = special.getLayoutParams();
+                params.height = (width * 65) / 100;
+                special.setLayoutParams(params);
+            }
+        });
+
         entertainment = findViewById(R.id.entertainment_card_view);
+        ViewTreeObserver vto10 = entertainment.getViewTreeObserver();
+        vto10.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                entertainment.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                int width = entertainment.getMeasuredWidth();
+                ViewGroup.LayoutParams params = entertainment.getLayoutParams();
+                params.height = (width * 65) / 100;
+                entertainment.setLayoutParams(params);
+            }
+        });
+
         profile_home = findViewById(R.id.profile_home);
+
+
+
 
         currentAffairs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -273,6 +399,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
         emailIntent.putExtra(Intent.EXTRA_TEXT, msgtxt);
         startActivity(emailIntent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        userNameInGradient();
     }
 
     @SuppressLint("SetTextI18n")

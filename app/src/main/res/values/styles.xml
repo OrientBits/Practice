@@ -64,16 +64,15 @@
 
     <style name="inside_cardView_another_cardView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">35dp</item>
-        <item name="android:layout_gravity">top</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">2.2</item>
         <item name="android:elevation">0dp</item>
     </style>
 
     <style name="category_text_view">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">0.8</item>
         <item name="android:textAlignment">center</item>
         <item name="android:padding">5dp</item>
         <item name="android:textSize">16sp</item>

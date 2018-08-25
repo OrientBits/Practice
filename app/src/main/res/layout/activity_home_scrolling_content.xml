@@ -14,13 +14,12 @@
     <GridLayout
         android:id="@+id/Category_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:columnCount="2"
         android:background="@android:color/white"
         android:columnOrderPreserved="false"
-        android:padding="5dp"
-        android:rowCount="5">
+        android:padding="5dp">
 
         <!--Row 1-->
         <!--column 1-->
@@ -30,23 +29,31 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/current_Affairs"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/current_affairs" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/current_Affairs"
-                android:textColor="@color/current_affairs" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/current_affairs" />
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/current_Affairs"
+                    android:textColor="@color/current_affairs" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
@@ -58,24 +65,31 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/computer"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/computer" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/computer"
-                android:textColor="@color/computer" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/computer" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/computer"
+                    android:textColor="@color/computer" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
@@ -87,26 +101,35 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/mathematics"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/mathematics" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/mathematics"
-                android:textColor="@color/mathematics" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/mathematics" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/mathematics"
+                    android:textColor="@color/mathematics" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
         <!--column 2-->
         <android.support.v7.widget.CardView
             android:id="@+id/reasoning_card_view"
@@ -114,26 +137,34 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/reasoning"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/reasoning" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/reasoning"
-                android:textColor="@color/reasoning" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/reasoning" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/reasoning"
+                    android:textColor="@color/reasoning" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
 
         <!--Row 3-->
         <!--column 1-->
@@ -143,26 +174,35 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/general_science"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/general_science" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/general_science"
-                android:textColor="@color/general_science" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/general_science" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/general_science"
+                    android:textColor="@color/general_science" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
         <!--column 2-->
         <android.support.v7.widget.CardView
             android:id="@+id/english_card_view"
@@ -170,24 +210,31 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/english"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/english" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/english"
-                android:textColor="@color/english" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/english" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/english"
+                    android:textColor="@color/english" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
@@ -199,26 +246,35 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/technology"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/technology" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/technology"
-                android:textColor="@color/technology" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/technology" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/technology"
+                    android:textColor="@color/technology" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
         <!--column 2-->
         <android.support.v7.widget.CardView
             android:id="@+id/sports_card_view"
@@ -226,26 +282,34 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/sports"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/sport" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/sports"
-                android:textColor="@color/sport" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sport" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/sports"
+                    android:textColor="@color/sport" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
 
         <!--Row 5-->
         <!--column 1-->
@@ -255,26 +319,35 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/special"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/special" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/special"
-                android:textColor="@color/special" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/special" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/special"
+                    android:textColor="@color/special" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
+
+
         <!--column 2-->
         <android.support.v7.widget.CardView
             android:id="@+id/entertainment_card_view"
@@ -282,24 +355,31 @@
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
-            <android.support.v7.widget.CardView
-                style="@style/inside_cardView_another_cardView"
-                app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/entertainment"
-                    android:minHeight="87dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/entertainment" />
-            </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    style="@style/inside_cardView_another_cardView"
+                    app:cardElevation="0dp">
 
-            <TextView
-                style="@style/category_text_view"
-                android:text="@string/entertainment"
-                android:textColor="@color/entertainment" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/current_Affairs"
+                        android:minHeight="87dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/entertainment" />
 
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    style="@style/category_text_view"
+                    android:text="@string/entertainment"
+                    android:textColor="@color/entertainment" />
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 

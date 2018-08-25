@@ -1,6 +1,5 @@
 package com.lequiz.practice;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
@@ -9,16 +8,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -26,7 +21,7 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    @SuppressLint("ClickableViewAccessibility")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +35,9 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
         // Back Button Optimization
 
-        Drawable drawable= getResources().getDrawable(R.drawable.back_button_current_affairs);
+        Drawable drawable = getResources().getDrawable(R.drawable.back_button_current_affairs);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
         Drawable newDrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
         getSupportActionBar().setHomeAsUpIndicator(newDrawable);
 
 
@@ -57,7 +51,7 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         //UserName Initialization
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+        String heyUserNameMaker = "Hey " + getString(R.string.user_first_name) + ",";
         heyUserName.setText(heyUserNameMaker);
 
 
@@ -66,15 +60,12 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         startQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CurrentAffairsActivity.this,CurrentAffairsQuiz.class));
+                startActivity(new Intent(CurrentAffairsActivity.this, CurrentAffairsQuiz.class));
             }
         });
 
 
-
         // news section
-
-
 
 
         ArrayList<String> arrayList = new ArrayList<>();
@@ -91,23 +82,13 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         arrayList.add("Ramshek He is so jealous person according to Rishi 123");
         arrayList.add("My heart is dead for me.....123");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
 
         ListView newList = findViewById(R.id.current_affairs_news_list);
 
         newList.setAdapter(arrayAdapter);
 
 
-
-
     }
 
-
-
-
-
-
-
-
-
-}
+    }

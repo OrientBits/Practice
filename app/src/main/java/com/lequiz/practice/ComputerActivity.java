@@ -46,7 +46,7 @@ public class ComputerActivity extends AppCompatActivity {
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         learnHeaderTech.getPaint().setShader(textShader);
 
-        // Hey UserName Initilization on learn section
+        // Hey UserName Initialization on learn section
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";

@@ -76,7 +76,6 @@
                             android:id="@+id/wishing"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/carme"
                             android:padding="1dp"
                             android:textColor="#028be1"
                             android:textSize="15sp" />
