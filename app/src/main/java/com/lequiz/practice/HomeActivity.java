@@ -57,7 +57,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         fa = this; // for only context
 
-
         // toolbar implementation
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
