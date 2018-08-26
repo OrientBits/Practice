@@ -30,12 +30,7 @@ public class MathematicsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Size troubleshoot Learn Section
-        Drawable drawable= getResources().getDrawable(R.drawable.back_button_mathematics);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_mathematics);
 
         // Heading TextView gradient
 

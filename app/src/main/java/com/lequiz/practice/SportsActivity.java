@@ -29,12 +29,8 @@ public class SportsActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        // Size troubleshoot Learn Section
-        Drawable drawable= getResources().getDrawable(R.drawable.back_arrow_sports);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
 
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_sports);
 
         // Gradient Heading
         // Heading TextView gradient

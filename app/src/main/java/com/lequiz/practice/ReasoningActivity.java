@@ -29,13 +29,7 @@ public class ReasoningActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
-        // Size troubleshoot Learn Section
-        Drawable drawable= getResources().getDrawable(R.drawable.back_button_reasoning);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_reasoning);
 
         // Gradient Heading
         // Heading TextView gradient

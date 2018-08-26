@@ -30,13 +30,7 @@ public class TechnologyActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Bitmap Optimization
-
-        Drawable drawable= getResources().getDrawable(R.drawable.ic_back_button_tech);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_button_tech);
 
 
         // Heading TextView gradient

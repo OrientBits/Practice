@@ -30,11 +30,7 @@ public class GeneralScienceActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Drawable drawable= getResources().getDrawable(R.drawable.back_button_general_science);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_general_science);
 
         // Heading TextView gradient
 

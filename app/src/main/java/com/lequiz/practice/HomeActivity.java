@@ -95,7 +95,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 currentAffairs.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = currentAffairs.getMeasuredWidth();
                 ViewGroup.LayoutParams params = currentAffairs.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 currentAffairs.setLayoutParams(params);
             }
         });
@@ -108,7 +108,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 computer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = computer.getMeasuredWidth();
                 ViewGroup.LayoutParams params = computer.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 computer.setLayoutParams(params);
             }
         });
@@ -121,7 +121,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 mathematics.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = mathematics.getMeasuredWidth();
                 ViewGroup.LayoutParams params = mathematics.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 mathematics.setLayoutParams(params);
             }
         });
@@ -134,7 +134,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 reasoning.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = reasoning.getMeasuredWidth();
                 ViewGroup.LayoutParams params = reasoning.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 reasoning.setLayoutParams(params);
             }
         });
@@ -147,7 +147,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 generalScience.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = generalScience.getMeasuredWidth();
                 ViewGroup.LayoutParams params = generalScience.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 generalScience.setLayoutParams(params);
             }
         });
@@ -160,7 +160,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 english.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = english.getMeasuredWidth();
                 ViewGroup.LayoutParams params = english.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 english.setLayoutParams(params);
             }
         });
@@ -173,7 +173,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 technology.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = technology.getMeasuredWidth();
                 ViewGroup.LayoutParams params = technology.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 technology.setLayoutParams(params);
             }
         });
@@ -186,7 +186,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 sports.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = sports.getMeasuredWidth();
                 ViewGroup.LayoutParams params = sports.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 sports.setLayoutParams(params);
             }
         });
@@ -199,7 +199,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 special.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = special.getMeasuredWidth();
                 ViewGroup.LayoutParams params = special.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 special.setLayoutParams(params);
             }
         });
@@ -212,7 +212,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 entertainment.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = entertainment.getMeasuredWidth();
                 ViewGroup.LayoutParams params = entertainment.getLayoutParams();
-                params.height = (width * 65) / 100;
+                params.height = (width * 70) / 100;
                 entertainment.setLayoutParams(params);
             }
         });

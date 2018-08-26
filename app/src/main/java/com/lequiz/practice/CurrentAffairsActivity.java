@@ -33,12 +33,7 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Back Button Optimization
-
-        Drawable drawable = getResources().getDrawable(R.drawable.back_button_current_affairs);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newDrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-        getSupportActionBar().setHomeAsUpIndicator(newDrawable);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_current_affairs);
 
 
         // Heading Text Gradient
