@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -43,14 +44,14 @@ public class ComputerActivity extends AppCompatActivity {
         learnHeaderTech.getPaint().setShader(textShader);
 
         // Hey UserName Initialization on learn section
+//
+//        TextView heyUserName = findViewById(R.id.hey_user_name);
+//        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+//        heyUserName.setText(heyUserNameMaker);
 
-        TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
-        heyUserName.setText(heyUserNameMaker);
 
 
-
-         ImageView startQuiz = findViewById(R.id.start_image_of_computer_quiz);
+         CardView startQuiz = findViewById(R.id.start_CardView_of_computer_quiz);
          startQuiz.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
