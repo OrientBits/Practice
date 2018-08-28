@@ -1,8 +1,6 @@
 package com.lequiz.practice;
 
 
-import android.annotation.SuppressLint;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,13 +17,6 @@ public class NavPaymentWord {
         this.prizeAmount = prizeAmount;
     }
 
-    public static String getDate() {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy");
-        Date newDate = new Date();
-        String dateFormat = format.format(newDate);
-        return dateFormat;
-    }
-
     public String getName() {
         return name;
     }
@@ -36,6 +27,18 @@ public class NavPaymentWord {
 
     public int getPrizeAmount() {
         return prizeAmount;
+    }
+
+    public static String getDate() {
+//        Date date = new Date();
+//        SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy");
+//        String fDate = format.getDateTimeInstance().format(date);
+//        return format.get;
+
+        SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy");
+        Date newDate = new Date();
+        String date = format.format(newDate);
+        return date;
     }
 
 }

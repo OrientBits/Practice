@@ -38,24 +38,21 @@ public class NavPayment extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(NavPayment.this, R.color.colorPrimaryDark));
 
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
 
 //      this is going to display list of payment users
         ArrayList<NavPaymentWord> paymentWords = new ArrayList<>();
-        paymentWords.add(new NavPaymentWord("Ramshek Kumar Rana",15000,1500,calendar));
-        paymentWords.add(new NavPaymentWord("Mithlesh Kumar Das",15000,99000,calendar));
-        paymentWords.add(new NavPaymentWord("Suraj Kumar Soni",15000,5500,calendar));
-        paymentWords.add(new NavPaymentWord("Rishabh Raj",15000,20,calendar));
-        paymentWords.add(new NavPaymentWord("Rashi Singh",15000,10,calendar));
-        paymentWords.add(new NavPaymentWord("Neha Kumari",15000,5,calendar));
-        paymentWords.add(new NavPaymentWord("Jyotsana Kumari Arya",15000,1,calendar));
-        paymentWords.add(new NavPaymentWord("Mithlesh Kumar Rana",15000,1500,calendar));
-        paymentWords.add(new NavPaymentWord("Rakesh Kumar ",15000,700,calendar));
-        paymentWords.add(new NavPaymentWord("Akshay Cha",15000,5600,calendar));
-        paymentWords.add(new NavPaymentWord("Sonu Devi",15000,400,calendar));
-        paymentWords.add(new NavPaymentWord("Manisha Soni",15000,0,calendar));
+        paymentWords.add(new NavPaymentWord("Ramshek Kumar Rana",15000,1500));
+        paymentWords.add(new NavPaymentWord("Mithlesh Kumar Das",15000,99000));
+        paymentWords.add(new NavPaymentWord("Suraj Kumar Soni",15000,5500));
+        paymentWords.add(new NavPaymentWord("Rishabh Raj",15000,20));
+        paymentWords.add(new NavPaymentWord("Rashi Singh",15000,10));
+        paymentWords.add(new NavPaymentWord("Neha Kumari",15000,5));
+        paymentWords.add(new NavPaymentWord("Jyotsana Kumari Arya",15000,1));
+        paymentWords.add(new NavPaymentWord("Mithlesh Kumar Rana",15000,1500));
+        paymentWords.add(new NavPaymentWord("Rakesh Kumar ",15000,700));
+        paymentWords.add(new NavPaymentWord("Akshay Cha",15000,5600));
+        paymentWords.add(new NavPaymentWord("Sonu Devi",15000,400));
+        paymentWords.add(new NavPaymentWord("Manisha Soni",15000,0));
 
         NavPaymentWordAdapter paymentAdapter = new NavPaymentWordAdapter(this,paymentWords);
 
