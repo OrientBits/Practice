@@ -44,10 +44,10 @@
 
 
             <TextView
-                android:id="@+id/edit_profile_on_settings"
+                android:id="@+id/profile_on_settings"
                 style="@style/settingsCardViewOptions"
                 android:gravity="center"
-                android:text="@string/edit_profile" />
+                android:text="@string/profile" />
 
 
             <TextView

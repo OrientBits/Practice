@@ -32,15 +32,17 @@ public class NavSettings extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+
         // CardView Profile Click Event
-        TextView edit_profile_on_settings=findViewById(R.id.edit_profile_on_settings);
+        TextView edit_profile_on_settings=findViewById(R.id.profile_on_settings);
         edit_profile_on_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentEditProfile = new Intent(NavSettings.this, EditProfileActivity.class);
+                Intent intentEditProfile = new Intent(NavSettings.this, ProfileActivity.class);
                 startActivity(intentEditProfile);
             }
         });
+
         // Night Mode Click Event
         LinearLayout night_mode_text_view = findViewById(R.id.night_mode_text_view);
         night_mode_text_view.setOnClickListener(new View.OnClickListener() {

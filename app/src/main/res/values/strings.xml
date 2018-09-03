@@ -10,6 +10,10 @@
 
     <string name="user_name">Ramshek Rana</string>
     <string name="user_password">@123Ramshek</string>
+    <string name="user_sex">Male</string>
+    <string name="user_location">KrishnaPuri Hazaribag</string>
+    <string name="user_date_of_birth">05 Feb 1998</string>
+    <string name="user_winner_message">You have received ₹150 </string>
 
     <string name="login_preference">com.ramu.sharedPreferenceexample_login_preference</string>
     <string name="login_status_preference">com.ramu.sharedPreferenceexample_login_preference_status</string>
@@ -60,7 +64,7 @@
     <string name="profile">Profile</string>
 
     <!--user mobile no-->
-    <string name="user_mobile_no">987654XXXX</string>
+    <string name="user_mobile_no">9693108484</string>
     <string name="design">design</string>
 
     <!--wishing good morning-->

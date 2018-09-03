@@ -63,6 +63,7 @@
             android:parentActivityName=".SpecialActivity" />
         <activity
             android:name=".ProfileActivity"
+            android:label="@string/profile"
             android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".NavLeaderboard"
@@ -86,10 +87,6 @@
             android:label="@string/invite_friends"
             android:parentActivityName=".NavInviteFriends"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".EditProfileActivity"
-            android:label="@string/edit_profile"
-            android:parentActivityName=".EditProfileActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
