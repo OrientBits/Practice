@@ -50,7 +50,6 @@ public class NavLeaderboard extends AppCompatActivity {
         leaderboardWords.add(new NavLeaderboardWord(R.drawable.mithlesh,"Ramshek Rama",700,21));
 
 
-
         NavLeaderboardWordAdapter leaderboardWordAdapter = new NavLeaderboardWordAdapter(this,leaderboardWords);
 
         ListView listView = findViewById(R.id.leaderboard_list_view);
