@@ -1,70 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".Helpers.NavLeaderboard">
+    tools:context=".NavLeaderboard">
 
     <include
         android:id="@+id/nav_leaderboard_toolbar"
         layout="@layout/setting_toolbar" />
 
-
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/english"
-            android:columnCount="2"
-            android:padding="5dp" >
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                android:layout_rowWeight="1"/>
-
-        </GridLayout>
-
+    <ListView
+        android:id="@+id/leaderboard_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
 
 
 </LinearLayout>

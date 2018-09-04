@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".Helpers.NavSettings">
+    tools:context=".NavSettings">
 
 
     <include

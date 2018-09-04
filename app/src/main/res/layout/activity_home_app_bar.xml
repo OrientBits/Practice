@@ -8,7 +8,7 @@
     android:background="@android:color/white"
     android:fitsSystemWindows="false"
     android:orientation="vertical"
-    tools:context=".Home.HomeActivity">
+    tools:context=".HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_general_science"
     android:fitsSystemWindows="false"
-    tools:context=".Category_Activities.GeneralScienceActivity">
+    tools:context=".GeneralScienceActivity">
 
     <include
         android:id="@+id/general_science_toolbar"

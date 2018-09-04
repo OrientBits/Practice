@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_mathematics"
     android:fitsSystemWindows="false"
-    tools:context=".Category_Activities.MathematicsActivity">
+    tools:context=".MathematicsActivity">
 
     <include
         android:id="@+id/mathematics_toolbar"
