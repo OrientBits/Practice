@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_background_computer"
     android:fitsSystemWindows="false"
-    tools:context=".ComputerActivity">
+    tools:context=".Category_Activities.ComputerActivity">
 
     <include
         android:id="@+id/computer_toolbar"

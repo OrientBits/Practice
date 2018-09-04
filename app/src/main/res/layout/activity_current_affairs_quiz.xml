@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".CurrentAffairsQuiz">
+    tools:context=".Category_Activities.CurrentAffairsQuiz">
 
     <include
         android:id="@+id/current_affairs_quiz_toolbar"

@@ -1,8 +1,8 @@
 <resources>
     <!--   color for the app bar and other primary UI elements  600 and 800  from our theme pattern -->
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#ffffff</color>
-    <color name="activityBackgroundColor">#f7f7f7</color>
+    <color name="colorPrimaryDark">#3caedf</color>
+    <color name="activityBackgroundColor">#fafafa</color>
     <color name="white">@android:color/background_light</color>
 
 
@@ -10,7 +10,7 @@
     <color name="colorAccent">#7728a4</color>
     <color name="colorAccent2">#c81a3f69</color>
 
-    <color name="overflowIconColor">#3caedf</color>
+    <color name="overflowIconColor">#f1005eff</color>
 
     <!--this is used in navigation drawer item background color-->
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>

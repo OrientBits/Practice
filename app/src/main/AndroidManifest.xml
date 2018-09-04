@@ -8,9 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar" >
-        <activity
-            android:name=".SplashActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Home$SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,74 +17,74 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".Home$HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name=".MathematicsActivity"
+            android:name=".Category_Activities$MathematicsActivity"
             android:label="@string/mathematics"
-            android:parentActivityName=".MathematicsActivity" />
+            android:parentActivityName=".Category_Activities.MathematicsActivity" />
         <activity
-            android:name=".ReasoningActivity"
+            android:name=".Category_Activities$ReasoningActivity"
             android:label="@string/reasoning"
-            android:parentActivityName=".ReasoningActivity" />
+            android:parentActivityName=".Category_Activities.ReasoningActivity" />
         <activity
-            android:name=".EntertainmentActivity"
+            android:name=".Category_Activities$EntertainmentActivity"
             android:label="@string/entertainment"
-            android:parentActivityName=".EntertainmentActivity" />
+            android:parentActivityName=".Category_Activities.EntertainmentActivity" />
         <activity
-            android:name=".TechnologyActivity"
+            android:name=".Category_Activities$TechnologyActivity"
             android:label="@string/technology"
-            android:parentActivityName=".TechnologyActivity" />
+            android:parentActivityName=".Category_Activities.TechnologyActivity" />
         <activity
-            android:name=".CurrentAffairsActivity"
+            android:name=".Category_Activities$CurrentAffairsActivity"
             android:label="@string/current_Affairs"
-            android:parentActivityName=".CurrentAffairsActivity" />
+            android:parentActivityName=".Category_Activities.CurrentAffairsActivity" />
         <activity
-            android:name=".ComputerActivity"
+            android:name=".Category_Activities$ComputerActivity"
             android:label="@string/computer"
-            android:parentActivityName=".ComputerActivity" />
+            android:parentActivityName=".Category_Activities.ComputerActivity" />
         <activity
-            android:name=".GeneralScienceActivity"
+            android:name=".Category_Activities$GeneralScienceActivity"
             android:label="@string/general_science"
-            android:parentActivityName=".GeneralScienceActivity" />
+            android:parentActivityName=".Category_Activities.GeneralScienceActivity" />
         <activity
-            android:name=".EnglishActivity"
+            android:name=".Category_Activities$EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".EnglishActivity" />
+            android:parentActivityName=".Category_Activities.EnglishActivity" />
         <activity
-            android:name=".SportsActivity"
+            android:name=".Category_Activities$SportsActivity"
             android:label="@string/sports"
-            android:parentActivityName=".SportsActivity" />
+            android:parentActivityName=".Category_Activities.SportsActivity" />
         <activity
-            android:name=".SpecialActivity"
+            android:name=".Category_Activities$SpecialActivity"
             android:label="@string/special"
-            android:parentActivityName=".SpecialActivity" />
+            android:parentActivityName=".Category_Activities.SpecialActivity" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Home$ProfileActivity"
             android:label="@string/profile"
-            android:parentActivityName=".ProfileActivity" />
+            android:parentActivityName=".Home.ProfileActivity" />
         <activity
-            android:name=".NavLeaderboard"
+            android:name=".Helpers$NavLeaderboard"
             android:label="@string/leaderboard"
-            android:parentActivityName=".NavLeaderboard" />
+            android:parentActivityName=".Helpers.NavLeaderboard" />
         <activity
-            android:name=".NavNotifications"
+            android:name=".Helpers$NavNotifications"
             android:label="@string/notifications"
-            android:parentActivityName=".NavNotifications" />
+            android:parentActivityName=".Helpers.NavNotifications" />
         <activity
-            android:name=".NavPayment"
+            android:name=".Helpers$NavPayment"
             android:label="@string/payment"
-            android:parentActivityName=".NavPayment" />
+            android:parentActivityName=".Helpers.NavPayment" />
         <activity
-            android:name=".NavSettings"
+            android:name=".Helpers$NavSettings"
             android:label="@string/settings"
-            android:parentActivityName=".NavSettings"
+            android:parentActivityName=".Helpers.NavSettings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NavInviteFriends"
+            android:name=".Helpers$NavInviteFriends"
             android:label="@string/invite_friends"
-            android:parentActivityName=".NavInviteFriends"
+            android:parentActivityName=".Helpers.NavInviteFriends"
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -93,34 +92,38 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".QuizFactory"
+            android:name=".Home$QuizFactory"
             android:label="@string/quiz_factory"
-            android:parentActivityName=".QuizFactory" />
-        <activity
-            android:name=".Login" />
+            android:parentActivityName=".Home.QuizFactory" />
+        <activity android:name=".Home$Login" />
 
         <activity
-            android:name=".CurrentAffairsQuiz"
-            android:parentActivityName=".CurrentAffairsQuiz" />
+            android:name=".Category_Activities$CurrentAffairsQuiz"
+            android:parentActivityName=".Category_Activities.CurrentAffairsQuiz" />
         <activity
-            android:name=".ComputerQuiz"
-            android:parentActivityName=".ComputerQuiz" />
+            android:name=".Category_Activities$ComputerQuiz"
+            android:parentActivityName=".Category_Activities.ComputerQuiz" />
         <activity
-            android:name=".MathematicsQuiz"
-            android:parentActivityName=".MathematicsQuiz" />
+            android:name=".Category_Activities$MathematicsQuiz"
+            android:parentActivityName=".Category_Activities.MathematicsQuiz" />
         <activity
-            android:name=".ReasoningQuiz"
-            android:parentActivityName=".ReasoningQuiz" />
-        <activity android:name=".GeneralScienceQuiz"
-        android:parentActivityName=".GeneralScienceQuiz"/>
-        <activity android:name=".EnglishQuiz"
-            android:parentActivityName=".EnglishQuiz"/>
-        <activity android:name=".TechnologyQuiz"
-            android:parentActivityName=".TechnologyQuiz"/>
-        <activity android:name=".SportsQuiz"
-            android:parentActivityName=".SportsQuiz"/>
-        <activity android:name=".EntertainmentQuiz"
-            android:parentActivityName=".EntertainmentQuiz">
+            android:name=".Category_Activities$ReasoningQuiz"
+            android:parentActivityName=".Category_Activities.ReasoningQuiz" />
+        <activity
+            android:name=".Category_Activities$GeneralScienceQuiz"
+            android:parentActivityName=".Category_Activities.GeneralScienceQuiz" />
+        <activity
+            android:name=".Category_Activities$EnglishQuiz"
+            android:parentActivityName=".Category_Activities.EnglishQuiz" />
+        <activity
+            android:name=".Category_Activities$TechnologyQuiz"
+            android:parentActivityName=".Category_Activities.TechnologyQuiz" />
+        <activity
+            android:name=".Category_Activities$SportsQuiz"
+            android:parentActivityName=".Category_Activities.SportsQuiz" />
+        <activity
+            android:name=".Category_Activities$EntertainmentQuiz"
+            android:parentActivityName=".Category_Activities.EntertainmentQuiz">
 
         </activity>
     </application>

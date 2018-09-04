@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_special"
     android:fitsSystemWindows="false"
-    tools:context=".SpecialActivity">
+    tools:context=".Category_Activities.SpecialActivity">
     <include
         android:id="@+id/special_toolbar"
         android:layout_alignParentTop="true"
