@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
@@ -20,8 +21,8 @@ public class Login extends AppCompatActivity {
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
-        userName = findViewById(R.id.login_user_name);
-        userPassword = findViewById(R.id.login_user_password);
+        userName = findViewById(R.id.reg_mobile_no_editText);
+        userPassword = findViewById(R.id.reg_password_editText);
 
 
         if (sharedPreferenceConfig.readLoginStatus())
@@ -33,6 +34,9 @@ public class Login extends AppCompatActivity {
 
     public void Login_user(View view)
     {
+        view.setVisibility(View.INVISIBLE);
+        ProgressBar progressBar = findViewById(R.id.sign_in_progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         String user_name = userName.getText().toString();
         String user_password = userPassword.getText().toString();
 
@@ -47,6 +51,8 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this,"Login failed... Please try again...",Toast.LENGTH_LONG).show();
             userName.setText("");
             userPassword.setText("");
+            view.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
         }
 
     }

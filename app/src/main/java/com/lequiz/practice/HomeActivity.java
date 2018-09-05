@@ -310,6 +310,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     } // onCreate method
 
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -397,9 +398,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         startActivity(emailIntent);
     }
 
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mDrawerLayout.closeDrawers();
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
+        mDrawerLayout.closeDrawers();
         userNameInGradient();
     }
 

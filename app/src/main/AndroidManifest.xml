@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lequiz.practice">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait"
@@ -96,7 +96,6 @@
             android:label="@string/quiz_factory"
             android:parentActivityName=".QuizFactory" />
         <activity android:name=".Login" />
-
         <activity
             android:name=".CurrentAffairsQuiz"
             android:parentActivityName=".CurrentAffairsQuiz" />
@@ -123,9 +122,8 @@
             android:parentActivityName=".SportsQuiz" />
         <activity
             android:name=".EntertainmentQuiz"
-            android:parentActivityName=".EntertainmentQuiz">
-
-        </activity>
+            android:parentActivityName=".EntertainmentQuiz"/>
+        <activity android:name=".RegisterUser"/>
     </application>
 
 </manifest>
