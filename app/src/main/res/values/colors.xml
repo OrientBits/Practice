@@ -7,8 +7,8 @@
 
 
     <!--   a secondary color for controls like checkboxes and text fields -->
-    <color name="colorAccent">#7728a4</color>
-    <color name="colorAccent2">#c81a3f69</color>
+    <color name="colorAccent">#252077</color>
+    <color name="colorAccent2">#00b0ff</color>
 
     <color name="overflowIconColor">#f1005eff</color>
 

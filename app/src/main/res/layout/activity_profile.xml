@@ -178,10 +178,10 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1.3dp"
-                    android:layout_marginStart="55dp"
-                    android:background="#595959" />
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="55dp"
+                android:background="#969696" />
 
 
                 <TextView
@@ -193,7 +193,6 @@
                     android:textColor="#463cdf"
                     android:textSize="16sp"
                     tools:ignore="HardcodedText" />
-
             </LinearLayout>
 
 
@@ -294,12 +293,11 @@
 
                 </RelativeLayout>
 
-
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1.3dp"
+                    android:layout_height="1dp"
                     android:layout_marginStart="55dp"
-                    android:background="#595959" />
+                    android:background="#969696" />
 
 
                 <RelativeLayout
@@ -344,9 +342,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1.3dp"
+                    android:layout_height="1dp"
                     android:layout_marginStart="55dp"
-                    android:background="#595959" />
+                    android:background="#969696" />
 
 
                 <RelativeLayout
@@ -360,7 +358,7 @@
                         android:layout_height="35dp"
                         android:paddingEnd="0dp"
                         android:paddingStart="20dp"
-                        android:src="@drawable/ic_gender_profile_24dp"
+                        android:src="@drawable/ic_gender_24dp"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -388,12 +386,11 @@
 
                 </RelativeLayout>
 
-
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1.3dp"
+                    android:layout_height="1dp"
                     android:layout_marginStart="55dp"
-                    android:background="#595959" />
+                    android:background="#969696" />
 
 
                 <RelativeLayout
@@ -438,9 +435,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1.3dp"
+                    android:layout_height="1dp"
                     android:layout_marginStart="55dp"
-                    android:background="#595959" />
+                    android:background="#969696" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -538,9 +535,10 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1.3dp"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginStart="25dp"
-                    android:background="#595959" />
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#969696" />
+
 
 
                 <TextView

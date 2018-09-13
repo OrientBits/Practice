@@ -13,7 +13,7 @@ public class RegisterUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_user);
+        setContentView(R.layout.activity_register);
 
         regAlready = findViewById(R.id.already_register_textView);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
@@ -36,8 +36,9 @@ public class RegisterUser extends AppCompatActivity {
 
     }
 
-    public void register_user(View view) {
+    public void registerUser(View view) {
         startActivity(new Intent(RegisterUser.this,Login.class));
         finish();
     }
+
 }
