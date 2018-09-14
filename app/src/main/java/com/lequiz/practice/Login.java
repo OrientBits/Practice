@@ -79,6 +79,9 @@ public class Login extends AppCompatActivity {
         }
         return true;
     }
-
+    public void registerUser(View view) {
+        startActivity(new Intent(Login.this,RegisterUser.class));
+        finish();
+    }
 
 }

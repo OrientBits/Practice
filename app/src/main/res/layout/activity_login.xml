@@ -1,175 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+<LinearLayout
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
-
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="10dp"
+    tools:context=".Login">
+    <requestFocus />
+    <ImageView
+        android:id="@+id/back_img_in_sign_in"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
+        app:srcCompat="@mipmap/ic_launcher_foreground"
+        tools:ignore="ContentDescription" />
+    <TextView
+        android:id="@+id/sign_in_to_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@android:color/black"
         android:gravity="center_horizontal"
-        android:padding="10dp"
-        tools:context=".Login">
-        <requestFocus />
+        android:text="Join us to win prizes, read competitive exam lesson, current affairs and more "
+        android:textSize="13sp"
+        tools:ignore="HardcodedText,SmallSp" />
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/sign_in_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
 
-
-        <ImageView
-            android:id="@+id/app_logo"
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/sign_in_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:srcCompat="@mipmap/ic_launcher_foreground"
-            tools:ignore="ContentDescription" />
-
-
-        <TextView
-            android:id="@+id/sign_in_to_continue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/app_logo"
-            android:gravity="center_horizontal"
-            android:text="Join us to win prizes, read competitive exam lesson, current affairs and more "
-            android:textSize="14sp"
-            tools:ignore="HardcodedText,SmallSp" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/sign_in_layout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sign_in_to_continue"
-            android:layout_marginTop="50dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/sign_in_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:drawablePadding="12dp"
-                android:drawableStart="@drawable/ic_email_black_24dp"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:padding="8dp"
-                tools:ignore="HardcodedText" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/sign_in_layout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sign_in_layout1"
-            android:layout_marginTop="10dp"
-            app:passwordToggleEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/sign_in_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:drawablePadding="12dp"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:padding="8dp"
-                tools:ignore="HardcodedText" />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <TextView
-            android:id="@+id/forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/sign_in_layout2"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="15dp"
-            android:padding="2dp"
-            android:text="Forgot Password?"
-            android:textColor="@color/redOnSpecial"
-            android:textSize="13sp"
-            tools:ignore="HardcodedText,SmallSp" />
-
-        <Button
-            android:id="@+id/sign_in_btn"
-            android:layout_width="160dp"
-            android:layout_height="30dp"
-            android:layout_below="@id/forgot_password"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_sign_in_rounded"
-            android:elevation="6dp"
-            android:onClick="Login_user"
-            android:padding="2dp"
-            android:text="@string/Sign_in"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white" />
-
-
-        <TextView
-            android:id="@+id/or_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sign_in_btn"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:text="or"
-            android:textColor="@color/colorAccent"
-            android:textSize="25sp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:textSize="15sp"
+            android:paddingBottom="12dp"
+            android:paddingStart="8dp"
             tools:ignore="HardcodedText" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/sign_in_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
 
-        <FrameLayout
-            android:id="@+id/layout7"
-            android:layout_width="265dp"
-            android:layout_height="70dp"
-            android:layout_below="@id/or_text"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:padding="5dp">
-            <Button
-                android:id="@+id/sign_in_with_google"
-                android:layout_width="235dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/button_sign_in_with_google_rounded_back"
-                android:drawableStart="@drawable/ic_google_icon"
-                android:elevation="6dp"
-                android:fontFamily="monospace"
-                android:paddingBottom="10dp"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
-                android:paddingTop="12dp"
-                android:text="Sign in with Google"
-                android:textAllCaps="false"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText" />
-        </FrameLayout>
-
-
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/sign_in_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:hint="Password"
+            android:textSize="15sp"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingBottom="13dp"
+            android:paddingStart="8dp"
+            tools:ignore="HardcodedText" />
+    </android.support.design.widget.TextInputLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:padding="2dp"
+        android:layout_alignParentEnd="true"
+        android:text="Forgot Password?"
+        android:textColor="@color/redOnSpecial"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText,SmallSp" />
+</RelativeLayout>
+    <Button
+        android:id="@+id/sign_in_btn"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_sign_in_rounded"
+        android:elevation="6dp"
+        android:onClick="Login_user"
+        android:padding="2dp"
+        android:text="@string/Sign_in"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+    <TextView
+        android:id="@+id/or_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="or"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+    <FrameLayout
+        android:id="@+id/layout7"
+        android:layout_width="265dp"
+        android:layout_height="70dp"
+       android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+        <Button
+            android:id="@+id/sign_in_with_google"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_sign_in_with_google_rounded_back"
+            android:drawableStart="@drawable/ic_google_icon"
+            android:elevation="6dp"
+            android:fontFamily="monospace"
+            android:paddingBottom="10dp"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp"
+            android:text="Sign in with Google"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/back_img_in_sign_in"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_height="30dp"
+            android:id="@+id/left_arrow_down"
+            android:contentDescription="@string/right_arrow"
+            android:onClick="registerUser"
+            android:src="@drawable/ic_chevron_left"/>
+
+        <TextView
+            android:id="@+id/already_register_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:layout_marginStart="3dp"
+            android:focusable="true"
             android:layout_marginBottom="40dp"
-            android:layout_marginTop="15dp"
-            android:src="@mipmap/ic_back_image"
-            tools:ignore="ContentDescription" />
+            android:onClick="registerUser"
+            android:text="Create Account"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
 
 
-    </RelativeLayout>
 
+
+
+</LinearLayout>
 </ScrollView>
