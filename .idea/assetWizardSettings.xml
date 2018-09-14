@@ -192,7 +192,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/maps/ic_local_phone_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_left_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -202,10 +202,11 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="95989a" />
                             <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="ic_local_phone_black_24dp" />
-                            <entry key="sourceFile" value="D:\Android\Svg Elements\Chevron_right.svg" />
+                            <entry key="outputName" value="ic_chevron_left" />
+                            <entry key="sourceFile" value="D:\Android\Svg Elements\Chevron_left.svg" />
                           </map>
                         </option>
                       </PersistentState>
