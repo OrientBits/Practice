@@ -118,6 +118,7 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
+
         <TextView
             android:id="@+id/or_text"
             android:layout_width="wrap_content"
