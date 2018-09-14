@@ -2,6 +2,7 @@ package com.lequiz.practice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.design.widget.TextInputEditText;
 
 import com.lequiz.practice.R;
 
@@ -30,5 +31,6 @@ public class SharedPreferenceConfig {
         status = sharedPreferences.getBoolean(context.getResources().getString(R.string.login_status_preference),false);
         return status;
     }
+
 
 }

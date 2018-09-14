@@ -148,4 +148,5 @@
 
     <!--spinner title-->
     <string name="spinner_title">Choose Category</string>
+    <string name="right_arrow">Right Arrow Down</string>
 </resources>
