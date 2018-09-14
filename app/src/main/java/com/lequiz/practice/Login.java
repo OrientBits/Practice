@@ -42,12 +42,12 @@ public class Login extends AppCompatActivity {
     }
 
     public void Login_user(View view) {
-        String user_name = userEmail.getText().toString().trim();
+        String user_email = userEmail.getText().toString().trim();
         String user_password = userPassword.getText().toString().trim();
 
         if (checkUserEmail() && checkUserPassword()) {
 
-            if (user_name.equals(getResources().getString(R.string.user_name)) && user_password.equals(getResources().getString(R.string.user_password))) {
+            if (user_email.equals(getResources().getString(R.string.user_email)) && user_password.equals(getResources().getString(R.string.user_password))) {
                 startActivity(new Intent(this, HomeActivity.class));
                 sharedPreferenceConfig.writeLoginStatus(true);
                 finish();
@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
 
 
     private boolean checkUserEmail() {
-        if (TextUtils.isEmpty((CharSequence) userEmail)) {
+        if (userEmail.equals("")) {
             userEmail.setError("Please enter a valid email");
             return false;
         }
@@ -70,18 +70,14 @@ public class Login extends AppCompatActivity {
     }
 
     private boolean checkUserPassword() {
-        if (TextUtils.isEmpty((CharSequence) userPassword)) {
+        if (userPassword.equals("")) {
             userPassword.setError("Please enter a password");
             return false;
-        } else if (userPassword.length() < 6 || userPassword.length() > 10) {
+        } else if (userPassword.length() < 6 || userPassword.length() > 15) {
             userPassword.setError("Password should be between 6 to 10 Character");
             return false;
         }
         return true;
-    }
-    public void registerUser(View view) {
-        startActivity(new Intent(Login.this,RegisterUser.class));
-        finish();
     }
 
 }
