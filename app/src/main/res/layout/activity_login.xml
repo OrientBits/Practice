@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
 
     <RelativeLayout
@@ -14,19 +15,19 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal"
         android:padding="10dp"
         tools:context=".Login">
         <requestFocus />
+
 
         <ImageView
             android:id="@+id/app_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="40dp"
             app:srcCompat="@mipmap/ic_launcher_foreground"
             tools:ignore="ContentDescription" />
 
@@ -37,23 +38,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/app_logo"
             android:gravity="center_horizontal"
-            android:text="Sign in to continue"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            android:text="Join us to win prizes, read competitive exam lesson, current affairs and more "
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,SmallSp" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/sign_in_layout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_in_to_continue"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="50dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/sign_in_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:drawablePadding="12dp"
                 android:drawableStart="@drawable/ic_email_black_24dp"
                 android:hint="Email"
@@ -76,8 +77,8 @@
                 android:id="@+id/sign_in_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:drawablePadding="12dp"
                 android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:hint="Password"
@@ -108,7 +109,7 @@
             android:layout_height="30dp"
             android:layout_below="@id/forgot_password"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/button_sign_in_rounded"
             android:elevation="6dp"
             android:onClick="Login_user"
@@ -131,6 +132,7 @@
             tools:ignore="HardcodedText" />
 
         <FrameLayout
+            android:id="@+id/layout7"
             android:layout_width="265dp"
             android:layout_height="70dp"
             android:layout_below="@id/or_text"
@@ -156,6 +158,17 @@
                 android:textSize="13sp"
                 tools:ignore="HardcodedText" />
         </FrameLayout>
+
+
+        <ImageView
+            android:id="@+id/back_img_in_sign_in"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/ic_back_image"
+            tools:ignore="ContentDescription" />
+
 
     </RelativeLayout>
 

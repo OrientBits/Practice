@@ -322,7 +322,7 @@
                         android:layout_toEndOf="@id/email_image_temp"
                         android:paddingEnd="0dp"
                         android:paddingStart="12dp"
-                        android:text="@string/user_email_id"
+                        android:text="@string/user_email"
                         android:textSize="17sp" />
 
                     <TextView

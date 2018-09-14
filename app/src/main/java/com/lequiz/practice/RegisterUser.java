@@ -4,18 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RegisterUser extends AppCompatActivity {
 
     private SharedPreferenceConfig sharedPreferenceConfig;
-    private TextView regAlready;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        regAlready = findViewById(R.id.already_register_textView);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         if (sharedPreferenceConfig.readLoginStatus())
@@ -24,16 +23,6 @@ public class RegisterUser extends AppCompatActivity {
             finish();
         }
 
-
-        regAlready.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterUser.this,Login.class));
-                finish();
-            }
-        });
-
-
     }
 
     public void registerUser(View view) {
@@ -41,4 +30,8 @@ public class RegisterUser extends AppCompatActivity {
         finish();
     }
 
+    public void IHaveAnAccount(View view) {
+        startActivity(new Intent(RegisterUser.this,Login.class));
+        finish();
+    }
 }

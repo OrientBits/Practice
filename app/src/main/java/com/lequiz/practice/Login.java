@@ -6,19 +6,21 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
     private SharedPreferenceConfig sharedPreferenceConfig;
     private EditText userEmail, userPassword;
+    private ImageView back_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        back_img = findViewById(R.id.back_img_in_sign_in);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         userEmail = findViewById(R.id.sign_in_email);
@@ -29,6 +31,14 @@ public class Login extends AppCompatActivity {
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         }
+
+        back_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(getParentActivityIntent());
+            }
+        });
+
     }
 
     public void Login_user(View view) {
