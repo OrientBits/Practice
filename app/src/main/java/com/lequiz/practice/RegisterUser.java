@@ -23,6 +23,7 @@ public class RegisterUser extends AppCompatActivity {
             finish();
         }
 
+
     }
 
     public void registerUser(View view) {
