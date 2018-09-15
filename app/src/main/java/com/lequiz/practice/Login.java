@@ -80,4 +80,7 @@ public class Login extends AppCompatActivity {
         return true;
     }
 
+    public void createAccount(View view) {
+        startActivity(new Intent(this,RegisterUser.class));
+    }
 }

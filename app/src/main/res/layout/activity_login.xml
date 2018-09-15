@@ -149,17 +149,20 @@
             android:textSize="13sp"
             tools:ignore="HardcodedText" />
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="14dp"
             android:layout_marginTop="4dp"
             android:layout_height="30dp"
             android:id="@+id/left_arrow_down"
             android:contentDescription="@string/right_arrow"
-            android:onClick="registerUser"
+            android:onClick="createAccount"
             android:src="@drawable/ic_chevron_left"/>
 
         <TextView
@@ -171,7 +174,7 @@
             android:layout_marginStart="3dp"
             android:focusable="true"
             android:layout_marginBottom="40dp"
-            android:onClick="registerUser"
+            android:onClick="createAccount"
             android:text="Create Account"
             android:textColor="@color/colorAccent"
             android:textSize="12sp"

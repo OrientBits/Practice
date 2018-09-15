@@ -30,13 +30,9 @@ public class RegisterUser extends AppCompatActivity {
 
     }
 
-    public void registerUser(View view) {
-        startActivity(new Intent(RegisterUser.this,Login.class));
-        finish();
-    }
-
     public void IHaveAnAccount(View view) {
         startActivity(new Intent(RegisterUser.this,Login.class));
         finish();
     }
+
 }

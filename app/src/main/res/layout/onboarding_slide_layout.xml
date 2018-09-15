@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/ic_launcher_foreground"/>
+
+    <ImageView
+        android:id="@+id/onboarding_img1"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_below="@id/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:padding="1dp"
+        tools:srcCompat="@drawable/onboarding1" />
+
+    <TextView
+        android:id="@+id/onbarding1_message"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboarding_img1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:padding="4dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent2"
+        android:textSize="15sp"
+        tools:text="Let's Dive deep into world's biggest Quiz Competition "/>
+
+
+</RelativeLayout>
