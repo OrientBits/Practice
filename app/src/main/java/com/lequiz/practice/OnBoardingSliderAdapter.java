@@ -19,7 +19,7 @@ public class OnBoardingSliderAdapter extends PagerAdapter {
             R.drawable.onboarding4
     };
     public String[] slide_messages = {
-            "Let's Dive deep into The world's biggest Quiz Competition",
+            "Let's Dive deep into the world's biggest Quiz Competition",
             "Ultimate monthly winner with a single scale XP",
             "Earn with your knowledge ",
             "Daily Database updation"
