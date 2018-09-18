@@ -140,6 +140,7 @@
                 android:textSize="15sp"
                 android:paddingBottom="13dp"
                 android:paddingStart="8dp"
+                android:paddingEnd="0dp"
                 tools:ignore="HardcodedText" />
         </android.support.design.widget.TextInputLayout>
 
@@ -149,7 +150,7 @@
             android:layout_width="160dp"
             android:layout_height="30dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/button_sign_in_rounded"
+            android:background="@drawable/button_sign_in"
             android:elevation="6dp"
             android:onClick="registerUser"
             android:padding="2dp"

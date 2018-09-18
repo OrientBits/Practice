@@ -36,4 +36,6 @@ public class RegisterUser extends AppCompatActivity {
     }
 
 
+    public void registerUser(View view) {
+    }
 }
