@@ -27,12 +27,11 @@ public class ComputerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        // Size troubleshoot Learn Section
-        Drawable drawable= getResources().getDrawable(R.drawable.back_button_computer);
-        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-
-        getSupportActionBar().setHomeAsUpIndicator(newdrawable);
+//        // Size troubleshoot Learn Section
+//        Drawable drawable= getResources().getDrawable(R.drawable.back_button_computer);
+//        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+//        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_computer);
 
         // Gradient Heading
         // Heading TextView gradient

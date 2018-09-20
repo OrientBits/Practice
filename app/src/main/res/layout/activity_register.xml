@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_width="match_parent">
 <LinearLayout
         android:layout_width="match_parent"
@@ -90,6 +90,7 @@
                 android:maxLines="1"
                 android:paddingBottom="13dp"
                 android:paddingStart="8dp"
+                android:paddingEnd="0dp"
                 tools:ignore="HardcodedText" />
         </android.support.design.widget.TextInputLayout>
 
@@ -173,8 +174,10 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="45dp"
+        tools:ignore="UseCompoundDrawables">
 
         <TextView
             android:id="@+id/already_register_textView"
@@ -184,7 +187,6 @@
             android:clickable="true"
             android:layout_marginEnd="3dp"
             android:focusable="true"
-            android:layout_marginBottom="40dp"
             android:onClick="IHaveAnAccount"
             android:text="I've an account"
             android:textColor="@color/colorAccent"
@@ -198,6 +200,7 @@
             android:contentDescription="@string/right_arrow"
             android:onClick="IHaveAnAccount"
             android:src="@drawable/ic_chevron_right"/>
+
     </LinearLayout>
 
 

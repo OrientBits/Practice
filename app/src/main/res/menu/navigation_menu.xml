@@ -6,7 +6,7 @@
 
         <item
             android:id="@+id/notifications"
-            android:icon="@drawable/ic_notification"
+            android:icon="@drawable/drawer_notification"
             android:title="@string/notifications" />
     </group>
 
@@ -15,22 +15,22 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/payment"
-            android:icon="@drawable/ic_payment"
+            android:icon="@drawable/drawer_payment"
             android:title="@string/payment" />
 
         <item
             android:id="@+id/leaderboard"
-            android:icon="@drawable/ic_leaderboard"
+            android:icon="@drawable/drawer_leaderboard"
             android:title="@string/leaderboard" />
 
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/drawer_setting"
             android:title="@string/settings" />
 
         <item
             android:id="@+id/invite_friends"
-            android:icon="@drawable/ic_invite_friend"
+            android:icon="@drawable/drawer_invite_friend"
             android:title="@string/invite_friends" />
 
     </group>

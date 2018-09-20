@@ -26,8 +26,7 @@ public class TechnologyActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_button_tech);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_tech);
 
 
         // Heading TextView gradient

@@ -52,7 +52,7 @@
                 android:layout_marginBottom="15dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_email"
-                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawableStart="@drawable/ic_email_white_24dp"
                 android:elevation="4dp"
                 android:paddingEnd="37dp"
                 android:paddingStart="12dp"

@@ -7,10 +7,9 @@
 
     <color name="transparent_white">#cccccc</color>
 
-
     <!--   a secondary color for controls like checkboxes and text fields -->
-    <color name="colorAccent">#252077</color>
-    <color name="colorAccent2">#318CC7</color>
+    <color name="colorAccent">#00b0ff</color>
+    <color name="colorAccent2">#252077</color>
 
     <color name="overflowIconColor">#f1005eff</color>
 
