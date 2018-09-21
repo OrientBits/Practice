@@ -6,89 +6,129 @@
     android:background="@drawable/gradient_background_special"
     android:fitsSystemWindows="false"
     tools:context=".SpecialActivity">
+
     <include
         android:id="@+id/special_toolbar"
-        android:layout_alignParentTop="true"
         layout="@layout/category_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="322dp"
         android:layout_height="187dp"
-        android:contentDescription="@string/special"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/special"
         android:src="@drawable/special_background_image" />
 
     <TextView
+        android:id="@+id/heading_on_special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
         android:layout_marginStart="16dp"
-        android:theme="@style/Topic_Text_Style"
+        android:layout_marginTop="99dp"
         android:text="@string/special"
-        android:id="@+id/heading_on_special"
+        android:theme="@style/Topic_Text_Style"
         tools:ignore="RelativeOverlap" />
 
     <TextView
+        android:id="@+id/subheading_on_special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:id="@+id/subheading_on_special"
         android:layout_below="@+id/heading_on_special"
         android:layout_marginStart="16dp"
-        android:text="@string/subHeadingOnLearnSection"/>
+        android:text="@string/subHeadingOnLearnSection"
+        android:textSize="14sp" />
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:elevation="2dp"-->
-        <!--android:layout_marginTop="60dp"-->
-        <!--android:layout_below="@+id/subheading_on_special"-->
-        <!--android:background="@drawable/rounded_layout_learn_special"-->
-        <!--android:theme="@style/Inner_Relative_Layout"-->
-        <!--android:id="@+id/relative_card_view_special"-->
-        <!--android:layout_marginRight="16dp"-->
-        <!--&gt;-->
-        <!--<ImageView-->
-            <!--android:layout_width="58dp"-->
-            <!--android:layout_height="58dp"-->
-            <!--android:clickable="true"-->
-            <!--android:contentDescription="@string/start_button_special"-->
-            <!--android:focusable="true"-->
-            <!--android:src="@drawable/start_button_special"-->
-            <!--android:layout_alignParentEnd="true"/>-->
-        <!--<ImageView-->
-            <!--android:contentDescription="@string/start_button_special"-->
-            <!--android:layout_width="58dp"-->
-            <!--android:layout_height="58dp"-->
-            <!--android:src="@drawable/play_button_special"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:id="@+id/play_button_special"/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="16sp"-->
-            <!--android:id="@+id/hey_user_name"-->
-            <!--android:layout_marginStart="58dp"-->
-            <!--android:paddingTop="9dp"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--tools:ignore="RelativeOverlap" />-->
+    <RelativeLayout
+        android:id="@+id/relative_card_view_special"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subheading_on_special"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_layout_learn_special"
+        android:elevation="2dp"
+        android:theme="@style/Inner_Relative_Layout">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/start_your_quiz"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:layout_below="@+id/hey_user_name"-->
-            <!--android:paddingTop="3dp"-->
-            <!--android:layout_marginStart="58dp"-->
-            <!--android:textSize="12sp"/>-->
-    <!--</RelativeLayout>-->
+        <ImageView
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:contentDescription="@string/start_button_special"
+            android:focusable="true"
+            android:src="@drawable/start_button_special" />
+
+        <ImageView
+            android:id="@+id/play_button_special"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/start_button_special"
+            android:src="@drawable/play_button_special" />
+
+        <TextView
+            android:id="@+id/hey_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="58dp"
+            android:paddingTop="9dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hey_user_name"
+            android:layout_marginStart="58dp"
+            android:paddingTop="3dp"
+            android:text="@string/start_your_quiz"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/class_x_in_special"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_below="@id/relative_card_view_special"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_layout_learn_special"
+        android:clickable="true"
+        android:elevation="2dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="7dp"
+            android:padding="2dp"
+            android:src="@drawable/class_10_relative_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="4.5dp"
+            android:padding="5dp"
+            android:text="Class X "
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
 
