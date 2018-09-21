@@ -40,7 +40,7 @@
                 android:layout_height="1dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorAccent2" />
+                android:background="@color/colorAccent" />
 
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_height="1dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="4dp"
-                android:background="@color/colorAccent2" />
+                android:background="@color/colorAccent" />
 
             <!--this is for push notifications -->
             <RelativeLayout
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|end"
-                    android:shadowColor="@color/colorAccent2" />
+                    android:shadowColor="@color/colorAccent" />
             </RelativeLayout>
 
             <!--this is for Night mode-->

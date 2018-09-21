@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class OnBoardingSliderAdapter extends PagerAdapter {
             R.drawable.onboarding3,
             R.drawable.onboarding4
     };
+
+
     public String[] slide_messages = {
             "Let's Dive deep into the world's biggest Quiz Competition",
             "Ultimate monthly winner with a single scale XP",
@@ -54,6 +57,7 @@ public class OnBoardingSliderAdapter extends PagerAdapter {
 
         imageView.setImageResource(slide_images[position]);
         textView.setText(slide_messages[position]);
+
 
         container.addView(view);
 
