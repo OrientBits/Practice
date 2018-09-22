@@ -8,13 +8,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class TechnologyActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    List<ArrayListForHeadlinesAndImage> customArrayList;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,41 @@ public class TechnologyActivity extends AppCompatActivity {
                 startActivity(new Intent(TechnologyActivity.this,TechnologyQuiz.class));
             }
         });
+        // news section
+
+
+        customArrayList = new ArrayList<>();
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+
+        listView = (ListView) findViewById(R.id.current_affairs_news_list);
+        CustomArrayAdapterForCurrentAffairs customAdapter = new CustomArrayAdapterForCurrentAffairs(this, R.layout.custom_row_current_affairs, customArrayList);
+        listView.setAdapter(customAdapter);
 
 
     }

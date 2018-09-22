@@ -6,8 +6,8 @@
     <string name="Sign_out">Sign out</string>
 
     <string name="user_name">Ramshek Rana</string>
-    <string name="user_password">@123Ramshek</string>
-    <string name="user_email">ramshekrana@gmail.com</string>
+    <string name="user_password">12345678</string>
+    <string name="user_email">lequiz@gmail.com</string>
     <string name="user_sex">Male</string>
     <string name="user_location">KrishnaPuri Hazaribag</string>
     <string name="user_date_of_birth">05 Feb 1998</string>

@@ -1,99 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_technology"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="false"
-    tools:context=".TechnologyActivity">
-
-    <include
-        android:id="@+id/technology_toolbar"
-        layout="@layout/category_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="322dp"
-        android:layout_height="187dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/technology"
-        android:src="@drawable/technology_background_image" />
-
-    <TextView
-        android:id="@+id/heading_on_technology"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="99dp"
-        android:text="@string/technology"
-        android:theme="@style/Topic_Text_Style"
-        tools:ignore="RelativeOverlap" />
-
-    <TextView
-        android:id="@+id/subheading_on_technology"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/heading_on_technology"
-        android:layout_marginStart="16dp"
-        android:text="@string/subHeadingOnLearnSection"
-        android:textSize="14sp" />
+    android:orientation="vertical"
+    tools:context=".CurrentAffairsActivity">
 
     <RelativeLayout
-        android:id="@+id/relative_card_view_technology"
+        android:id="@+id/header_of_technology"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/subheading_on_technology"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/rounded_layout_learn_tech"
-        android:elevation="2dp"
-        android:theme="@style/Inner_Relative_Layout">
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background_technology"
+        >
+
+        <include
+            android:id="@+id/technology_toolbar"
+            layout="@layout/category_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
 
         <ImageView
-            android:id="@+id/start_image_of_technology_quiz"
-            android:layout_width="58dp"
-            android:layout_height="58dp"
+            android:id="@+id/imageView"
+            android:layout_width="322dp"
+            android:layout_height="187dp"
             android:layout_alignParentEnd="true"
-            android:clickable="true"
-            android:contentDescription="@string/start_button_technology"
-            android:focusable="true"
-            android:foreground="?android:selectableItemBackground"
-            android:src="@drawable/start_arrow_button" />
-
-        <ImageView
-            android:id="@+id/play_button_technology"
-            android:layout_width="58dp"
-            android:layout_height="58dp"
-            android:layout_alignParentStart="true"
-            android:contentDescription="@string/play_button_technology"
-            android:src="@drawable/play_icon_tech" />
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/current_Affairs"
+            android:src="@drawable/technology_background_image" />
 
         <TextView
-            android:id="@+id/hey_user_name"
+            android:id="@+id/heading_on_technology"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="58dp"
-            android:paddingTop="9dp"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="99dp"
+            android:text="@string/technology"
+            android:theme="@style/Topic_Text_Style"
             tools:ignore="RelativeOverlap" />
 
         <TextView
+            android:id="@+id/subheading_on_current_affairs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hey_user_name"
-            android:layout_marginStart="58dp"
-            android:paddingTop="3dp"
-            android:text="@string/start_your_quiz"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
+            android:layout_below="@+id/heading_on_technology"
+            android:layout_marginStart="16dp"
+            android:text="@string/subHeadingOnLearnSection"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/relative_card_view_current_affairs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subheading_on_current_affairs"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/rounded_layout_learn_tech"
+            android:elevation="2dp"
+            android:theme="@style/Inner_Relative_Layout">
+
+            <ImageView
+                android:id="@+id/start_image_of_technology_quiz"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:background="?android:selectableItemBackground"
+                android:src="@drawable/start_icon_current_affairs"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageView
+                android:id="@+id/play_button_tech"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/play_button_current_affairs"
+                android:src="@drawable/play_icon_tech" />
+
+            <TextView
+                android:id="@+id/hey_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="58dp"
+                android:paddingTop="9dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hey_user_name"
+                android:layout_marginStart="58dp"
+                android:paddingTop="3dp"
+                android:text="@string/start_your_quiz"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
-</RelativeLayout>
 
+    <ListView
+        android:layout_marginBottom="48dp"
+        android:id="@+id/current_affairs_news_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="NestedScrolling" />
+
+
+</LinearLayout>
