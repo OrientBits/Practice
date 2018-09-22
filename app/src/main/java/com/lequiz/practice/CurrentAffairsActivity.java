@@ -13,11 +13,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CurrentAffairsActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    List<ArrayListForHeadlinesAndImage> customArrayList;
+    ListView listView;
 
 
     @Override
@@ -61,25 +64,38 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         // news section
 
 
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Rishi is going to become manager of Rashi singh");
-        arrayList.add("Today mithlesh will become an Astrologer ");
-        arrayList.add("Ramshek He is so jealous person according to Rishi ");
-        arrayList.add("My heart is dead for me.....");
-        arrayList.add("Rishi is going to become manager of Rashi singh..");
-        arrayList.add("Today mithlesh will become an Astrologer.. ");
-        arrayList.add("Ramshek He is so jealous person according to Rishi.. ");
-        arrayList.add("My heart is dead for me.......");
-        arrayList.add("Rishi is going to become manager of Rashi sing123");
-        arrayList.add("Today mithlesh will become an Astrologer123 ");
-        arrayList.add("Ramshek He is so jealous person according to Rishi 123");
-        arrayList.add("My heart is dead for me.....123");
+        customArrayList = new ArrayList<>();
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
+        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
+                "Pre-orders in India at Rs.17,499 on \n" +
+                "Amazon Ahead of Launch Today",R.drawable.computer));
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
-
-        ListView newList = findViewById(R.id.current_affairs_news_list);
-
-        newList.setAdapter(arrayAdapter);
+        listView = (ListView) findViewById(R.id.current_affairs_news_list);
+        CustomArrayAdapterForCurrentAffairs customAdapter = new CustomArrayAdapterForCurrentAffairs(this, R.layout.custom_row_current_affairs, customArrayList);
+        listView.setAdapter(customAdapter);
 
 
     }
