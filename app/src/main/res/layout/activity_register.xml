@@ -190,16 +190,9 @@
             android:onClick="IHaveAnAccount"
             android:text="I've an account"
             android:textColor="@color/colorAccent"
-            android:textSize="12sp"
+            android:textSize="14sp"
             tools:ignore="HardcodedText" />
-        <ImageView
-            android:layout_width="14dp"
-            android:layout_marginTop="4dp"
-            android:layout_height="30dp"
-            android:id="@+id/right_arrow"
-            android:contentDescription="@string/right_arrow"
-            android:onClick="IHaveAnAccount"
-            android:src="@drawable/ic_chevron_right"/>
+
 
     </LinearLayout>
 

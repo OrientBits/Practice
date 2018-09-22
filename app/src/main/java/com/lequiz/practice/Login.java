@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -20,7 +22,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        back_img = findViewById(R.id.back_img_in_sign_in);
+        // Set transparency
+
+
+        Window w = getWindow(); // in Activity's onCreate() for instance
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        w.setNavigationBarColor(getResources().getColor(R.color.white));
+
+      //  back_img = findViewById(R.id.back_img_in_sign_in);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         userEmail = findViewById(R.id.sign_in_email);
@@ -32,12 +41,12 @@ public class Login extends AppCompatActivity {
             finish();
         }
 
-        back_img.setOnClickListener(new View.OnClickListener() {
+   /*     back_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(getParentActivityIntent());
             }
-        });
+        });  **/
 
     }
 

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-
+        android:layout_marginTop="48dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
@@ -17,13 +17,13 @@
 
         <requestFocus />
 
-        <ImageView
+ <!--       <ImageView
             android:id="@+id/back_img_in_sign_in"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="40dp"
             android:src="@drawable/ic_arrow_back_black_24dp"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription" />  -->
 
         <ImageView
             android:id="@+id/app_logo"
@@ -164,23 +164,9 @@
                 tools:ignore="HardcodedText" />
         </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:id="@+id/left_arrow_down"
-                android:layout_width="14dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
-                android:contentDescription="@string/right_arrow"
-                android:onClick="createAccount"
-                android:src="@drawable/ic_chevron_left" />
 
             <TextView
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/already_register_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -190,11 +176,10 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="createAccount"
-                android:text="Create Account"
+                android:text="Create account"
                 android:textColor="@color/colorAccent"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 tools:ignore="HardcodedText" />
-        </LinearLayout>
 
 
     </LinearLayout>
