@@ -106,7 +106,6 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         CustomArrayAdapterForCurrentAffairs customAdapter = new CustomArrayAdapterForCurrentAffairs(this, R.layout.custom_row_current_affairs, customArrayList);
         listView.setAdapter(customAdapter);
 
-
     }
 
     }
