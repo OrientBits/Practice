@@ -127,6 +127,9 @@
             android:layout_height="match_parent"
             android:id="@+id/paly_random_framLayout"
             android:background="@drawable/play_random_quiz_background_final"
+            android:foreground="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginTop="10dp"
@@ -146,4 +149,6 @@
 
 
     </android.support.design.widget.BottomNavigationView>
+
+
 </android.support.design.widget.CoordinatorLayout>
