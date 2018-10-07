@@ -5,9 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="56dp"
     android:layout_below="@+id/app_bar"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".HomeActivity"
+    android:fitsSystemWindows="true"
     tools:showIn="@layout/activity_home_app_bar">
 
 <LinearLayout
@@ -21,9 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:background="@android:color/white"
+        android:background="@color/activityBackgroundColor"
         android:columnOrderPreserved="false"
-        android:padding="5dp">
+        android:padding="5dp"
+        tools:ignore="UselessParent">
 
         <!--Row 1-->
         <!--column 1-->
@@ -390,27 +393,6 @@
 
     </GridLayout>    <!--category item-->
 
-
-    <android.support.v7.widget.CardView
-        android:layout_width="58dp"
-        android:layout_height="58dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="57dp"
-        android:background="@android:color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:selectableItemBackground"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="8dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="13dp"
-            android:src="@drawable/random_image"
-            tools:ignore="ContentDescription" />
-
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>
 

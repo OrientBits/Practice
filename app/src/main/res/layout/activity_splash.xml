@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
+    android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical"
     android:background="@android:color/white"
-
     tools:context=".SplashActivity">
   <!--  android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" -->
  <!-- android:fitsSystemWindows="true" -->
@@ -17,18 +16,11 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_screen"
+        tools:ignore="ContentDescription" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
 
     <!--<com.felipecsl.gifimageview.library.GifImageView-->
     <!--android:layout_width="wrap_content"-->

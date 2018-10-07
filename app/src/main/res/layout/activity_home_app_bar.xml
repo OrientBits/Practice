@@ -6,18 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+        android:fitsSystemWindows="true"
+        android:id="@+id/home_activity_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
+            android:fitsSystemWindows="true"
+            android:id="@+id/home_activity_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="@android:color/white"
@@ -96,18 +99,51 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                android:theme="@style/CustomToolbar"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
+    <include
+        android:id="@+id/home_scrolling_containr"
+        layout="@layout/activity_home_scrolling_content" />
 
-    <include layout="@layout/activity_home_scrolling_content" />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_play_random_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        android:elevation="10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/paly_random_framLayout"
+            android:background="@drawable/play_random_quiz_background_final"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Random Quiz"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+        </FrameLayout>
 
 
+    </android.support.design.widget.BottomNavigationView>
 </android.support.design.widget.CoordinatorLayout>

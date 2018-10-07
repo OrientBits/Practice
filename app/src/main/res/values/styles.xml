@@ -3,45 +3,36 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-  <!--      <item name="colorPrimary">@android:color/transparent</item> -->
-   <!--     <item name="colorPrimaryDark">@android:color/transparent</item> -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
-  <!--      <item name="android:windowNoTitle">true</item> -->
-        <item name="android:navigationBarColor">@android:color/white</item>
+        <!--toolbar style-->
+        <item name="android:windowNoTitle">true</item>
 
- <!--       <item name="android:windowTranslucentStatus">true</item> -->
-        <item name="android:textColorSecondary">@color/colorPrimaryDark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!--for soft navigation bar-->
+        <item name="android:windowBackground">@color/windowsBackgroundColor</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
 
         <!--for drawer layout-->
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="AppTheme.NoActionBar" parent="AppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowBackground">@drawable/rounded_home_background_color</item>
+    <style name="CustomToolbar" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+        <!--overflow icon color-->
+        <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
     </style>
 
-
-    <!--this theme for Home activity -->
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-   <!--     <item name="android:statusBarColor">@android:color/transparent</item> -->
-    </style>
-
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle
-        </item> <!-- sets the style for the overflow button -->
-    </style>
-
-    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
-        <item name="spinBars">true</item>
-        <item name="color">@color/overflowIconColor</item>
-    </style>
     <!-- This style is where you define the tint color of your overflow menu button -->
     <style name="actionOverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/overflowIconColor</item>
@@ -61,7 +52,6 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
-
     <style name="inside_cardView_another_cardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
@@ -80,15 +70,8 @@
         <item name="android:fontFamily">@font/trebuchet_ms</item>
 
     </style>
-    <!---Action Bar Style Learn Section -->
-    <style name="ActionBarLearnSection" parent="@style/ThemeOverlay.AppCompat.Light">
-        <item name="android:windowActionBarOverlay">true</item>
-     <!--   <item name="android:fitsSystemWindows">true</item> -->
-        <item name="android:homeAsUpIndicator">@drawable/back_button_tech</item>
 
-        <!-- Support library compatibility -->
-        <item name="windowActionBarOverlay">true</item>
-    </style>
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
@@ -123,6 +106,5 @@
         <item name="android:background">@drawable/rounded_background_of_setting_item</item>
         <item name="android:foreground">@drawable/ripple_text_view_settings</item>
     </style>
-
 
 </resources>

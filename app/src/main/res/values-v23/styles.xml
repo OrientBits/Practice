@@ -2,42 +2,8 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-  <!--      <item name="colorPrimaryDark">@android:color/transparent</item>  -->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-  <!--      <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentNavigation">true</item>-->
-        <item name="android:windowTranslucentStatus">true</item>
-
-    </style>
-
-
-    <style name="AppTheme.NoActionBar">
-   <!--   <item name="colorPrimaryDark">@android:color/transparent</item> -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-       <item name="android:fitsSystemWindows">true</item>
-  <!--      <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item> -->
         <!--show black text color of status bar -->
-      <item name="android:windowLightStatusBar">true</item>
-    </style>
-
-
-
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-  <!--  <item name="colorPrimaryDark">@android:color/transparent</item>    <!-when scroll home content, status bar color be transparent -->
-        <item name="windowNoTitle">true</item>
-   <!--     <item name="android:windowTranslucentStatus">true</item> -->
-        <item name="windowActionBar">false</item>
-     <!-- <item name="android:statusBarColor">@android:color/transparent</item> -->
- <!--       <item name="android:windowTranslucentNavigation">true</item>
-
-        <! show black text color of status bar -->
-     <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
 

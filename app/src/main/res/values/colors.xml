@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#3caedf</color>
     <color name="activityBackgroundColor">#fafafa</color>
+    <color name="windowsBackgroundColor">#000000</color>
     <color name="white">@android:color/background_light</color>
 
     <color name="transparent_white">#b4b4b4</color>
@@ -11,6 +12,7 @@
     <color name="colorAccent">#302997</color>
 
     <color name="overflowIconColor">#f1005eff</color>
+    <color name="transparent">@android:color/transparent</color>
 
     <!--this is used in navigation drawer item background color-->
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>

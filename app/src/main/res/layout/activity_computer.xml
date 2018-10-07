@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@drawable/gradient_background_computer"
     tools:context=".ComputerActivity">
 
@@ -29,7 +30,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="99dp"
         android:text="@string/computer"
-        android:theme="@style/Topic_Text_Style" />
+        android:theme="@style/Topic_Text_Style"
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/subheading_on_computer"

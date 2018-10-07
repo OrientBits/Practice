@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,10 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Window;
-
 import java.sql.Time;
 import java.util.Objects;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -54,12 +53,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         // Set transparency
-
-
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            w.setNavigationBarColor(getResources().getColor(R.color.white));
+        Window w = getWindow(); // in Activity's onCreate() for instance
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        w.setNavigationBarColor(getResources().getColor(R.color.white));
 
         fa = this; // for only context
 
@@ -68,15 +66,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
+
+
         // user name on home page gradient
         userNameInGradient();
-
 
         // open drawer when navigation button is tapped
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+
+        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) mDrawerLayout.getLayoutParams();
+        p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
+        mDrawerLayout.requestLayout();
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -90,7 +93,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         View headerView = navigationView.getHeaderView(0);
         profile_header = headerView.findViewById(R.id.profile_image);
-
 
 
         currentAffairs = findViewById(R.id.current_affairs_card_view);
@@ -226,8 +228,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         profile_home = findViewById(R.id.profile_home);
 
 
-
-
         currentAffairs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -317,7 +317,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
     } // onCreate method
-
 
 
     @Override
@@ -534,6 +533,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }, 100);
         return true;
 
+    }
+
+
+    // soft navigation bar
+    public static int getSoftButtonsBarSizePort(Activity activity)
+    {
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int usableHeight = metrics.heightPixels;
+        activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        int realHeight = metrics.heightPixels;
+        if (realHeight > usableHeight) {
+            realHeight = realHeight - usableHeight;
+            return realHeight;
+        }
+        return 0;
     }
 
 
