@@ -54,13 +54,5 @@ public class SportsActivity extends AppCompatActivity {
         heyUserName.setText(heyUserNameMaker);
 
 
-        ImageView startQuiz = findViewById(R.id.start_image_of_sports_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SportsActivity.this,SportsQuiz.class));
-            }
-        });
-
     }
 }

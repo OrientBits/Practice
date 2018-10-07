@@ -60,19 +60,8 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         heyUserName.setText(heyUserNameMaker);
 
 
-        // open activity to play quiz
-        ImageView startQuiz = findViewById(R.id.start_image_of_current_affairs_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CurrentAffairsActivity.this, CurrentAffairsQuiz.class));
-            }
-        });
-
 
         // news section
-
-
         customArrayList = new ArrayList<>();
         customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
                 "Pre-orders in India at Rs.17,499 on \n" +

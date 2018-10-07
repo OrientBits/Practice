@@ -101,33 +101,6 @@
         <activity
             android:name=".Login"
             android:parentActivityName=".RegisterUser" />
-        <activity
-            android:name=".CurrentAffairsQuiz"
-            android:parentActivityName=".CurrentAffairsQuiz" />
-        <activity
-            android:name=".ComputerQuiz"
-            android:parentActivityName=".ComputerQuiz" />
-        <activity
-            android:name=".MathematicsQuiz"
-            android:parentActivityName=".MathematicsQuiz" />
-        <activity
-            android:name=".ReasoningQuiz"
-            android:parentActivityName=".ReasoningQuiz" />
-        <activity
-            android:name=".GeneralScienceQuiz"
-            android:parentActivityName=".GeneralScienceQuiz" />
-        <activity
-            android:name=".EnglishQuiz"
-            android:parentActivityName=".EnglishQuiz" />
-        <activity
-            android:name=".TechnologyQuiz"
-            android:parentActivityName=".TechnologyQuiz" />
-        <activity
-            android:name=".SportsQuiz"
-            android:parentActivityName=".SportsQuiz" />
-        <activity
-            android:name=".EntertainmentQuiz"
-            android:parentActivityName=".EntertainmentQuiz" />
         <activity android:name=".RegisterUser" />
 
     </application>

@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.Objects;
 
@@ -62,18 +63,15 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-
         //Set transparency
               Window w = getWindow(); // in Activity's onCreate() for instance
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         w.setNavigationBarColor(getResources().getColor(R.color.white));
 
-        rootLayout = findViewById(R.id.profile_root_layout);
+        rootLayout = findViewById(R.id.profile_second_root_Relative_layout);
         ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) rootLayout.getLayoutParams();
         p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
         rootLayout.requestLayout();
-
-
 
 
 
@@ -86,7 +84,6 @@ public class ProfileActivity extends AppCompatActivity {
 //                dialog.show();
 //            }
 //        });
-
 
     }
 

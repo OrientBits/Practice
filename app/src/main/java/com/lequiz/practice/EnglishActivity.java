@@ -54,13 +54,6 @@ public class EnglishActivity extends AppCompatActivity {
 
 
 
-        ImageView startQuiz = findViewById(R.id.start_image_of_english_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(EnglishActivity.this,EnglishQuiz.class));
-            }
-        });
 
     }
 }

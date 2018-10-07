@@ -59,15 +59,8 @@ public class TechnologyActivity extends AppCompatActivity {
         heyUserName.setText(heyUserNameMaker);
 
 
-        ImageView startQuiz = findViewById(R.id.start_image_of_technology_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TechnologyActivity.this,TechnologyQuiz.class));
-            }
-        });
-        // news section
 
+        // news section
 
         customArrayList = new ArrayList<>();
         customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +

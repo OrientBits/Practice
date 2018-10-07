@@ -52,14 +52,5 @@ public class EntertainmentActivity extends AppCompatActivity {
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
 
-
-        ImageView startQuiz = findViewById(R.id.start_image_of_entertainment_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(EntertainmentActivity.this,EntertainmentQuiz.class));
-            }
-        });
-
     }
 }

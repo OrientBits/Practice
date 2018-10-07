@@ -53,12 +53,5 @@ public class GeneralScienceActivity extends AppCompatActivity {
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
 
-        ImageView startQuiz = findViewById(R.id.start_image_of_general_science_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(GeneralScienceActivity.this,GeneralScienceQuiz.class));
-            }
-        });
     }
 }

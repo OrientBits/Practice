@@ -53,14 +53,5 @@ public class ReasoningActivity extends AppCompatActivity {
         heyUserName.setText(heyUserNameMaker);
 
 
-        ImageView startQuiz = findViewById(R.id.start_image_of_reasoning_quiz);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ReasoningActivity.this,ReasoningQuiz.class));
-            }
-        });
-
-
     }
 }

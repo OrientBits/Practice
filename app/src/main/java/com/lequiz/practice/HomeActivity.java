@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Window;
@@ -77,9 +78,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) mDrawerLayout.getLayoutParams();
+        RelativeLayout marginButtonInRelative = findViewById(R.id.home_second_root);
+        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) marginButtonInRelative.getLayoutParams();
         p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
-        mDrawerLayout.requestLayout();
+        marginButtonInRelative.requestLayout();
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
