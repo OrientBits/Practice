@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".HomeActivity">
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="56dp"
+        tools:context=".HomeActivity">
+
 
     <android.support.design.widget.AppBarLayout
-        android:fitsSystemWindows="true"
         android:id="@+id/home_activity_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:fitsSystemWindows="true"
             android:id="@+id/home_activity_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             app:contentScrim="@android:color/white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
@@ -101,54 +108,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
-                app:layout_collapseMode="pin"
                 android:theme="@style/CustomToolbar"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        android:id="@+id/home_scrolling_containr"
-        layout="@layout/activity_home_scrolling_content" />
+    <include layout="@layout/activity_home_scrolling_content" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation_play_random_quiz"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         android:elevation="10dp">
 
         <FrameLayout
+            android:id="@+id/play_random_framLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/paly_random_framLayout"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/play_random_quiz_background_final"
-            android:foreground="?android:selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center">
+            android:foreground="?android:selectableItemBackground">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Play Random Quiz"
                 android:textColor="@color/white"
-                android:textStyle="normal"
-                android:layout_gravity="center"
                 android:textSize="18sp"
+                android:textStyle="normal"
                 tools:ignore="HardcodedText" />
 
         </FrameLayout>
 
-
     </android.support.design.widget.BottomNavigationView>
 
+</RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+
+
+
