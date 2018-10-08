@@ -3,6 +3,7 @@ package com.lequiz.practice;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -10,7 +11,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -31,8 +35,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Window;
+
 import java.sql.Time;
 import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -49,16 +55,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public static Activity fa; // finish activity
     public MenuItem menuItem;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
 
+
+
+
+
         // Set transparency
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        getWindow().setNavigationBarColor(getResources().getColor(R.color.black_for_soft_navigation));
+         // getWindow().setStatusBarColor(getResources().getColor(R.color.white));
+
+        // for status bar color
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(HomeActivity.this,R.color.transparent));
+
 
         fa = this; // for only context
 
@@ -66,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
-
+        ((CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams()).setMargins(0, getStatusBarHeight(this), 0, 0);
 
 
         // user name on home page gradient
@@ -78,14 +96,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        RelativeLayout marginButtonInRelative = findViewById(R.id.home_second_root);
-        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) marginButtonInRelative.getLayoutParams();
-        p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
-        marginButtonInRelative.requestLayout();
+//        RelativeLayout marginButtonInRelative = findViewById(R.id.home_second_root);
+//        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) marginButtonInRelative.getLayoutParams();
+//        p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
+//        marginButtonInRelative.requestLayout();
+
+        //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
+
+
+
+
+
+
+
 
 
         // implementing item of navigation drawer
@@ -539,8 +567,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
     // soft navigation bar
-    public static int getSoftButtonsBarSizePort(Activity activity)
-    {
+    public static int getSoftButtonsBarSizePort(Activity activity) {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
         int usableHeight = metrics.heightPixels;
@@ -551,6 +578,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             return realHeight;
         }
         return 0;
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 
 

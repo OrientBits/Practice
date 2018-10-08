@@ -6,23 +6,18 @@
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--toolbar style-->
-        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/activityBackgroundColor</item>
+        <!--navigation bar action + soft -->
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
 
-        <item name="windowActionBar">false</item>
-        <item name="windowActionBarOverlay">true</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <!--for soft navigation bar-->
-        <item name="android:windowBackground">@color/windowsBackgroundColor</item>
-        <item name="android:navigationBarColor">@android:color/black</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
-
-        <!--for drawer layout-->
-        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
 
     <style name="CustomToolbar" parent="@style/ThemeOverlay.AppCompat.Light">
         <item name="android:windowActionBarOverlay">true</item>

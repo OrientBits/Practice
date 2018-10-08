@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="false"
+    android:background="@color/white">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -38,6 +38,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
                 app:layout_collapseMode="none">
 
                 <ImageView
@@ -106,9 +107,9 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="24dp"
                 android:theme="@style/CustomToolbar"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />

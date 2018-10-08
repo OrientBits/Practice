@@ -64,14 +64,14 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         //Set transparency
-              Window w = getWindow(); // in Activity's onCreate() for instance
+        Window w = getWindow(); // in Activity's onCreate() for instance
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
 
         rootLayout = findViewById(R.id.profile_second_root_Relative_layout);
         ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) rootLayout.getLayoutParams();
         p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
         rootLayout.requestLayout();
+        w.setNavigationBarColor(R.color.black_for_soft_navigation);
 
 
 
