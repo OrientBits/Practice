@@ -6,7 +6,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
     tools:context=".HomeActivity"
     tools:openDrawer="start">
 
@@ -22,15 +21,13 @@
         android:layout_width="310dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white"
-        android:fitsSystemWindows="true">
+        android:background="@android:color/white">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:fitsSystemWindows="true"
             android:scaleType="fitEnd"
             android:src="@drawable/drawer_background"
             tools:ignore="ContentDescription" />
@@ -40,8 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/navigation_header"
+            app:headerLayout="@layout/navigation_drawer_header"
             app:itemBackground="@drawable/nav_item_background"
             app:itemTextColor="@color/navigationTextColor"
             app:menu="@menu/navigation_menu" />

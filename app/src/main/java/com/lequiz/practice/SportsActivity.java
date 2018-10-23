@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.Objects;
 
 public class SportsActivity extends AppCompatActivity {
@@ -24,11 +26,7 @@ public class SportsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sports);
 
         // Set transparency
-
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         toolbar = findViewById(R.id.sports_toolbar);
         setSupportActionBar(toolbar);

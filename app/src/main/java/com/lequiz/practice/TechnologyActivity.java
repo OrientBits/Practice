@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,11 +31,7 @@ public class TechnologyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_technology);
 
         // Set transparency
-
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         toolbar = findViewById(R.id.technology_toolbar);
         setSupportActionBar(toolbar);

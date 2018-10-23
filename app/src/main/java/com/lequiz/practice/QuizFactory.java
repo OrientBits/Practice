@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -30,11 +32,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(QuizFactory.this,R.color.colorPrimaryDark));
-
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 //        for spinner chooser
         spinner = findViewById(R.id.spinner_to_choose_category);

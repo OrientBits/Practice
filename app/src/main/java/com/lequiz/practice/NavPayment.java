@@ -1,13 +1,9 @@
 package com.lequiz.practice;
-
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ListView;
-
+import com.lequiz.practice.Base.FullScreenStatusOnly;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -27,11 +23,7 @@ public class NavPayment extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //   for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavPayment.this, R.color.colorPrimary));
-
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 //      this is going to display list of payment users
         ArrayList<NavPaymentWord> paymentWords = new ArrayList<>();

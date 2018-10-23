@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 public class OnBoarding extends AppCompatActivity {
 
     private ViewPager mSlidViewPager;
@@ -43,22 +45,16 @@ public class OnBoarding extends AppCompatActivity {
     };
     private SharedPreferenceConfig sharedPreferenceConfig;
     private LinearLayout linearLayout;
+    private TextView register_onboarding_Text_View;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_boarding);
+        setContentView(R.layout.on_boarding_container);
         // Set transparency
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
-
-//        // full screen
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
@@ -68,6 +64,9 @@ public class OnBoarding extends AppCompatActivity {
         }
 
 
+        register_onboarding_Text_View = findViewById(R.id.register_onboarding);
+        register_onboarding_Text_View.setVisibility(View.INVISIBLE);
+
         linearLayout = findViewById(R.id.root_onboarding);
         mSlidViewPager = findViewById(R.id.viewPagerLayout);
         mDotLayout = findViewById(R.id.three_dots_layout);
@@ -75,16 +74,20 @@ public class OnBoarding extends AppCompatActivity {
         mSlidViewPager.setAdapter(sliderAdapter);
         addDotIndicator(0);
         mSlidViewPager.addOnPageChangeListener(viewListener);
+
     }
 
-    public void addDotIndicator(int pos) {
-        for (int i = 0; i < 4; i++) {
 
+    public void addDotIndicator(int pos)
+    {
+        for (int i = 0; i < 4; i++) {
             if (pc == 0)
                 mDots[i] = new TextView(this);
+
             mDots[i].setText(Html.fromHtml("&#8226;"));
             mDots[i].setTextColor(getResources().getColor(R.color.transparent_white));
-            mDots[i].setTextSize(45);
+            mDots[i].setTextSize(35);
+
             if (pc == 0)
                 mDotLayout.addView(mDots[i]);
         }
@@ -93,10 +96,23 @@ public class OnBoarding extends AppCompatActivity {
             mDots[pos].setTextColor(getResources().getColor(R.color.white));
             linearLayout.setBackgroundResource(slide_activity_background[pos]);
         }
+
+        if (pos == 3)
+            register_onboarding_Text_View.setVisibility(View.VISIBLE);
+        else
+            register_onboarding_Text_View.setVisibility(View.INVISIBLE);
+
         pc++;
     }
 
+
+
     public void signInClickEvent(View view) {
         startActivity(new Intent(this, Login.class));
+    }
+
+    public void dont_have_account(View view)
+    {
+        startActivity(new Intent(this, RegisterUser.class));
     }
 }

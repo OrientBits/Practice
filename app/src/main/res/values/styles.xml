@@ -1,21 +1,11 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@android:color/transparent</item>
-        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/activityBackgroundColor</item>
-        <!--navigation bar action + soft -->
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-
-    </style>
-
-    <style name="FullscreenTheme" parent="AppTheme">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowTranslucentStatus">true</item> <!--when status bar light -->
     </style>
 
 
@@ -27,7 +17,6 @@
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
     </style>
-
     <!-- This style is where you define the tint color of your overflow menu button -->
     <style name="actionOverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/overflowIconColor</item>
@@ -65,7 +54,6 @@
         <item name="android:fontFamily">@font/trebuchet_ms</item>
 
     </style>
-
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />

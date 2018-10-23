@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="false"
     android:orientation="vertical"
     tools:context=".CurrentAffairsActivity">
 
@@ -12,14 +11,12 @@
         android:id="@+id/header_of_current_affairs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         android:background="@drawable/gradient_background_current_affairs">
 
         <include
             android:id="@+id/current_affairs_toolbar"
-            layout="@layout/category_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true" />
+            layout="@layout/setting_toolbar" />
 
         <ImageView
             android:id="@+id/imageView"

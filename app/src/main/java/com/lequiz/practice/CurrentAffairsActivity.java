@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,11 +33,7 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_current_affairs);
 
         // Set transparency
-
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         toolbar = findViewById(R.id.current_affairs_toolbar);
         setSupportActionBar(toolbar);
@@ -44,6 +42,8 @@ public class CurrentAffairsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_current_affairs);
+
+
 
 
         // Heading Text Gradient
@@ -97,4 +97,4 @@ public class CurrentAffairsActivity extends AppCompatActivity {
 
     }
 
-    }
+}

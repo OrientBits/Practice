@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.Objects;
 
 public class NavInviteFriends extends AppCompatActivity {
@@ -29,11 +31,7 @@ public class NavInviteFriends extends AppCompatActivity {
 
 
         // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavInviteFriends.this,R.color.colorPrimary));
-
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
         shareButton =  findViewById(R.id.share_button);

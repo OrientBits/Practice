@@ -14,6 +14,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.Objects;
 
 public class NavSettings extends AppCompatActivity {
@@ -62,11 +64,7 @@ public class NavSettings extends AppCompatActivity {
         });
 
         // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavSettings.this,R.color.colorPrimary));
-
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
     }
@@ -138,7 +136,7 @@ public class NavSettings extends AppCompatActivity {
     public void userLogout(View view)
     {
         sharedPreferenceConfig.writeLoginStatus(false);
-        startActivity(new Intent(this,Login.class));
+       // startActivity(new Intent(this,Login.class));
         finish();
         HomeActivity.fa.finish();
     }

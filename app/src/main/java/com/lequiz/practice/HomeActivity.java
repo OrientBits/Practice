@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.net.Uri;
@@ -36,6 +37,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Window;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.sql.Time;
 import java.util.Objects;
 
@@ -62,33 +65,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
 
 
-
-
-
-
-        // Set transparency
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-//        getWindow().setNavigationBarColor(getResources().getColor(R.color.black_for_soft_navigation));
-         // getWindow().setStatusBarColor(getResources().getColor(R.color.white));
-
-        // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(HomeActivity.this,R.color.transparent));
-
-
         fa = this; // for only context
 
-        // toolbar implementation
-        toolbar = findViewById(R.id.toolbar);
+        // setting_toolbar implementation
+        toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
-        ((CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams()).setMargins(0, getStatusBarHeight(this), 0, 0);
+
+        int statusBarHeight = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+        }
+        RelativeLayout toolbarLayout = findViewById(R.id.home_toolbar_layout);
+       ((CollapsingToolbarLayout.LayoutParams) toolbarLayout.getLayoutParams()).setMargins(0, statusBarHeight, 0, 0);
 
 
-        // user name on home page gradient
-        userNameInGradient();
+
 
         // open drawer when navigation button is tapped
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -96,23 +89,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-//        RelativeLayout marginButtonInRelative = findViewById(R.id.home_second_root);
-//        ViewGroup.MarginLayoutParams p = ( ViewGroup.MarginLayoutParams) marginButtonInRelative.getLayoutParams();
-//        p.setMargins(0, 0,0, getSoftButtonsBarSizePort(this));
-//        marginButtonInRelative.requestLayout();
-
-        //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-
-
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
 
+        // user name on home page gradient
+        userNameInGradient();
 
 
-
-
-
+         //Set transparency
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
 
@@ -382,38 +368,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int res_if = item.getItemId();
-        switch (res_if) {
-            case R.id.profile:
-                Intent profileA = new Intent(HomeActivity.this, ProfileActivity.class);
-                startActivity(profileA);
-                break;
-            case R.id.notifications:
+        if(item.getItemId() == R.id.notifications){
                 Intent NavNotification = new Intent(HomeActivity.this, NavNotifications.class);
                 startActivity(NavNotification);
-                break;
-            case R.id.leaderboard:
-                Intent NavLeaderboard = new Intent(HomeActivity.this, com.lequiz.practice.NavLeaderboard.class);
-                startActivity(NavLeaderboard);
-
-                break;
-            case R.id.quiz_factory:
-                Intent QuizFactory = new Intent(HomeActivity.this, com.lequiz.practice.QuizFactory.class);
-                startActivity(QuizFactory);
-                break;
-            case R.id.invite_friends:
-                Intent navFriends = new Intent(HomeActivity.this, NavInviteFriends.class);
-                startActivity(navFriends);
-                break;
-            case R.id.rate:
-                Toast.makeText(getApplicationContext(), "Rate us", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.settings:
-                Intent NavSettings = new Intent(HomeActivity.this, com.lequiz.practice.NavSettings.class);
-                startActivity(NavSettings);
-                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -517,6 +475,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 }, 300);
                 break;
 
+            case R.id.quiz_factory:
+                final Intent navQuizFactory = new Intent(HomeActivity.this,QuizFactory.class);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(navQuizFactory);
+                    }
+                }, 300);
+                break;
+
             case R.id.settings:
                 final Intent navSettings = new Intent(HomeActivity.this, NavSettings.class);
                 handler.postDelayed(new Runnable() {
@@ -563,30 +531,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }, 100);
         return true;
 
-    }
-
-
-    // soft navigation bar
-    public static int getSoftButtonsBarSizePort(Activity activity) {
-        DisplayMetrics metrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        int usableHeight = metrics.heightPixels;
-        activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-        int realHeight = metrics.heightPixels;
-        if (realHeight > usableHeight) {
-            realHeight = realHeight - usableHeight;
-            return realHeight;
-        }
-        return 0;
-    }
-
-    public static int getStatusBarHeight(Context context) {
-        int result = 0;
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = context.getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
     }
 
 

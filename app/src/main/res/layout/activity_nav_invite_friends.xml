@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
-    android:fitsSystemWindows="true"
-    tools:context=".NavInviteFriends">
+    android:background="@color/white"
+    tools:context=".NavInviteFriends"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/nav_invite_friend_toolbar"
@@ -14,15 +15,15 @@
 
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/nav_invite_friend_toolbar">
+    android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:orientation="vertical"
             android:gravity="center_vertical"
-            android:weightSum="14">
+            android:weightSum="14"
+            android:paddingBottom="40dp"
+            android:layout_gravity="center_vertical">
 
             <ImageView
                 android:id="@+id/invite_image"
@@ -108,4 +109,4 @@
         </LinearLayout>
 
 </ScrollView>
-</RelativeLayout>
+</LinearLayout>

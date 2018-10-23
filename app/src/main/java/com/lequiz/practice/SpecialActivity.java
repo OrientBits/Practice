@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 
 import java.util.Objects;
@@ -28,11 +29,7 @@ public class SpecialActivity extends AppCompatActivity {
         setContentView(R.layout.activity_special);
 
         // Set transparency
-
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         toolbar = findViewById(R.id.special_toolbar);
         setSupportActionBar(toolbar);

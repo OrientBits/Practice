@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_chevron_right_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_backspace_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -45,8 +45,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="imageAsset" value="C:\Users\Ramshek Rana\Downloads\2x\round_account_circle_black_48dp.png" />
-                                      <entry key="outputName" value="profile_image" />
-                                      <entry key="themeColor" value="003fbc" />
+                                      <entry key="outputName" value="back_arrow_ramu" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="0027bc" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -166,7 +167,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
@@ -202,10 +203,11 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
                             <entry key="opacityPercent" value="90" />
-                            <entry key="outputName" value="ic_email_white_24dp" />
-                            <entry key="sourceFile" value="D:\Android\Svg Elements\Chevron_left.svg" />
+                            <entry key="outputName" value="ic_back_idicator_white" />
+                            <entry key="sourceFile" value="C:\Users\Ramshek Rana\Desktop\back_idicator_white.svg" />
                           </map>
                         </option>
                       </PersistentState>

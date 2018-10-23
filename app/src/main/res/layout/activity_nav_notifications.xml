@@ -3,14 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".NavNotifications">
 
     <include
         android:id="@+id/nav_notifications_toolbar"
         layout="@layout/setting_toolbar" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:max="500"
+        android:progress="0"
+        android:progressDrawable="@drawable/circular_pregress_background" />
 
 
 </LinearLayout>

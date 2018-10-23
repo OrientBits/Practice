@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.Objects;
 
 public class EnglishActivity extends AppCompatActivity {
@@ -24,18 +26,14 @@ public class EnglishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_english);
 
         // Set transparency
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
-
-        toolbar = findViewById(R.id.english_toolbar);
+        toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_english);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_ramu);
 
         // Heading TextView gradient
 

@@ -5,12 +5,16 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.lequiz.practice.Base.FullScreenStatusOnly;
 
 import java.util.Objects;
 
@@ -24,23 +28,20 @@ public class ComputerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_computer);
 
         // Set transparency
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
-
-        toolbar = findViewById(R.id.computer_toolbar);
+        toolbar = findViewById(R.id.computer_toolbar_layout);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_computer);
 
-//        // Size troubleshoot Learn Section
+
+        // Size troubleshoot Learn Section
 //        Drawable drawable= getResources().getDrawable(R.drawable.back_button_computer);
 //        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
 //        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_computer);
 
         // Gradient Heading
         // Heading TextView gradient

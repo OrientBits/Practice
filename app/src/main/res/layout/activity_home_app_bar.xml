@@ -5,17 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:fitsSystemWindows="true"
         android:orientation="vertical"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="?actionBarSize"
         tools:context=".HomeActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -23,22 +19,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:fitsSystemWindows="true"
+        app:elevation="0dp"
+        android:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/home_activity_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@android:color/white"
+            android:elevation="0dp"
+            app:contentScrim="@color/white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
+            app:toolbarId="@+id/home_toolbar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
                 app:layout_collapseMode="none">
 
                 <ImageView
@@ -84,6 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="1dp"
+                            tools:text="Good Morning"
                             android:textColor="#028be1"
                             android:textSize="15sp" />
 
@@ -105,14 +102,58 @@
             </RelativeLayout>  <!-- image sample-->
 
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:fitsSystemWindows="true"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:theme="@style/CustomToolbar"
+            <RelativeLayout
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                android:id="@+id/home_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/transparent"
+                android:gravity="center_vertical">
+
+                <!--rounded cardView -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:foreground="?selectableItemBackground"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginTop="8.8dp"
+                        android:layout_marginBottom="9dp"
+                        app:cardCornerRadius="19dp"
+                        app:cardElevation="1dp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_gravity="end"
+                        android:foreground="?selectableItemBackground"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_marginEnd="9dp"
+                        android:layout_marginTop="8.8dp"
+                        android:layout_marginBottom="9dp"
+                        app:cardCornerRadius="19dp"
+                        app:cardElevation="1dp" />
+                </FrameLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/home_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:paddingEnd="4dp"
+                    android:paddingStart="0dp"
+                    android:background="@color/transparent"
+                    android:theme="@style/CustomToolbar"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    android:elevation="0dp"
+                    app:layout_collapseMode="pin">
+                </android.support.v7.widget.Toolbar>
+
+            </RelativeLayout>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -127,20 +168,20 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation_play_random_quiz"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="?actionBarSize"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         android:elevation="10dp">
 
         <FrameLayout
-            android:id="@+id/play_random_framLayout"
-            android:layout_width="match_parent"
+            android:id="@+id/play_random_frameLayout"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="9dp"
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="9dp"
             android:background="@drawable/play_random_quiz_background_final"
             android:clickable="true"
             android:focusable="true"

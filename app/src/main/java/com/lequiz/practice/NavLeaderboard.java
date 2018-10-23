@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -26,11 +28,7 @@ public class NavLeaderboard extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavLeaderboard.this,R.color.colorPrimary));
-
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
         ArrayList<NavLeaderboardWord> leaderboardWords = new ArrayList<>();

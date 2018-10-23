@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
+
+import com.lequiz.practice.Base.FullScreenStatusOnly;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -15,31 +15,10 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Set transparency
+        setContentView(R.layout.ui_splash_screen);
 
+        new FullScreenStatusOnly(this);
 
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
-
-   //     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-     //           WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        setContentView(R.layout.activity_splash);
-
-
-//        GifImageView gifImageView = (GifImageView) findViewById(R.id.splash_gif_id);
-//        try
-//        {
-//            InputStream inputStream = getAssets().open("splash.gif");
-//            byte [] bytes = IOUtils.toByteArray(inputStream);
-//            gifImageView.setBytes(bytes);
-//            gifImageView.startAnimation();
-//        }
-//        catch(IOException ex)
-//        {
-//          // here is your catch statement
-//        }
 
         new Handler().postDelayed(new Runnable() {
             @Override

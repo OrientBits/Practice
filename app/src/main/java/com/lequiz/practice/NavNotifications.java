@@ -1,11 +1,16 @@
 package com.lequiz.practice;
 
+import android.animation.ObjectAnimator;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ProgressBar;
+
+import com.lequiz.practice.Base.FullScreenStatusOnly;
 
 import java.util.Objects;
 
@@ -23,12 +28,16 @@ public class NavNotifications extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // for status bar color
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(NavNotifications.this,R.color.colorPrimary));
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
+
+
+        ProgressBar progressBar =  findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 500); // see this max value coming back here, we animate towards that value
+        animation.setDuration(5000); // in milliseconds
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
 
 
 

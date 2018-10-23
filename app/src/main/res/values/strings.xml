@@ -4,6 +4,7 @@
 
     <string name="Sign_in">Sign in</string>
     <string name="Sign_out">Sign out</string>
+    <string name="i_dont_have_account">I don\'t have an account</string>
 
     <string name="user_name">Ramshek Rana</string>
     <string name="user_password">12345678</string>
@@ -149,4 +150,5 @@
     <!--spinner title-->
     <string name="spinner_title">Choose Category</string>
     <string name="right_arrow">Right Arrow Down</string>
+    <string name="title_activity_login">Login</string>
 </resources>

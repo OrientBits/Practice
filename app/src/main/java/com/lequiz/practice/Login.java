@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lequiz.practice.Base.FullScreenStatusOnly;
+
 public class Login extends AppCompatActivity {
 
     private SharedPreferenceConfig sharedPreferenceConfig;
@@ -20,16 +22,12 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.ui_login);
 
         // Set transparency
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-        Window w = getWindow(); // in Activity's onCreate() for instance
-        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.setNavigationBarColor(getResources().getColor(R.color.white));
-
-      //  back_img = findViewById(R.id.back_img_in_sign_in);
+        //  back_img = findViewById(R.id.back_img_in_sign_in);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         userEmail = findViewById(R.id.sign_in_email);

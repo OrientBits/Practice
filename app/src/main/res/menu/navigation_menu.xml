@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <group android:checkableBehavior="single">
-
-        <item
-            android:id="@+id/notifications"
-            android:icon="@drawable/drawer_notification"
-            android:title="@string/notifications" />
-    </group>
-
     <group
         android:id="@+id/nav_meddile"
         android:checkableBehavior="single">
-        <item
-            android:id="@+id/payment"
-            android:icon="@drawable/drawer_payment"
-            android:title="@string/payment" />
 
         <item
             android:id="@+id/leaderboard"
@@ -24,13 +11,23 @@
             android:title="@string/leaderboard" />
 
         <item
+            android:id="@+id/payment"
+            android:icon="@drawable/drawer_payment"
+            android:title="@string/payment" />
+
+        <item
+            android:id="@+id/quiz_factory"
+            android:icon="@drawable/drawer_quiz_factory"
+            android:title="@string/quiz_factory"/>
+
+        <item
             android:id="@+id/settings"
-            android:icon="@drawable/drawer_setting"
+            android:icon="@drawable/drawer_settings"
             android:title="@string/settings" />
 
         <item
             android:id="@+id/invite_friends"
-            android:icon="@drawable/drawer_invite_friend"
+            android:icon="@drawable/drawer_invite_firend"
             android:title="@string/invite_friends" />
 
     </group>
