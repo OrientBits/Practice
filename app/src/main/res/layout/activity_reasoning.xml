@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_reasoning"
-    tools:context=".ReasoningActivity">
+    tools:context=".Activity.ReasoningActivity">
 
     <include
         android:id="@+id/reasoning_toolbar"

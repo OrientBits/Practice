@@ -11,81 +11,81 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OnBoarding" />
+        <activity android:name=".Activity.OnBoarding" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activity.HomeActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".MathematicsActivity"
+            android:name=".Activity.MathematicsActivity"
             android:label="@string/mathematics"
-            android:parentActivityName=".MathematicsActivity" />
+            android:parentActivityName=".Activity.MathematicsActivity" />
         <activity
-            android:name=".ReasoningActivity"
+            android:name=".Activity.ReasoningActivity"
             android:label="@string/reasoning"
-            android:parentActivityName=".ReasoningActivity" />
+            android:parentActivityName=".Activity.ReasoningActivity" />
         <activity
-            android:name=".EntertainmentActivity"
+            android:name=".Activity.EntertainmentActivity"
             android:label="@string/entertainment"
-            android:parentActivityName=".EntertainmentActivity" />
+            android:parentActivityName=".Activity.EntertainmentActivity" />
         <activity
-            android:name=".TechnologyActivity"
+            android:name=".Activity.TechnologyActivity"
             android:label="@string/technology"
-            android:parentActivityName=".TechnologyActivity" />
+            android:parentActivityName=".Activity.TechnologyActivity" />
         <activity
-            android:name=".CurrentAffairsActivity"
+            android:name=".Activity.CurrentAffairsActivity"
             android:label="@string/current_Affairs"
-            android:parentActivityName=".CurrentAffairsActivity" />
+            android:parentActivityName=".Activity.CurrentAffairsActivity" />
         <activity
-            android:name=".ComputerActivity"
+            android:name=".Activity.ComputerActivity"
             android:label="@string/computer"
-            android:parentActivityName=".ComputerActivity" />
+            android:parentActivityName=".Activity.ComputerActivity" />
         <activity
-            android:name=".GeneralScienceActivity"
+            android:name=".Activity.GeneralScienceActivity"
             android:label="@string/general_science"
-            android:parentActivityName=".GeneralScienceActivity" />
+            android:parentActivityName=".Activity.GeneralScienceActivity" />
         <activity
-            android:name=".EnglishActivity"
+            android:name=".Activity.EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".EnglishActivity" />
+            android:parentActivityName=".Activity.EnglishActivity" />
         <activity
-            android:name=".SportsActivity"
+            android:name=".Activity.SportsActivity"
             android:label="@string/sports"
-            android:parentActivityName=".SportsActivity" />
+            android:parentActivityName=".Activity.SportsActivity" />
         <activity
-            android:name=".SpecialActivity"
+            android:name=".Activity.SpecialActivity"
             android:label="@string/special"
-            android:parentActivityName=".SpecialActivity" />
+            android:parentActivityName=".Activity.SpecialActivity" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".NavDrawer.ProfileActivity"
             android:label="@string/profile"
-            android:parentActivityName=".ProfileActivity" />
+            android:parentActivityName=".NavDrawer.ProfileActivity" />
         <activity
-            android:name=".NavLeaderboard"
+            android:name=".NavDrawer.NavLeaderboard"
             android:label="@string/leaderboard"
-            android:parentActivityName=".NavLeaderboard" />
+            android:parentActivityName=".NavDrawer.NavLeaderboard" />
         <activity
-            android:name=".NavNotifications"
+            android:name=".NavDrawer.NavNotifications"
             android:label="@string/notifications"
-            android:parentActivityName=".NavNotifications" />
+            android:parentActivityName=".NavDrawer.NavNotifications" />
         <activity
-            android:name=".NavPayment"
+            android:name=".NavDrawer.NavPayment"
             android:label="@string/payment"
-            android:parentActivityName=".NavPayment" />
+            android:parentActivityName=".NavDrawer.NavPayment" />
         <activity
-            android:name=".NavSettings"
+            android:name=".NavDrawer.NavSettings"
             android:label="@string/settings"
-            android:parentActivityName=".NavSettings" />
+            android:parentActivityName=".NavDrawer.NavSettings" />
         <activity
-            android:name=".NavInviteFriends"
+            android:name=".NavDrawer.NavInviteFriends"
             android:label="@string/invite_friends"
-            android:parentActivityName=".NavInviteFriends"
+            android:parentActivityName=".NavDrawer.NavInviteFriends"
             android:screenOrientation="portrait" />
 
         <meta-data
@@ -93,12 +93,12 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".QuizFactory"
+            android:name=".NavDrawer.QuizFactory"
             android:label="@string/quiz_factory"
-            android:parentActivityName=".QuizFactory" />
-        <activity android:name=".RegisterUser" />
+            android:parentActivityName=".NavDrawer.QuizFactory" />
+        <activity android:name=".Activity.RegisterUser" />
         <activity
-            android:name=".Login"
+            android:name=".Activity.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme" />
     </application>

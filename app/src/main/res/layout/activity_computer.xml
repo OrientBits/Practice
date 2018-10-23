@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@drawable/gradient_background_computer"
-    tools:context=".ComputerActivity">
+    tools:context=".Activity.ComputerActivity">
 
     <include
         android:id="@+id/computer_toolbar_layout"
-        layout="@layout/setting_toolbar"/>
+        layout="@layout/setting_toolbar" />
 
     <ImageView
         android:id="@+id/imageView"
