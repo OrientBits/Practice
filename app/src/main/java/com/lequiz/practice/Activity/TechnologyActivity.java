@@ -1,32 +1,68 @@
 package com.lequiz.practice.Activity;
 
+import android.app.LoaderManager;
+import android.content.Context;
+import android.content.Loader;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lequiz.practice.Base.FullScreenStatusOnly;
-import com.lequiz.practice.Module.CustomArrayAdapterForCurrentAffairs;
-import com.lequiz.practice.Module.ArrayListForHeadlinesAndImage;
 import com.lequiz.practice.R;
+import com.lequiz.practice.custom_adapters.NewsListAdapter;
+import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.custom_query_utils.QueryUtilsCurrentAffairs;
+import com.lequiz.practice.loaders.NewsLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TechnologyActivity extends AppCompatActivity {
+public class TechnologyActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
 
     Toolbar toolbar;
-    List<ArrayListForHeadlinesAndImage> customArrayList;
-    ListView listView;
+    ArrayList<News> newsArrayList;
+    RecyclerView recyclerView;
+    NewsListAdapter newsListAdapter;
+    TextView mEmptyStateTextView;
+    ProgressBar progressBar;
+    private static final String NEWS_REQUEST_URL =
+            "https://newsapi.org/v2/top-headlines?category=technology&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technology);
+
+        mEmptyStateTextView = findViewById(R.id.empty_view_technology);
+        progressBar = findViewById(R.id.technology_loading_spinner);
+
+        /* Loader manager and network state check **/
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            LoaderManager loaderManager = getLoaderManager();
+            loaderManager.initLoader(0, null, this);
+        }
+        else
+        {
+            progressBar.setVisibility(View.GONE);
+            mEmptyStateTextView.setText("Check your internet connection");
+        }
+
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
@@ -58,39 +94,44 @@ public class TechnologyActivity extends AppCompatActivity {
 
         // news section
 
-        customArrayList = new ArrayList<>();
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
-        customArrayList.add(new ArrayListForHeadlinesAndImage("Xiaomi Mi A2 is Available for \n" +
-                "Pre-orders in India at Rs.17,499 on \n" +
-                "Amazon Ahead of Launch Today",R.drawable.computer));
+      //  newsArrayList = QueryUtilsCurrentAffairs.extractEarthquakes();
 
-        listView = (ListView) findViewById(R.id.current_affairs_news_list);
-        CustomArrayAdapterForCurrentAffairs customAdapter = new CustomArrayAdapterForCurrentAffairs(this, R.layout.custom_row_current_affairs, customArrayList);
-        listView.setAdapter(customAdapter);
+        recyclerView = (RecyclerView) findViewById(R.id.technology_recycler_view);
+        newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
+        recyclerView.setAdapter(newsListAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
+    }
+
+    @Override
+    public Loader<ArrayList<News>> onCreateLoader(int i, Bundle bundle) {
+        return new NewsLoader(this, NEWS_REQUEST_URL);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<ArrayList<News>> loader, ArrayList<News> news) {
+
+        if(news==null || news.isEmpty())
+        {
+            // Server problem message
+            mEmptyStateTextView.setText("Oops server problem");
+            progressBar.setVisibility(View.GONE);
+        }
+
+
+        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // data set. This will trigger the ListView to update.
+        if (news != null && !news.isEmpty()) {
+            newsListAdapter.addAll(news);
+            newsListAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<ArrayList<News>> loader) {
 
     }
 }

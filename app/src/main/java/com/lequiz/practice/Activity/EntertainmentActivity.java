@@ -1,30 +1,73 @@
 package com.lequiz.practice.Activity;
 
+import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.Loader;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lequiz.practice.Base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
+import com.lequiz.practice.custom_adapters.NewsListAdapter;
+import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.custom_query_utils.QueryUtilsCurrentAffairs;
+import com.lequiz.practice.loaders.NewsLoader;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class EntertainmentActivity extends AppCompatActivity {
+public class EntertainmentActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
 
     Toolbar toolbar;
+    ArrayList<News> newsArrayList;
+    RecyclerView recyclerView;
+    NewsListAdapter newsListAdapter;
+    TextView mEmptyStateTextView;
+    ProgressBar progressBar;
+
+    private static final String NEWS_REQUEST_URL =
+            "https://newsapi.org/v2/top-headlines?category=entertainment&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entertainment);
+
+        mEmptyStateTextView = findViewById(R.id.empty_view_entertainment);
+
+
+        progressBar = findViewById(R.id.entertainment_loading_spinner);
+        /* Loader manager and network state check **/
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            LoaderManager loaderManager = getLoaderManager();
+            loaderManager.initLoader(0, null, this);
+        }
+        else
+        {
+            progressBar.setVisibility(View.GONE);
+            mEmptyStateTextView.setText("Check your internet connection");
+        }
+
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
@@ -35,6 +78,14 @@ public class EntertainmentActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_ramu);
+
+        // news section
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.entertainment_recycler_view);
+        newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
+        recyclerView.setAdapter(newsListAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Heading TextView gradient
 
@@ -50,6 +101,41 @@ public class EntertainmentActivity extends AppCompatActivity {
         TextView heyUserName = findViewById(R.id.hey_user_name);
         String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
         heyUserName.setText(heyUserNameMaker);
+
+
+
+    }
+
+    /*Async task for Query of news **/
+
+    @Override
+    public Loader<ArrayList<News>> onCreateLoader(int i, Bundle bundle) {
+        return new NewsLoader(this, NEWS_REQUEST_URL);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<ArrayList<News>> loader, ArrayList<News> news) {
+
+        if(news==null || news.isEmpty())
+        {
+            // Server problem message
+            mEmptyStateTextView.setText("Oops server problem");
+            progressBar.setVisibility(View.GONE);
+        }
+
+
+
+        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // data set. This will trigger the ListView to update.
+        if (news != null && !news.isEmpty()) {
+            newsListAdapter.addAll(news);
+            newsListAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<ArrayList<News>> loader) {
 
     }
 }
