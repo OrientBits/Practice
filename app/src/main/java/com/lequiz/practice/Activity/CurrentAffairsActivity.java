@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -40,6 +41,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
        ProgressBar progressBar;
+       RecyclerView.LayoutManager layoutManager;
 
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
@@ -92,11 +94,6 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
             mEmptyStateTextView.setText("Check your internet connection");
         }
 
-
-
-
-
-
         int statusBarHeight = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
@@ -127,7 +124,13 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         recyclerView = (RecyclerView) findViewById(R.id.current_affairs_recycler_view);
         newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
         recyclerView.setAdapter(newsListAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // Adding divider
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
     }
 

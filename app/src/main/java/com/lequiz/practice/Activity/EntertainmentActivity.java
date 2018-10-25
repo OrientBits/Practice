@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -86,6 +87,11 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
         recyclerView.setAdapter(newsListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Adding divider
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
         // Heading TextView gradient
 
