@@ -33,6 +33,8 @@ import com.lequiz.practice.loaders.NewsLoader;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import pl.droidsonroids.gif.GifAnimationMetaData;
+
 public class CurrentAffairsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
 
     Toolbar toolbar;
@@ -40,7 +42,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
-       ProgressBar progressBar;
+       pl.droidsonroids.gif.GifImageView gifImageView;
        RecyclerView.LayoutManager layoutManager;
 
     private static final String NEWS_REQUEST_URL =
@@ -67,7 +69,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         setContentView(R.layout.activity_current_affairs);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
-        progressBar   = (ProgressBar) findViewById(R.id.current_affairs_loading_spinner);
+        gifImageView  = (pl.droidsonroids.gif.GifImageView) findViewById(R.id.current_affairs_loading_spinner);
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
@@ -90,7 +92,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
         else
         {
-            progressBar.setVisibility(View.GONE);
+            gifImageView.setVisibility(View.GONE);
             mEmptyStateTextView.setText("Check your internet connection");
         }
 
@@ -146,7 +148,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         {
             // Server problem message
             mEmptyStateTextView.setText("Server is busy right now, we are fixing the issue");
-            progressBar.setVisibility(View.GONE);
+            gifImageView.setVisibility(View.GONE);
         }
 
 
@@ -155,7 +157,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         if (news != null && !news.isEmpty()) {
             newsListAdapter.addAll(news);
             newsListAdapter.notifyDataSetChanged();
-            progressBar.setVisibility(View.GONE);
+            gifImageView.setVisibility(View.GONE);
 
         }
     }
