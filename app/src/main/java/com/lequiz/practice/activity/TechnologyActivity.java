@@ -14,6 +14,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -33,19 +34,24 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
-    ProgressBar progressBar;
+    ImageView imageErrorLogo;
+    TextView errorMessageNoInternet;
+    pl.droidsonroids.gif.GifImageView gifImageView;
+
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?category=technology&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technology);
 
         mEmptyStateTextView = findViewById(R.id.empty_view_technology);
-        progressBar = findViewById(R.id.technology_loading_spinner);
 
+
+        gifImageView = findViewById(R.id.technology_loading_spinner);
+
+        imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
+        errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
         /* Loader manager and network state check **/
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -56,21 +62,35 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         }
         else
         {
-            progressBar.setVisibility(View.GONE);
-            mEmptyStateTextView.setText("Check your internet connection");
+            gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
 
 
-        // Set transparency
+  /*      // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-        toolbar = findViewById(R.id.technology_toolbar);
+        toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_tech);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_ramu);  **/
 
+        // news section
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.technology_recycler_view);
+        newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
+        recyclerView.setAdapter(newsListAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Adding divider
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
 
         // Heading TextView gradient
 
@@ -89,23 +109,9 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
 
 
 
-        // news section
-
-      //  newsArrayList = QueryUtilsCurrentAffairs.extractEarthquakes();
-
-        recyclerView = (RecyclerView) findViewById(R.id.technology_recycler_view);
-        newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
-        recyclerView.setAdapter(newsListAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Adding divider
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL));
-
-
-
     }
+
+    /*Async task for Query of news **/
 
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int i, Bundle bundle) {
@@ -118,9 +124,12 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         if(news==null || news.isEmpty())
         {
             // Server problem message
-            mEmptyStateTextView.setText("Oops server problem");
-            progressBar.setVisibility(View.GONE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
+            gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
         }
+
 
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
@@ -128,7 +137,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         if (news != null && !news.isEmpty()) {
             newsListAdapter.addAll(news);
             newsListAdapter.notifyDataSetChanged();
-            progressBar.setVisibility(View.GONE);
+            gifImageView.setVisibility(View.GONE);
         }
     }
 
