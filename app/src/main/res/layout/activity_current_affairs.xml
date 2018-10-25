@@ -104,18 +104,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="NestedScrolling" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:id="@+id/le_quiz_error_logo"
+        android:src="@drawable/lequiz_error_logo"
+        android:visibility="invisible"
+        />
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:textSize="28sp"
+        android:layout_gravity="center"
+        android:textColor="@color/grayOnLearnSectionText"
+
+
         />
-    <ProgressBar
+        <TextView
+            android:id="@+id/error_message_no_internet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:layout_gravity="center"
+            android:textColor="@color/grayOnLearnSectionText"
+
+
+            />
+    </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="60dp"
         android:id="@+id/current_affairs_loading_spinner"
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:src="@drawable/lequiz_loader"
         android:layout_centerInParent="true"
-        android:layout_height="wrap_content" />
+
+        />
 </RelativeLayout>
 
 </RelativeLayout>

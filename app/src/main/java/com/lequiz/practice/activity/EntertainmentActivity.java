@@ -34,7 +34,9 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
-    ProgressBar progressBar;
+    ImageView imageErrorLogo;
+    TextView errorMessageNoInternet;
+    pl.droidsonroids.gif.GifImageView gifImageView;
 
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?category=entertainment&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
@@ -46,7 +48,10 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         mEmptyStateTextView = findViewById(R.id.empty_view_entertainment);
 
 
-        progressBar = findViewById(R.id.entertainment_loading_spinner);
+        gifImageView = findViewById(R.id.entertainment_loading_spinner);
+
+        imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
+        errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
         /* Loader manager and network state check **/
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -57,8 +62,10 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         }
         else
         {
-            progressBar.setVisibility(View.GONE);
-            mEmptyStateTextView.setText("Check your internet connection");
+            gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
 
 
@@ -117,8 +124,10 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         if(news==null || news.isEmpty())
         {
             // Server problem message
-            mEmptyStateTextView.setText("Oops server problem");
-            progressBar.setVisibility(View.GONE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
+            gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
         }
 
 
@@ -128,7 +137,7 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         if (news != null && !news.isEmpty()) {
             newsListAdapter.addAll(news);
             newsListAdapter.notifyDataSetChanged();
-            progressBar.setVisibility(View.GONE);
+            gifImageView.setVisibility(View.GONE);
         }
     }
 
