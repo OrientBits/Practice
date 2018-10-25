@@ -46,7 +46,6 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         setContentView(R.layout.activity_technology);
 
         mEmptyStateTextView = findViewById(R.id.empty_view_technology);
-
         gifImageView = findViewById(R.id.technology_loading_spinner);
 
         imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
