@@ -1,16 +1,20 @@
 package com.lequiz.practice.custom_adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.lequiz.practice.Activity.WebViewLayout;
 import com.lequiz.practice.R;
 import com.lequiz.practice.custom_classes.News;
 import com.squareup.picasso.Picasso;
@@ -35,13 +39,26 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        News currentNewsItem = newsArrayList.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)  {
+        final News currentNewsItem = newsArrayList.get(position);
+        holder.parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent = new Intent(context, WebViewLayout.class);
+               String sourceUrlAgain = currentNewsItem.getSourceUrl();
+               intent.putExtra("sourceUrlAgain",sourceUrlAgain);
+               context.startActivity(intent);
 
-        Picasso.get().load(currentNewsItem.getNewsImageUrl()).resize(190,160).centerCrop().into(holder.img);
+
+            }
+        });
+
+        Picasso.get().load(currentNewsItem.getNewsImageUrl()).placeholder(R.drawable.default_image_loading).centerCrop().resize(190,160).centerCrop().into(holder.img);
+
 
         holder.newsHeadline.setText(currentNewsItem.getNewsHeadlines());
         holder.newsTime.setText(currentNewsItem.getNewsTime());
+
 
 
     }
@@ -56,14 +73,21 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
         private TextView newsHeadline;
         private TextView newsTime;
         private ImageView img;
+        private View parentView;
+
 
         public ViewHolder(View view)
         {
+
             super(view);
+            this.parentView=view;
             this.newsHeadline = view.findViewById(R.id.current_affairs_news_title);
             this.newsTime = view.findViewById(R.id.current_affairs_news_time);
             this.img = view.findViewById(R.id.current_affairs_news_image);
+
         }
+
+
     }
     public void addAll(ArrayList<News> data)
     {
