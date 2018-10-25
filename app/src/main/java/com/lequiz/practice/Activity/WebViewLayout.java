@@ -20,6 +20,7 @@ public class WebViewLayout extends AppCompatActivity {
         Bundle b = intent.getExtras();
         String sourceUrl = b.getString("sourceUrlAgain");
         System.out.println("Url to be loaded "+sourceUrl);
+        webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(sourceUrl);
     }
 
