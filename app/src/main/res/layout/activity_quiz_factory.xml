@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".NavDrawer.QuizFactory">
+    tools:context=".nav_drawer.QuizFactory">
 
     <include
         android:id="@+id/quiz_factory_toolbar"
@@ -217,7 +217,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:text="Submit"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="13sp"
                     tools:ignore="HardcodedText" />
 

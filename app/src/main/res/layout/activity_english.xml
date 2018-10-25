@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_english"
-    tools:context=".Activity.EnglishActivity">
+    tools:context=".activity.EnglishActivity">
 
     <include
         android:id="@+id/english_toolbar_layout"

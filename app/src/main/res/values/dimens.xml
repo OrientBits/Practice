@@ -9,5 +9,7 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="image_height_home_part_1">65dp</dimen>
+
 </resources>
 
