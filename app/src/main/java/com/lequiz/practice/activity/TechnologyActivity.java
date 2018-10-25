@@ -66,8 +66,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
             errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
 
-
-       // Set transparency
+        // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
         /*     toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
