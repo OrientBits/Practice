@@ -67,10 +67,10 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         }
 
 
-  /*      // Set transparency
+       // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-        toolbar = findViewById(R.id.category_toolbar);
+   /*     toolbar = findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
