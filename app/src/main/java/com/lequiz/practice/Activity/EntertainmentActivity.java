@@ -42,6 +42,8 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
+    ImageView imageErrorLogo;
+    TextView errorMessageNoInternet;
     pl.droidsonroids.gif.GifImageView gifImageView;
 
     private static final String NEWS_REQUEST_URL =
@@ -55,6 +57,9 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
 
 
         gifImageView = findViewById(R.id.entertainment_loading_spinner);
+
+        imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
+        errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
         /* Loader manager and network state check **/
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -66,7 +71,9 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         else
         {
             gifImageView.setVisibility(View.GONE);
-            mEmptyStateTextView.setText("Check your internet connection");
+            imageErrorLogo.setVisibility(View.VISIBLE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
 
 
@@ -125,8 +132,10 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         if(news==null || news.isEmpty())
         {
             // Server problem message
-            mEmptyStateTextView.setText("Oops server problem");
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
             gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
         }
 
 

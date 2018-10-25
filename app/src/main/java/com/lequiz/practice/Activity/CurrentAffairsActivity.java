@@ -18,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -42,6 +43,8 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
+    ImageView imageErrorLogo;
+    TextView errorMessageNoInternet;
        pl.droidsonroids.gif.GifImageView gifImageView;
        RecyclerView.LayoutManager layoutManager;
 
@@ -70,6 +73,8 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         gifImageView  = (pl.droidsonroids.gif.GifImageView) findViewById(R.id.current_affairs_loading_spinner);
+        imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
+        errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
@@ -93,7 +98,9 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         else
         {
             gifImageView.setVisibility(View.GONE);
-            mEmptyStateTextView.setText("Check your internet connection");
+            imageErrorLogo.setVisibility(View.VISIBLE);
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
 
         int statusBarHeight = 0;
@@ -147,8 +154,10 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         if(news==null || news.isEmpty())
         {
             // Server problem message
-            mEmptyStateTextView.setText("Server is busy right now, we are fixing the issue");
+            mEmptyStateTextView.setText("Whoops!");
+            errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
             gifImageView.setVisibility(View.GONE);
+            imageErrorLogo.setVisibility(View.VISIBLE);
         }
 
 
