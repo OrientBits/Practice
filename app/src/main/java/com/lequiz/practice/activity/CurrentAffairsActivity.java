@@ -70,15 +70,14 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
 
 
-
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-    /*    toolbar = findViewById(R.id.category_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_ramu); **/
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
 
         // news section
 

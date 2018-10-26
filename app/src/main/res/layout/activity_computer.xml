@@ -7,9 +7,7 @@
     android:background="@drawable/gradient_background_computer"
     tools:context=".activity.ComputerActivity">
 
-    <include
-        android:id="@+id/computer_toolbar_layout"
-        layout="@layout/setting_toolbar" />
+    <include layout="@layout/toolbar_layout" />
 
     <ImageView
         android:id="@+id/imageView"

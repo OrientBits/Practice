@@ -30,13 +30,16 @@ public class NavSettings extends AppCompatActivity {
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
-        toolbar = findViewById(R.id.nav_settings_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
+        // for status bar color
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-        // CardView Profile Click Event
+        // CardView profile_paerson2 Click Event
         TextView edit_profile_on_settings=findViewById(R.id.profile_on_settings);
         edit_profile_on_settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +66,6 @@ public class NavSettings extends AppCompatActivity {
             }
         });
 
-        // for status bar color
-        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
     }

@@ -9,9 +9,7 @@
     tools:context=".nav_drawer.NavInviteFriends"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/nav_invite_friend_toolbar"
-        layout="@layout/setting_toolbar" />
+    <include layout="@layout/toolbar_layout" />
 
 
 <ScrollView

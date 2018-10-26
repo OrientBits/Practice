@@ -24,12 +24,12 @@ public class ComputerActivity extends AppCompatActivity {
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-        toolbar = findViewById(R.id.computer_toolbar_layout);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_computer);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
 
 
         // Size troubleshoot Learn Section

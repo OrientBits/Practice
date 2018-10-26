@@ -6,9 +6,7 @@
     android:background="@drawable/gradient_background_entertainment"
     tools:context=".activity.EntertainmentActivity">
 
-    <include
-        android:id="@+id/entertainment_toolbar_layout"
-        layout="@layout/category_toolbar_layout" />
+    <include layout="@layout/toolbar_layout" />
 
     <ImageView
         android:id="@+id/imageView"

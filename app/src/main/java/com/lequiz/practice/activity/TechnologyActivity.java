@@ -40,6 +40,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
 
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?category=technology&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +58,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         if (networkInfo != null && networkInfo.isConnected()) {
             LoaderManager loaderManager = getLoaderManager();
             loaderManager.initLoader(0, null, this);
-        }
-        else
-        {
+        } else {
             gifImageView.setVisibility(View.GONE);
             imageErrorLogo.setVisibility(View.VISIBLE);
             mEmptyStateTextView.setText("Whoops!");
@@ -67,19 +66,19 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         }
 
         // Set transparency
-        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
-        /*     toolbar = findViewById(R.id.category_toolbar);
+        new FullScreenStatusOnly(this);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_ramu);  **/
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
 
         // news section
 
 
         recyclerView = (RecyclerView) findViewById(R.id.technology_recycler_view);
-        newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
+        newsListAdapter = new NewsListAdapter(this, new ArrayList<News>());
         recyclerView.setAdapter(newsListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -100,9 +99,8 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         // Hey UserName Initilization on learn section
 
         TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+        String heyUserNameMaker = "Hey " + getString(R.string.user_first_name) + ",";
         heyUserName.setText(heyUserNameMaker);
-
 
 
     }
@@ -117,15 +115,13 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
     @Override
     public void onLoadFinished(Loader<ArrayList<News>> loader, ArrayList<News> news) {
 
-        if(news==null || news.isEmpty())
-        {
+        if (news == null || news.isEmpty()) {
             // Server problem message
             mEmptyStateTextView.setText("Whoops!");
             errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
             gifImageView.setVisibility(View.GONE);
             imageErrorLogo.setVisibility(View.VISIBLE);
         }
-
 
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's

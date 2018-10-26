@@ -25,8 +25,7 @@
 
 
         <activity
-            android:name=".activity.HomeActivity"
-            android:label="@string/app_name">
+            android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,7 +79,6 @@
             android:parentActivityName=".activity.SpecialActivity" />
         <activity
             android:name=".nav_drawer.ProfileActivity"
-            android:label="@string/profile"
             android:parentActivityName=".nav_drawer.ProfileActivity" />
         <activity
             android:name=".nav_drawer.NavLeaderboard"

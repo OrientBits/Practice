@@ -22,11 +22,12 @@ public class NavLeaderboard extends AppCompatActivity {
         setContentView(R.layout.activity_nav_leaderboard);
 
 
-        toolbar = findViewById(R.id.nav_leaderboard_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
         // for status bar color
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 

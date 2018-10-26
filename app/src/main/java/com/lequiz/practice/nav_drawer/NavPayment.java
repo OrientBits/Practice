@@ -22,12 +22,13 @@ public class NavPayment extends AppCompatActivity {
         setContentView(R.layout.activity_nav_payment);
 
 
-        toolbar = findViewById(R.id.nav_payment_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        //   for status bar color
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
+        // for status bar color
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 //      this is going to display list of payment users

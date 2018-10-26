@@ -21,16 +21,15 @@ public class SportsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports);
 
-        // Set transparency
-        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-        toolbar = findViewById(R.id.sports_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_sports);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
+        // for status bar color
+        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         // Gradient Heading
         // Heading TextView gradient

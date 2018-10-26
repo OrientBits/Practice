@@ -96,56 +96,7 @@
     </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
 
-    <RelativeLayout
-        android:id="@+id/home_toolbar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:gravity="center_vertical">
-
-        <!--rounded cardView -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:foreground="?selectableItemBackground"
-                android:focusable="true"
-                android:clickable="true"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="8.8dp"
-                android:layout_marginBottom="9dp"
-                app:cardCornerRadius="19dp"
-                app:cardElevation="2dp" />
-
-            <android.support.v7.widget.CardView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_gravity="end"
-                android:foreground="?selectableItemBackground"
-                android:focusable="true"
-                android:clickable="true"
-                android:layout_marginEnd="9dp"
-                android:layout_marginTop="8.8dp"
-                android:layout_marginBottom="9dp"
-                app:cardCornerRadius="19dp"
-                app:cardElevation="2dp" />
-
-        </FrameLayout>
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/home_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="4dp"
-            android:paddingStart="0dp"
-            android:minHeight="?attr/actionBarSize"
-            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark" />
-
-    </RelativeLayout>
+    <include layout="@layout/toolbar_layout"/>
 
 
 

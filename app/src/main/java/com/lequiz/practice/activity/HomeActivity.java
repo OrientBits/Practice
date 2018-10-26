@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     private View mToolbarView;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
-
+    private TextView title_text;
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
@@ -76,9 +76,13 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         fa = this; // for only context
 
         // toolbar setup
-        mToolbarView = findViewById(R.id.home_toolbar);
+        mToolbarView = findViewById(R.id.toolbar);
         setSupportActionBar((Toolbar) mToolbarView);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(" ");
+        getSupportActionBar().setTitle(null);
+        title_text = findViewById(R.id.toolbar_title);
+        title_text.setText(getResources().getText(R.string.home));
+        title_text.setTextColor(getResources().getColor(R.color.black));
+        title_text.setAlpha(0);
         //mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.white)));
 
         mScrollView =  findViewById(R.id.scroll);
@@ -103,7 +107,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         if (resourceId > 0) {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
-         RelativeLayout toolbarLayout = findViewById(R.id.home_toolbar_layout);
+         RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
          toolbarLayout.setPadding(0,statusBarHeight,0,0);
          window= getWindow();
          window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -391,6 +395,8 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.035, baseColor));
+        title_text.setAlpha(alpha-(float)0.035);
+
         window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
     }
     @Override

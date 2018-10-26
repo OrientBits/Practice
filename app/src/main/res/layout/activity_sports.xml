@@ -6,12 +6,7 @@
     android:background="@drawable/gradient_background_sports"
     tools:context=".activity.SportsActivity">
 
-    <include
-        android:id="@+id/sports_toolbar"
-        layout="@layout/setting_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
+    <include layout="@layout/toolbar_layout" />
 
     <ImageView
         android:id="@+id/imageView"

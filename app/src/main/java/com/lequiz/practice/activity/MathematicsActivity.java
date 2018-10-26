@@ -21,13 +21,12 @@ public class MathematicsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mathematics);
 
-        toolbar = findViewById(R.id.mathematics_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_button_mathematics);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);

@@ -9,9 +9,7 @@
     tools:context=".nav_drawer.NavSettings">
 
 
-    <include
-        android:id="@+id/nav_settings_toolbar"
-        layout="@layout/setting_toolbar" />
+    <include layout="@layout/toolbar_layout" />
 
     <ScrollView
         android:layout_width="match_parent"
