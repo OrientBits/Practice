@@ -60,16 +60,16 @@
     <color name="green">#1bb62a</color>
 
     <!--category text view color-->
-    <color name="current_affairs">#8CCF83</color>
-    <color name="computer">#53EECA</color>
-    <color name="mathematics">#479A77</color>
-    <color name="reasoning">#F3368D</color>
-    <color name="general_science">#e15f3b</color>
-    <color name="english">#A15CDA</color>
-    <color name="technology">#41A0ED</color>
-    <color name="sport">#CB4432</color>
-    <color name="special">#065175</color>
-    <color name="entertainment">#F47C1C</color>
+    <color name="current_affairs">#5ace4b</color>
+    <color name="computer">#35c2a2</color>
+    <color name="mathematics">#298f65</color>
+    <color name="reasoning">#d6357f</color>
+    <color name="general_science">#de4f27</color>
+    <color name="english">#c739dc</color>
+    <color name="technology">#3894df</color>
+    <color name="sport">#d14734</color>
+    <color name="special">#175174</color>
+    <color name="entertainment">#dc8b1a</color>
 
 
 </resources>

@@ -4,7 +4,10 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lequiz.practice.base.FullScreenStatusOnly;
@@ -15,6 +18,7 @@ import java.util.Objects;
 public class ComputerActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    CardView toolbar_card_view_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +33,20 @@ public class ComputerActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_computer);
+        toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
+        toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
 
-        // Size troubleshoot Learn Section
-//        Drawable drawable= getResources().getDrawable(R.drawable.back_button_computer);
-//        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-//        Drawable newdrawable = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 130, 130, true));
+        // status bar height calculation
+        int statusBarHeight = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+        }
+        RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
-        // Gradient Heading
         // Heading TextView gradient
 
         TextView learnHeaderTech = findViewById(R.id.heading_on_computer);

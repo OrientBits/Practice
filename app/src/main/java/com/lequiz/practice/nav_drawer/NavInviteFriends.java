@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class NavInviteFriends extends AppCompatActivity {
 
     protected Button shareButton,emailButton,smsButton,whatsappButton;
     protected Toolbar toolbar;
+    CardView toolbar_card_view_2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +28,9 @@ public class NavInviteFriends extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
-
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
+        toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
+        toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
         // for status bar color
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);

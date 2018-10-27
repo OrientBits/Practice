@@ -9,13 +9,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lequiz.practice.base.FullScreenStatusOnly;
@@ -38,6 +39,7 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
     ImageView imageErrorLogo;
     TextView errorMessageNoInternet;
     pl.droidsonroids.gif.GifImageView gifImageView;
+    CardView toolbar_card_view_2;
 
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?category=entertainment&sortBy=publishedAt&country=in&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
@@ -78,7 +80,18 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_ramu);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_entertainment);
+        toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
+        toolbar_card_view_2.setVisibility(View.INVISIBLE);
+
+        // status bar height calculation
+        int statusBarHeight = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+        }
+        RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
         // news section
 
