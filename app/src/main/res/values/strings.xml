@@ -62,6 +62,8 @@
     <!--content Discription of profile image-->
     <string name="profile">Profile</string>
 
+    <string name="status">I am lol in programming :)</string>
+
     <!--user mobile no-->
     <string name="user_mobile_no">9693108484</string>
     <string name="design">design</string>
