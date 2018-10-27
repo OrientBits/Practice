@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -31,14 +30,12 @@ import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
 import com.lequiz.practice.custom_classes.News;
 import com.lequiz.practice.loaders.NewsLoader;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class CurrentAffairsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> , ObservableScrollViewCallbacks {
 
 
-    ArrayList<News> newsArrayList;
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
@@ -118,8 +115,6 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
 
 
         // news section
-
-
         recyclerView = (RecyclerView) findViewById(R.id.current_affairs_recycler_view);
         newsListAdapter = new NewsListAdapter(this,new ArrayList<News>());
         recyclerView.setAdapter(newsListAdapter);

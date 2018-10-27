@@ -25,7 +25,7 @@
     <color name="purpleOnHomeText">#7F47DD</color>
     <color name="blueGradientTech">#00FFFF</color>
     <color name="grayOnLearnSectionText">#95989A</color>
-    <color name="greenOnCurrentAffairs">#7DF790</color>
+    <color name="greenOnCurrentAffairs">#a1f9ae</color>
     <color name="yellowOnCurrentAffairs">#01ff01</color>
     <color name="yellowOnEntertainment">#FFFF00</color>
     <color name="orangeOnEntertainment">#F15A24</color>
@@ -47,7 +47,7 @@
     <color name="pinkOnReasoningBackground">#EDAACA</color>
     <color name="pinkOnEnglishBackground">#EEADEC</color>
     <color name="blueOnTechnologyBackground">#B3F9F7</color>
-    <color name="orangeOnEntertainmentBackground">#FFDEB2</color>
+    <color name="orangeOnEntertainmentBackground">#fcd9b7</color>
     <color name="redOnGeneralScienceBackground">#F0B1B1</color>
     <color name="brownOnGeneralScience">#BF8000</color>
     <color name="redOnGeneralScience">#FF0900</color>

@@ -1,94 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_general_science"
     tools:context=".activity.GeneralScienceActivity">
+
+    <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background_general_science">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="322dp"
+                android:layout_height="187dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/general_science"
+                android:src="@drawable/general_science_background_image" />
+
+            <TextView
+                android:id="@+id/heading_on_general_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="99dp"
+                android:text="@string/general_science"
+                android:theme="@style/Topic_Text_Style"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:id="@+id/subheading_on_general_science"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/heading_on_general_science"
+                android:layout_marginStart="16dp"
+                android:text="@string/subHeadingOnLearnSection"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/relative_card_view_general_science"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subheading_on_general_science"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/rounded_layout_learn_general_science"
+                android:elevation="2dp"
+                android:theme="@style/Inner_Relative_Layout">
+
+                <ImageView
+                    android:id="@+id/start_image_of_general_science_quiz"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:contentDescription="@string/start_button_general_science"
+                    android:focusable="true"
+                    android:foreground="?android:selectableItemBackground"
+                    android:src="@drawable/start_button_general_science" />
+
+                <ImageView
+                    android:id="@+id/play_button_eneral_science"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_alignParentStart="true"
+                    android:contentDescription="@string/play_button_general_science"
+                    android:src="@drawable/play_button_general_science" />
+
+                <TextView
+                    android:id="@+id/hey_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="58dp"
+                    android:paddingTop="9dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hey_user_name"
+                    android:layout_marginStart="58dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/start_your_quiz"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
     <include layout="@layout/toolbar_layout" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="322dp"
-        android:layout_height="187dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/general_science"
-        android:src="@drawable/general_science_background_image" />
-
-    <TextView
-        android:id="@+id/heading_on_general_science"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="99dp"
-        android:text="@string/general_science"
-        android:theme="@style/Topic_Text_Style"
-        tools:ignore="RelativeOverlap" />
-
-    <TextView
-        android:id="@+id/subheading_on_general_science"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/heading_on_general_science"
-        android:layout_marginStart="16dp"
-        android:text="@string/subHeadingOnLearnSection"
-        android:textSize="14sp" />
-
-    <RelativeLayout
-        android:id="@+id/relative_card_view_general_science"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/subheading_on_general_science"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/rounded_layout_learn_general_science"
-        android:elevation="2dp"
-        android:theme="@style/Inner_Relative_Layout">
-
-        <ImageView
-            android:id="@+id/start_image_of_general_science_quiz"
-            android:layout_width="58dp"
-            android:layout_height="58dp"
-            android:layout_alignParentEnd="true"
-            android:clickable="true"
-            android:contentDescription="@string/start_button_general_science"
-            android:focusable="true"
-            android:foreground="?android:selectableItemBackground"
-            android:src="@drawable/start_button_general_science" />
-
-        <ImageView
-            android:id="@+id/play_button_eneral_science"
-            android:layout_width="58dp"
-            android:layout_height="58dp"
-            android:layout_alignParentStart="true"
-            android:contentDescription="@string/play_button_general_science"
-            android:src="@drawable/play_button_general_science" />
-
-        <TextView
-            android:id="@+id/hey_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="58dp"
-            android:paddingTop="9dp"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            tools:ignore="RelativeOverlap" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/hey_user_name"
-            android:layout_marginStart="58dp"
-            android:paddingTop="3dp"
-            android:text="@string/start_your_quiz"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-
-    </RelativeLayout>
-
-</RelativeLayout>
-
+</android.support.design.widget.CoordinatorLayout>
