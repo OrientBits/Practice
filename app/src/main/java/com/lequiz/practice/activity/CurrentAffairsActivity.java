@@ -101,7 +101,6 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
-
         // status bar calculation
         int statusBarHeight = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
