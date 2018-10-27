@@ -50,7 +50,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
 
         });
 
-        Picasso.get().load(currentNewsItem.getNewsImageUrl()).placeholder(R.drawable.default_image_loading).centerCrop().resize(190,160).centerCrop().into(holder.img);
+       Picasso.get().load(currentNewsItem.getNewsImageUrl()).placeholder(R.drawable.default_image_loading).centerCrop().resize(190,160).centerCrop().into(holder.img);
 
 
         holder.newsHeadline.setText(currentNewsItem.getNewsHeadlines());

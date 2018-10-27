@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
@@ -72,7 +71,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
 
 
-
+// Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
         toolbar = findViewById(R.id.toolbar);
@@ -84,7 +83,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
-        // status bar height calculation
+        // status bar calculation
         int statusBarHeight = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
@@ -92,6 +91,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
         RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
+
 
         // news section
 
