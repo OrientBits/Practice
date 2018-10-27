@@ -16,6 +16,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -69,6 +70,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
             mEmptyStateTextView.setText("Whoops!");
             errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
         }
+
 
 
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);

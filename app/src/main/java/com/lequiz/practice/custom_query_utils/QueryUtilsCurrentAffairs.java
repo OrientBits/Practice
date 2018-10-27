@@ -138,9 +138,13 @@ public final class QueryUtilsCurrentAffairs {
                             publishedAt=String.valueOf(icHour-iNewsHour)+" hours ago";
                         }
                     }
-                    else
+                    else if (icDay-iNewsDay==1)
                     {
                         publishedAt=String.valueOf(icDay-iNewsDay)+" day ago";
+                    }
+                    else
+                    {
+                        publishedAt=String.valueOf(icDay-iNewsDay)+" days ago";
                     }
                 }
                 else
