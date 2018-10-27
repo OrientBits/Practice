@@ -2,7 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group
-        android:id="@+id/nav_meddile"
+        android:id="@+id/nav_group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/job_alerts"
+            android:icon="@drawable/drawer_job_alerts1"
+            android:title="@string/job_alerts" />
+    </group>
+
+    <group
+        android:id="@+id/nav_group_2"
         android:checkableBehavior="single">
 
         <item
@@ -33,7 +42,7 @@
     </group>
 
     <group
-        android:id="@+id/nav_lower"
+        android:id="@+id/nav_group_3"
         android:checkableBehavior="single">
 
         <item

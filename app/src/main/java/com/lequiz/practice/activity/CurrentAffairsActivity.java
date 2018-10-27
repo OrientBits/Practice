@@ -15,10 +15,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
+import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
@@ -28,9 +35,9 @@ import com.lequiz.practice.loaders.NewsLoader;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class CurrentAffairsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> {
+public class CurrentAffairsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<News>> , ObservableScrollViewCallbacks {
 
-    Toolbar toolbar;
+
     ArrayList<News> newsArrayList;
     RecyclerView recyclerView;
     NewsListAdapter newsListAdapter;
@@ -39,6 +46,11 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     TextView errorMessageNoInternet;
     pl.droidsonroids.gif.GifImageView gifImageView;
     CardView toolbar_card_view_2;
+    private View mToolbarView;
+    private ObservableScrollView mScrollView;
+    private int mParallaxImageHeight;
+    Window window;
+    TextView title_text;
 
     private static final String NEWS_REQUEST_URL =
             "https://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&apiKey=ff020c6745fc4704bd9cc18bafbeaaca";
@@ -71,17 +83,22 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
 
 
-// Set transparency
-        FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbarView = findViewById(R.id.toolbar);
+        setSupportActionBar((Toolbar) mToolbarView);
+        getSupportActionBar().setTitle(null);
+        title_text = findViewById(R.id.toolbar_title);
+        title_text.setText(getResources().getText(R.string.current_Affairs));
+        title_text.setTextColor(getResources().getColor(R.color.black));
+        title_text.setAlpha(0);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_current_affairs);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
+
 
         // status bar calculation
         int statusBarHeight = 0;
@@ -91,6 +108,13 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         }
         RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
+        window= getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
+        mScrollView.setScrollViewCallbacks(this);
+        mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.image_height_home_part_1);
+        new FullScreenStatusOnly(this);
 
 
         // news section
@@ -157,5 +181,36 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     public void onLoaderReset(Loader<ArrayList<News>> loader) {
 
     }
+
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        onScrollChanged(mScrollView.getCurrentScrollY(), false, false);
+    }
+
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+        int baseColor = getResources().getColor(R.color.colorPrimary);
+        float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
+        mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
+        window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
+        title_text.setAlpha(alpha-(float)0.035);
+    }
+
+
+    @Override
+    public void onDownMotionEvent() {
+
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+    }
+
+
+
+
 
 }

@@ -60,8 +60,8 @@
     <color name="green">#1bb62a</color>
 
     <!--category text view color-->
-    <color name="current_affairs">#5ace4b</color>
-    <color name="computer">#35c2a2</color>
+    <color name="current_affairs">#51d7e6</color>
+    <color name="computer">#26bea7</color>
     <color name="mathematics">#298f65</color>
     <color name="reasoning">#d6357f</color>
     <color name="general_science">#de4f27</color>
