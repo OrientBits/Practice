@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.ComputerActivity">
 
+
     <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
