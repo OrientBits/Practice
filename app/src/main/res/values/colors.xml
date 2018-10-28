@@ -16,6 +16,10 @@
     <color name="skyBlueOnProgressHome">#6e54d3f5</color>
     <color name="darkBlueOnProgressHome">#1f597e</color>
 
+
+    <!--shimmer background-->
+    <color name="shimmer_background">#dddddd</color>
+
     <color name="grayOnProgressHome">#B6B3B3</color>
     <color name="blueOnPopup">#053461</color>
     <color name="pinkOnSports">#ED1E79</color>
