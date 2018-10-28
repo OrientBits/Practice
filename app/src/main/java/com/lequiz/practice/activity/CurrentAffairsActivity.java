@@ -61,6 +61,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
 
         mEmptyStateTextView = findViewById(R.id.empty_view);
 
+
         shimmerFrameLayout = findViewById(R.id.shimmer_layout_container);
 
 
