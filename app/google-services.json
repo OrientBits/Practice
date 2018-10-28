@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "515282091523",
+    "firebase_url": "https://lequiz-4abd1.firebaseio.com",
+    "project_id": "lequiz-4abd1",
+    "storage_bucket": "lequiz-4abd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515282091523:android:6c008e78861b3609",
+        "android_client_info": {
+          "package_name": "com.lequiz.practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515282091523-gi3k34oivn5o5g67tjdp3s82iahupuoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lequiz.practice",
+            "certificate_hash": "6f0a34506d6d091da0db28e1456d36f6e7a95968"
+          }
+        },
+        {
+          "client_id": "515282091523-854bj21b4jl0ocfak3gbraar7016s2v3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5KQJbpnx2O_SIEo1RtRF6_f03nco76w4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515282091523-854bj21b4jl0ocfak3gbraar7016s2v3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
