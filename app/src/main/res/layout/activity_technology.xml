@@ -132,7 +132,6 @@
                         <include layout="@layout/simmer_layout" />
 
                         <include layout="@layout/simmer_layout" />
-
                     </LinearLayout>
                 </com.facebook.shimmer.ShimmerFrameLayout>
                 <LinearLayout
