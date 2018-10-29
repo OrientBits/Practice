@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.CurrentAffairsActivity">
+    tools:context=".nav_drawer.JobAlertsActivity">
 
     <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
         android:id="@+id/scroll"
@@ -46,6 +47,7 @@
                 android:textSize="14sp" />
 
             <RelativeLayout
+
                 android:id="@+id/relative_card_view_current_affairs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,7 +109,7 @@
                 android:background="@color/white">
 
                 <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/shimmer_layout_container"
+                    android:id="@+id/shimmer_layout_container_job_alert"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
@@ -125,6 +127,7 @@
                         <include layout="@layout/simmer_layout" />
 
                         <include layout="@layout/simmer_layout" />
+
 
                     </LinearLayout>
                 </com.facebook.shimmer.ShimmerFrameLayout>

@@ -29,7 +29,7 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
-import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.module.News;
 import com.lequiz.practice.loaders.NewsLoader;
 
 import java.util.ArrayList;
@@ -122,6 +122,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL));
+        recyclerView.setNestedScrollingEnabled(false);
 
         // Heading TextView gradient
 

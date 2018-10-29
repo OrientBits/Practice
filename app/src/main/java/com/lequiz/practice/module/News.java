@@ -1,4 +1,4 @@
-package com.lequiz.practice.custom_classes;
+package com.lequiz.practice.module;
 
 public class News {
     private String newsHeadlines;

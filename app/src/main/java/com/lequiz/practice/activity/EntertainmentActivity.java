@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +29,7 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
-import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.module.News;
 import com.lequiz.practice.loaders.NewsLoader;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -129,6 +128,8 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
 
         recyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL));
+
+        recyclerView.setNestedScrollingEnabled(false);
 
         // Heading TextView gradient
 

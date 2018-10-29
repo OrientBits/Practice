@@ -108,7 +108,10 @@
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.WebViewLayout" />
-        <activity android:name=".activity.JobAlertsActivity"></activity>
+        <activity android:name=".nav_drawer.JobAlertsActivity"
+            android:parentActivityName=".nav_drawer.JobAlertsActivity"
+            android:label="@string/job_alerts">
+        </activity>
     </application>
 
 </manifest>

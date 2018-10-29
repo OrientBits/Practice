@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.lequiz.practice.activity.WebViewLayout;
 import com.lequiz.practice.R;
-import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.module.News;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

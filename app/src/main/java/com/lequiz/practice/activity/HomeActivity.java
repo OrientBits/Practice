@@ -41,6 +41,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.nav_drawer.JobAlertsActivity;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
 import com.lequiz.practice.nav_drawer.NavLeaderboard;
 import com.lequiz.practice.nav_drawer.NavNotifications;

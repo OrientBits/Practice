@@ -3,7 +3,7 @@ package com.lequiz.practice.custom_query_utils;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.module.News;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,7 +21,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 

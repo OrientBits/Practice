@@ -3,7 +3,7 @@ package com.lequiz.practice.loaders;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 
-import com.lequiz.practice.custom_classes.News;
+import com.lequiz.practice.module.News;
 import com.lequiz.practice.custom_query_utils.QueryUtilsCurrentAffairs;
 
 import java.util.ArrayList;
