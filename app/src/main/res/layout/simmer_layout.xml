@@ -47,13 +47,11 @@
 
         </LinearLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:src="@color/shimmer_background" />
+       <View
+           android:layout_width="100dp"
+           android:background="@color/shimmer_background"
+           android:layout_height="wrap_content"/>
+
 
     </LinearLayout>
 
