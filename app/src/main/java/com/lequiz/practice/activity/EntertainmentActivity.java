@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -40,6 +42,7 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
     NewsListAdapter newsListAdapter;
     TextView mEmptyStateTextView;
     ImageView imageErrorLogo;
+    ShimmerFrameLayout shimmerFrameLayout;
     TextView errorMessageNoInternet;
     pl.droidsonroids.gif.GifImageView gifImageView;
     CardView toolbar_card_view_2;
@@ -60,7 +63,7 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         mEmptyStateTextView = findViewById(R.id.empty_view_entertainment);
 
 
-        gifImageView = findViewById(R.id.entertainment_loading_spinner);
+        shimmerFrameLayout = findViewById(R.id.shimmer_layout_container);
 
         imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
         errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
@@ -74,7 +77,8 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         }
         else
         {
-            gifImageView.setVisibility(View.GONE);
+            shimmerFrameLayout.setVisibility(View.GONE);
+            shimmerFrameLayout.stopShimmer();
             imageErrorLogo.setVisibility(View.VISIBLE);
             mEmptyStateTextView.setText("Whoops!");
             errorMessageNoInternet.setText("No internet connection found. Check your connection and try again");
@@ -160,7 +164,8 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
             // Server problem message
             mEmptyStateTextView.setText("Whoops!");
             errorMessageNoInternet.setText("Server is busy right now, we are fixing the issue");
-            gifImageView.setVisibility(View.GONE);
+            shimmerFrameLayout.setVisibility(View.GONE);
+            shimmerFrameLayout.stopShimmer();
             imageErrorLogo.setVisibility(View.VISIBLE);
         }
 
@@ -171,7 +176,8 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
         if (news != null && !news.isEmpty()) {
             newsListAdapter.addAll(news);
             newsListAdapter.notifyDataSetChanged();
-            gifImageView.setVisibility(View.GONE);
+            shimmerFrameLayout.setVisibility(View.GONE);
+            shimmerFrameLayout.stopShimmer();
         }
     }
 

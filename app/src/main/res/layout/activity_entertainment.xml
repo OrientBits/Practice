@@ -108,14 +108,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:ignore="NestedScrolling" />
-                <pl.droidsonroids.gif.GifImageView
-                    android:layout_width="60dp"
-                    android:id="@+id/entertainment_loading_spinner"
-                    android:layout_height="60dp"
-                    android:src="@drawable/lequiz_loader"
-                    android:layout_centerInParent="true"
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_layout_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/simmer_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                    />
+                        <include layout="@layout/simmer_layout" />
+
+                        <include layout="@layout/simmer_layout" />
+
+                        <include layout="@layout/simmer_layout" />
+
+                        <include layout="@layout/simmer_layout" />
+
+                        <include layout="@layout/simmer_layout" />
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
