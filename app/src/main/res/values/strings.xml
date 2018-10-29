@@ -2,7 +2,6 @@
     <string name="app_name">LeQuiz</string>
 
 
-
     <string name="Sign_in">Sign in</string>
     <string name="Sign_out">Sign out</string>
     <string name="i_dont_have_account">I don\'t have an account</string>
@@ -51,6 +50,7 @@
 
     <!--Category name for class_wise-->
     <string name="english">English</string>
+
 
 
 

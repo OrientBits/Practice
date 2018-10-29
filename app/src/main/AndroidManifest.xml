@@ -22,21 +22,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.OnBoarding" />
-
-
-        <activity
-            android:name=".activity.HomeActivity">
+        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="com.androidtutorialpoint.androidobservablescrollview" />
-
             </intent-filter>
         </activity>
-
-
-
-
         <activity
             android:name=".activity.MathematicsActivity"
             android:label="@string/mathematics"
@@ -115,7 +107,8 @@
             android:name=".activity.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.WebViewLayout"></activity>
+        <activity android:name=".activity.WebViewLayout" />
+        <activity android:name=".activity.JobAlertsActivity"></activity>
     </application>
 
 </manifest>

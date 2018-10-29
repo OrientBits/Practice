@@ -511,12 +511,12 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 }, 300);
                 break;
 
-            case R.id.notifications:
-                final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+            case R.id.job_alerts:
+                final Intent navJobAlerts = new Intent(HomeActivity.this, JobAlertsActivity.class);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(navNotification);
+                      startActivity(navJobAlerts);
                     }
                 }, 300);
                 break;

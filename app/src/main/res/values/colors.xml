@@ -75,6 +75,9 @@
     <color name="special">#175174</color>
     <color name="entertainment">#dc8b1a</color>
 
+    <color name="violet_on_job_alert">#0DAAAA</color>
+    <color name="pink_on_job_alert">#BD2D4B</color>
+
 
 </resources>
 
