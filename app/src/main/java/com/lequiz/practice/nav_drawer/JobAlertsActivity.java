@@ -58,7 +58,7 @@ public class JobAlertsActivity extends AppCompatActivity implements ObservableSc
         //mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, getResources().getColor(R.color.white)));
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_job_alerts);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
@@ -90,10 +90,10 @@ public class JobAlertsActivity extends AppCompatActivity implements ObservableSc
         learnHeaderJobs.getPaint().setShader(textShader);
 
         // Hey UserName Initilization on learn section
-
-        TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
-        heyUserName.setText(heyUserNameMaker);
+//
+//        TextView heyUserName = findViewById(R.id.hey_user_name);
+//        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
+//        heyUserName.setText(heyUserNameMaker);
 
 
     }
