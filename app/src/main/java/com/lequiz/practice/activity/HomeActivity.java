@@ -34,6 +34,12 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
 import com.lequiz.practice.nav_drawer.NavLeaderboard;
@@ -66,6 +72,9 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
     public MenuItem menuItem;
+
+    // Testing firebase
+    DatabaseReference mRefRoot;
 
 
 
@@ -349,8 +358,6 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
             }
         });
 
-
-
     }
 
 
@@ -504,12 +511,12 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 }, 300);
                 break;
 
-            case R.id.notifications:
-                final Intent navNotification = new Intent(HomeActivity.this, NavNotifications.class);
+            case R.id.job_alerts:
+                final Intent navJobAlerts = new Intent(HomeActivity.this, JobAlertsActivity.class);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(navNotification);
+                      startActivity(navJobAlerts);
                     }
                 }, 300);
                 break;
