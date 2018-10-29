@@ -32,7 +32,6 @@ public class WebViewLayout extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-
                 progressBar.setProgress(newProgress);
 
                 if(progressBar.getProgress()==100)
