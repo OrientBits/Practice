@@ -3,6 +3,8 @@ package com.lequiz.practice.nav_drawer;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -16,8 +18,16 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.module.Users;
 
 import java.util.Objects;
 
@@ -29,12 +39,17 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     Window window;
     TextView title_text,user_name;
     CardView toolbar_card_view_2;
+    Users userInProfile;
+    FirebaseAuth mAuth;
+    DatabaseReference mDatabaseRefrence;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_profile);
-
+        user_name = findViewById(R.id.profile_user_name);
+        mAuth = FirebaseAuth.getInstance();
         // toolbar setup
         mToolbarView = findViewById(R.id.toolbar);
         setSupportActionBar((Toolbar) mToolbarView);
@@ -51,6 +66,12 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
+        String uId = mAuth.getCurrentUser().getUid();
+        System.out.println("U id "+uId);
+        mDatabaseRefrence = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users"+uId);
+
+        
+
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
 
@@ -65,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         window= getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-       user_name = findViewById(R.id.profile_user_name);
+
         userNameInGradient();
 
 

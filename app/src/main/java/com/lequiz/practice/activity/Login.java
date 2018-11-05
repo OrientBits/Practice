@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -49,18 +50,41 @@ public class Login extends AppCompatActivity {
     }
 
     public void Login_user(View view) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        loginProgressBar.setVisibility(View.VISIBLE);
+
+
+
+
         String user_email = etLogEmail.getText().toString().trim();
         String user_password = etLogPassword.getText().toString().trim();
+
+        if(TextUtils.isEmpty(user_email))
+        {
+            etLogEmail.setError("Email is required.");
+            etLogEmail.requestFocus();
+            return;
+        }
+
+        if(TextUtils.isEmpty(user_password))
+        {
+            etLogPassword.setError("Password is required.");
+            etLogPassword.requestFocus();
+            return;
+        }
+
+        loginProgressBar.setVisibility(View.VISIBLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         mAuth.signInWithEmailAndPassword(user_email, user_password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 loginProgressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(Login.this, "Welcome back to LeQuiz!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(Login.this, HomeActivity.class));
+                Intent intent = new Intent(Login.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
