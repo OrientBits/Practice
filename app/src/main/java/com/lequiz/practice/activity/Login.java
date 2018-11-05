@@ -93,8 +93,7 @@ public class Login extends AppCompatActivity {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 loginProgressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
+                }
         });
 
 
