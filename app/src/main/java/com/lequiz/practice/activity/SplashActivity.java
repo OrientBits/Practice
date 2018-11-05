@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView splashImg = findViewById(R.id.splash_img);
         new FullScreenStatusOnly(this);
 
-        Animation splashAnim = AnimationUtils.loadAnimation(this,R.anim.splash_screen_transition);
+        Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash_screen_transition);
         splashImg.startAnimation(splashAnim);
         final Intent intent1 = new Intent(SplashActivity.this, HomeActivity.class);
         final Intent intent = new Intent(SplashActivity.this, OnBoarding.class);
@@ -35,15 +35,13 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(mAuth.getCurrentUser()!=null)
-                {
-                startActivity(intent1);
-                finish();
-            }
-            else
-                {
+                if (mAuth.getCurrentUser() != null) {
+                    startActivity(intent1);
+                    finish();
+                } else {
                     startActivity(intent);
-                }}
+                }
+            }
 
         }, SPLASH_TIME_OUT);
     }
