@@ -407,6 +407,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.035, baseColor));
         title_text.setAlpha(alpha-(float)0.035);
 
+
         window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
     }
     @Override
