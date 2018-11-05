@@ -413,8 +413,6 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     public void onDownMotionEvent() { }
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) { }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
