@@ -24,7 +24,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/entertainment"
-                android:src="@drawable/entertainment_background_image" />
+                android:src="@drawable/category_entertainment" />
 
             <TextView
                 android:id="@+id/heading_on_entertainment"

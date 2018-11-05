@@ -28,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/english"
-                android:src="@drawable/english_background_image" />
+                android:src="@drawable/category_english" />
 
             <TextView
                 android:id="@+id/heading_on_english"

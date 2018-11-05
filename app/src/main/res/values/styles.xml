@@ -38,7 +38,7 @@
     <style name="inside_cardView_another_cardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">2.2</item>
+        <item name="android:layout_weight">2.4</item>
         <item name="android:elevation">0dp</item>
     </style>
 
@@ -49,7 +49,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:padding">5dp</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
         <item name="android:fontFamily">@font/trebuchet_ms</item>
 
     </style>

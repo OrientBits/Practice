@@ -27,7 +27,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/special"
-                android:src="@drawable/special_background_image" />
+                android:src="@drawable/category_special" />
 
             <TextView
                 android:id="@+id/heading_on_special"

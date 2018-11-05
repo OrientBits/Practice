@@ -27,7 +27,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/mathematics"
-                android:src="@drawable/mathematics_background_image" />
+                android:src="@drawable/category_mathematics" />
 
             <TextView
                 android:id="@+id/heading_on_mathematics"

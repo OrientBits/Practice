@@ -28,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/sports"
-                android:src="@drawable/sports_background_image" />
+                android:src="@drawable/category_sport" />
 
             <TextView
                 android:id="@+id/heading_on_sports"

@@ -95,45 +95,17 @@
 
     </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
-
     <include layout="@layout/toolbar_layout"/>
 
-
-
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation_play_random_quiz"
+        android:id="@+id/bottom_navigation_layout"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        android:elevation="10dp">
-
-        <FrameLayout
-            android:id="@+id/play_random_frameLayout"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginBottom="9dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="9dp"
-            android:background="@drawable/play_random_quiz_background_final"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:selectableItemBackground">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Play Random Quiz"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                tools:ignore="HardcodedText" />
-
-        </FrameLayout>
-
-    </android.support.design.widget.BottomNavigationView>
+        android:background="@color/white"
+        app:itemTextColor="@drawable/bottom_nav_item_selector"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </FrameLayout>

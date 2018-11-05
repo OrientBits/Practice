@@ -28,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/general_science"
-                android:src="@drawable/general_science_background_image" />
+                android:src="@drawable/category_general_science" />
 
             <TextView
                 android:id="@+id/heading_on_general_science"

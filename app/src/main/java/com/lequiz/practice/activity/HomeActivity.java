@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -29,17 +30,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.nav_drawer.JobAlertsActivity;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
@@ -50,11 +45,11 @@ import com.lequiz.practice.nav_drawer.NavSettings;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.lequiz.practice.nav_drawer.QuizFactory;
 import com.lequiz.practice.R;
-
 import java.sql.Time;
 import java.util.Objects;
-
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class HomeActivity extends AppCompatActivity implements ObservableScrollViewCallbacks, NavigationView.OnNavigationItemSelectedListener {
 
@@ -134,6 +129,13 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
 
         View headerView = navigationView.getHeaderView(0);
         profile_header = headerView.findViewById(R.id.profile_image);
+
+
+        // bottom navigation bar...
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_layout);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        bottomNavigationView.setItemIconTintList(null);
+
 
 
 
@@ -377,7 +379,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
             }
         }
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please click BACK again to exit", LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
@@ -589,5 +591,28 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         return true;
 
     }
+
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.bottom_nav_home:
+
+                    return true;
+                case R.id.bottom_nav_random_quiz:
+
+                    return true;
+                case R.id.bottom_nav_job_alert:
+
+                    return true;
+            }
+            return false;
+        }
+    };
+
 
 }

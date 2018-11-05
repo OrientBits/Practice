@@ -27,7 +27,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:contentDescription="@string/reasoning"
-                android:src="@drawable/reasoning_background_image" />
+                android:src="@drawable/category_reasoning" />
 
             <TextView
                 android:id="@+id/heading_on_reasoning"
