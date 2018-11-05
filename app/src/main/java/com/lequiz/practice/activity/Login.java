@@ -69,11 +69,13 @@ public class Login extends AppCompatActivity {
 
     private boolean checkUserEmail() {
         if (userEmail.equals("")) {
+
             userEmail.setError("Please enter a valid email");
             return false;
         }
         return true;
     }
+
     private boolean checkUserPassword() {
         if (userPassword.equals("")) {
             userPassword.setError("Please enter a password");
