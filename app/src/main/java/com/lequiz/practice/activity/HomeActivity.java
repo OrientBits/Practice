@@ -416,7 +416,6 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
 
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
