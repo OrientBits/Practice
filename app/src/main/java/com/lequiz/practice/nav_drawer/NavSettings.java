@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.lequiz.practice.activity.HomeActivity;
+import com.lequiz.practice.activity.Login;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
@@ -24,7 +26,7 @@ public class NavSettings extends AppCompatActivity {
     private SharedPreferenceConfig sharedPreferenceConfig;
     protected Toolbar toolbar;
     CardView toolbar_card_view_2;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class NavSettings extends AppCompatActivity {
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
+        mAuth = FirebaseAuth.getInstance();
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -141,8 +144,10 @@ public class NavSettings extends AppCompatActivity {
     public void userLogout(View view)
     {
         sharedPreferenceConfig.writeLoginStatus(false);
-       // startActivity(new Intent(this,Login.class));
+        mAuth.getInstance().signOut();
+        startActivity(new Intent(this,Login.class));
         finish();
         HomeActivity.fa.finish();
+
     }
 }

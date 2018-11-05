@@ -1,13 +1,20 @@
 package com.lequiz.practice.activity;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
@@ -15,8 +22,10 @@ import com.lequiz.practice.R;
 public class Login extends AppCompatActivity {
 
     private SharedPreferenceConfig sharedPreferenceConfig;
-    private EditText userEmail, userPassword;
+    private EditText etLogEmail, etLogPassword;
     private ImageView back_img;
+    private FirebaseAuth mAuth;
+    private ProgressBar loginProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,61 +38,44 @@ public class Login extends AppCompatActivity {
         //  back_img = findViewById(R.id.back_img_in_sign_in);
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
-        userEmail = findViewById(R.id.sign_in_email);
-        userPassword = findViewById(R.id.sign_in_password);
+        etLogEmail= findViewById(R.id.sign_in_email);
+        etLogPassword = findViewById(R.id.sign_in_password);
+        mAuth = FirebaseAuth.getInstance();
+        loginProgressBar = findViewById(R.id.loginProgressBar);
 
 
-        if (sharedPreferenceConfig.readLoginStatus()) {
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-        }
 
-   /*     back_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(getParentActivityIntent());
-            }
-        });  **/
 
     }
 
     public void Login_user(View view) {
-        String user_email = userEmail.getText().toString().trim();
-        String user_password = userPassword.getText().toString().trim();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        loginProgressBar.setVisibility(View.VISIBLE);
+        String user_email = etLogEmail.getText().toString().trim();
+        String user_password = etLogPassword.getText().toString().trim();
+        mAuth.signInWithEmailAndPassword(user_email, user_password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                loginProgressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(Login.this, "Welcome back to LeQuiz!", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Login.this, HomeActivity.class));
 
-        if (checkUserEmail() && checkUserPassword()) {
-
-            if (user_email.equals(getResources().getString(R.string.user_email)) && user_password.equals(getResources().getString(R.string.user_password))) {
-                startActivity(new Intent(this, HomeActivity.class));
-                sharedPreferenceConfig.writeLoginStatus(true);
-                finish();
-            } else {
-                Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-                userEmail.setText("");
-                userPassword.setText("");
             }
-        }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                loginProgressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
-    }
+            }
+        });
 
 
-    private boolean checkUserEmail() {
-        if (userEmail.equals("")) {
-            userEmail.setError("Please enter a valid email");
-            return false;
-        }
-        return true;
-    }
 
-    private boolean checkUserPassword() {
-        if (userPassword.equals("")) {
-            userPassword.setError("Please enter a password");
-            return false;
-        } else if (userPassword.length() < 6 || userPassword.length() > 15) {
-            userPassword.setError("Password should be between 6 to 10 Character");
-            return false;
-        }
-        return true;
+
     }
 
     public void createAccount(View view) {

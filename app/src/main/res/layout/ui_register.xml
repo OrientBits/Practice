@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/reg_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="47dp"
             app:srcCompat="@mipmap/ic_launcher_foreground"
             tools:ignore="ContentDescription" />
 
@@ -42,7 +54,8 @@
                 android:layout_marginEnd="20dp"
                 android:drawablePadding="12dp"
                 android:hint="First Name"
-                android:inputType="textCapSentences"
+                android:inputType="textPersonName"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textSize="17sp"
@@ -63,6 +76,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:drawablePadding="12dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                 android:hint="Last Name"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
@@ -79,15 +93,14 @@
             android:layout_marginTop="12dp">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/reg_phone_no"
+                android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:drawableStart="@drawable/ic_smartphone_black_24dp"
+                android:drawableStart="@drawable/ic_email_black_24dp"
                 android:drawablePadding="12dp"
-                android:hint="Phone number"
-                android:inputType="number"
+                android:hint="Email"
                 android:maxLines="1"
                 android:paddingStart="8dp"
                 android:paddingEnd="0dp"
@@ -176,7 +189,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="45dp"
             tools:ignore="UseCompoundDrawables">
 
             <TextView
@@ -190,13 +202,10 @@
                 android:onClick="IHaveAnAccount"
                 android:text="I've an account"
                 android:textColor="@color/colorAccent"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 tools:ignore="HardcodedText" />
-
-
         </LinearLayout>
 
-
     </LinearLayout>
-
+    </FrameLayout>
 </ScrollView>
