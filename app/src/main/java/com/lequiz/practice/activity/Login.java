@@ -72,8 +72,7 @@ public class Login extends AppCompatActivity {
             userEmail.setError("Please enter a valid email");
             return false;
         }
-        return
-                true;
+        return true;
     }
 
     private boolean checkUserPassword() {
@@ -82,6 +81,7 @@ public class Login extends AppCompatActivity {
             return false;
         } else if (userPassword.length() < 6 || userPassword.length() > 15) {
             userPassword.setError("Password should be between 6 to 10 Character");
+
             return false;
         }
         return true;
