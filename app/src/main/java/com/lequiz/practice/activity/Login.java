@@ -72,7 +72,8 @@ public class Login extends AppCompatActivity {
             userEmail.setError("Please enter a valid email");
             return false;
         }
-        return true;
+        return
+                true;
     }
 
     private boolean checkUserPassword() {
