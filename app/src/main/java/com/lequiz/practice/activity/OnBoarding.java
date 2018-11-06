@@ -109,10 +109,12 @@ public class OnBoarding extends AppCompatActivity {
 
     public void signInClickEvent(View view) {
         startActivity(new Intent(this, Login.class));
+        finish();
     }
 
     public void dont_have_account(View view)
     {
         startActivity(new Intent(this, RegisterUser.class));
+        finish();
     }
 }

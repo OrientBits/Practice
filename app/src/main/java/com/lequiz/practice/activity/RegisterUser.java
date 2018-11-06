@@ -163,9 +163,9 @@ public class RegisterUser extends AppCompatActivity {
                 regProgress.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), "Welcome to LeQuiz!",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(RegisterUser.this, HomeActivity.class);
+                startActivity(intent);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
-                startActivity(intent);
 
             }
         }).addOnFailureListener(new OnFailureListener() {

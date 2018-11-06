@@ -82,8 +82,8 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Welcome back to LeQuiz!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Login.this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
                 startActivity(intent);
+                finish();
 
 
             }
@@ -103,5 +103,6 @@ public class Login extends AppCompatActivity {
 
     public void createAccount(View view) {
         startActivity(new Intent(this,RegisterUser.class));
+        finish();
     }
 }

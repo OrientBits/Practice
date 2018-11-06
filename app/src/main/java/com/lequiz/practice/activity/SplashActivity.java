@@ -40,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
                     finish();
                 } else {
                     startActivity(intent);
+                    finish();
                 }
             }
             }, SPLASH_TIME_OUT);
