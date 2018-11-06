@@ -1,7 +1,9 @@
 package com.lequiz.practice.nav_drawer;
 
+import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,8 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -28,14 +32,24 @@ import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
+import com.soundcloud.android.crop.Crop;
+import com.soundcloud.android.crop.CropImageView;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
     private View mToolbarView;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
+    private CardView profileImageCardView;  // Profile section main Image variable
+    private CircleImageView circleImageView;
+    private ImageView pencilIconOnProfileImage;
+    Uri profileImage;
     Window window;
     TextView title_text,user_name;
     CardView toolbar_card_view_2;
@@ -44,10 +58,49 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     DatabaseReference mDatabaseRefrence;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_profile);
+
+
+        // Finding profile section main image variable
+
+        profileImageCardView = findViewById(R.id.profile_image_card_view);
+        circleImageView = findViewById(R.id.userImageProfileView);
+        pencilIconOnProfileImage = findViewById(R.id.pencil_icon_on_profile_image);
+
+        // Setting onClickListener to profile Image CardView
+
+        profileImageCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                 showImageChooser();
+
+            }
+        });
+
+        circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                  showImageChooser();
+
+            }
+        });
+
+        pencilIconOnProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                  showImageChooser();
+
+            }
+        });
+
+
         user_name = findViewById(R.id.profile_user_name);
         mAuth = FirebaseAuth.getInstance();
         // toolbar setup
@@ -98,6 +151,53 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
 
+    }
+
+    // Getting image from the chooser
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null)
+        {
+
+            profileImage=data.getData();
+            Uri destinationUri = Uri.fromFile(new File(getCacheDir(),"cropped"));
+
+            Crop.of(profileImage, destinationUri).asSquare().start(this);
+            circleImageView.setImageURI(Crop.getOutput(data));
+
+        }
+        if(requestCode==Crop.REQUEST_CROP)
+        {
+            handleCrop(resultCode, data);
+        }
+    }
+
+    private void handleCrop(int resultCode, Intent result) {
+
+        if(resultCode==RESULT_OK)
+        {
+            circleImageView.setImageURI(Crop.getOutput(result));}
+            else if(resultCode==Crop.RESULT_ERROR)
+        {
+            Toast.makeText(getApplicationContext(),"Problem updating profile image",Toast.LENGTH_SHORT).show();
+        }
+
+
+
+    }
+
+
+    // Image chooser function
+
+    public void showImageChooser()
+    {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select Profile Image"), 1);
     }
 
     @Override
