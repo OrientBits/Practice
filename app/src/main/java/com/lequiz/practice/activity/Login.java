@@ -103,6 +103,5 @@ public class Login extends AppCompatActivity {
 
     public void createAccount(View view) {
         startActivity(new Intent(this,RegisterUser.class));
-        finish();
-    }
+        finish(); }
 }
