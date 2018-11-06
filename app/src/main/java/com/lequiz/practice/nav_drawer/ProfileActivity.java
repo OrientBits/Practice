@@ -231,5 +231,4 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         user_name.getPaint().setShader(textShader);
     }
-    
 }
