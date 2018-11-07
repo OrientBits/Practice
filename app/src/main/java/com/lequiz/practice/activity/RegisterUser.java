@@ -138,7 +138,8 @@ public class RegisterUser extends AppCompatActivity {
       {
           etRegConfirmPassword.setError("Those passwords didn't match. Try again.");
           etRegConfirmPassword.requestFocus();
-          return; }
+          return;
+      }
 
       // Making authentication
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
