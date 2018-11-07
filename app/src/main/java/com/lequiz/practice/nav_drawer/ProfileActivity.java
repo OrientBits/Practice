@@ -22,6 +22,7 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
@@ -44,18 +48,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
     private View mToolbarView;
+    private DatabaseReference refToSpecificUser;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
     private CardView profileImageCardView;  // Profile section main Image variable
     private CircleImageView circleImageView;
     private ImageView pencilIconOnProfileImage;
+    private Uri imgToUpload;
     Uri profileImage;
     Window window;
     TextView title_text,user_name;
     CardView toolbar_card_view_2;
-    Users userInProfile;
     FirebaseAuth mAuth;
-    DatabaseReference mDatabaseRefrence;
+
 
 
 
@@ -120,8 +125,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         String uId = mAuth.getCurrentUser().getUid();
-        System.out.println("U id "+uId);
-        mDatabaseRefrence = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users"+uId);
+        refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/"+uId);
 
         
 
@@ -167,6 +171,8 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
             Crop.of(profileImage, destinationUri).asSquare().start(this);
             circleImageView.setImageURI(Crop.getOutput(data));
+            imgToUpload = Crop.getOutput(data);
+            uploadToFirebase();
 
         }
         if(requestCode==Crop.REQUEST_CROP)
@@ -175,11 +181,39 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         }
     }
 
+    private void uploadToFirebase() {
+        StorageReference profileImageRefrence = FirebaseStorage.getInstance().getReference("profilePics/"+mAuth.getCurrentUser().getUid()+".jpg");
+        if(imgToUpload!=null)
+        {
+            profileImageRefrence.putFile(imgToUpload);
+            profileImageRefrence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    String downloadUrl=uri.toString();
+                    Users.setProfileImgUrl(downloadUrl);
+                    refToSpecificUser.child("profileImgUrl").setValue(downloadUrl);
+
+                    // Upload the profile image download url to the firebase account
+
+
+                }
+            });
+            Toast.makeText(getApplicationContext(),"Profile pic updated successfully.",Toast.LENGTH_SHORT).show();
+
+
+        }
+
+    }
+
     private void handleCrop(int resultCode, Intent result) {
 
         if(resultCode==RESULT_OK)
         {
-            circleImageView.setImageURI(Crop.getOutput(result));}
+
+            circleImageView.setImageURI(Crop.getOutput(result));
+            imgToUpload = Crop.getOutput(result);
+            uploadToFirebase();
+        }
             else if(resultCode==Crop.RESULT_ERROR)
         {
             Toast.makeText(getApplicationContext(),"Problem updating profile image",Toast.LENGTH_SHORT).show();

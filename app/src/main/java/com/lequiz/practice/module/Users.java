@@ -1,37 +1,47 @@
 package com.lequiz.practice.module;
 
 public class Users {
-    String firstName;
-    String lastName;
-    String email;
+    static String firstName;
+    static String lastName;
+    static String email;
+    static String profileImgUrl;
 
     public Users(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+        Users.firstName = firstName;
+        Users.lastName = lastName;
+        Users.email = email;
+
+    }
+
+    public static String getProfileImgUrl() {
+        return profileImgUrl;
+    }
+
+    public static void setProfileImgUrl(String profileImgUrl) {
+        Users.profileImgUrl = profileImgUrl;
     }
 
     public String getFirstName() {
-        return firstName;
+        return Users.firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        Users.firstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return Users.lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        Users.lastName = lastName;
     }
 
     public String getEmail() {
-        return email;
+        return Users.email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Users.email = email;
     }
 }
