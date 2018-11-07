@@ -89,8 +89,7 @@ public class Login extends AppCompatActivity {
                 myVib = (Vibrator) getApplicationContext().getSystemService(VIBRATOR_SERVICE);
                 myVib.vibrate(500);
 
-
-            }
+                }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
