@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.SharedPreferenceConfig;
@@ -38,6 +39,7 @@ public class RegisterUser extends AppCompatActivity {
     private EditText etRegLastName;
     private ProgressBar regProgress;
     private Vibrator myVib;
+    DatabaseReference mDatabaseRefrence;
 
 
     private SharedPreferenceConfig sharedPreferenceConfig;
@@ -52,6 +54,8 @@ public class RegisterUser extends AppCompatActivity {
         // For testing
 
         mAuth = FirebaseAuth.getInstance();
+
+        mDatabaseRefrence = FirebaseDatabase.getInstance().getReference("Users");
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
@@ -152,7 +156,7 @@ public class RegisterUser extends AppCompatActivity {
 
                     Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
 
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mDatabaseRefrence.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
