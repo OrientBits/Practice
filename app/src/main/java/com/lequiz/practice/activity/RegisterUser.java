@@ -1,6 +1,7 @@
 package com.lequiz.practice.activity;
 
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class RegisterUser extends AppCompatActivity {
     private EditText etRegFirstName;
     private EditText etRegLastName;
     private ProgressBar regProgress;
+    private Vibrator myVib;
 
 
     private SharedPreferenceConfig sharedPreferenceConfig;
@@ -139,44 +141,52 @@ public class RegisterUser extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         regProgress.setVisibility(View.VISIBLE);
-        mAuth.createUserWithEmailAndPassword(userEnteredEmail, userEnteredPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        if(mAuth.getCurrentUser()==null)
+        {
+        mAuth.createUserWithEmailAndPassword(userEnteredEmail, userEnteredPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onSuccess(AuthResult authResult) {
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                // Additional fields gets stored in database
+                if(task.isSuccessful())
+                {
 
-                Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
+                    Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
 
-                FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
-                        if(task.isSuccessful())
-                        {
+                            if(task.isSuccessful())
+                            {
+                                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                regProgress.setVisibility(View.INVISIBLE);
+                                Toast.makeText(getApplicationContext(), "Welcome to LeQuiz!",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(RegisterUser.this, HomeActivity.class);
+                                startActivity(intent);
+                                myVib = (Vibrator) getApplicationContext().getSystemService(VIBRATOR_SERVICE);
+                                myVib.vibrate(600);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                finish();
+
+                            }
 
                         }
+                    });
 
-                    }
-                });
 
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                regProgress.setVisibility(View.INVISIBLE);
-                Toast.makeText(getApplicationContext(), "Welcome to LeQuiz!",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(RegisterUser.this, HomeActivity.class);
-                startActivity(intent);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                regProgress.setVisibility(View.INVISIBLE);
-                Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+
+                }
+                else
+                {
+                    regProgress.setVisibility(View.INVISIBLE);
+                    // if registration fails
+                    Toast.makeText(getApplicationContext(),"Registration failed try again later",Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
             }
-        });
+        });}
 
 
 

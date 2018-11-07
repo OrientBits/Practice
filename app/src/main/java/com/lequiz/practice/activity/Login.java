@@ -1,6 +1,7 @@
 package com.lequiz.practice.activity;
 
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class Login extends AppCompatActivity {
     private ImageView back_img;
     private FirebaseAuth mAuth;
     private ProgressBar loginProgressBar;
+    private Vibrator myVib;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class Login extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+                myVib = (Vibrator) getApplicationContext().getSystemService(VIBRATOR_SERVICE);
+                myVib.vibrate(500);
 
 
             }
