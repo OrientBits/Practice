@@ -21,7 +21,6 @@
         <item name="android:tint">@color/overflowIconColor</item>
     </style>
 
-
     <style name="shadow_view_element">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
