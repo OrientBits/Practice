@@ -45,10 +45,11 @@ import com.lequiz.practice.nav_drawer.NavSettings;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.lequiz.practice.nav_drawer.QuizFactory;
 import com.lequiz.practice.R;
+import com.loopeer.shadow.ShadowView;
+
 import java.sql.Time;
 import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
-
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class HomeActivity extends AppCompatActivity implements ObservableScrollViewCallbacks, NavigationView.OnNavigationItemSelectedListener {
@@ -61,13 +62,14 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
     protected ImageView profile_header;
-    protected CardView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
+    protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Toolbar toolbar;
     Window window;
     boolean doubleBackToExitPressedOnce = false;
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
     public MenuItem menuItem;
+    BottomNavigationView bottomNavigationView;
 
     // Testing firebase
     DatabaseReference mRefRoot;
@@ -132,11 +134,9 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
 
 
         // bottom navigation bar...
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_layout);
-        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_layout);
         bottomNavigationView.setItemIconTintList(null);
-
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
 
@@ -148,7 +148,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 currentAffairs.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = currentAffairs.getMeasuredWidth();
                 ViewGroup.LayoutParams params = currentAffairs.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 currentAffairs.setLayoutParams(params);
             }
         });
@@ -161,7 +161,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 computer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = computer.getMeasuredWidth();
                 ViewGroup.LayoutParams params = computer.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 computer.setLayoutParams(params);
             }
         });
@@ -174,7 +174,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 mathematics.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = mathematics.getMeasuredWidth();
                 ViewGroup.LayoutParams params = mathematics.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 mathematics.setLayoutParams(params);
             }
         });
@@ -187,7 +187,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 reasoning.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = reasoning.getMeasuredWidth();
                 ViewGroup.LayoutParams params = reasoning.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 reasoning.setLayoutParams(params);
             }
         });
@@ -200,7 +200,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 generalScience.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = generalScience.getMeasuredWidth();
                 ViewGroup.LayoutParams params = generalScience.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 generalScience.setLayoutParams(params);
             }
         });
@@ -213,7 +213,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 english.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = english.getMeasuredWidth();
                 ViewGroup.LayoutParams params = english.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 english.setLayoutParams(params);
             }
         });
@@ -226,7 +226,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 technology.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = technology.getMeasuredWidth();
                 ViewGroup.LayoutParams params = technology.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 technology.setLayoutParams(params);
             }
         });
@@ -239,7 +239,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 sports.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = sports.getMeasuredWidth();
                 ViewGroup.LayoutParams params = sports.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 sports.setLayoutParams(params);
             }
         });
@@ -252,7 +252,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 special.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = special.getMeasuredWidth();
                 ViewGroup.LayoutParams params = special.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 special.setLayoutParams(params);
             }
         });
@@ -265,7 +265,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 entertainment.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 int width = entertainment.getMeasuredWidth();
                 ViewGroup.LayoutParams params = entertainment.getLayoutParams();
-                params.height = (width * 70) / 100;
+                params.height = (width * 77) / 100;
                 entertainment.setLayoutParams(params);
             }
         });
@@ -461,6 +461,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
         super.onResume();
         mDrawerLayout.closeDrawers();
         userNameInGradient();
+        new FullScreenStatusOnly(this);
     }
 
     @SuppressLint("SetTextI18n")
@@ -509,15 +510,6 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 }, 300);
                 break;
 
-            case R.id.job_alerts:
-                final Intent navJobAlerts = new Intent(HomeActivity.this, JobAlertsActivity.class);
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                      startActivity(navJobAlerts);
-                    }
-                }, 300);
-                break;
 
             case R.id.payment:
                 final Intent navPayment = new Intent(HomeActivity.this, NavPayment.class);
@@ -592,6 +584,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -608,6 +601,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
             return false;
         }
     };
+
 
 
 }

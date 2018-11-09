@@ -34,8 +34,8 @@
     <color name="yellowOnCurrentAffairs">#01ff01</color>
     <color name="yellowOnEntertainment">#FFFF00</color>
     <color name="orangeOnEntertainment">#F15A24</color>
-   <color name="greenOnComputer">#2EDDA4</color>
-    <color name="blueOnComputer">#69F8E1</color>
+   <color name="greenOnComputer">#526eec</color>
+    <color name="blueOnComputer">#1830ba</color>
     <color name="pinkOnEnglish">#F869D5</color>
     <color name="blueOnEnglish">#5650DE</color>
     <color name="yellowOnMathematics">#CCD71C</color>
@@ -47,7 +47,7 @@
     <color name="redOnSpecialBackground">#F1BBBB</color>
     <color name="pinkBackgroundSports">#F8ACCD</color>
     <color name="greenBackgroundCurrentAffairs">#BFFFFF</color>
-    <color name="blueOnComputerBackground">#B4F5FF</color>
+    <color name="blueOnComputerBackground">#2541d1</color>
     <color name="greenOnMathematicsBackground">#BDD6A2</color>
     <color name="pinkOnReasoningBackground">#EDAACA</color>
     <color name="pinkOnEnglishBackground">#EEADEC</color>
@@ -66,7 +66,7 @@
 
     <!--category text view color-->
     <color name="current_affairs">#51d7e6</color>
-    <color name="computer">#26bea7</color>
+    <color name="computer">#145abc</color>
     <color name="mathematics">#298f65</color>
     <color name="reasoning">#d6357f</color>
     <color name="general_science">#de4f27</color>

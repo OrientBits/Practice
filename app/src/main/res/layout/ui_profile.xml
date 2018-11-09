@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="0dp"
                         android:paddingBottom="10dp"
-                        android:textColor="#8A0019"
+                        android:textColor="#96e46300"
                         android:text="@string/status" />
 
                     <TextView

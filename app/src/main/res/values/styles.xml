@@ -22,36 +22,37 @@
     </style>
 
 
-    <style name="category_card_view">
+    <style name="shadow_view_element">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:layout_marginTop">2dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
-        <item name="android:layout_marginStart">8dp</item>
-        <item name="android:layout_marginEnd">8dp</item>
         <item name="android:elevation">10dp</item>
-        <item name="android:clickable">true</item>
+        <item name="android:layout_marginTop">3dp</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
-    <style name="inside_cardView_another_cardView">
+    <style name="shadow_linear_layout">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">2.4</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:weightSum">6</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="category_text_view">
+    <style name="shadow_image_view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">0.8</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:layout_marginBottom">7dp</item>
-        <item name="android:fontFamily">@font/trebuchet_ms</item>
+        <item name="android:layout_weight">4.8</item>
+    </style>
 
+    <style name="shadow_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.2</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">normal</item>
+        <!--<item name="android:fontFamily">@font/trebuchet_ms</item>-->
     </style>
 
 

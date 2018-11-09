@@ -16,7 +16,7 @@ import com.lequiz.practice.R;
 public class SplashActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
-    public static int SPLASH_TIME_OUT = 1100;
+    public static int SPLASH_TIME_OUT = 700;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

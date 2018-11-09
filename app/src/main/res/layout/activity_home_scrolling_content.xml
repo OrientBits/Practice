@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,377 +11,313 @@
     <GridLayout
         android:id="@+id/Category_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:columnCount="2"
         android:columnOrderPreserved="false"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="1dp"
+        android:padding="5dp"
         tools:ignore="UselessParent">
 
-        <!--Row 1-->
-        <!--column 1-->
-        <android.support.v7.widget.CardView
+
+        <!--row 1-->
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/current_affairs_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp"
-            android:background="@drawable/home_entertainment">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#511faaf1"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_current_affairs" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_current_affairs" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/current_Affairs"
-                    android:textColor="@color/current_affairs" />
+                    android:textColor="#20a8f1" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-
-        <!--column 2-->
-        <android.support.v7.widget.CardView
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/computer_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#500c79b1"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_computer" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_computer" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/computer"
-                    android:textColor="@color/computer" />
+                    android:textColor="#1266a3" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-        <!--Row 2-->
-        <!--column 1-->
-        <android.support.v7.widget.CardView
+
+        <!--row 2-->
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/mathematics_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#5a6c9e82"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_mathematics" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_mathematics" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/mathematics"
-                    android:textColor="@color/mathematics" />
+                    android:textColor="#59974a" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-
-        <!--column 2-->
-        <android.support.v7.widget.CardView
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/reasoning_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#53f54cab"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_resoning" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_reasoning" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/reasoning"
-                    android:textColor="@color/reasoning" />
+                    android:textColor="#d43091" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
 
-        <!--Row 3-->
-        <!--column 1-->
-        <android.support.v7.widget.CardView
+        <!--row 3-->
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/general_science_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#51a71670"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_general_science" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_general_science" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/general_science"
-                    android:textColor="@color/general_science" />
+                    android:textColor="#a41572" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-
-        <!--column 2-->
-        <android.support.v7.widget.CardView
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/english_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#519b5bd9"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_english" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_english" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/english"
-                    android:textColor="@color/english" />
+                    android:textColor="#965ad9" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-        <!--Row 4-->
-        <!--column 1-->
-        <android.support.v7.widget.CardView
+
+        <!--row 4-->
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/technology_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#571167a4"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_technology" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_technology" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/technology"
-                    android:textColor="@color/technology" />
+                    android:textColor="#0f6ea9" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-
-        <!--column 2-->
-        <android.support.v7.widget.CardView
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/sports_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#53e84950"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_sport" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_sport" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/sports"
-                    android:textColor="@color/sport" />
+                    android:textColor="#e33957" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
 
-        <!--Row 5-->
-        <!--column 1-->
-        <android.support.v7.widget.CardView
+        <!--row 5-->
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/special_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#5295476c"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_special" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_special" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/special"
-                    android:textColor="@color/special" />
+                    android:textColor="#823f67" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
 
-
-        <!--column 2-->
-        <android.support.v7.widget.CardView
+        <com.loopeer.shadow.ShadowView
             android:id="@+id/entertainment_card_view"
-            style="@style/category_card_view"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="8dp">
+            style="@style/shadow_view_element"
+            app:backgroundColor="#fff"
+            app:cornerRadiusBL="20dp"
+            app:cornerRadiusBR="20dp"
+            app:shadowColor="#4ef26d2b"
+            app:shadowMarginBottom="10dp"
+            app:shadowMarginLeft="9dp"
+            app:shadowMarginRight="9dp"
+            app:shadowRadius="20dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3">
+                style="@style/shadow_linear_layout"
+                app:layout_gravity="center">
 
-                <android.support.v7.widget.CardView
-                    style="@style/inside_cardView_another_cardView"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/current_Affairs"
-                        android:minHeight="87dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_entertainment" />
-
-                </android.support.v7.widget.CardView>
+                <ImageView
+                    style="@style/shadow_image_view"
+                    android:background="@drawable/home_entertainment" />
 
                 <TextView
-                    style="@style/category_text_view"
+                    style="@style/shadow_text_view"
                     android:text="@string/entertainment"
-                    android:textColor="@color/entertainment" />
+                    android:textColor="#f1782b" />
+
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.loopeer.shadow.ShadowView>
+
+
 
 
     </GridLayout>    <!--category item-->
