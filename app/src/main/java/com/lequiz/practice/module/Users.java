@@ -25,7 +25,7 @@ public class Users {
         return Users.firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public static void setFirstName(String firstName) {
         Users.firstName = firstName;
     }
 
@@ -33,7 +33,7 @@ public class Users {
         return Users.lastName;
     }
 
-    public void setLastName(String lastName) {
+    public static void setLastName(String lastName) {
         Users.lastName = lastName;
     }
 

@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,8 +23,10 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +41,9 @@ import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
 import com.soundcloud.android.crop.Crop;
 import com.soundcloud.android.crop.CropImageView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -60,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     TextView title_text,user_name;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
+    FirebaseUser firebaseUser;
 
 
 
@@ -68,13 +75,108 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_profile);
+        mAuth = FirebaseAuth.getInstance();
+        circleImageView = findViewById(R.id.userImageProfileView);
+
+        if(mAuth.getCurrentUser()!=null) {
+            System.out.println("Getting current user");
+
+
+            final String uId = mAuth.getCurrentUser().getUid();
+            refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + uId);
+
+            if(Users.getProfileImgUrl()==null)
+            {
+
+
+
+                refToSpecificUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        try
+                        {
+                        Users.setProfileImgUrl(dataSnapshot.child("profileImgUrl").getValue().toString());}
+                        catch(NullPointerException e)
+                        {
+
+                        }
+
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+            else
+            {
+
+
+            }
+
+        }
+
+
+
+
+
+
 
 
         // Finding profile section main image variable
 
         profileImageCardView = findViewById(R.id.profile_image_card_view);
-        circleImageView = findViewById(R.id.userImageProfileView);
+
         pencilIconOnProfileImage = findViewById(R.id.pencil_icon_on_profile_image);
+
+
+
+
+        Picasso.get()
+                .load(Users.getProfileImgUrl())
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(circleImageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+
+
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+
+
+                        Picasso.get()
+                                .load(Users.getProfileImgUrl())
+                                .error(R.drawable.lequiz_loader)
+                                .into(circleImageView, new Callback() {
+                                    @Override
+                                    public void onSuccess() {
+
+                                    }
+
+                                    @Override
+                                    public void onError(Exception e) {
+                                        Log.v("Picasso","Could not fetch image");
+                                    }
+
+
+                                });
+
+                    }
+
+
+
+                });
+
+
+
+
 
         // Setting onClickListener to profile Image CardView
 
@@ -107,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
         user_name = findViewById(R.id.profile_user_name);
-        mAuth = FirebaseAuth.getInstance();
+
         // toolbar setup
         mToolbarView = findViewById(R.id.toolbar);
         setSupportActionBar((Toolbar) mToolbarView);
@@ -124,8 +226,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
-        String uId = mAuth.getCurrentUser().getUid();
-        refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/"+uId);
 
         
 
@@ -170,7 +270,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
             Uri destinationUri = Uri.fromFile(new File(getCacheDir(),"cropped"));
 
             Crop.of(profileImage, destinationUri).asSquare().start(this);
-            circleImageView.setImageURI(Crop.getOutput(data));
+       //     circleImageView.setImageURI(Crop.getOutput(data));
             imgToUpload = Crop.getOutput(data);
             uploadToFirebase();
 
@@ -182,23 +282,47 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     }
 
     private void uploadToFirebase() {
-        StorageReference profileImageRefrence = FirebaseStorage.getInstance().getReference("profilePics/"+mAuth.getCurrentUser().getUid()+".jpg");
+        final StorageReference profileImageRefrence = FirebaseStorage.getInstance().getReference("profilePics/"+mAuth.getCurrentUser().getUid()+".jpg");
         if(imgToUpload!=null)
         {
-            profileImageRefrence.putFile(imgToUpload);
-            profileImageRefrence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            profileImageRefrence.putFile(imgToUpload).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onSuccess(Uri uri) {
-                    String downloadUrl=uri.toString();
-                    Users.setProfileImgUrl(downloadUrl);
-                    refToSpecificUser.child("profileImgUrl").setValue(downloadUrl);
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    // Upload the profile image download url to the firebase account
+                    profileImageRefrence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            String downloadUrl=uri.toString();
+                            Users.setProfileImgUrl(downloadUrl);
+                            refToSpecificUser.child("profileImgUrl").setValue(downloadUrl);
 
+
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            // Fetching profile image download failed
+
+                            Toast.makeText(getApplicationContext(),""+e,Toast.LENGTH_SHORT).show();
+                            return;
+
+                        }
+                    });
 
                 }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    Toast.makeText(getApplicationContext(),""+e,Toast.LENGTH_SHORT).show();
+                    return;
+                }
             });
-            Toast.makeText(getApplicationContext(),"Profile pic updated successfully.",Toast.LENGTH_SHORT).show();
+
+
 
 
         }
@@ -210,7 +334,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         if(resultCode==RESULT_OK)
         {
 
-            circleImageView.setImageURI(Crop.getOutput(result));
+        //    circleImageView.setImageURI(Crop.getOutput(result));
             imgToUpload = Crop.getOutput(result);
             uploadToFirebase();
         }
