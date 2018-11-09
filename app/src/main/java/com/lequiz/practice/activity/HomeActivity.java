@@ -150,8 +150,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
                 }
                 catch (NullPointerException e)
                 {
-
-                }
+                    }
 
             }
 
