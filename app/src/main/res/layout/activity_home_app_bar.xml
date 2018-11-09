@@ -52,9 +52,9 @@
                         android:elevation="0.5dp"
                         android:focusable="true"
                         android:padding="3dp"
-                        android:src="@drawable/mithlesh"
+                        android:src="@drawable/default_image_loading"
                         app:civ_border_color="@android:color/white"
-                        app:civ_border_width="6dp" />
+                        app:civ_border_width="6dp"  />
 
                     <LinearLayout
                         android:layout_width="wrap_content"

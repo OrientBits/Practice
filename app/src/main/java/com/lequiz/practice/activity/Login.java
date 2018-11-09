@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_login);
+        System.out.println("This is login activity");
 
         // Set transparency
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
@@ -105,7 +106,9 @@ public class Login extends AppCompatActivity {
     }
 
     public void createAccount(View view) {
-        startActivity(new Intent(this,RegisterUser.class));
+        Intent intent = new Intent(this,RegisterUser.class);
+        intent.putExtra("From Activity","Login");
+        startActivity(intent);
         finish();
 
     }

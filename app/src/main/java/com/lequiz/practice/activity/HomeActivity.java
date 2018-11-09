@@ -34,7 +34,12 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.nav_drawer.JobAlertsActivity;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
@@ -55,6 +60,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class HomeActivity extends AppCompatActivity implements ObservableScrollViewCallbacks, NavigationView.OnNavigationItemSelectedListener {
 
     private View mToolbarView;
+    FirebaseAuth mAuth;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
     private TextView title_text;
@@ -73,6 +79,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
 
     // Testing firebase
     DatabaseReference mRefRoot;
+    DatabaseReference currentUserRef;
 
 
 
@@ -80,6 +87,7 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mAuth  = FirebaseAuth.getInstance();
         fa = this; // for only context
 
         // toolbar setup
@@ -119,6 +127,39 @@ public class HomeActivity extends AppCompatActivity implements ObservableScrollV
          window= getWindow();
          window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
+
+         // Firebase Setup
+
+        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+                String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
+                if(loginStatus.equals("F"))
+                {
+                    mAuth.getInstance().signOut();
+                    finish();
+                    startActivity(new Intent(HomeActivity.this,Login.class));
+                    Toast.makeText(getApplicationContext(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
+                }
+
+
+                }
+                catch (NullPointerException e)
+                {
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         // user name on home page gradient
