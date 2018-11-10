@@ -17,6 +17,7 @@
         android:fillViewport="true"
         android:scrollbars="none">
 
+
         <RelativeLayout
             android:id="@+id/relative_header_layout"
             android:layout_width="match_parent"
