@@ -5,6 +5,7 @@ public class Users {
     static String lastName;
     static String email;
     static String profileImgUrl;
+    public static int loop=0;
 
     public Users(String firstName, String lastName, String email) {
         Users.firstName = firstName;
@@ -14,7 +15,7 @@ public class Users {
     }
 
     public static String getProfileImgUrl() {
-        return profileImgUrl;
+        return Users.profileImgUrl;
     }
 
     public static void setProfileImgUrl(String profileImgUrl) {
