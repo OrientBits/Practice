@@ -16,6 +16,7 @@
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
         <item name="android:actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
     </style>
+
     <!-- This style is where you define the tint color of your overflow menu button -->
     <style name="actionOverflowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
         <item name="android:tint">@color/overflowIconColor</item>
@@ -24,7 +25,7 @@
 
     <style name="shadow_view_element">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">135dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:elevation">10dp</item>
         <item name="android:layout_marginTop">3dp</item>

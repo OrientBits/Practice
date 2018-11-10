@@ -14,20 +14,16 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
 import com.lequiz.practice.module.Users;
-
-import pl.droidsonroids.gif.GifImageView;
 
 public class RegisterUser extends AppCompatActivity {
 
@@ -65,7 +61,7 @@ public class RegisterUser extends AppCompatActivity {
 
         if (sharedPreferenceConfig.readLoginStatus())
         {
-            startActivity(new Intent(this,HomeActivity.class));
+            startActivity(new Intent(this,HomeContainer.class));
             finish();
         }
 
@@ -170,7 +166,7 @@ public class RegisterUser extends AppCompatActivity {
                                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                 regProgress.setVisibility(View.INVISIBLE);
                                 Toast.makeText(getApplicationContext(), "Welcome to LeQuiz!",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterUser.this, HomeActivity.class);
+                                Intent intent = new Intent(RegisterUser.this, HomeContainer.class);
                                 startActivity(intent);
                                 myVib = (Vibrator) getApplicationContext().getSystemService(VIBRATOR_SERVICE);
                                 myVib.vibrate(600);

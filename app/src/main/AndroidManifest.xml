@@ -5,12 +5,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-
         android:name=".module.Practise"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
@@ -19,21 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".home.HomeContainer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.OnBoarding" />
-        <activity android:name=".activity.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.androidtutorialpoint.androidobservablescrollview" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.SplashActivity"/>
+
+
+        <activity android:name=".activity.OnBoarding" />
         <activity
             android:name=".activity.MathematicsActivity"
             android:label="@string/mathematics"
@@ -107,20 +103,17 @@
             android:name=".nav_drawer.QuizFactory"
             android:label="@string/quiz_factory"
             android:parentActivityName=".nav_drawer.QuizFactory" />
-        <activity android:name=".activity.RegisterUser"
-            android:windowSoftInputMode="adjustResize"
-          />
+        <activity
+            android:name=".activity.RegisterUser"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.Login"
             android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".activity.WebViewLayout" />
-        <activity android:name=".nav_drawer.JobAlertsActivity"
-            android:parentActivityName=".nav_drawer.JobAlertsActivity"
-            android:label="@string/job_alerts">
-        </activity>
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+
     </application>
 
 </manifest>

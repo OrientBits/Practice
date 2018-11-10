@@ -8,17 +8,16 @@
     android:gravity="center_vertical">
 
     <!--rounded cardView -->
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?actionBarSize">
 
         <android.support.v7.widget.CardView
             android:id="@+id/toolbar_card_view_1"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginStart="9dp"
-            android:layout_marginTop="8.8dp"
-            android:layout_marginBottom="9dp"
+            android:layout_centerVertical="true"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
@@ -29,23 +28,21 @@
             android:id="@+id/toolbar_card_view_2"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="8.8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="9dp"
-            android:layout_marginBottom="9dp"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
             app:cardCornerRadius="19dp"
             app:cardElevation="2dp" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
+        android:layout_height="?actionBarSize"
         android:paddingStart="0dp"
         android:paddingEnd="4dp"
         app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"

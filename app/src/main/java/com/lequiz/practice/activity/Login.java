@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
 
@@ -54,9 +55,6 @@ public class Login extends AppCompatActivity {
 
     public void Login_user(View view) {
 
-
-
-
         String user_email = etLogEmail.getText().toString().trim();
         String user_password = etLogPassword.getText().toString().trim();
 
@@ -83,7 +81,7 @@ public class Login extends AppCompatActivity {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 loginProgressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(Login.this, "Welcome back to LeQuiz!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Login.this, HomeActivity.class);
+                Intent intent = new Intent(Login.this, HomeContainer.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

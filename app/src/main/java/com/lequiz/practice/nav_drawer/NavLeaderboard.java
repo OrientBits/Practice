@@ -40,19 +40,19 @@ public class NavLeaderboard extends AppCompatActivity {
 
         ArrayList<NavLeaderboardWord> leaderboardWords = new ArrayList<>();
         leaderboardWords.add(new NavLeaderboardWord(R.drawable.mithlesh,"Ramshek Rama",100000,1));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.ic_account_circle_black_24dp,"Rishabh Raj",15500,2));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.reasoning,"Mithlesh Arya",12000,4));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.current_affairs,"Jyotsana Devi",2000,5));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.computer,"Rashi Bhabhi",2020,9));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.mathematics,"Botali Devi",1500,10));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.general_science,"Suraj Soni",1200,16));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.technology,"Mithlesh Ranaji",1000,14));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.special,"Akshay Cha",900,13));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.sport,"Bull ",850,11));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.computer,"Ramshek Rama",810,17));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.mathematics,"Ramshek Rama",800,18));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.technology,"Ramshek Rama",750,19));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.ic_account_circle_black_24dp,"Ramshek Rama",700,21));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.mithlesh,"Rishabh Raj",15500,2));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_reasoning,"Mithlesh Arya",12000,4));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_current_affairs,"Jyotsana Devi",2000,5));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_computer,"Rashi Bhabhi",2020,9));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_mathematics,"Botali Devi",1500,10));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_general_science,"Suraj Soni",1200,16));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_technology,"Mithlesh Ranaji",1000,14));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_current_affairs,"Akshay Cha",900,13));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_sport,"Bull ",850,11));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_computer,"Ramshek Rama",810,17));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_english,"Ramshek Rama",800,18));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_technology,"Ramshek Rama",750,19));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.current_affairs_background_image,"Ramshek Rama",700,21));
 
 
         NavLeaderboardWordAdapter leaderboardWordAdapter = new NavLeaderboardWordAdapter(this,leaderboardWords);

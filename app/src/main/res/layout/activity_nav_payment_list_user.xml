@@ -32,7 +32,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:contentDescription="@string/nav_header_desc"
-                android:src="@drawable/ic_account_circle_black_24dp" />
+                android:src="@drawable/mithlesh" />
 
             <LinearLayout
                 android:layout_width="match_parent"

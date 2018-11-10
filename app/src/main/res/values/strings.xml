@@ -52,8 +52,6 @@
     <string name="english">English</string>
 
 
-
-
     <!--user level string-->
     <string name="user_level">Level 6</string>
 
@@ -84,7 +82,7 @@
 
     <!--navigation strings and action bar menu-->
     <string name="home">Home</string>
-    <string name="random_quiz">Random Quiz</string>
+    <string name="random_quiz">Play Random</string>
     <string name="job_alert">Job Alert</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="job_alerts">Job alerts</string>

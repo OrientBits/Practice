@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.lequiz.practice.activity.HomeActivity;
 import com.lequiz.practice.activity.Login;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
 
@@ -147,7 +147,7 @@ public class NavSettings extends AppCompatActivity {
         mAuth.getInstance().signOut();
         startActivity(new Intent(this,Login.class));
         finish();
-        HomeActivity.fa.finish();
+        HomeContainer.fa.finish();
 
     }
 }

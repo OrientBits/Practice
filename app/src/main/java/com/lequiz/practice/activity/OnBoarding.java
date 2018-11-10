@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.lequiz.practice.adapters.OnBoardingSliderAdapter;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
 
@@ -59,7 +60,7 @@ public class OnBoarding extends AppCompatActivity {
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 
         if (sharedPreferenceConfig.readLoginStatus()) {
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, HomeContainer.class));
             finish();
         }
 

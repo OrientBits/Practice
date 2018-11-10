@@ -16,9 +16,10 @@ import java.util.Objects;
 
 public class NavInviteFriends extends AppCompatActivity {
 
-    protected Button shareButton,emailButton,smsButton,whatsappButton;
+    protected Button shareButton, emailButton, smsButton, whatsappButton;
     protected Toolbar toolbar;
     CardView toolbar_card_view_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +29,17 @@ public class NavInviteFriends extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_default);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
-        // for status bar color
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
 
-        shareButton =  findViewById(R.id.share_button);
-        shareButton.setOnClickListener(new View.OnClickListener()
-        {
+
+        shareButton = findViewById(R.id.share_button);
+        shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -61,7 +62,7 @@ public class NavInviteFriends extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto","", null));
+                        "mailto", "", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Le-Quiz The Learning Earning app");
                 String MWLink = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
                 MWLink = MWLink + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
@@ -79,7 +80,7 @@ public class NavInviteFriends extends AppCompatActivity {
                 sendIntent.setData(Uri.parse("sms:"));
                 String MWLink = "\nRefer this code and get 10 ₹ after successful Installation \n\n";
                 MWLink = MWLink + "https://play.google.com/store/apps/details?id=com.quizup.core \n\n";
-                sendIntent.putExtra(Intent.EXTRA_TEXT,MWLink);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, MWLink);
                 startActivity(sendIntent);
             }
         });
@@ -101,7 +102,6 @@ public class NavInviteFriends extends AppCompatActivity {
                 }
             }
         });
-
 
 
     }

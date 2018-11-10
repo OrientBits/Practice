@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
+import com.lequiz.practice.home.HomeContainer;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Animation splashAnim = AnimationUtils.loadAnimation(this, R.anim.splash_screen_transition);
         splashImg.startAnimation(splashAnim);
-        final Intent intent1 = new Intent(SplashActivity.this, HomeActivity.class);
+        final Intent intent1 = new Intent(SplashActivity.this, HomeContainer.class);
         final Intent intent = new Intent(SplashActivity.this, OnBoarding.class);
 
 
