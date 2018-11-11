@@ -116,6 +116,8 @@ public class ComputerActivity extends AppCompatActivity implements ObservableScr
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
     }
 
+
+
     @Override
     protected void onResume() {
         super.onResume();

@@ -3,6 +3,7 @@ package com.lequiz.practice.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.lequiz.practice.R;
 public class FragmentPlayRandom extends Fragment {
 
 
+
     public FragmentPlayRandom() {
         // Required empty public constructor
     }
@@ -25,7 +27,16 @@ public class FragmentPlayRandom extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_play_random, container, false);
+        View inflaterView = inflater.inflate(R.layout.fragment_play_random, container, false);
+
+
+        HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
+
+
+
+
+
+        return inflaterView;
     }
 
 }

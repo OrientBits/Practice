@@ -17,11 +17,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -48,17 +51,19 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class HomeContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Fragment fragment = null;
-    View mToolbarView;
-
+    public static View mToolbarView;
     boolean doubleBackToExitPressedOnce = false;
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
     public MenuItem menuItem;
+    public static CardView toolbar_card_view_2;
     protected ImageView profile_header;
+    public static Window window;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +78,8 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         mToolbarView = findViewById(R.id.toolbar);
         setSupportActionBar((Toolbar) mToolbarView);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
+
+        toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
 
         // open drawer when navigation button is tapped
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -91,7 +98,8 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         }
         RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
         toolbarLayout.setPadding(0, statusBarHeight, 0, 0);
-
+        window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         fragment = new FragmentHome();
         loadFragment(fragment);
@@ -146,9 +154,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         }
     };
 
-    private void loadFragment(Fragment fragment) {
+    private void loadFragment(final Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
+        final FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.home_fragment_container, fragment);
         transaction.commit();
     }
@@ -223,7 +231,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 break;
 
             case R.id.quiz_factory:
-                final Intent navQuizFactory = new Intent(HomeContainer.this,QuizFactory.class);
+                final Intent navQuizFactory = new Intent(HomeContainer.this, QuizFactory.class);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {

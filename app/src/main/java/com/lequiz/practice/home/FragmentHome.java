@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +19,10 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
+import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.lequiz.practice.R;
@@ -38,15 +44,15 @@ import java.sql.Time;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FragmentHome extends Fragment {
+public class FragmentHome extends Fragment implements ObservableScrollViewCallbacks {
 
     MenuItem fav;
     FirebaseAuth mAuth;
     DatabaseReference currentUserRef;
     TextView userName, wishes;
     protected CircleImageView profile_home;
-
-
+    private ObservableScrollView mScrollView;
+    private int mParallaxImageHeight;
     protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
 
 
@@ -69,6 +75,10 @@ public class FragmentHome extends Fragment {
         profile_home = inflateView.findViewById(R.id.profile_home);
 
 
+
+        mScrollView = inflateView.findViewById(R.id.home_fragmnet_scroll);
+        mScrollView.setScrollViewCallbacks(this);
+        mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.image_height_home_part_1);
 
         currentAffairs = inflateView.findViewById(R.id.current_affairs_shadow_view);
         shadowViewSize(currentAffairs);
@@ -200,14 +210,11 @@ public class FragmentHome extends Fragment {
 //
 //            }
 //        });
-//
 
 
 
         return inflateView;
     }
-
-
 
     public void shadowViewSize(final ShadowView shadowView){
         ViewTreeObserver vto1 = shadowView.getViewTreeObserver();
@@ -223,6 +230,31 @@ public class FragmentHome extends Fragment {
         });
     }
 
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        onScrollChanged(mScrollView.getCurrentScrollY(), false, false);
+    }
+
+
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+        int baseColor = getResources().getColor(R.color.colorPrimary);
+        float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
+        HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
+        HomeContainer.window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
+ }
+
+
+    @Override
+    public void onDownMotionEvent() {
+
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+    }
 
 
 

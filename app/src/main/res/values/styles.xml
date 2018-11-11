@@ -25,7 +25,7 @@
 
     <style name="shadow_view_element">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">135dp</item>
+        <item name="android:layout_height">150dp</item>
         <item name="android:layout_columnWeight">1</item>
         <item name="android:elevation">10dp</item>
         <item name="android:layout_marginTop">3dp</item>
