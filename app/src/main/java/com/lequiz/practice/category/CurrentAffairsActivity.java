@@ -47,7 +47,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     private View mToolbarView;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
-    Window window;
+    RelativeLayout toolbarLayout;
     TextView title_text;
 
     private static final String NEWS_REQUEST_URL =
@@ -104,10 +104,9 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         if (resourceId > 0) {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
-        RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        mToolbarView.setPadding(0, statusBarHeight, 4, 0);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
-        window= getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
@@ -195,7 +194,6 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
-        window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
         title_text.setAlpha(alpha-(float)0.035);
     }
 

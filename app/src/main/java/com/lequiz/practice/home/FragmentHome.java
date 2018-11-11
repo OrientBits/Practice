@@ -243,9 +243,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
-        HomeContainer.window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
- }
-
+        HomeContainer.title_text.setAlpha(alpha-(float)0.035);
+    }
 
     @Override
     public void onDownMotionEvent() {

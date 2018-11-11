@@ -6,7 +6,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeContainer">
+    tools:context=".home.HomeContainer"
+    tools:openDrawer="start">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -41,16 +42,10 @@
         android:layout_width="309dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/white">
+        android:fitsSystemWindows="true"
+        android:gravity="top"
+        android:background="@drawable/drawer_background">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitEnd"
-            android:src="@drawable/drawer_background"
-            tools:ignore="ContentDescription" />
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

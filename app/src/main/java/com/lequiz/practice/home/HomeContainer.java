@@ -27,6 +27,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -52,6 +53,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
     Fragment fragment = null;
     public static View mToolbarView;
+    public static RelativeLayout toolbarLayout;
     boolean doubleBackToExitPressedOnce = false;
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
@@ -59,7 +61,8 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     public MenuItem menuItem;
     public static CardView toolbar_card_view_2;
     protected ImageView profile_header;
-    public static Window window;
+    public static TextView title_text;
+    Window window;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -73,12 +76,20 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
 
         new FullScreenStatusOnly(this);
+        window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.special));
+
 
         // toolbar setup
         mToolbarView = findViewById(R.id.toolbar);
         setSupportActionBar((Toolbar) mToolbarView);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
-
+        title_text = findViewById(R.id.toolbar_title);
+        title_text.setText(getResources().getText(R.string.home));
+        title_text.setTextColor(getResources().getColor(R.color.black));
+        title_text.setAlpha(0);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
 
         // open drawer when navigation button is tapped
@@ -86,6 +97,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, (Toolbar) mToolbarView, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        mDrawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.transparent));
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer_indicator);
@@ -96,10 +108,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         if (resourceId > 0) {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
-        RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
-        toolbarLayout.setPadding(0, statusBarHeight, 0, 0);
-        window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        mToolbarView.setPadding(0, statusBarHeight, 4, 0);
+        toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
         fragment = new FragmentHome();
         loadFragment(fragment);

@@ -74,9 +74,9 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     private CardView profileImageCardView;  // Profile section main Image variable
     private CircleImageView circleImageView;
     private ImageView pencilIconOnProfileImage;
+    RelativeLayout toolbarLayout;
     private Uri imgToUpload;
     Uri profileImage;
-    Window window;
     TextView title_text,user_name;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
@@ -271,10 +271,9 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         if (resourceId > 0) {
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
-        RelativeLayout toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        toolbarLayout = findViewById(R.id.toolbar_root_layout);
+        mToolbarView.setPadding(0, statusBarHeight, 4, 0);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
-        window= getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
 
         userNameInGradient();
@@ -412,7 +411,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
-        window.setStatusBarColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.03, baseColor));
         title_text.setAlpha(alpha-(float)0.035);
     }
 
