@@ -51,7 +51,7 @@
                         android:elevation="0.5dp"
                         android:focusable="true"
                         android:padding="3dp"
-                        android:src="@drawable/default_image_loading"
+                        android:src="@drawable/default_profile_picture"
                         app:civ_border_color="@android:color/white"
                         app:civ_border_width="6dp" />
 

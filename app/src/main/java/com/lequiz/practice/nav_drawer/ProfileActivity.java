@@ -1,15 +1,24 @@
 package com.lequiz.practice.nav_drawer;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -37,6 +46,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.lequiz.practice.R;
+import com.lequiz.practice.activity.HomeActivity;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
 import com.soundcloud.android.crop.Crop;
@@ -45,8 +55,12 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -54,6 +68,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
     private View mToolbarView;
+
     private DatabaseReference refToSpecificUser;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
@@ -67,6 +82,8 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
+    Uri imgProfile;
+    Bitmap bitmap;
 
 
 
@@ -78,16 +95,18 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         mAuth = FirebaseAuth.getInstance();
         circleImageView = findViewById(R.id.userImageProfileView);
 
+
+
+
         if(mAuth.getCurrentUser()!=null) {
-            System.out.println("Getting current user");
-
-
             final String uId = mAuth.getCurrentUser().getUid();
             refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + uId);
 
-            if(Users.getProfileImgUrl()==null)
-            {
 
+
+
+
+             //   if(Users.getProfileImgUrl()!=null)
 
 
                 refToSpecificUser.addValueEventListener(new ValueEventListener() {
@@ -95,11 +114,61 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         try
                         {
-                        Users.setProfileImgUrl(dataSnapshot.child("profileImgUrl").getValue().toString());}
+                            Users.setProfileImgUrl(Objects.requireNonNull(dataSnapshot.child("profileImgUrl").getValue()).toString());
+
+                            }
                         catch(NullPointerException e)
                         {
 
                         }
+                        finally {
+                            SharedPreferences.Editor editor = getSharedPreferences("userSharedPrefrences", MODE_PRIVATE).edit();
+                            editor.putString("userProfileImgUrl", Users.getProfileImgUrl());
+                            editor.apply();
+                            System.out.println("finally " + Users.getProfileImgUrl());
+
+                            System.out.println("Before "+Users.getProfileImgUrl());
+
+                            if (!TextUtils.isEmpty(Users.getProfileImgUrl()))
+                            {
+
+
+                               Picasso.get()
+                                        .load(Users.getProfileImgUrl())
+                                        .networkPolicy(NetworkPolicy.OFFLINE)
+                                        .into(circleImageView, new Callback() {
+                                            @Override
+                                            public void onSuccess() {
+
+
+                                            }
+
+                                            @Override
+                                            public void onError(Exception e) {
+
+
+                                                Picasso.get()
+                                                        .load(Users.getProfileImgUrl())
+                                                        .error(R.drawable.default_image_loading)
+                                                        .into(circleImageView, new Callback() {
+                                                            @Override
+                                                            public void onSuccess() {
+                                                                Toast.makeText(getApplicationContext(), "Profile pic updated successfully", Toast.LENGTH_SHORT).show();
+                                                            }
+
+                                                            @Override
+                                                            public void onError(Exception e) {
+                                                                Log.v("Picasso", "Could not fetch image");
+                                                            }
+
+
+                                                        });
+
+                                            }
+
+
+                                        });
+                        } }
 
                     }
 
@@ -109,14 +178,11 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
                     }
                 });
-            }
-            else
-            {
-
 
             }
 
-        }
+
+
 
 
 
@@ -133,46 +199,14 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
 
-
-        Picasso.get()
-                .load(Users.getProfileImgUrl())
-                .networkPolicy(NetworkPolicy.OFFLINE)
-                .into(circleImageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
+        SharedPreferences sharedPreferences = getSharedPreferences("userSharedPrefrences",MODE_PRIVATE);
+        String url=sharedPreferences.getString("userProfileImgUrl","");
+        Users.setProfileImgUrl(url);
 
 
 
 
-                    }
 
-                    @Override
-                    public void onError(Exception e) {
-
-
-
-                        Picasso.get()
-                                .load(Users.getProfileImgUrl())
-                                .error(R.drawable.lequiz_loader)
-                                .into(circleImageView, new Callback() {
-                                    @Override
-                                    public void onSuccess() {
-
-                                    }
-
-                                    @Override
-                                    public void onError(Exception e) {
-                                        Log.v("Picasso","Could not fetch image");
-                                    }
-
-
-                                });
-
-                    }
-
-
-
-                });
 
 
 
@@ -257,6 +291,8 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
     }
 
+
+
     // Getting image from the chooser
 
     @Override
@@ -295,6 +331,13 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                             String downloadUrl=uri.toString();
                             Users.setProfileImgUrl(downloadUrl);
                             refToSpecificUser.child("profileImgUrl").setValue(downloadUrl);
+                            SharedPreferences.Editor editor =  getSharedPreferences("userSharedPrefrences",MODE_PRIVATE).edit();
+                            editor.putString("userProfileImgUrl",Users.getProfileImgUrl());
+                            editor.apply();
+
+
+
+
 
 
 
@@ -307,7 +350,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                             // Fetching profile image download failed
 
                             Toast.makeText(getApplicationContext(),""+e,Toast.LENGTH_SHORT).show();
-                            return;
+
 
                         }
                     });
@@ -334,8 +377,9 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         if(resultCode==RESULT_OK)
         {
 
-        //    circleImageView.setImageURI(Crop.getOutput(result));
+
             imgToUpload = Crop.getOutput(result);
+            imgProfile = Crop.getOutput(result);
             uploadToFirebase();
         }
             else if(resultCode==Crop.RESULT_ERROR)
