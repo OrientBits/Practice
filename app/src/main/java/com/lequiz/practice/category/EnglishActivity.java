@@ -118,6 +118,7 @@ public class EnglishActivity extends AppCompatActivity implements ObservableScro
     }
 
 
+
     @Override
     protected void onResume() {
         super.onResume();
