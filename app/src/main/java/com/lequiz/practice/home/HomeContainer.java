@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ import com.lequiz.practice.nav_drawer.NavLeaderboard;
 import com.lequiz.practice.nav_drawer.NavNotifications;
 import com.lequiz.practice.nav_drawer.NavPayment;
 import com.lequiz.practice.nav_drawer.NavSettings;
+import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.lequiz.practice.nav_drawer.QuizFactory;
 import com.loopeer.shadow.ShadowView;
 
@@ -53,6 +55,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
     public MenuItem menuItem;
+    protected ImageView profile_header;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -94,12 +97,26 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         loadFragment(fragment);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(rOnNavigationItemSelectedListener);
+        bottomNavigationView.setItemIconTintList(null);
 
 
         // implementing item of navigation drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+
+        View headerView = navigationView.getHeaderView(0);
+        profile_header = headerView.findViewById(R.id.profile_image);
+
+        profile_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PA = new Intent(HomeContainer.this, ProfileActivity.class);
+                startActivity(PA);
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
 
 
     }

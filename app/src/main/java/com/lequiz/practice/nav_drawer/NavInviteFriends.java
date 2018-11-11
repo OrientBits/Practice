@@ -23,7 +23,7 @@ public class NavInviteFriends extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_invite_friends);
+        setContentView(R.layout.nav_invite_friends);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

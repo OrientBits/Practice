@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.lequiz.practice.activity.WebViewLayout;
+import com.lequiz.practice.module.WebViewLayout;
 import com.lequiz.practice.R;
 import com.lequiz.practice.module.News;
 import com.squareup.picasso.Picasso;

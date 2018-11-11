@@ -22,7 +22,7 @@ public class NavLeaderboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_leaderboard);
+        setContentView(R.layout.nav_leaderboard);
 
 
         toolbar = findViewById(R.id.toolbar);
@@ -52,7 +52,7 @@ public class NavLeaderboard extends AppCompatActivity {
         leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_computer,"Ramshek Rama",810,17));
         leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_english,"Ramshek Rama",800,18));
         leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_technology,"Ramshek Rama",750,19));
-        leaderboardWords.add(new NavLeaderboardWord(R.drawable.current_affairs_background_image,"Ramshek Rama",700,21));
+        leaderboardWords.add(new NavLeaderboardWord(R.drawable.home_reasoning,"Ramshek Rama",700,21));
 
 
         NavLeaderboardWordAdapter leaderboardWordAdapter = new NavLeaderboardWordAdapter(this,leaderboardWords);

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,32 +14,39 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.R;
+import com.lequiz.practice.category.ComputerActivity;
+import com.lequiz.practice.category.CurrentAffairsActivity;
+import com.lequiz.practice.category.EnglishActivity;
+import com.lequiz.practice.category.EntertainmentActivity;
+import com.lequiz.practice.category.GeneralScienceActivity;
+import com.lequiz.practice.category.MathematicsActivity;
+import com.lequiz.practice.category.ReasoningActivity;
+import com.lequiz.practice.category.SpecialActivity;
+import com.lequiz.practice.category.SportsActivity;
+import com.lequiz.practice.category.TechnologyActivity;
 import com.lequiz.practice.nav_drawer.NavNotifications;
+import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.loopeer.shadow.ShadowView;
 
 import java.sql.Time;
-import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentHome extends Fragment {
 
     MenuItem fav;
     FirebaseAuth mAuth;
     DatabaseReference currentUserRef;
     TextView userName, wishes;
+    protected CircleImageView profile_home;
+
+
     protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
 
 
@@ -59,6 +65,10 @@ public class FragmentHome extends Fragment {
         userName = inflateView.findViewById(R.id.user_name);
         wishes = inflateView.findViewById(R.id.wishing);
         userNameInGradient();
+
+        profile_home = inflateView.findViewById(R.id.profile_home);
+
+
 
         currentAffairs = inflateView.findViewById(R.id.current_affairs_shadow_view);
         shadowViewSize(currentAffairs);
@@ -80,6 +90,82 @@ public class FragmentHome extends Fragment {
         shadowViewSize(special);
         entertainment = inflateView.findViewById(R.id.entertainment_shadow_view);
         shadowViewSize(entertainment);
+
+
+
+        /*setting on click listener on shadow view*/
+
+        currentAffairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),CurrentAffairsActivity.class));
+            }
+        });
+        computer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),ComputerActivity.class));
+            }
+        });
+        mathematics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),MathematicsActivity.class));
+            }
+        });
+        reasoning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),ReasoningActivity.class));
+            }
+        });
+        generalScience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),GeneralScienceActivity.class));
+            }
+        });
+        english.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),EnglishActivity.class));
+            }
+        });
+        technology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),TechnologyActivity.class));
+            }
+        });
+        sports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),SportsActivity.class));
+            }
+        });
+        special.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),SpecialActivity.class));
+            }
+        });
+        entertainment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),EntertainmentActivity.class));
+            }
+        });
+
+
+        profile_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(),ProfileActivity.class));
+            }
+        });
+
+        /*end of set on click listener */
+
 
 
 

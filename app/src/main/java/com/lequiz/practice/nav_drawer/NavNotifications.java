@@ -21,7 +21,7 @@ public class NavNotifications extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_notifications);
+        setContentView(R.layout.nav_notifications);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

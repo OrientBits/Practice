@@ -28,7 +28,7 @@ public class NavLeaderboardWordAdapter extends ArrayAdapter<NavLeaderboardWord>{
         View listItemView = convertView;
 
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_nav_leaderboard_list_item, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.nav_leaderboard_list_item, parent, false);
         }
 
         NavLeaderboardWord navLeaderboardWord = getItem(position);

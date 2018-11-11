@@ -28,7 +28,7 @@ public class NavPaymentWordAdapter extends ArrayAdapter<NavPaymentWord>{
         View listItemView = convertView;
 
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_nav_payment_list_user, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.nav_payment_list_user, parent, false);
         }
 
         NavPaymentWord navPaymentWord = getItem(position);

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.lequiz.practice.activity.Login;
+import com.lequiz.practice.Login;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
@@ -30,7 +30,7 @@ public class NavSettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_settings);
+        setContentView(R.layout.nav_settings);
 
         sharedPreferenceConfig = new SharedPreferenceConfig(getApplicationContext());
 

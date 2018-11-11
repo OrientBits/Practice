@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".home.HomeContainer">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,50 +26,50 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SplashActivity"/>
+        <activity android:name=".home.HomeContainer"/>
 
 
-        <activity android:name=".activity.OnBoarding" />
+        <activity android:name=".OnBoarding" />
         <activity
-            android:name=".activity.MathematicsActivity"
+            android:name=".category.MathematicsActivity"
             android:label="@string/mathematics"
-            android:parentActivityName=".activity.MathematicsActivity" />
+            android:parentActivityName=".category.MathematicsActivity" />
         <activity
-            android:name=".activity.ReasoningActivity"
+            android:name=".category.ReasoningActivity"
             android:label="@string/reasoning"
-            android:parentActivityName=".activity.ReasoningActivity" />
+            android:parentActivityName=".category.ReasoningActivity" />
         <activity
-            android:name=".activity.EntertainmentActivity"
+            android:name=".category.EntertainmentActivity"
             android:label="@string/entertainment"
-            android:parentActivityName=".activity.EntertainmentActivity" />
+            android:parentActivityName=".category.EntertainmentActivity" />
         <activity
-            android:name=".activity.TechnologyActivity"
+            android:name=".category.TechnologyActivity"
             android:label="@string/technology"
-            android:parentActivityName=".activity.TechnologyActivity" />
+            android:parentActivityName=".category.TechnologyActivity" />
         <activity
-            android:name=".activity.CurrentAffairsActivity"
+            android:name=".category.CurrentAffairsActivity"
             android:label="@string/current_Affairs"
-            android:parentActivityName=".activity.CurrentAffairsActivity" />
+            android:parentActivityName=".category.CurrentAffairsActivity" />
         <activity
-            android:name=".activity.ComputerActivity"
+            android:name=".category.ComputerActivity"
             android:label="@string/computer"
-            android:parentActivityName=".activity.ComputerActivity" />
+            android:parentActivityName=".category.ComputerActivity" />
         <activity
-            android:name=".activity.GeneralScienceActivity"
+            android:name=".category.GeneralScienceActivity"
             android:label="@string/general_science"
-            android:parentActivityName=".activity.GeneralScienceActivity" />
+            android:parentActivityName=".category.GeneralScienceActivity" />
         <activity
-            android:name=".activity.EnglishActivity"
+            android:name=".category.EnglishActivity"
             android:label="@string/english"
-            android:parentActivityName=".activity.EnglishActivity" />
+            android:parentActivityName=".category.EnglishActivity" />
         <activity
-            android:name=".activity.SportsActivity"
+            android:name=".category.SportsActivity"
             android:label="@string/sports"
-            android:parentActivityName=".activity.SportsActivity" />
+            android:parentActivityName=".category.SportsActivity" />
         <activity
-            android:name=".activity.SpecialActivity"
+            android:name=".category.SpecialActivity"
             android:label="@string/special"
-            android:parentActivityName=".activity.SpecialActivity" />
+            android:parentActivityName=".category.SpecialActivity" />
         <activity
             android:name=".nav_drawer.ProfileActivity"
             android:parentActivityName=".nav_drawer.ProfileActivity" />
@@ -104,14 +104,14 @@
             android:label="@string/quiz_factory"
             android:parentActivityName=".nav_drawer.QuizFactory" />
         <activity
-            android:name=".activity.RegisterUser"
+            android:name=".RegisterUser"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.Login"
+            android:name=".Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".activity.WebViewLayout" />
+        <activity android:name=".module.WebViewLayout" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
     </application>

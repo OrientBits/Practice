@@ -3,15 +3,13 @@
 <GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Category_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@+id/header_part_1"
     android:columnCount="2"
     android:columnOrderPreserved="false"
-    android:padding="5dp"
-    tools:showIn="@layout/activity_home_app_bar">
+    android:padding="5dp">
 
 
     <!--row 1-->

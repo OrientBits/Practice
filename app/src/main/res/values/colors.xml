@@ -21,43 +21,77 @@
     <!--shimmer background-->
     <color name="shimmer_background">#dddddd</color>
 
-    <color name="grayOnProgressHome">#B6B3B3</color>
-    <color name="blueOnPopup">#053461</color>
-    <color name="pinkOnSports">#ED1E79</color>
-    <color name="orangeOnSports">#F7931E</color>
+
+    <!--category color pattern (card view)-->
+   <color name="greenOnComputer">#41e6ff</color>
+    <color name="blueOnComputer">#5c1bc4</color>
     <color name="blueOnHomeText">#04F9FE</color>
-    <color name="blueOnProfileText">#4c43d4</color>
-    <color name="purpleOnHomeText">#7F47DD</color>
-    <color name="blueGradientTech">#00FFFF</color>
-    <color name="grayOnLearnSectionText">#95989A</color>
-    <color name="greenOnCurrentAffairs">#a1f9ae</color>
-    <color name="yellowOnCurrentAffairs">#01ff01</color>
-    <color name="yellowOnEntertainment">#FFFF00</color>
-    <color name="orangeOnEntertainment">#F15A24</color>
-   <color name="greenOnComputer">#526eec</color>
-    <color name="blueOnComputer">#1830ba</color>
+    <color name="yellowOnCurrentAffairs">#005ca2</color>
+    <color name="greenOnCurrentAffairs">#00bbff</color>
     <color name="pinkOnEnglish">#F869D5</color>
     <color name="blueOnEnglish">#5650DE</color>
+    <color name="yellowOnEntertainment">#FFFF00</color>
+    <color name="orangeOnEntertainment">#F15A24</color>
+    <color name="brownOnGeneralScience">#BF8000</color>
+    <color name="redOnGeneralScience">#FF0900</color>
     <color name="yellowOnMathematics">#CCD71C</color>
     <color name="purpleOnMathematics">#0079A8</color>
     <color name="lightPinkOnReasoning">#F869D5</color>
     <color name="darkPinkOnReasoning">#F00B51</color>
     <color name="purpleOnSpecial">#005176</color>
     <color name="redOnSpecial">#D8413E</color>
+    <color name="pinkOnSports">#ED1E79</color>
+    <color name="orangeOnSports">#F7931E</color>
+    <color name="techEnd">#003470</color>
+    <color name="techStart">#3cbbff</color>
+
+
+    <color name="greenOnComputer2">#41e6ff</color>
+    <color name="blueOnComputer2">#5c1bc4</color>
+    <color name="blueOnHomeText2">#04F9FE</color>
+
+    <color name="yellowOnCurrentAffairs2">#0074cc</color>
+    <color name="greenOnCurrentAffairs2">#3acaff</color>
+
+    <color name="pinkOnEnglish2">#F869D5</color>
+    <color name="blueOnEnglish2">#5650DE</color>
+    <color name="yellowOnEntertainment2">#FFFF00</color>
+    <color name="orangeOnEntertainment2">#F15A24</color>
+    <color name="brownOnGeneralScience2">#BF8000</color>
+    <color name="redOnGeneralScience2">#FF0900</color>
+    <color name="yellowOnMathematics2">#CCD71C</color>
+    <color name="purpleOnMathematics2">#0079A8</color>
+    <color name="lightPinkOnReasoning2">#F869D5</color>
+    <color name="darkPinkOnReasoning2">#F00B51</color>
+    <color name="purpleOnSpecial2">#005176</color>
+    <color name="redOnSpecial2">#D8413E</color>
+    <color name="pinkOnSports2">#ED1E79</color>
+    <color name="orangeOnSports2">#F7931E</color>
+    <color name="techEnd2">#003470</color>
+    <color name="techStart2">#3cbbff</color>
+
+
+    <color name="grayOnProgressHome">#B6B3B3</color>
+    <color name="blueOnPopup">#053461</color>
+    <color name="blueOnProfileText">#1355fc</color>
+    <color name="purpleOnHomeText">#5038e6</color>
+    <color name="grayOnLearnSectionText">#95989A</color>
+
     <color name="redOnSpecialBackground">#F1BBBB</color>
     <color name="pinkBackgroundSports">#F8ACCD</color>
     <color name="greenBackgroundCurrentAffairs">#BFFFFF</color>
-    <color name="blueOnComputerBackground">#5e2541d1</color>
+    <color name="blueOnComputerBackground">#82017cff</color>
     <color name="greenOnMathematicsBackground">#BDD6A2</color>
     <color name="pinkOnReasoningBackground">#EDAACA</color>
     <color name="pinkOnEnglishBackground">#EEADEC</color>
     <color name="blueOnTechnologyBackground">#B3F9F7</color>
     <color name="orangeOnEntertainmentBackground">#fcd9b7</color>
     <color name="redOnGeneralScienceBackground">#F0B1B1</color>
-    <color name="brownOnGeneralScience">#BF8000</color>
-    <color name="redOnGeneralScience">#FF0900</color>
+
     <color name="greenOnToolBarSettings">#289497</color>
     <color name="darkGray">#666666</color>
+
+
 
     <!--navigation drawer icon color-->
     <color name="navigationIconColor">#07394b</color>

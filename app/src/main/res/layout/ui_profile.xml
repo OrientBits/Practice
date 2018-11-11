@@ -150,17 +150,37 @@
                         android:paddingTop="5dp"
                         android:paddingBottom="10dp">
 
-                        <TextView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingEnd="0dp"
-                            android:paddingBottom="10dp"
-                            android:text="ACCOUNT DETAILS"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp"
-                            tools:ignore="HardcodedText" />
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="0dp"
+                                android:paddingBottom="10dp"
+                                android:text="ACCOUNT DETAILS"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                tools:ignore="HardcodedText" />
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="30dp"
+                                android:gravity="end"
+                                android:padding="4dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?android:selectableItemBackground"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/profile_edit_pencil"
+                                tools:ignore="ContentDescription,HardcodedText" />
+
+                        </RelativeLayout>
+
+
 
                         <View
                             android:layout_width="match_parent"
@@ -194,17 +214,43 @@
                                 android:textSize="16sp"
                                 tools:ignore="RelativeOverlap" />
 
+
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginStart="55dp"
+                            android:background="#b4b4b4" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp">
+
                             <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="30dp"
-                                android:gravity="end"
-                                android:padding="4dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:foreground="?android:selectableItemBackground"
-                                android:layout_alignParentEnd="true"
-                                android:src="@drawable/profile_edit_pencil"
-                                tools:ignore="ContentDescription,HardcodedText" />
+                                android:id="@+id/profile_fancy_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:paddingStart="23dp"
+                                android:paddingEnd="0dp"
+                                android:src="@drawable/profile_fancy_name"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toEndOf="@id/profile_fancy_name"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="@string/user_mobile_no"
+                                android:textSize="16sp"
+                                tools:ignore="RelativeOverlap" />
+
+
 
                         </RelativeLayout>
 

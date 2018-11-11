@@ -29,7 +29,6 @@
             android:layout_gravity="bottom"
             android:background="@color/white"
             app:itemTextColor="@drawable/bottom_nav_item_selector"
-            app:itemIconTint="@drawable/bottom_nav_item_selector"
             app:menu="@menu/bottom_navigation_menu"/>
 
 
@@ -60,7 +59,7 @@
             android:background="@android:color/transparent"
             app:headerLayout="@layout/navigation_drawer_header"
             app:itemBackground="@drawable/nav_item_background"
-            app:itemTextColor="@color/navigationTextColor"
+            app:itemTextColor="@drawable/bottom_nav_item_selector"
             app:menu="@menu/navigation_menu" />
 
     </RelativeLayout>
