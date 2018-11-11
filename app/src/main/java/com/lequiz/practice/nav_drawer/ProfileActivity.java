@@ -199,7 +199,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
 
-
         // Finding profile section main image variable
 
         profileImageCardView = findViewById(R.id.profile_image_card_view);
