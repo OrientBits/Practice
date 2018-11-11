@@ -4,6 +4,7 @@ public class Users {
     static String firstName;
     static String lastName;
     static String email;
+    public static String firstNameForUse= Users.firstName;
     static String profileImgUrl;
     public static int loop=0;
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
@@ -18,13 +19,19 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.lequiz.practice.Login;
 import com.lequiz.practice.R;
 import com.lequiz.practice.category.ComputerActivity;
 import com.lequiz.practice.category.CurrentAffairsActivity;
@@ -41,6 +48,7 @@ import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.loopeer.shadow.ShadowView;
 
 import java.sql.Time;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -181,35 +189,35 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 //        // Firebase Setup
 //
-//        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
-//
-//        currentUserRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                try
-//                {
-//                    String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
-//                    if(loginStatus.equals("F"))
-//                    {
-//                        mAuth.getInstance().signOut();
-//                        // startActivity(new Intent(HomeActivity.this,Login.class));
-//                        Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//
-//                }
-//                catch (NullPointerException e)
-//                {
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
+
+     currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+                   String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
+                    if(loginStatus.equals("F"))
+                    {
+                        mAuth.getInstance().signOut();
+                         startActivity(new Intent(getContext(),Login.class));
+                        Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
+                    }
+
+
+               }
+                catch (NullPointerException e)
+                {
+
+             }
+
+          }
+
+@Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+
+          }
+        });
 
 
 

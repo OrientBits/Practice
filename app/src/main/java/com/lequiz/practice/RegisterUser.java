@@ -14,15 +14,23 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.lequiz.practice.Login;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
+import com.lequiz.practice.R;
 import com.lequiz.practice.module.Users;
+import com.lequiz.practice.nav_drawer.GenderChooser;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class RegisterUser extends AppCompatActivity {
 
@@ -84,30 +92,30 @@ public class RegisterUser extends AppCompatActivity {
 
     public void registerUser(View view) {
 
-      final String userEnteredEmail = etRegEmail.getText().toString().trim();
-      String userEnteredPassword = etRegPassword.getText().toString().trim();
-      String userEnteredConfirmPassword = etRegConfirmPassword.getText().toString().trim();
-      final String userEnteredFirstName = etRegFirstName.getText().toString().trim();
-      final String userEnteredLastName = etRegLastName.getText().toString().trim();
+        final String userEnteredEmail = etRegEmail.getText().toString().trim();
+        String userEnteredPassword = etRegPassword.getText().toString().trim();
+        String userEnteredConfirmPassword = etRegConfirmPassword.getText().toString().trim();
+        final String userEnteredFirstName = etRegFirstName.getText().toString().trim();
+        final String userEnteredLastName = etRegLastName.getText().toString().trim();
         if(TextUtils.isEmpty(userEnteredFirstName))
         {
             etRegFirstName.setError("First Name is required");
-     //       etRegFirstName.requestFocus();
+            //       etRegFirstName.requestFocus();
             return;
         }
         if(TextUtils.isEmpty(userEnteredLastName))
         {
             etRegLastName.setError("Last Name is required");
-      //      etRegLastName.requestFocus();
+            //      etRegLastName.requestFocus();
             return;
         }
 
-      if(TextUtils.isEmpty(userEnteredEmail))
-      {
-          etRegEmail.setError("Email is required");
-          etRegEmail.requestFocus();
-          return;
-      }
+        if(TextUtils.isEmpty(userEnteredEmail))
+        {
+            etRegEmail.setError("Email is required");
+            etRegEmail.requestFocus();
+            return;
+        }
         if(TextUtils.isEmpty(userEnteredPassword))
         {
             etRegPassword.setError("Password is required");
@@ -121,76 +129,74 @@ public class RegisterUser extends AppCompatActivity {
             return;
         }
 
-      if(!Patterns.EMAIL_ADDRESS.matcher(userEnteredEmail).matches())
-      {
-          etRegEmail.setError("Enter a valid Email.");
-          etRegEmail.requestFocus();
-          return;
-      }
+        if(!Patterns.EMAIL_ADDRESS.matcher(userEnteredEmail).matches())
+        {
+            etRegEmail.setError("Enter a valid Email.");
+            etRegEmail.requestFocus();
+            return;
+        }
         if(userEnteredPassword.length()<6)
         {
             etRegPassword.setError("Password must be 6 characters long");
             etRegPassword.requestFocus();
             return;
         }
-      if(!userEnteredPassword.equals(userEnteredConfirmPassword))
-      {
-          etRegConfirmPassword.setError("Those passwords didn't match. Try again.");
-          etRegConfirmPassword.requestFocus();
-          return;
+        if(!userEnteredPassword.equals(userEnteredConfirmPassword))
+        {
+            etRegConfirmPassword.setError("Those passwords didn't match. Try again.");
+            etRegConfirmPassword.requestFocus();
+            return;
 
-      }
+        }
 
-      // Making authentication
+        // Making authentication
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         regProgress.setVisibility(View.VISIBLE);
         if(mAuth.getCurrentUser()==null)
         {
-        mAuth.createUserWithEmailAndPassword(userEnteredEmail, userEnteredPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            mAuth.createUserWithEmailAndPassword(userEnteredEmail, userEnteredPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful())
-                {
+                    if(task.isSuccessful())
+                    {
 
-                    Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
+                        Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
 
-                    mDatabaseRefrence.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                        mDatabaseRefrence.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
 
-                            if(task.isSuccessful())
-                            {
-                                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                                regProgress.setVisibility(View.INVISIBLE);
-                                Toast.makeText(getApplicationContext(), "Welcome to LeQuiz!",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterUser.this, HomeContainer.class);
-                                startActivity(intent);
-                                myVib = (Vibrator) getApplicationContext().getSystemService(VIBRATOR_SERVICE);
-                                myVib.vibrate(600);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                finish();
+                                if(task.isSuccessful())
+                                {
+                                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                    regProgress.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(getApplicationContext(), "Your Details Saved",Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegisterUser.this, GenderChooser.class);
+                                    startActivity(intent);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    finish();
+
+                                }
 
                             }
-
-                        }
-                    });
+                        });
 
 
 
+
+                    }
+                    else
+                    {
+                        regProgress.setVisibility(View.INVISIBLE);
+                        // if registration fails
+                        Toast.makeText(getApplicationContext(),"Registration failed try again later",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                 }
-                else
-                {
-                    regProgress.setVisibility(View.INVISIBLE);
-                    // if registration fails
-                    Toast.makeText(getApplicationContext(),"Registration failed try again later",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-            }
-        });}
+            });}
 
 
 

@@ -45,8 +45,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.lequiz.practice.Login;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.Users;
 import com.soundcloud.android.crop.Crop;
 import com.soundcloud.android.crop.CropImageView;
@@ -67,6 +69,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
     private View mToolbarView;
+
+    String fName;
+
 
     private DatabaseReference refToSpecificUser;
     private ObservableScrollView mScrollView;
@@ -93,6 +98,8 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         setContentView(R.layout.ui_profile);
         mAuth = FirebaseAuth.getInstance();
         circleImageView = findViewById(R.id.userImageProfileView);
+
+
 
 
 
@@ -179,6 +186,9 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                 });
 
             }
+
+
+
 
 
 
@@ -288,6 +298,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
     }
+
 
 
 

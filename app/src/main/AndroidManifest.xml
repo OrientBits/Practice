@@ -25,11 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".home.HomeContainer"
-            android:screenOrientation="portrait"/>
-
-
+        <activity
+            android:name=".home.HomeContainer"
+            android:screenOrientation="portrait" />
         <activity android:name=".OnBoarding" />
         <activity
             android:name=".category.MathematicsActivity"
@@ -114,7 +112,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".module.WebViewLayout" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-
+        <activity android:name=".nav_drawer.GenderChooser"></activity>
     </application>
 
 </manifest>

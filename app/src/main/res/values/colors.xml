@@ -44,6 +44,8 @@
     <color name="orangeOnSports">#F7931E</color>
     <color name="techEnd">#003470</color>
     <color name="techStart">#3cbbff</color>
+    <color name="orange_on_gender_chooser">#EF7269</color>
+    <color name="pink_on_gender_chooser">#EB2C6D</color>
 
 
     <color name="greenOnComputer2">#41e6ff</color>
