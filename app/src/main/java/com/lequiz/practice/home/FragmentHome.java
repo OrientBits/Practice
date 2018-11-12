@@ -3,13 +3,17 @@ package com.lequiz.practice.home;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,6 +51,7 @@ import com.lequiz.practice.module.Users;
 import com.lequiz.practice.nav_drawer.NavNotifications;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.loopeer.shadow.ShadowView;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -66,6 +71,9 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
     protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
+    Resources profileImgDrawableToSet;
+    String gender;
+    String profileImgUrl;
 
 
     public FragmentHome() {
@@ -198,31 +206,236 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
      currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try
-                {
+
+                   try
+                   {
                    String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
+
+
                     if(loginStatus.equals("F"))
                     {
-                        Picasso.get().load(Users.getProfileImgUrl()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE);
-                        mAuth.getInstance().signOut();
+
+                        mAuth.signOut();
                          startActivity(new Intent(getContext(),Login.class));
                         Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
                     }
+                    }
+            catch (NullPointerException e)
+            {
+
+            }
+            }
 
 
-               }
-                catch (NullPointerException e)
-                {
 
-             }
-
-          }
 
 @Override
            public void onCancelled(@NonNull DatabaseError databaseError) {
 
           }
         });
+
+// Checking if the user has current img url or not
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+
+                profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
+                catch (NullPointerException e)
+                {
+                    System.out.println("is empty "+profileImgUrl);
+                }
+
+
+                if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null  )
+
+                {
+
+
+                    // if profile Img url is empty then this code will run
+
+                    currentUserRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            try
+                            {
+                                String gender=dataSnapshot.child("gender").getValue().toString();
+                                System.out.println("Gender "+gender);
+                                if(gender.equals("male"))
+                                {
+                                    Picasso.get()
+                                            .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder).centerCrop()
+                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                            .into(profile_home, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+
+
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+
+
+                                                    Picasso.get()
+                                                            .load(profileImgUrl).placeholder(R.drawable.male_avatar_placeholder).centerCrop()
+                                                            .error(R.drawable.male_avatar_placeholder)
+                                                            .into(profile_home, new Callback() {
+                                                                @Override
+                                                                public void onSuccess() {
+                                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                }
+
+                                                                @Override
+                                                                public void onError(Exception e) {
+                                                                    Log.v("Picasso", "Could not fetch image");
+                                                                }
+
+
+                                                            });
+
+                                                }
+
+
+                                            });}
+                                if(gender.equals("female"))
+                                {
+                                    Picasso.get()
+                                            .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                            .into(profile_home, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+
+
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+
+
+                                                    Picasso.get()
+                                                            .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                            .error(R.drawable.female_avatar_placeholder)
+                                                            .into(profile_home, new Callback() {
+                                                                @Override
+                                                                public void onSuccess() {
+                                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                }
+
+                                                                @Override
+                                                                public void onError(Exception e) {
+                                                                    Log.v("Picasso", "Could not fetch image");
+                                                                }
+
+
+                                                            });
+
+                                                }
+
+
+                                            });}
+                            }
+                            catch(NullPointerException e)
+                            {
+                               return;
+                            }
+
+
+
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            System.out.println("Database error 346");
+                        }
+                    });
+
+
+
+                }
+                else
+                {
+
+                    // If the profile Img Url is not empty. Setting the profile Img from the url
+                    Picasso.get()
+                            .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .into(profile_home, new Callback() {
+                                @Override
+                                public void onSuccess() {
+
+
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+
+
+                                    Picasso.get()
+                                            .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+
+                                            .into(profile_home, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+                                                    Log.v("Picasso", "Could not fetch image");
+                                                }
+
+
+                                            });
+
+                                }
+
+
+                            });
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     /////////////////////////////////////////////////////////
 
 
 
@@ -317,7 +530,4 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         wishes.getPaint().setShader(textShader1);
     }
-
-
-
 }

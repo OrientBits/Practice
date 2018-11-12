@@ -188,6 +188,7 @@ public class RegisterUser extends AppCompatActivity {
                     }
                     else
                     {
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         regProgress.setVisibility(View.INVISIBLE);
                         // if registration fails
                         Toast.makeText(getApplicationContext(),"Registration failed try again later",Toast.LENGTH_SHORT).show();

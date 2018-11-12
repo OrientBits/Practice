@@ -140,7 +140,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
                                Picasso.get()
-                                        .load(Users.getProfileImgUrl())
+                                        .load(Users.getProfileImgUrl()).placeholder(R.drawable.default_profile_picture)
                                         .networkPolicy(NetworkPolicy.OFFLINE)
                                         .into(circleImageView, new Callback() {
                                             @Override
@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
                                                 Picasso.get()
-                                                        .load(Users.getProfileImgUrl())
+                                                        .load(Users.getProfileImgUrl()).placeholder(R.drawable.default_profile_picture)
                                                         .error(R.drawable.default_image_loading)
                                                         .into(circleImageView, new Callback() {
                                                             @Override

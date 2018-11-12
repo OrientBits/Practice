@@ -5,6 +5,7 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -58,7 +59,7 @@ public class GenderChooser extends AppCompatActivity {
 
         // Initializing the Firebase Database
 
-        refrenceToCurrentUsersNode= FirebaseDatabase.getInstance().getReference().child("Users").child(uID);
+        refrenceToCurrentUsersNode = FirebaseDatabase.getInstance().getReference().child("Users").child(uID);
 
         // Initializing the variables
 
@@ -68,14 +69,15 @@ public class GenderChooser extends AppCompatActivity {
         maleText = findViewById(R.id.textViewMale);
         femaleText = findViewById(R.id.textViewFemale);
         registerButton = findViewById(R.id.buttonRegister);
+        hasntGivenGenderTextiew = findViewById(R.id.textviewIdontWantToSay);
 
         // Onclick listnera for male circle
 
         maleCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                femaleCircle.setImageResource(R.drawable.female_avatar);
-                maleCircle.setImageResource(R.drawable.selected_male_avatar);
+                femaleCircle.setImageResource(R.drawable.female_avatar_placeholder);
+                maleCircle.setImageResource(R.drawable.male_avatar_selected);
                 gender= MALE;
 
             }
@@ -86,9 +88,27 @@ public class GenderChooser extends AppCompatActivity {
         femaleCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                femaleCircle.setImageResource(R.drawable.selected_female_avatar);
-                maleCircle.setImageResource(R.drawable.male_avatar);
+                femaleCircle.setImageResource(R.drawable.female_avatar_selected);
+                maleCircle.setImageResource(R.drawable.male_avatar_placeholder);
                 gender = FEMALE;
+
+            }
+        });
+
+        // OnClick listner for i dont want to tell
+
+        hasntGivenGenderTextiew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                Toast.makeText(getApplicationContext(), "Welcome to LeQuiz! ",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), HomeContainer.class);
+                startActivity(intent);
+                vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(600);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
 
             }
         });
@@ -117,8 +137,8 @@ public class GenderChooser extends AppCompatActivity {
         maleText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                femaleCircle.setImageResource(R.drawable.female_avatar);
-                maleCircle.setImageResource(R.drawable.selected_male_avatar);
+                femaleCircle.setImageResource(R.drawable.female_avatar_placeholder);
+                maleCircle.setImageResource(R.drawable.male_avatar_selected);
                 gender= MALE;
             }
         });
@@ -127,7 +147,9 @@ public class GenderChooser extends AppCompatActivity {
         femaleText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gender=FEMALE;
+                femaleCircle.setImageResource(R.drawable.female_avatar_selected);
+                maleCircle.setImageResource(R.drawable.male_avatar_placeholder);
+                gender = FEMALE;
             }
         });
 
@@ -135,8 +157,12 @@ public class GenderChooser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Upload to Gender details to firebase
+                Toast.makeText(getApplicationContext(),"Please select your gender or skip by pressing 'I don't want to tell'", Toast.LENGTH_SHORT).show();
 
+
+                // Upload to Gender details to firebase
+                if(!TextUtils.isEmpty(gender))
+                {
                 refrenceToCurrentUsersNode.child("gender").setValue(gender);
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 Toast.makeText(getApplicationContext(), "Welcome to LeQuiz! ",Toast.LENGTH_LONG).show();
@@ -145,7 +171,7 @@ public class GenderChooser extends AppCompatActivity {
                 vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                 vibrator.vibrate(600);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
+                finish();}
 
 
             }
