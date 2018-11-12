@@ -23,8 +23,8 @@
 
 
     <!--category color pattern (card view)-->
-   <color name="greenOnComputer">#41e6ff</color>
-    <color name="blueOnComputer">#5c1bc4</color>
+   <color name="greenOnComputer">#21367F</color>
+    <color name="blueOnComputer">#0298CA</color>
     <color name="blueOnHomeText">#04F9FE</color>
     <color name="yellowOnCurrentAffairs">#005ca2</color>
     <color name="greenOnCurrentAffairs">#00bbff</color>
