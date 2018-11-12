@@ -3,6 +3,7 @@ package com.lequiz.practice.nav_drawer;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,10 @@ import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
+import com.lequiz.practice.module.Users;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -143,6 +148,10 @@ public class NavSettings extends AppCompatActivity {
 
     public void userLogout(View view)
     {
+        SharedPreferences.Editor editor =  getSharedPreferences("userSharedPrefrences",MODE_PRIVATE).edit();
+        editor.clear();
+        editor.apply();
+    //    Picasso.get().load(Users.getProfileImgUrl()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE);
         sharedPreferenceConfig.writeLoginStatus(false);
         mAuth.getInstance().signOut();
         startActivity(new Intent(this,Login.class));

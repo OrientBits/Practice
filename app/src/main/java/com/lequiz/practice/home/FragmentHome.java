@@ -43,9 +43,13 @@ import com.lequiz.practice.category.ReasoningActivity;
 import com.lequiz.practice.category.SpecialActivity;
 import com.lequiz.practice.category.SportsActivity;
 import com.lequiz.practice.category.TechnologyActivity;
+import com.lequiz.practice.module.Users;
 import com.lequiz.practice.nav_drawer.NavNotifications;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.loopeer.shadow.ShadowView;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.sql.Time;
 import java.util.Objects;
@@ -199,6 +203,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                    String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
                     if(loginStatus.equals("F"))
                     {
+                        Picasso.get().load(Users.getProfileImgUrl()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE);
                         mAuth.getInstance().signOut();
                          startActivity(new Intent(getContext(),Login.class));
                         Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
