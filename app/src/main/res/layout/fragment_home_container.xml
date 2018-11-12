@@ -6,8 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeContainer"
-    tools:openDrawer="start">
+    tools:context=".home.HomeContainer">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -39,12 +38,19 @@
     <!--navigation drawer layout -->
     <RelativeLayout
         android:id="@+id/navigation_drawer_layout"
-        android:layout_width="309dp"
+        android:layout_width="310dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:gravity="top"
-        android:background="@drawable/drawer_background">
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/drawer_background"
+            android:layout_alignParentTop="true"
+            tools:ignore="ContentDescription" />
 
 
         <android.support.design.widget.NavigationView

@@ -53,7 +53,7 @@ public class EnglishActivity extends AppCompatActivity implements ObservableScro
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_english);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_english);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 

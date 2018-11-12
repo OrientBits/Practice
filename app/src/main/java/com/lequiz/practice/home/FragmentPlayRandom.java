@@ -3,11 +3,9 @@ package com.lequiz.practice.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.lequiz.practice.R;
 
 
@@ -31,6 +29,8 @@ public class FragmentPlayRandom extends Fragment {
 
 
         HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
+        HomeContainer.mToolbarView.setBackgroundColor(0);
+        HomeContainer.title_text.setText(null);
 
 
 

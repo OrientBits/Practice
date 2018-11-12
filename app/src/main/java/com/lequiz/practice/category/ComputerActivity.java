@@ -55,7 +55,7 @@ public class ComputerActivity extends AppCompatActivity implements ObservableScr
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_computer);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_computer);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 

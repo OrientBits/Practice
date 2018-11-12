@@ -90,7 +90,7 @@ public class TechnologyActivity extends AppCompatActivity implements LoaderManag
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_technology);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_technology);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 

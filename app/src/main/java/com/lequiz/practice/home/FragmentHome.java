@@ -93,6 +93,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         userNameInGradient();
 
         profile_home = inflateView.findViewById(R.id.profile_home);
+        HomeContainer.title_text.setText(getResources().getText(R.string.home));
+        HomeContainer.toolbar_card_view_2.setVisibility(View.VISIBLE);
 
 
 
@@ -200,7 +202,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 
 //        // Firebase Setup
-//
+
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
 
      currentUserRef.addValueEventListener(new ValueEventListener() {

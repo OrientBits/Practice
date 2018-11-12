@@ -53,7 +53,7 @@ public class GeneralScienceActivity extends AppCompatActivity implements Observa
 
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_general_science);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_general_science);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 

@@ -94,7 +94,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back_arrow_current_affairs);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.back_arrow_current_affairs);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 

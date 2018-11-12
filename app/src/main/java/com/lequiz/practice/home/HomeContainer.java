@@ -87,7 +87,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         setSupportActionBar((Toolbar) mToolbarView);
         Objects.requireNonNull(getSupportActionBar()).setTitle(null);
         title_text = findViewById(R.id.toolbar_title);
-        title_text.setText(getResources().getText(R.string.home));
         title_text.setTextColor(getResources().getColor(R.color.black));
         title_text.setAlpha(0);
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
@@ -109,7 +108,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
             statusBarHeight = getResources().getDimensionPixelSize(resourceId);
         }
         toolbarLayout = findViewById(R.id.toolbar_root_layout);
-        mToolbarView.setPadding(0, statusBarHeight, 4, 0);
+        mToolbarView.setPadding(0, statusBarHeight, 8, 0);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
         fragment = new FragmentHome();

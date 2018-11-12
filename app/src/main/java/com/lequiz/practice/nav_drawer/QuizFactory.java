@@ -24,7 +24,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.quiz_factory);
+        setContentView(R.layout.nav_quiz_factory);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
