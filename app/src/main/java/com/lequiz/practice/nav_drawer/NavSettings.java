@@ -157,6 +157,5 @@ public class NavSettings extends AppCompatActivity {
         startActivity(new Intent(this,Login.class));
         finish();
         HomeContainer.fa.finish();
-
-    }
+        }
 }
