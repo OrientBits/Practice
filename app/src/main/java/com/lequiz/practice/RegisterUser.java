@@ -161,7 +161,6 @@ public class RegisterUser extends AppCompatActivity {
 
                     if(task.isSuccessful())
                     {
-
                         Users users = new Users(userEnteredFirstName, userEnteredLastName, userEnteredEmail);
 
                         mDatabaseRefrence.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -172,7 +171,7 @@ public class RegisterUser extends AppCompatActivity {
                                 {
                                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                     regProgress.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), "Your Details Saved",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Your details are now secure with us!",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(RegisterUser.this, GenderChooser.class);
                                     startActivity(intent);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

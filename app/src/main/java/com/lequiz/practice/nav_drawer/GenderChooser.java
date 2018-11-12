@@ -2,6 +2,7 @@ package com.lequiz.practice.nav_drawer;
 
 import android.content.Intent;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +12,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.R;
 import com.lequiz.practice.RegisterUser;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.Users;
+
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -27,12 +33,10 @@ public class GenderChooser extends AppCompatActivity {
     TextView maleText, femaleText, hasntGivenGenderTextiew,textViewHeyUsername;
     Button registerButton;
     String gender;
+    String firstName;
     private final String MALE = "male";
     private final String FEMALE = "female";
     private Vibrator vibrator;
-
-
-
     DatabaseReference refrenceToCurrentUsersNode;
 
     @Override
@@ -70,7 +74,8 @@ public class GenderChooser extends AppCompatActivity {
         maleCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                femaleCircle.setImageResource(R.drawable.female_avatar);
+                maleCircle.setImageResource(R.drawable.selected_male_avatar);
                 gender= MALE;
 
             }
@@ -81,20 +86,40 @@ public class GenderChooser extends AppCompatActivity {
         femaleCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                femaleCircle.setImageResource(R.drawable.selected_female_avatar);
+                maleCircle.setImageResource(R.drawable.male_avatar);
                 gender = FEMALE;
 
             }
         });
-       String heyUserNameString = "Hii, "+Users.firstNameForUse;
-       textViewHeyUsername.setText(heyUserNameString);
+
+
+        // Getting name from database
+
+
+        refrenceToCurrentUsersNode.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                firstName=Objects.requireNonNull(dataSnapshot.child("firstName").getValue()).toString();
+                String heyUserNameString = "Hii, "+firstName;
+                textViewHeyUsername.setText(heyUserNameString);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         // maleTextOnclick listner
 
         maleText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gender=MALE;
+                femaleCircle.setImageResource(R.drawable.female_avatar);
+                maleCircle.setImageResource(R.drawable.selected_male_avatar);
+                gender= MALE;
             }
         });
 
