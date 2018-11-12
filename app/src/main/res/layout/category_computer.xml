@@ -75,9 +75,8 @@
                         android:src="@drawable/back_arrow_computer"
                         app:civ_circle_background_color="@color/white"
                         app:civ_border_color="@color/white"
-                        app:civ_border_width="6dp"
-                        android:rotation="180"
-                        />
+                        app:civ_border_width="9dp"
+                        android:rotation="180" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/play_button_computer"
@@ -87,9 +86,9 @@
                         android:layout_marginStart="10dp"
                         android:layout_alignParentStart="true"
                         android:contentDescription="@string/play_button_computer"
-                        android:src="@drawable/speed_computer"
+                        android:src="@drawable/charge_computer"
                         app:civ_border_color="@color/white"
-                        app:civ_border_width="6dp"
+                        app:civ_border_width="8dp"
                         app:civ_circle_background_color="@color/white" />
 
                     <TextView
@@ -121,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative_card_view_computer"
                 android:background="@color/white"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="10dp">
 
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmer_layout_container_computer"
