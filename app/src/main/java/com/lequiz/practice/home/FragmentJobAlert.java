@@ -42,7 +42,6 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
 
 
 
-
         return inflaterView;
     }
 
