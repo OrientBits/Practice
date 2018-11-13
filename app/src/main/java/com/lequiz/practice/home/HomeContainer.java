@@ -51,7 +51,9 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class HomeContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Fragment fragment = null;
+    static final Fragment fragmentHome = new FragmentHome();
+    static final Fragment fragmentJobAlert = new FragmentJobAlert();
+    static final Fragment fragmentRandom = new FragmentPlayRandom();
     public static View mToolbarView;
     public static RelativeLayout toolbarLayout;
     boolean doubleBackToExitPressedOnce = false;
@@ -62,7 +64,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     public static CardView toolbar_card_view_2;
     protected ImageView profile_header;
     public static TextView title_text;
-    Window window;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -76,10 +77,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
 
         new FullScreenStatusOnly(this);
-        window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.special));
 
 
         // toolbar setup
@@ -111,8 +108,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         mToolbarView.setPadding(0, statusBarHeight, 8, 0);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
-        fragment = new FragmentHome();
-        loadFragment(fragment);
+        loadFragment(fragmentHome);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(rOnNavigationItemSelectedListener);
         bottomNavigationView.setItemIconTintList(null);
@@ -146,18 +142,21 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.bottom_nav_home:
-                    fragment = new FragmentHome();
-                    loadFragment(fragment);
+                    toolbar_card_view_2.setVisibility(View.VISIBLE);
+                    title_text.setText(getText(R.string.home));
+                    loadFragment(fragmentHome);
                     return true;
 
                 case R.id.bottom_nav_play_random:
-                    fragment = new FragmentPlayRandom();
-                    loadFragment(fragment);
+                    loadFragment(fragmentRandom);
+                    toolbar_card_view_2.setVisibility(View.INVISIBLE);
+                    title_text.setText(getText(R.string.random_quiz));
                     return true;
 
                 case R.id.bottom_nav_job_alert:
-                    fragment = new FragmentJobAlert();
-                    loadFragment(fragment);
+                    loadFragment(fragmentJobAlert);
+                    toolbar_card_view_2.setVisibility(View.INVISIBLE);
+                    title_text.setText(getText(R.string.job_alerts));
                     return true;
             }
             return false;
@@ -167,7 +166,31 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     private void loadFragment(final Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         final FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.home_fragment_container, fragment);
+
+        if (fragment == fragmentHome) {
+            if (fragmentRandom.isAdded())
+                transaction.remove(fragmentRandom);
+            else
+            if (fragmentJobAlert.isAdded())
+                transaction.remove(fragmentJobAlert);
+
+            if (fragmentHome.isAdded())
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragmentHome);
+            else
+                transaction.replace(R.id.home_fragment_container, fragment);
+
+        } else {
+            if (fragmentHome.isAdded())
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
+            if (fragmentRandom.isAdded())
+                transaction.remove(fragmentRandom);
+            else
+            if (fragmentJobAlert.isAdded())
+                transaction.remove(fragmentJobAlert);
+            transaction.add(R.id.home_fragment_container, fragment);
+
+        }
+
         transaction.commit();
     }
 

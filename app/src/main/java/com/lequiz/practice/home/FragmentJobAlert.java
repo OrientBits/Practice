@@ -32,8 +32,8 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         View inflaterView = inflater.inflate(R.layout.fragment_job_alert, container, false);
 
         HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
-
         HomeContainer.title_text.setText(getText(R.string.job_alerts));
+
         mScrollView = inflaterView.findViewById(R.id.job_alert_fragment_scroll);
         mScrollView.setScrollViewCallbacks(this);
         mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.image_height_home_part_1);
@@ -60,7 +60,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
-        HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
+        //HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
         HomeContainer.title_text.setAlpha(alpha-(float)0.035);
     }
 

@@ -93,8 +93,9 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         userNameInGradient();
 
         profile_home = inflateView.findViewById(R.id.profile_home);
-        HomeContainer.title_text.setText(getResources().getText(R.string.home));
+
         HomeContainer.toolbar_card_view_2.setVisibility(View.VISIBLE);
+        HomeContainer.title_text.setText(getText(R.string.home));
 
 
 
@@ -205,36 +206,36 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
 
-     currentUserRef.addValueEventListener(new ValueEventListener() {
+        currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
-          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                   try
-                   {
-                   String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
+                try
+                {
+                    String loginStatus=Objects.requireNonNull(dataSnapshot.child("manualLoginStatus").getValue()).toString();
 
 
                     if(loginStatus.equals("F"))
                     {
 
                         mAuth.signOut();
-                         startActivity(new Intent(getContext(),Login.class));
+                        startActivity(new Intent(getContext(),Login.class));
                         Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
                     }
-                    }
-            catch (NullPointerException e)
-            {
+                }
+                catch (NullPointerException e)
+                {
+
+                }
+            }
+
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-            }
-
-
-
-
-@Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
-
-          }
         });
 
 // Checking if the user has current img url or not
@@ -245,7 +246,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 try
                 {
 
-                profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
+                    profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
                 catch (NullPointerException e)
                 {
                     System.out.println("is empty "+profileImgUrl);
@@ -343,7 +344,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                             }
                             catch(NullPointerException e)
                             {
-                               return;
+                                return;
                             }
 
 
@@ -437,7 +438,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 
 
-     /////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////
 
 
 

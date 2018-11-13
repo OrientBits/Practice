@@ -29,7 +29,6 @@ public class FragmentPlayRandom extends Fragment {
 
 
         HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
-        HomeContainer.mToolbarView.setBackgroundColor(0);
         HomeContainer.title_text.setText(null);
 
 
