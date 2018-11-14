@@ -64,6 +64,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     public static CardView toolbar_card_view_2;
     protected ImageView profile_header;
     public static TextView title_text;
+    public static FirebaseAuth mAuth;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -74,7 +75,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home_container);
         fa = this; // for only context
-
+        mAuth=FirebaseAuth.getInstance();
 
 
 

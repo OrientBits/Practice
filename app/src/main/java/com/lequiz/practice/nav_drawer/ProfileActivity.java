@@ -176,7 +176,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                                         }
                                         if (gender.equals("female")) {
                                             Picasso.get()
-                                                    .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                    .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder)
                                                     .networkPolicy(NetworkPolicy.OFFLINE)
                                                     .into(circleImageView, new Callback() {
                                                         @Override
@@ -190,7 +190,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
                                                             Picasso.get()
-                                                                    .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                                    .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder)
                                                                     .error(R.drawable.female_avatar_placeholder)
                                                                     .into(circleImageView, new Callback() {
                                                                         @Override
@@ -302,9 +302,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                             SharedPreferences.Editor editor = getSharedPreferences("userSharedPrefrences", MODE_PRIVATE).edit();
                             editor.putString("userProfileImgUrl", Users.getProfileImgUrl());
                             editor.apply();
-                            System.out.println("finally " + Users.getProfileImgUrl());
-
-                            System.out.println("Before "+Users.getProfileImgUrl());
 
                             if (!TextUtils.isEmpty(Users.getProfileImgUrl()))
                             {

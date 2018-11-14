@@ -19,6 +19,7 @@ import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
+import com.lequiz.practice.module.Users;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -30,7 +31,7 @@ public class NavSettings extends AppCompatActivity {
     private SharedPreferenceConfig sharedPreferenceConfig;
     protected Toolbar toolbar;
     CardView toolbar_card_view_2;
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,12 +149,14 @@ public class NavSettings extends AppCompatActivity {
     public void userLogout(View view)
     {
         SharedPreferences.Editor editor =  getSharedPreferences("userSharedPrefrences",MODE_PRIVATE).edit();
-        editor.remove("userProfileImgUrl").apply();
+        editor.putString("userProfileImgUrl", null);
+        editor.apply();
 
         sharedPreferenceConfig.writeLoginStatus(false);
-        mAuth.getInstance().signOut();
+        HomeContainer.mAuth.signOut();
         startActivity(new Intent(this,Login.class));
         finish();
         HomeContainer.fa.finish();
+
         }
 }

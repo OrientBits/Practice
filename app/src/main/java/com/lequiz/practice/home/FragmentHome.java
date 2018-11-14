@@ -65,7 +65,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FragmentHome extends Fragment implements ObservableScrollViewCallbacks {
 
     MenuItem fav;
-    FirebaseAuth mAuth;
+
     DatabaseReference currentUserRef;
     TextView userName, wishes;
     protected CircleImageView profile_home;
@@ -78,6 +78,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     String profileImgUrl;
 
 
+
     public FragmentHome() {
         // Required empty public constructor
     }
@@ -88,7 +89,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         View inflateView = inflater.inflate(R.layout.fragment_home, container, false);
         setHasOptionsMenu(true);
 
-        mAuth  = FirebaseAuth.getInstance();
+
 
         userName = inflateView.findViewById(R.id.user_name);
         wishes = inflateView.findViewById(R.id.wishing);
@@ -206,7 +207,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 //        // Firebase Setup
 
-        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
+        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
+        System.out.println(HomeContainer.mAuth.getCurrentUser().getUid());
 
         currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -220,7 +222,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     if(loginStatus.equals("F"))
                     {
 
-                        mAuth.signOut();
+                        HomeContainer.mAuth.signOut();
                         startActivity(new Intent(mContext,Login.class));
                         Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
                     }
@@ -242,7 +244,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 // Checking if the user has current img url or not
 
-        currentUserRef.addValueEventListener(new ValueEventListener() {
+       currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try
@@ -251,11 +253,11 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
                 catch (NullPointerException e)
                 {
-                    System.out.println("is empty "+profileImgUrl);
+                    System.out.println("Profile img url "+profileImgUrl);
                 }
 
 
-                if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null  )
+                if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null )
 
                 {
 
@@ -268,12 +270,12 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                             try
                             {
                                 String gender=dataSnapshot.child("gender").getValue().toString();
-                                System.out.println("Gender "+gender);
+
                                 if(gender.equals("male"))
                                 {
                                     Picasso.get()
-                                            .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder).centerCrop()
-                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                            .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder)
+                                           .networkPolicy(NetworkPolicy.OFFLINE)
                                             .into(profile_home, new Callback() {
                                                 @Override
                                                 public void onSuccess() {
@@ -286,7 +288,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 
                                                     Picasso.get()
-                                                            .load(profileImgUrl).placeholder(R.drawable.male_avatar_placeholder).centerCrop()
+                                                            .load(profileImgUrl).placeholder(R.drawable.male_avatar_placeholder)
                                                             .error(R.drawable.male_avatar_placeholder)
                                                             .into(profile_home, new Callback() {
                                                                 @Override
@@ -308,9 +310,10 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                             });}
                                 if(gender.equals("female"))
                                 {
+                                    System.out.println("Inside female");
                                     Picasso.get()
                                             .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder)
-                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                          .networkPolicy(NetworkPolicy.OFFLINE)
                                             .into(profile_home, new Callback() {
                                                 @Override
                                                 public void onSuccess() {
@@ -322,7 +325,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 
                                                     Picasso.get()
-                                                            .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                            .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder)
                                                             .error(R.drawable.female_avatar_placeholder)
                                                             .into(profile_home, new Callback() {
                                                                 @Override
