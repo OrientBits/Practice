@@ -161,7 +161,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                                                                         public void onSuccess() {
                                                                             Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
                                                                         }
-
                                                                         @Override
                                                                         public void onError(Exception e) {
                                                                             Log.v("Picasso", "Could not fetch image");
