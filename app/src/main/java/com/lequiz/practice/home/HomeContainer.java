@@ -136,7 +136,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-
         View headerView = navigationView.getHeaderView(0);
         drawarProfileImg = headerView.findViewById(R.id.profile_image_drawar);
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
