@@ -72,6 +72,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
     public MenuItem menuItem;
+    TextView userNameOnDrawar;
     public static CardView toolbar_card_view_2;
     public static TextView title_text;
     DatabaseReference currentUserRef;
@@ -138,7 +139,39 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
         View headerView = navigationView.getHeaderView(0);
         drawarProfileImg = headerView.findViewById(R.id.profile_image_drawar);
+        userNameOnDrawar = headerView.findViewById(R.id.user_name_on_drawar);
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////Fetching name
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+                    String fancyName=dataSnapshot.child("fancyName").getValue().toString();
+
+                    // Here we can set fancy name
+
+
+                }
+                catch(NullPointerException e)
+                {
+                    String firstName=dataSnapshot.child("firstName").getValue().toString();
+                    userNameOnDrawar.setText(firstName);
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

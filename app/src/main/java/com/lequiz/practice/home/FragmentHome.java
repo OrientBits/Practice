@@ -67,7 +67,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     MenuItem fav;
 
     DatabaseReference currentUserRef;
-    TextView userName, wishes;
+    TextView  wishes,userNameOnHome;
     protected CircleImageView profile_home;
     private ObservableScrollView mScrollView;
     Context mContext;
@@ -76,6 +76,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     Resources profileImgDrawableToSet;
     String gender;
     String profileImgUrl;
+
 
 
     public FragmentHome() {
@@ -89,8 +90,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         setHasOptionsMenu(true);
 
 
+        userNameOnHome = inflateView.findViewById(R.id.user_name_on_home);
 
-        userName = inflateView.findViewById(R.id.user_name);
         wishes = inflateView.findViewById(R.id.wishing);
         userNameInGradient();
 
@@ -208,6 +209,59 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
         System.out.println(HomeContainer.mAuth.getCurrentUser().getUid());
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Fetching username(first name)
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+                String fancyName=dataSnapshot.child("fancyName").getValue().toString();
+
+                // Here we can set fancy name
+
+
+                }
+                catch(NullPointerException e)
+                {
+                    String firstName=dataSnapshot.child("firstName").getValue().toString();
+                    userNameOnHome.setText(firstName);
+
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -522,7 +576,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         Shader textShader = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
-        userName.getPaint().setShader(textShader);
+        userNameOnHome.getPaint().setShader(textShader);
 
 
 
