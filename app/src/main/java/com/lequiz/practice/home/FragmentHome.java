@@ -315,8 +315,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                                 @Override
                                                 public void onSuccess() {
 
-
-                                                }
+                                                    }
 
                                                 @Override
                                                 public void onError(Exception e) {
