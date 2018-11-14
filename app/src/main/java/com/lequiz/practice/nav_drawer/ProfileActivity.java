@@ -441,7 +441,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         toolbar_card_view_2 = findViewById(R.id.toolbar_card_view_2);
 
         
-
         toolbar_card_view_2.setVisibility(View.INVISIBLE);
 
 
