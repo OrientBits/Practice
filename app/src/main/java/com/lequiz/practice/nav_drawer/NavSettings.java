@@ -19,6 +19,9 @@ import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.SharedPreferenceConfig;
 import com.lequiz.practice.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -145,9 +148,8 @@ public class NavSettings extends AppCompatActivity {
     public void userLogout(View view)
     {
         SharedPreferences.Editor editor =  getSharedPreferences("userSharedPrefrences",MODE_PRIVATE).edit();
-        editor.clear();
-        editor.apply();
-    //    Picasso.get().load(Users.getProfileImgUrl()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE);
+        editor.remove("userProfileImgUrl").apply();
+
         sharedPreferenceConfig.writeLoginStatus(false);
         mAuth.getInstance().signOut();
         startActivity(new Intent(this,Login.class));

@@ -309,7 +309,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                 if(gender.equals("female"))
                                 {
                                     Picasso.get()
-                                            .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                            .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder)
                                             .networkPolicy(NetworkPolicy.OFFLINE)
                                             .into(profile_home, new Callback() {
                                                 @Override
