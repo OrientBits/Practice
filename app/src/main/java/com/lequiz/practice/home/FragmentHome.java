@@ -78,7 +78,6 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     String profileImgUrl;
 
 
-
     public FragmentHome() {
         // Required empty public constructor
     }
