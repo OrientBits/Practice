@@ -76,6 +76,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         fa = this; // for only context
 
 
+
+
+
         new FullScreenStatusOnly(this);
 
 

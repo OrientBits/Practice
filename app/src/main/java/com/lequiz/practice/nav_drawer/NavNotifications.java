@@ -34,15 +34,5 @@ public class NavNotifications extends AppCompatActivity {
         // for status bar color
         FullScreenStatusOnly fullScreenStatusOnly = new FullScreenStatusOnly(this);
 
-
-
-        ProgressBar progressBar =  findViewById(R.id.progressBar);
-        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 500); // see this max value coming back here, we animate towards that value
-        animation.setDuration(5000); // in milliseconds
-        animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();
-
-
-
     }
 }

@@ -88,6 +88,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     FirebaseUser firebaseUser;
     Uri imgProfile;
     Bitmap bitmap;
+    String profileImgUrl;
 
 
 
@@ -107,6 +108,177 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         if(mAuth.getCurrentUser()!=null) {
             final String uId = mAuth.getCurrentUser().getUid();
             refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + uId);
+
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            if(profileImgUrl==null) {
+
+                refToSpecificUser.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        try {
+
+                            profileImgUrl = dataSnapshot.child("profileImgUrl").getValue().toString();
+                        } catch (NullPointerException e) {
+                            System.out.println("is empty " + profileImgUrl);
+                        }
+
+
+                        if (TextUtils.isEmpty(profileImgUrl) && profileImgUrl == null)
+
+                        {
+
+
+                            // if profile Img url is empty then this code will run
+
+                            refToSpecificUser.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    try {
+                                        String gender = dataSnapshot.child("gender").getValue().toString();
+                                        System.out.println("Gender " + gender);
+                                        if (gender.equals("male")) {
+                                            Picasso.get()
+                                                    .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder)
+                                                    .networkPolicy(NetworkPolicy.OFFLINE)
+                                                    .into(circleImageView, new Callback() {
+                                                        @Override
+                                                        public void onSuccess() {
+
+
+                                                        }
+
+                                                        @Override
+                                                        public void onError(Exception e) {
+
+
+                                                            Picasso.get()
+                                                                    .load(profileImgUrl).placeholder(R.drawable.male_avatar_placeholder)
+                                                                    .error(R.drawable.male_avatar_placeholder)
+                                                                    .into(circleImageView, new Callback() {
+                                                                        @Override
+                                                                        public void onSuccess() {
+                                                                            Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                        }
+
+                                                                        @Override
+                                                                        public void onError(Exception e) {
+                                                                            Log.v("Picasso", "Could not fetch image");
+                                                                        }
+
+
+                                                                    });
+
+                                                        }
+
+
+                                                    });
+                                        }
+                                        if (gender.equals("female")) {
+                                            Picasso.get()
+                                                    .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                    .networkPolicy(NetworkPolicy.OFFLINE)
+                                                    .into(circleImageView, new Callback() {
+                                                        @Override
+                                                        public void onSuccess() {
+
+
+                                                        }
+
+                                                        @Override
+                                                        public void onError(Exception e) {
+
+
+                                                            Picasso.get()
+                                                                    .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder).centerCrop()
+                                                                    .error(R.drawable.female_avatar_placeholder)
+                                                                    .into(circleImageView, new Callback() {
+                                                                        @Override
+                                                                        public void onSuccess() {
+                                                                            Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                        }
+
+                                                                        @Override
+                                                                        public void onError(Exception e) {
+                                                                            Log.v("Picasso", "Could not fetch image");
+                                                                        }
+
+
+                                                                    });
+
+                                                        }
+
+
+                                                    });
+                                        }
+                                    } catch (NullPointerException e) {
+                                        return;
+                                    }
+
+
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    System.out.println("Database error 346");
+                                }
+                            });
+
+
+                        } else {
+
+                            // If the profile Img Url is not empty. Setting the profile Img from the url
+                            Picasso.get()
+                                    .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+                                    .networkPolicy(NetworkPolicy.OFFLINE)
+                                    .into(circleImageView, new Callback() {
+                                        @Override
+                                        public void onSuccess() {
+
+
+                                        }
+
+                                        @Override
+                                        public void onError(Exception e) {
+
+
+                                            Picasso.get()
+                                                    .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+
+                                                    .into(circleImageView, new Callback() {
+                                                        @Override
+                                                        public void onSuccess() {
+                                                            Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                        }
+
+                                                        @Override
+                                                        public void onError(Exception e) {
+                                                            Log.v("Picasso", "Could not fetch image");
+                                                        }
+
+
+                                                    });
+
+                                        }
+
+
+                                    });
+
+
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

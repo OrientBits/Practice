@@ -2,6 +2,7 @@ package com.lequiz.practice.home;
 
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.LinearGradient;
@@ -69,6 +70,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     TextView userName, wishes;
     protected CircleImageView profile_home;
     private ObservableScrollView mScrollView;
+    Context mContext;
     private int mParallaxImageHeight;
     protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Resources profileImgDrawableToSet;
@@ -219,7 +221,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     {
 
                         mAuth.signOut();
-                        startActivity(new Intent(getContext(),Login.class));
+                        startActivity(new Intent(mContext,Login.class));
                         Toast.makeText(getActivity(),"Session Expired. You need to login again", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -289,7 +291,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                                             .into(profile_home, new Callback() {
                                                                 @Override
                                                                 public void onSuccess() {
-                                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(mContext, "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
                                                                 }
 
                                                                 @Override
@@ -326,7 +328,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                                             .into(profile_home, new Callback() {
                                                                 @Override
                                                                 public void onSuccess() {
-                                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(mContext, "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
                                                                 }
 
                                                                 @Override
@@ -384,7 +386,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                                             .into(profile_home, new Callback() {
                                                 @Override
                                                 public void onSuccess() {
-                                                    Toast.makeText(getContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(mContext, "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
                                                 }
 
                                                 @Override
@@ -459,6 +461,11 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         });
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
