@@ -19,6 +19,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,8 +34,14 @@ import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.module.Users;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
 import com.lequiz.practice.nav_drawer.NavLeaderboard;
 import com.lequiz.practice.nav_drawer.NavNotifications;
@@ -42,6 +50,9 @@ import com.lequiz.practice.nav_drawer.NavSettings;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.lequiz.practice.nav_drawer.QuizFactory;
 import com.loopeer.shadow.ShadowView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -62,9 +73,11 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     protected CircleImageView profile_home;
     public MenuItem menuItem;
     public static CardView toolbar_card_view_2;
-    protected ImageView profile_header;
     public static TextView title_text;
+    DatabaseReference currentUserRef;
     public static FirebaseAuth mAuth;
+    CircleImageView drawarProfileImg;
+    String profileImgUrl;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -125,9 +138,222 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
 
         View headerView = navigationView.getHeaderView(0);
-        profile_header = headerView.findViewById(R.id.profile_image);
+        drawarProfileImg = headerView.findViewById(R.id.profile_image_drawar);
+        currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
 
-        profile_header.setOnClickListener(new View.OnClickListener() {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try
+                {
+
+                    profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
+                catch (NullPointerException e)
+                {
+                    System.out.println("Profile img url "+profileImgUrl);
+                }
+
+
+                if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null )
+
+                {
+
+
+                    // if profile Img url is empty then this code will run
+
+                    currentUserRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            try
+                            {
+                                String gender=dataSnapshot.child("gender").getValue().toString();
+
+                                if(gender.equals("male"))
+                                {
+                                    Picasso.get()
+                                            .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder)
+                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                            .into(drawarProfileImg, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+
+
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+
+
+                                                    Picasso.get()
+                                                            .load(profileImgUrl).placeholder(R.drawable.male_avatar_placeholder)
+                                                            .error(R.drawable.male_avatar_placeholder)
+                                                            .into(drawarProfileImg, new Callback() {
+                                                                @Override
+                                                                public void onSuccess() {
+                                                                    Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                }
+
+                                                                @Override
+                                                                public void onError(Exception e) {
+                                                                    Log.v("Picasso", "Could not fetch image");
+                                                                }
+
+
+                                                            });
+
+                                                }
+
+
+                                            });}
+                                if(gender.equals("female"))
+                                {
+                                    System.out.println("Inside female");
+                                    Picasso.get()
+                                            .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder)
+                                            .networkPolicy(NetworkPolicy.OFFLINE)
+                                            .into(drawarProfileImg, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+
+
+                                                    Picasso.get()
+                                                            .load(Users.getProfileImgUrl()).placeholder(R.drawable.female_avatar_placeholder)
+                                                            .error(R.drawable.female_avatar_placeholder)
+                                                            .into(profile_home, new Callback() {
+                                                                @Override
+                                                                public void onSuccess() {
+                                                                    Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                }
+
+                                                                @Override
+                                                                public void onError(Exception e) {
+                                                                    Log.v("Picasso", "Could not fetch image");
+                                                                }
+
+
+                                                            });
+
+                                                }
+
+
+                                            });}
+                            }
+                            catch(NullPointerException e)
+                            {
+                                return;
+                            }
+
+
+
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            System.out.println("Database error 346");
+                        }
+                    });
+
+
+
+                }
+                else
+                {
+
+                    // If the profile Img Url is not empty. Setting the profile Img from the url
+                    Picasso.get()
+                            .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+                            .networkPolicy(NetworkPolicy.OFFLINE)
+                            .into(drawarProfileImg, new Callback() {
+                                @Override
+                                public void onSuccess() {
+
+
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+
+
+                                    Picasso.get()
+                                            .load(profileImgUrl).placeholder(R.drawable.default_profile_picture)
+
+                                            .into(drawarProfileImg, new Callback() {
+                                                @Override
+                                                public void onSuccess() {
+                                                    Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                                @Override
+                                                public void onError(Exception e) {
+                                                    Log.v("Picasso", "Could not fetch image");
+                                                }
+
+
+                                            });
+
+                                }
+
+
+                            });
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        drawarProfileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent PA = new Intent(HomeContainer.this, ProfileActivity.class);
