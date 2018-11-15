@@ -548,7 +548,6 @@
                                 android:paddingEnd="0dp"
                                 android:src="@drawable/profile_date_of_birth"
                                 tools:ignore="ContentDescription" />
-
                             <TextView
                                 android:id="@+id/user_DOB"
                                 android:layout_width="wrap_content"
