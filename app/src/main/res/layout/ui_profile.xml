@@ -101,7 +101,7 @@
                         android:id="@+id/profile_user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/user_name"
+
                         android:textColor="@color/colorAccent"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -112,7 +112,8 @@
                         android:paddingTop="0dp"
                         android:paddingBottom="10dp"
                         android:textColor="#96e46300"
-                        android:text="@string/status" />
+                        android:text="I'm new on LeQuiz! "
+                        android:id="@+id/user_custom_status" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -211,7 +212,7 @@
                                 android:layout_toEndOf="@id/profile_call_image"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
-                                android:text="@string/user_mobile_no"
+                                android:text="Please set your number"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -256,7 +257,7 @@
                                 android:layout_toEndOf="@id/profile_fancy_name"
                                 android:paddingStart="17dp"
                                 android:paddingEnd="0dp"
-                                android:text="Jyotsana Mithlesh"
+                                android:text="Please set your Fancy Name"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -365,20 +366,19 @@
                                 tools:ignore="ContentDescription" />
 
                             <TextView
-                                android:id="@+id/user_name"
+                                android:id="@+id/user_name_on_profile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="25dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_toEndOf="@id/person_image_temp"
                                 android:paddingStart="12dp"
                                 android:paddingEnd="0dp"
-                                android:text="@string/user_name"
                                 android:textSize="16sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user_name"
+                                android:layout_below="@id/user_name_on_profile"
                                 android:layout_toEndOf="@id/person_image_temp"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
@@ -411,20 +411,19 @@
                                 tools:ignore="ContentDescription" />
 
                             <TextView
-                                android:id="@+id/user_email"
+                                android:id="@+id/user_email_on_profile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="25dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_toEndOf="@id/email_image_temp"
                                 android:paddingStart="12dp"
                                 android:paddingEnd="0dp"
-                                android:text="@string/user_email"
                                 android:textSize="16sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user_email"
+                                android:layout_below="@id/user_email_on_profile"
                                 android:layout_toEndOf="@id/email_image_temp"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
@@ -465,7 +464,7 @@
                                 android:layout_toEndOf="@id/sex_image_temp"
                                 android:paddingStart="12dp"
                                 android:paddingEnd="0dp"
-                                android:text="@string/user_sex"
+                                android:text="Please specify your Gender"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -558,7 +557,7 @@
                                 android:layout_toEndOf="@id/DOB_image_temp"
                                 android:paddingStart="12dp"
                                 android:paddingEnd="0dp"
-                                android:text="@string/user_date_of_birth"
+                                android:text="Please specify your D.O.B"
                                 android:textSize="16sp" />
 
                             <TextView

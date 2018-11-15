@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.text.method.NumberKeyListener;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -69,10 +70,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
     private View mToolbarView;
-
-    String fName;
-
-
     private DatabaseReference refToSpecificUser;
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
@@ -82,13 +79,18 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     RelativeLayout toolbarLayout;
     private Uri imgToUpload;
     Uri profileImage;
-    TextView title_text,user_name;
+    TextView title_text,user_name, user_email,user_name_on_profile;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
     Uri imgProfile;
     Bitmap bitmap;
     String profileImgUrl;
+    FirebaseUser mUser;
+    String firstName;
+    String lastName;
+    String fullName;
+    String email;
 
 
 
@@ -99,6 +101,13 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         setContentView(R.layout.ui_profile);
         mAuth = FirebaseAuth.getInstance();
         circleImageView = findViewById(R.id.userImageProfileView);
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        // User name refrence
+
+        user_name = findViewById(R.id.profile_user_name);
+        user_email = findViewById(R.id.user_email_on_profile);
+       user_name_on_profile=findViewById(R.id.user_name_on_profile);
 
 
 
@@ -110,6 +119,45 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
             refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + uId);
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Fetching name from database
+
+            refToSpecificUser.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try {
+
+
+                    firstName = dataSnapshot.child("firstName").getValue().toString();
+                    lastName = dataSnapshot.child("lastName").getValue().toString();
+
+                    fullName= firstName+" "+lastName;
+                    user_name.setText(fullName);
+                    email = dataSnapshot.child("email").getValue().toString();
+                    user_email.setText(email);
+                    user_name_on_profile.setText(fullName);
+
+
+                    }
+                    catch (NullPointerException e)
+                    {
+                        fullName = mUser.getDisplayName();
+                        user_name.setText(fullName);
+                        email=mUser.getEmail();
+                        user_email.setText(email);
+                        user_name_on_profile.setText(fullName);
+
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -125,7 +173,13 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
                             profileImgUrl = dataSnapshot.child("profileImgUrl").getValue().toString();
                         } catch (NullPointerException e) {
-                            System.out.println("is empty " + profileImgUrl);
+                            try{
+                                // Fetching google photo
+                                profileImgUrl=mUser.getPhotoUrl().toString();}
+                            catch(NullPointerException f)
+                            {
+
+                            }
                         }
 
 

@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -79,6 +80,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     public static FirebaseAuth mAuth;
     CircleImageView drawarProfileImg;
     String profileImgUrl;
+    FirebaseUser mUser;
+    String firstName;
+
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -90,9 +94,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.fragment_home_container);
         fa = this; // for only context
         mAuth=FirebaseAuth.getInstance();
-
-
-
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
 
         new FullScreenStatusOnly(this);
 
@@ -158,8 +160,16 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 }
                 catch(NullPointerException e)
                 {
+                    try{
                     String firstName=dataSnapshot.child("firstName").getValue().toString();
-                    userNameOnDrawar.setText(firstName);
+                    userNameOnDrawar.setText(firstName);}
+                    catch (NullPointerException f)
+                    {
+                        String displayName=mUser.getDisplayName();
+                        int indexOfBlank=displayName.indexOf(" ");
+                        firstName = displayName.substring(0,indexOfBlank);
+                        userNameOnDrawar.setText(firstName);
+                    }
 
 
                 }
@@ -184,7 +194,13 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                     profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
                 catch (NullPointerException e)
                 {
-                    System.out.println("Profile img url "+profileImgUrl);
+                    try{
+                        // Fetching google photo
+                        profileImgUrl=mUser.getPhotoUrl().toString();}
+                    catch(NullPointerException f)
+                    {
+
+                    }
                 }
 
 

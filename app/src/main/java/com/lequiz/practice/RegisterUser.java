@@ -169,6 +169,10 @@ public class RegisterUser extends AppCompatActivity {
 
                                 if(task.isSuccessful())
                                 {
+                                    // Adding email verified status to firebase database
+
+
+                                    mDatabaseRefrence.child(mAuth.getCurrentUser().getUid()).child("isEmailVerified").setValue("false");
                                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                     regProgress.setVisibility(View.INVISIBLE);
                                     Toast.makeText(getApplicationContext(), "Your details are now secure with us!",Toast.LENGTH_LONG).show();

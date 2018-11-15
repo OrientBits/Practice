@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,7 +31,10 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,6 +62,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -75,8 +80,11 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     protected ShadowView currentAffairs, computer, mathematics, reasoning, generalScience, english, technology, sports, special, entertainment;
     Resources profileImgDrawableToSet;
     String gender;
+    String firstName;
+    FirebaseAuth mAuth;
     String profileImgUrl;
-
+    FirebaseUser mUser;
+    String lastName;
 
 
     public FragmentHome() {
@@ -199,16 +207,38 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 startActivity(new Intent(getActivity(),ProfileActivity.class));
             }
         });
+        mAuth = FirebaseAuth.getInstance();
 
         /*end of set on click listener */
 
-
-
-
-//        // Firebase Setup
-
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
-        System.out.println(HomeContainer.mAuth.getCurrentUser().getUid());
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Details were sent to database here, if signing in from google
+        if(mUser.getDisplayName()!=null)
+        {
+            System.out.println("Inside");
+        String displayName = mUser.getDisplayName();
+        int indexOfBlank=displayName.indexOf(" ");
+        firstName = displayName.substring(0,indexOfBlank);
+        userNameOnHome.setText(firstName);
+        lastName=displayName.substring(indexOfBlank+1);
+        String email = mUser.getEmail();
+        String photoUrl = mUser.getPhotoUrl().toString();
+        boolean emailVerified = mUser.isEmailVerified();
+        String uid = mUser.getUid();
+
+        // Exporting data to firebase
+
+        currentUserRef.child("firstName").setValue(firstName);
+        currentUserRef.child("lastName").setValue(lastName);
+        currentUserRef.child("email").setValue(email);
+        currentUserRef.child("profileImgUrl").setValue(photoUrl);
+        currentUserRef.child("isEmailVerified").setValue(emailVerified);}
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,16 +250,30 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try
                 {
-                String fancyName=dataSnapshot.child("fancyName").getValue().toString();
-
+                String fancyName = dataSnapshot.child("fancyName").getValue().toString();
                 // Here we can set fancy name
-
-
                 }
                 catch(NullPointerException e)
                 {
-                    String firstName=dataSnapshot.child("firstName").getValue().toString();
+                    try{
+                    firstName=dataSnapshot.child("firstName").getValue().toString();
                     userNameOnHome.setText(firstName);
+                    }
+                    catch (NullPointerException f)
+                    {
+
+                        String displayName = mUser.getDisplayName();
+                        int indexOfBlank=displayName.indexOf(" ");
+                        firstName = displayName.substring(0,indexOfBlank);
+                        userNameOnHome.setText(firstName);
+                        lastName=displayName.substring(indexOfBlank+1);
+                        System.out.println("Last name"+lastName);
+                        String email = mUser.getEmail();
+                        currentUserRef.child("email").setValue(email);
+                        currentUserRef.child("lastName").setValue(lastName);
+                        currentUserRef.child("firstName").setValue(firstName);
+
+                    }
 
 
 
@@ -306,7 +350,13 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
                 catch (NullPointerException e)
                 {
-                    System.out.println("Profile img url "+profileImgUrl);
+                    try{
+                        // Fetching google photo
+                    profileImgUrl=mUser.getPhotoUrl().toString();}
+                    catch(NullPointerException f)
+                    {
+
+                    }
                 }
 
 
@@ -583,12 +633,12 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         int hours = new Time(System.currentTimeMillis()).getHours();
         if (hours >= 5 && hours < 12) {
             wishes.setText("Good morning ");
-        } else if (hours >= 12 && hours < 18) {
+        } else if (hours >= 12 && hours < 16) {
             wishes.setText("Good afternoon ");
-        } else if (hours >= 18 && hours < 22) {
+        } else if (hours >= 16 && hours < 22) {
             wishes.setText("Good evening");
         } else
-            wishes.setText("Good night");
+            wishes.setText("Look at the stars");
 
         Shader textShader1 = new LinearGradient(0, 0, 180, 0,
                 new int[]{getResources().getColor(R.color.blueOnHomeText), getResources().getColor(R.color.purpleOnHomeText)},
