@@ -212,7 +212,7 @@
                                 android:layout_toEndOf="@id/profile_call_image"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
-                                android:text="Please set your number"
+                                android:text="Please set your Number"
                                 android:textSize="16sp" />
 
                             <TextView
