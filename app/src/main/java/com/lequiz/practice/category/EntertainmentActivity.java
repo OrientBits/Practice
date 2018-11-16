@@ -7,6 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -24,6 +25,13 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
 import com.lequiz.practice.adapters.NewsListAdapter;
@@ -48,6 +56,13 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
     private int mParallaxImageHeight;
     RelativeLayout toolbarLayout;
     TextView title_text;
+    FirebaseUser mUser;
+    DatabaseReference currentUserRef;
+    FirebaseAuth mAuth;
+    String firstName;
+    String fancyName;
+    String lastName;
+    String heyUserNameMaker;
 
 
     private static final String NEWS_REQUEST_URL =
@@ -61,6 +76,11 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
 
 
         shimmerFrameLayout = findViewById(R.id.shimmer_layout_container);
+
+        // Initializing mAuth
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
 
         imageErrorLogo = findViewById(R.id.le_quiz_error_logo);
         errorMessageNoInternet = findViewById(R.id.error_message_no_internet);
@@ -139,9 +159,56 @@ public class EntertainmentActivity extends AppCompatActivity implements LoaderMa
 
         // Hey UserName Initilization on learn section
 
-        TextView heyUserName = findViewById(R.id.hey_user_name);
-        String heyUserNameMaker = "Hey "+getString(R.string.user_first_name)+",";
-        heyUserName.setText(heyUserNameMaker);
+        final TextView heyUserName = findViewById(R.id.hey_user_name);
+        heyUserNameMaker = "Hey, ";
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Fetching name
+
+        final String uId = mAuth.getCurrentUser().getUid();
+        currentUserRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + uId);
+
+        currentUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try{
+                    fancyName=dataSnapshot.child("fancyName").getValue().toString();
+                    heyUserNameMaker+=fancyName;
+                    heyUserName.setText(heyUserNameMaker);
+
+                }
+                catch(NullPointerException e)
+                {
+                    try{
+                        firstName=dataSnapshot.child("firstName").getValue().toString();
+                        heyUserNameMaker+=firstName;
+                        System.out.println("last line fname "+heyUserNameMaker);
+                        heyUserName.setText(heyUserNameMaker);
+
+                    }
+                    catch(NullPointerException f)
+                    {
+                        String displayName = mUser.getDisplayName();
+                        int indexOfBlank=displayName.indexOf(" ");
+                        firstName = displayName.substring(0,indexOfBlank);
+                        lastName=displayName.substring(indexOfBlank+1);
+
+                        heyUserNameMaker+=firstName;
+                        heyUserName.setText(heyUserNameMaker);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
