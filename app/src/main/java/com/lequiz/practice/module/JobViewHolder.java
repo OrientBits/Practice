@@ -28,8 +28,7 @@ public class JobViewHolder extends RecyclerView.ViewHolder {
                 String sourceUrlAgain = applyOnlineLink;
                 intent.putExtra("sourceUrlAgain",sourceUrlAgain);
                 view.getContext().startActivity(intent);
-
-            }
+                }
         });
 
 
