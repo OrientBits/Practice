@@ -65,6 +65,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
     }
 
     @Override
@@ -81,4 +82,6 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+
 }

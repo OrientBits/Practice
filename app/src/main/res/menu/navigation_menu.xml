@@ -27,7 +27,7 @@
 
         <item
             android:id="@+id/invite_friends"
-            android:icon="@drawable/drawer_invite_firend"
+            android:icon="@drawable/drawer_invite_friend"
             android:title="@string/invite_friends" />
 
     </group>

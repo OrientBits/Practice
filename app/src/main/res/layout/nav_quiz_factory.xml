@@ -50,7 +50,10 @@
 
                     <Spinner
                         android:id="@+id/spinner_to_choose_category"
-                        android:layout_width="wrap_content"
+                        android:layout_width="255dp"
+                        android:paddingStart="50dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:gravity="end"
