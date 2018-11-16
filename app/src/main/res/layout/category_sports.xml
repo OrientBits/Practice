@@ -98,6 +98,7 @@
                         android:layout_gravity="center"
                         tools:ignore="ContentDescription" />
 
+
                 </android.support.v7.widget.CardView>
 
                 <TextView
