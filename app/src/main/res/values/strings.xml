@@ -154,4 +154,7 @@
     <string name="spinner_title">Choose Category</string>
     <string name="right_arrow">Right Arrow Down</string>
     <string name="title_activity_login">Login</string>
+    <string name="country_selector">+91</string>
+
+
 </resources>

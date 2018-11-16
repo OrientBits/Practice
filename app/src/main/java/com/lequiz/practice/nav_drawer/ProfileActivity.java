@@ -49,6 +49,7 @@ import com.google.firebase.storage.UploadTask;
 import com.lequiz.practice.Login;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
+import com.lequiz.practice.dialog_box.ProfileAccountEdit;
 import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.Users;
 import com.soundcloud.android.crop.Crop;
@@ -663,5 +664,12 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                 new int[]{getResources().getColor(R.color.purpleOnHomeText), getResources().getColor(R.color.blueOnProfileText)},
                 new float[]{0, 1}, Shader.TileMode.CLAMP);
         user_name.getPaint().setShader(textShader);
+    }
+
+    public void accountEdit(View view) {
+        new ProfileAccountEdit().show(getSupportFragmentManager(),"AccountEdit");
+    }
+
+    public void profileEdit(View view) {
     }
 }
