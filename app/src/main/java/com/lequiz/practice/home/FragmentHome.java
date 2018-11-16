@@ -242,7 +242,6 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Fetching username(first name)
-
         currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
