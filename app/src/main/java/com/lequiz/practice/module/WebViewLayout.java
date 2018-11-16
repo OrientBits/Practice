@@ -41,6 +41,9 @@ public class WebViewLayout extends AppCompatActivity {
             }
         });
         webView.setWebViewClient(new WebViewClient());  // Double webclient is used to open the links only in our app not in chrome
+        webView.getSettings().setBuiltInZoomControls(true);
+        // enable / disable javascript
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(sourceUrl);
         }
 

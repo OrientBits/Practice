@@ -14,7 +14,9 @@
     app:shadowMarginRight="6dp"
     app:shadowMarginTop="0.7dp"
     app:shadowRadius="20dp"
-    android:layout_margin="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp">
 
