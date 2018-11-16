@@ -87,6 +87,8 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
                 holder.jobTitle.setText(model.getJobTitle());
                 holder.endDate.setText(model.getEndDate());
                 holder.startDate.setText(model.getStartDate());
+                holder.applyOnlineLink = model.getApplyOnlineLink();
+
 
 
             }
