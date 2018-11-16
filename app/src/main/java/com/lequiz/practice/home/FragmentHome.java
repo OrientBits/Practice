@@ -226,7 +226,6 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         userNameOnHome.setText(firstName);
         lastName=displayName.substring(indexOfBlank+1);
         String email = mUser.getEmail();
-        String photoUrl = mUser.getPhotoUrl().toString();
         boolean emailVerified = mUser.isEmailVerified();
         String uid = mUser.getUid();
 
@@ -235,7 +234,6 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         currentUserRef.child("firstName").setValue(firstName);
         currentUserRef.child("lastName").setValue(lastName);
         currentUserRef.child("email").setValue(email);
-        currentUserRef.child("profileImgUrl").setValue(photoUrl);
         currentUserRef.child("isEmailVerified").setValue(emailVerified);}
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
