@@ -16,8 +16,8 @@
             android:id="@+id/home_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ccc"
-            android:paddingBottom="?actionBarSize" />
+            android:background="@color/white"
+            android:layout_marginBottom="?actionBarSize" />
 
         <include layout="@layout/toolbar_layout" />
 
@@ -26,20 +26,20 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
-            app:background="@android:drawable/dialog_holo_light_frame"
-            android:backgroundTint="@color/white"
-            app:fabCradleMargin="-10dp" />
+            android:backgroundTint="@color/colorAccent"
+            app:background="@color/white"
+            app:fabCradleMargin="4dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/random_fab_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:override="true"
-            android:src="@drawable/aa"
-            app:backgroundTint="#870c6e"
+            android:src="@drawable/ic_nav_random"
+            app:backgroundTint="@color/colorAccent"
             app:fabSize="normal"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="16dp"/>
+            app:layout_anchor="@id/bottom_app_bar"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/home_fab_bottom"
@@ -48,8 +48,7 @@
             android:layout_gravity="bottom|start"
             android:layout_marginStart="15dp"
             android:elevation="0dp"
-            app:backgroundTint="@color/white"
-            android:backgroundTint="@color/white"
+            app:backgroundTint="@color/colorAccent"
             android:src="@drawable/ic_nav_home"
             app:elevation="0dp"
             app:fabSize="normal" />
@@ -60,9 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="15dp"
-            app:backgroundTint="@color/white"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_nav_job_alert"
+            app:backgroundTint="@color/colorAccent"
+            android:src="@drawable/ic_nav_job_alerts"
             app:elevation="0dp"
             app:fabSize="normal" />
 

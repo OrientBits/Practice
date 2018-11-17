@@ -36,12 +36,13 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
 
     private ObservableScrollView mScrollView;
     private int mParallaxImageHeight;
-    private RecyclerView recycler;
+    RecyclerView recycler;
     Context mContext;
-    private DatabaseReference jobAlertListRef;
+    DatabaseReference jobAlertListRef;
     TextView headingOnJobAlerts;
     FirebaseRecyclerOptions<Jobs> jobOptions;
     FirebaseRecyclerAdapter<Jobs, JobViewHolder> mAdapter;
+
     public FragmentJobAlert() {
         // Required empty public constructor
     }
@@ -56,6 +57,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
         HomeContainer.title_text.setText(getText(R.string.job_alerts));
         headingOnJobAlerts = inflaterView.findViewById(R.id.heading_on_job_alerts);
+
         mScrollView = inflaterView.findViewById(R.id.job_alert_fragment_scroll);
         mScrollView.setScrollViewCallbacks(this);
         mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.image_height_home_part_1);
@@ -72,11 +74,11 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         jobAlertListRef = FirebaseDatabase.getInstance().getReference().child("fJobAlertsList");
         jobAlertListRef.keepSynced(true);
 
-        // Recyclerview
+        // RecyclerView
 
         recycler = inflaterView.findViewById(R.id.job_alerts_recycler_view);
-        recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(mContext));
+
 
         jobOptions = new FirebaseRecyclerOptions.Builder<Jobs>().setQuery(jobAlertListRef,Jobs.class).build();
 
@@ -88,8 +90,6 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
                 holder.endDate.setText(model.getEndDate());
                 holder.startDate.setText(model.getStartDate());
                 holder.applyOnlineLink = model.getApplyOnlineLink();
-
-
 
             }
 
@@ -104,6 +104,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         mAdapter.startListening();
         recycler.setAdapter(mAdapter);
 
+        recycler.setNestedScrollingEnabled(false);
 
 
 
@@ -132,8 +133,11 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         int baseColor = getResources().getColor(R.color.colorPrimary);
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
-        //HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
+        HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
         HomeContainer.title_text.setAlpha(alpha-(float)0.035);
+
+        HomeContainer.jobToolbarColor = alpha-(float)0.02;
+        HomeContainer.jobTitleAlha = alpha-(float)0.035;
     }
 
     @Override

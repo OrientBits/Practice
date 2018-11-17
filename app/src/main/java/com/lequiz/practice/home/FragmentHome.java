@@ -273,10 +273,12 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
                     }
 
+
+
                 }
 
-            }
 
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -581,6 +583,10 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         float alpha = Math.min(1, (float) scrollY / mParallaxImageHeight);
         HomeContainer.mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha-(float)0.02, baseColor));
         HomeContainer.title_text.setAlpha(alpha-(float)0.035);
+
+        HomeContainer.homeToolbarColor = alpha-(float)0.02;
+        HomeContainer.homeTitleAlpha = alpha-(float)0.035;
+
     }
 
     @Override

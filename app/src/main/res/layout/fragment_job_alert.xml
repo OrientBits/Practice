@@ -11,8 +11,7 @@
         android:id="@+id/job_alert_fragment_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,7 +43,8 @@
                 android:layout_below="@+id/heading_on_job_alerts"
                 android:layout_marginStart="16dp"
                 android:text="Search for latest jobs here"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
 
 
 
@@ -53,13 +53,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/subheading_on_current_affairs"
-                android:layout_marginTop="90dp">
+                android:layout_marginTop="85dp">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/job_alerts_recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:ignore="NestedScrolling" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -96,9 +96,12 @@
 
                 </LinearLayout>
 
+
+
             </RelativeLayout>
 
         </RelativeLayout>
+
 
     </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 

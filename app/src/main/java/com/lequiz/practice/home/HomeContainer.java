@@ -35,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
+import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -68,6 +69,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     static final Fragment fragmentHome = new FragmentHome();
     static final Fragment fragmentJobAlert = new FragmentJobAlert();
     static final Fragment fragmentRandom = new FragmentPlayRandom();
+    Fragment TempFragment = null;
     public static View mToolbarView;
     public static RelativeLayout toolbarLayout;
     boolean doubleBackToExitPressedOnce = false;
@@ -84,7 +86,10 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     String profileImgUrl;
     FirebaseUser mUser;
     String firstName;
-    FloatingActionButton homeBtn,randomBtn,jobBtn;
+    FloatingActionButton homeBtn, randomBtn, jobBtn;
+    public static float homeToolbarColor = 0.0f, randomToolbarColor = 0.0f, jobToolbarColor = 0.0f;
+    public static float homeTitleAlpha = 0.0f, randomTitleAlpha = 0.0f, jobTitleAlha = 0.0f;
+    public int baseColor1;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -95,20 +100,17 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home_container);
         fa = this; // for only context
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
         new FullScreenStatusOnly(this);
+        baseColor1 = getResources().getColor(R.color.colorPrimary);
 
 
         // initialization of bottom app bar
         homeBtn = findViewById(R.id.home_fab_bottom);
         randomBtn = findViewById(R.id.random_fab_bottom);
         jobBtn = findViewById(R.id.job_fab_bottom);
-
-
-
-
 
 
         // toolbar setup
@@ -138,17 +140,19 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         }
         toolbarLayout = findViewById(R.id.toolbar_root_layout);
         mToolbarView.setPadding(0, statusBarHeight, 8, 0);
-        toolbarLayout.setPadding(0,statusBarHeight,0,0);
-
+        toolbarLayout.setPadding(0, statusBarHeight, 0, 0);
 
 
         // bottom app bar
         title_text.setText(getText(R.string.home));
         loadFragment(fragmentHome);
 
+
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                title_text.setAlpha(homeTitleAlpha);
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
                 loadFragment(fragmentHome);
                 toolbar_card_view_2.setVisibility(View.VISIBLE);
                 title_text.setText(getText(R.string.home));
@@ -158,9 +162,11 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         randomBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                   loadFragment(fragmentRandom);
-                   toolbar_card_view_2.setVisibility(View.INVISIBLE);
-                   title_text.setText(getText(R.string.random_quiz));
+                title_text.setAlpha(jobTitleAlha);
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(jobToolbarColor, baseColor1));
+                loadFragment(fragmentRandom);
+                toolbar_card_view_2.setVisibility(View.INVISIBLE);
+                title_text.setText(getText(R.string.random_quiz));
             }
         });
 
@@ -172,15 +178,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 title_text.setText(getText(R.string.job_alerts));
             }
         });
-
-
-
-
-
-
-
-
-
 
 
         // implementing item of navigation drawer
@@ -199,24 +196,20 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try
-                {
-                    String fancyName=dataSnapshot.child("fancyName").getValue().toString();
+                try {
+                    String fancyName = dataSnapshot.child("fancyName").getValue().toString();
 
                     // Here we can set fancy name
 
 
-                }
-                catch(NullPointerException e)
-                {
-                    try{
-                    String firstName=dataSnapshot.child("firstName").getValue().toString();
-                    userNameOnDrawar.setText(firstName);}
-                    catch (NullPointerException f)
-                    {
-                        String displayName=mUser.getDisplayName();
-                        int indexOfBlank=displayName.indexOf(" ");
-                        firstName = displayName.substring(0,indexOfBlank);
+                } catch (NullPointerException e) {
+                    try {
+                        String firstName = dataSnapshot.child("firstName").getValue().toString();
+                        userNameOnDrawar.setText(firstName);
+                    } catch (NullPointerException f) {
+                        String displayName = mUser.getDisplayName();
+                        int indexOfBlank = displayName.indexOf(" ");
+                        firstName = displayName.substring(0, indexOfBlank);
                         userNameOnDrawar.setText(firstName);
                     }
 
@@ -237,23 +230,20 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         currentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try
-                {
+                try {
 
-                    profileImgUrl=dataSnapshot.child("profileImgUrl").getValue().toString();}
-                catch (NullPointerException e)
-                {
-                    try{
+                    profileImgUrl = dataSnapshot.child("profileImgUrl").getValue().toString();
+                } catch (NullPointerException e) {
+                    try {
                         // Fetching google photo
-                        profileImgUrl=mUser.getPhotoUrl().toString();}
-                    catch(NullPointerException f)
-                    {
+                        profileImgUrl = mUser.getPhotoUrl().toString();
+                    } catch (NullPointerException f) {
 
                     }
                 }
 
 
-                if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null )
+                if (TextUtils.isEmpty(profileImgUrl) && profileImgUrl == null)
 
                 {
 
@@ -263,12 +253,10 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                     currentUserRef.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            try
-                            {
-                                String gender=dataSnapshot.child("gender").getValue().toString();
+                            try {
+                                String gender = dataSnapshot.child("gender").getValue().toString();
 
-                                if(gender.equals("male"))
-                                {
+                                if (gender.equals("male")) {
                                     Picasso.get()
                                             .load(profileImgUrl).error(R.drawable.male_avatar_placeholder).placeholder(R.drawable.male_avatar_placeholder)
                                             .networkPolicy(NetworkPolicy.OFFLINE)
@@ -303,9 +291,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                                                 }
 
 
-                                            });}
-                                if(gender.equals("female"))
-                                {
+                                            });
+                                }
+                                if (gender.equals("female")) {
                                     System.out.println("Inside female");
                                     Picasso.get()
                                             .load(profileImgUrl).error(R.drawable.female_avatar_placeholder).placeholder(R.drawable.female_avatar_placeholder)
@@ -340,17 +328,15 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                                                 }
 
 
-                                            });}
-                            }
-                            catch(NullPointerException e)
-                            {
+                                            });
+                                }
+                            } catch (NullPointerException e) {
                                 return;
                             }
 
 
-
-
                         }
+
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             System.out.println("Database error 346");
@@ -358,10 +344,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                     });
 
 
-
-                }
-                else
-                {
+                } else {
 
                     // If the profile Img Url is not empty. Setting the profile Img from the url
                     Picasso.get()
@@ -401,12 +384,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                             });
 
 
-
-
-
-
                 }
-
 
 
             }
@@ -416,8 +394,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
             }
         });
-
-
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -435,9 +411,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     } // onCreate method
 
 
-
-
-
     public void loadFragment(final Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         final FragmentTransaction transaction = manager.beginTransaction();
@@ -449,15 +422,20 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
             if (fragmentJobAlert.isAdded())
                 transaction.remove(fragmentJobAlert);
 
-            if (fragmentHome.isAdded())
+            if (fragmentHome.isAdded()) {
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragmentHome);
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
+            }
             else
                 transaction.replace(R.id.home_fragment_container, fragment);
 
         } else {
-            if (fragmentHome.isAdded())
+            if (fragmentHome.isAdded()) {
                 transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
-            if (fragmentRandom.isAdded())
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
+            }if (fragmentRandom.isAdded())
                 transaction.remove(fragmentRandom);
             else
             if (fragmentJobAlert.isAdded())
@@ -468,6 +446,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
         transaction.commit();
     }
+
 
 
     @Override
