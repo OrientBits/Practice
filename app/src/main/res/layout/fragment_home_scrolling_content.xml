@@ -9,6 +9,7 @@
     android:layout_below="@+id/header_part_1"
     android:columnCount="2"
     android:columnOrderPreserved="false"
+    android:layout_marginBottom="?actionBarSize"
     android:padding="5dp">
 
 

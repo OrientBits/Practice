@@ -16,8 +16,7 @@
             android:id="@+id/home_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:layout_marginBottom="?actionBarSize" />
+            android:background="@color/white" />
 
         <include layout="@layout/toolbar_layout" />
 
@@ -27,7 +26,6 @@
             android:layout_height="56dp"
             android:layout_gravity="bottom"
             android:backgroundTint="@color/colorAccent"
-            app:background="@color/white"
             app:fabCradleMargin="4dp" />
 
         <android.support.design.widget.FloatingActionButton
