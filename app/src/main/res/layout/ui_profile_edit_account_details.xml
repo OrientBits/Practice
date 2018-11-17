@@ -1,41 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Please enter your phone number"
-        android:padding="10dp"
-        tools:ignore="HardcodedText" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:orientation="horizontal">
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/profile_country_selector"
-            android:layout_width="100dp"
+
+        <com.rilixtech.CountryCodePicker
+            android:id="@+id/ccp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:prompt="@string/country_selector"
-            tools:ignore="HardcodedText">
+            app:ccp_defaultNameCode="IN"/>
 
-        </android.support.v7.widget.AppCompatSpinner>
-
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/profile_edit_phone_no"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:inputType="phone"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp" />
+            android:layout_height="wrap_content"
+            android:hint="phone"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="phone"/>
 
     </LinearLayout>
 

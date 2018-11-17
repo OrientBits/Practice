@@ -1,34 +1,26 @@
 package com.lequiz.practice.nav_drawer;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.text.method.NumberKeyListener;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -37,7 +29,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,26 +37,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.lequiz.practice.Login;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
-import com.lequiz.practice.dialog_box.ProfileAccountEdit;
-import com.lequiz.practice.home.HomeContainer;
 import com.lequiz.practice.module.Users;
+import com.rilixtech.CountryCodePicker;
 import com.soundcloud.android.crop.Crop;
-import com.soundcloud.android.crop.CropImageView;
 import com.squareup.picasso.Callback;
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Objects;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
@@ -92,6 +73,8 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     String lastName;
     String fullName;
     String email;
+
+    String[] countryCodeSelector = {"+91(Indian)","+92(Pakistan)","+88(Bangladesh)","+97(Nepal)"};
 
 
 
@@ -667,9 +650,41 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     }
 
     public void accountEdit(View view) {
-        new ProfileAccountEdit().show(getSupportFragmentManager(),"AccountEdit");
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        mBuilder.setTitle("Please enter phone number");
+        View mView  = getLayoutInflater().inflate(R.layout.ui_profile_edit_account_details,null);
+
+        final CountryCodePicker ccp = mView.findViewById(R.id.ccp);
+        final AppCompatEditText edtPhoneNumber = mView.findViewById(R.id.profile_edit_phone_no);
+
+        final TextView set_phone_no = findViewById(R.id.profile_user_phone_no);
+
+        mBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ccp.registerPhoneNumberTextView(edtPhoneNumber);
+                set_phone_no.setText(edtPhoneNumber.getText());
+                Toast.makeText(ProfileActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(ProfileActivity.this,"Canceled...",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        mBuilder.setView(mView);
+        mBuilder.create().show();
     }
 
-    public void profileEdit(View view) {
+    public void profileEdit(View view)
+    {
+
     }
+
+
 }

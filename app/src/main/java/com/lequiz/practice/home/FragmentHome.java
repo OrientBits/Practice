@@ -14,6 +14,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -107,7 +109,6 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
         HomeContainer.toolbar_card_view_2.setVisibility(View.VISIBLE);
         HomeContainer.title_text.setText(getText(R.string.home));
-
 
 
         mScrollView = inflateView.findViewById(R.id.home_fragmnet_scroll);
@@ -272,12 +273,10 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
                     }
 
-
-
                 }
 
-
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -600,14 +599,12 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
 
 
-
-
-
-    // more option right top corner (here only notification)
+    //  option right top corner (here only notification)
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.notifications){

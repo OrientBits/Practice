@@ -210,7 +210,7 @@
                                 tools:ignore="ContentDescription" />
 
                             <TextView
-                                android:id="@+id/profile_user_mobile_no"
+                                android:id="@+id/profile_user_phone_no"
                                 android:layout_width="wrap_content"
                                 android:layout_height="25dp"
                                 android:layout_marginTop="5dp"
@@ -223,7 +223,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/profile_user_mobile_no"
+                                android:layout_below="@id/profile_user_phone_no"
                                 android:layout_toEndOf="@id/profile_call_image"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
@@ -240,44 +240,6 @@
                             android:layout_marginStart="55dp"
                             android:background="#b4b4b4" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="58dp"
-                            android:paddingTop="5dp">
-
-                            <ImageView
-                                android:id="@+id/profile_fancy_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="35dp"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="0dp"
-                                android:src="@drawable/profile_fancy_name"
-                                tools:ignore="ContentDescription" />
-
-                            <TextView
-                                android:id="@+id/user_fancy_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="25dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_toEndOf="@id/profile_fancy_name"
-                                android:paddingStart="15dp"
-                                android:paddingEnd="0dp"
-                                android:text="Please set your Fancy Name"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/user_fancy_name"
-                                android:layout_toEndOf="@id/profile_fancy_name"
-                                android:paddingStart="15dp"
-                                android:paddingEnd="0dp"
-                                android:text="Fancy name"
-                                android:textColor="#463cdf"
-                                android:textSize="10dp"
-                                tools:ignore="HardcodedText,SpUsage" />
-
-                        </RelativeLayout>
 
                         <View
                             android:layout_width="match_parent"
@@ -307,7 +269,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:elevation="5dp"
                     android:orientation="vertical"
                     app:cardCornerRadius="15dp"
@@ -401,6 +363,45 @@
                             android:layout_marginStart="55dp"
                             android:background="#b4b4b4" />
 
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="58dp"
+                            android:paddingTop="5dp">
+
+                            <ImageView
+                                android:id="@+id/profile_fancy_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="0dp"
+                                android:src="@drawable/profile_fancy_name"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/user_fancy_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toEndOf="@id/profile_fancy_name"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="Please set your Fancy Name"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/user_fancy_name"
+                                android:layout_toEndOf="@id/profile_fancy_name"
+                                android:paddingStart="15dp"
+                                android:paddingEnd="0dp"
+                                android:text="Fancy name"
+                                android:textColor="#463cdf"
+                                android:textSize="10dp"
+                                tools:ignore="HardcodedText,SpUsage" />
+
+                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"

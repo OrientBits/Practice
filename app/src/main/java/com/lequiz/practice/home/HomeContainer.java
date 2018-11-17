@@ -7,7 +7,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -82,7 +84,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     String profileImgUrl;
     FirebaseUser mUser;
     String firstName;
-
+    FloatingActionButton homeBtn,randomBtn,jobBtn;
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -97,6 +99,16 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
         new FullScreenStatusOnly(this);
+
+
+        // initialization of bottom app bar
+        homeBtn = findViewById(R.id.home_fab_bottom);
+        randomBtn = findViewById(R.id.random_fab_bottom);
+        jobBtn = findViewById(R.id.job_fab_bottom);
+
+
+
+
 
 
         // toolbar setup
@@ -128,10 +140,47 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         mToolbarView.setPadding(0, statusBarHeight, 8, 0);
         toolbarLayout.setPadding(0,statusBarHeight,0,0);
 
+
+
+        // bottom app bar
+        title_text.setText(getText(R.string.home));
         loadFragment(fragmentHome);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(rOnNavigationItemSelectedListener);
-        bottomNavigationView.setItemIconTintList(null);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(fragmentHome);
+                toolbar_card_view_2.setVisibility(View.VISIBLE);
+                title_text.setText(getText(R.string.home));
+            }
+        });
+
+        randomBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                   loadFragment(fragmentRandom);
+                   toolbar_card_view_2.setVisibility(View.INVISIBLE);
+                   title_text.setText(getText(R.string.random_quiz));
+            }
+        });
+
+        jobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(fragmentJobAlert);
+                toolbar_card_view_2.setVisibility(View.INVISIBLE);
+                title_text.setText(getText(R.string.job_alerts));
+            }
+        });
+
+
+
+
+
+
+
+
+
 
 
         // implementing item of navigation drawer
@@ -371,34 +420,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         drawarProfileImg.setOnClickListener(new View.OnClickListener() {
@@ -411,37 +432,13 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         });
 
 
-    }
+    } // onCreate method
 
-    private BottomNavigationView.OnNavigationItemSelectedListener rOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.bottom_nav_home:
-                    toolbar_card_view_2.setVisibility(View.VISIBLE);
-                    title_text.setText(getText(R.string.home));
-                    loadFragment(fragmentHome);
-                    return true;
 
-                case R.id.bottom_nav_play_random:
-                    loadFragment(fragmentRandom);
-                    toolbar_card_view_2.setVisibility(View.INVISIBLE);
-                    title_text.setText(getText(R.string.random_quiz));
-                    return true;
 
-                case R.id.bottom_nav_job_alert:
-                    loadFragment(fragmentJobAlert);
-                    toolbar_card_view_2.setVisibility(View.INVISIBLE);
-                    title_text.setText(getText(R.string.job_alerts));
-                    return true;
-            }
-            return false;
-        }
-    };
 
-    private void loadFragment(final Fragment fragment) {
+    public void loadFragment(final Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         final FragmentTransaction transaction = manager.beginTransaction();
 
