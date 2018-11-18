@@ -222,10 +222,17 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         {
             System.out.println("Inside");
         String displayName = mUser.getDisplayName();
+        try{
         int indexOfBlank=displayName.indexOf(" ");
         firstName = displayName.substring(0,indexOfBlank);
         userNameOnHome.setText(firstName);
-        lastName=displayName.substring(indexOfBlank+1);
+        lastName=displayName.substring(indexOfBlank+1);}
+        catch(StringIndexOutOfBoundsException e )
+        {
+            displayName = mUser.getDisplayName();
+            userNameOnHome.setText(displayName);
+        }
+
         String email = mUser.getEmail();
         boolean emailVerified = mUser.isEmailVerified();
         String uid = mUser.getUid();
@@ -261,11 +268,17 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     {
 
                         String displayName = mUser.getDisplayName();
-                        int indexOfBlank=displayName.indexOf(" ");
-                        firstName = displayName.substring(0,indexOfBlank);
-                        userNameOnHome.setText(firstName);
-                        lastName=displayName.substring(indexOfBlank+1);
-                        System.out.println("Last name"+lastName);
+                        try {
+                            int indexOfBlank = displayName.indexOf(" ");
+                            firstName = displayName.substring(0, indexOfBlank);
+                            userNameOnHome.setText(firstName);
+                            lastName = displayName.substring(indexOfBlank + 1);
+                        }
+                        catch (StringIndexOutOfBoundsException g)
+                        {
+                            userNameOnHome.setText(displayName);
+                        }
+
                         String email = mUser.getEmail();
                         currentUserRef.child("email").setValue(email);
                         currentUserRef.child("lastName").setValue(lastName);

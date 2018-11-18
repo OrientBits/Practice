@@ -2,6 +2,7 @@ package com.lequiz.practice.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.lequiz.practice.R;
+import com.lequiz.practice.module.WebViewLayout;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,16 @@ public class NavPaymentWordAdapter extends ArrayAdapter<NavPaymentWord>{
 
         TextView dateView = listItemView.findViewById(R.id.date_of_getting_prize_textView);
         dateView.setText(NavPaymentWord.getDate());
+
+       listItemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(view.getContext(), WebViewLayout.class);
+               String sourceUrlAgain = "https://firebasestorage.googleapis.com/v0/b/lequiz-4abd1.appspot.com/o/categoryComputer%2Flequiz.html?alt=media&token=350609e7-a738-4a1d-8bb9-5423a301a558";
+               intent.putExtra("sourceUrlAgain",sourceUrlAgain);
+               view.getContext().startActivity(intent);
+           }
+       });
 
         return listItemView;
 

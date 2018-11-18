@@ -155,6 +155,7 @@
     <string name="right_arrow">Right Arrow Down</string>
     <string name="title_activity_login">Login</string>
     <string name="country_selector">+91</string>
+    <string name="profile_default_status">I\'m new on LeQuiz!</string>
 
 
 </resources>

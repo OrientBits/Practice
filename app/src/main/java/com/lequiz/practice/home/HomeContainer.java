@@ -208,9 +208,14 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                         userNameOnDrawar.setText(firstName);
                     } catch (NullPointerException f) {
                         String displayName = mUser.getDisplayName();
+                        try{
                         int indexOfBlank = displayName.indexOf(" ");
                         firstName = displayName.substring(0, indexOfBlank);
-                        userNameOnDrawar.setText(firstName);
+                        userNameOnDrawar.setText(firstName);}
+                        catch(StringIndexOutOfBoundsException g)
+                        {
+                            userNameOnDrawar.setText(displayName);
+                        }
                     }
 
 
