@@ -287,8 +287,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                     }
 
 
-
-                }
+                    }
 
 
             }
