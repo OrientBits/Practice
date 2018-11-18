@@ -432,16 +432,18 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
         } else {
             if (fragmentHome.isAdded()) {
-                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
                 mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
+                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
                 mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
             }if (fragmentRandom.isAdded())
                 transaction.remove(fragmentRandom);
             else
-            if (fragmentJobAlert.isAdded())
+            if (fragmentJobAlert.isAdded()) {
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
                 transaction.remove(fragmentJobAlert);
-            transaction.add(R.id.home_fragment_container, fragment);
+            }
 
+            transaction.add(R.id.home_fragment_container, fragment);
         }
 
         transaction.commit();
