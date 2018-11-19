@@ -233,7 +233,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
             userNameOnHome.setText(displayName);
             currentUserRef.child("firstName").setValue(firstName);
             currentUserRef.child("lastName").setValue(null);
-            }
+
+        }
 
         String email = mUser.getEmail();
         boolean emailVerified = mUser.isEmailVerified();
