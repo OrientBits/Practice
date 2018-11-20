@@ -137,7 +137,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         HomeContainer.title_text.setAlpha(alpha-(float)0.035);
 
         HomeContainer.jobToolbarColor = alpha-(float)0.02;
-        HomeContainer.jobTitleAlha = alpha-(float)0.035;
+        HomeContainer.jobTitleAlpha = alpha-(float)0.035;
     }
 
     @Override

@@ -18,17 +18,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".DispatcherActivity"
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".home.HomeContainer"
             android:screenOrientation="portrait" />
+
         <activity android:name=".OnBoarding" />
+
         <activity
             android:name=".category.MathematicsActivity"
             android:label="@string/mathematics"

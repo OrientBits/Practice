@@ -3,6 +3,7 @@ package com.lequiz.practice.home;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.TransitionDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -43,25 +44,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lequiz.practice.OnBoarding;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
 import com.lequiz.practice.nav_drawer.NavInviteFriends;
 import com.lequiz.practice.nav_drawer.NavLeaderboard;
-import com.lequiz.practice.nav_drawer.NavNotifications;
 import com.lequiz.practice.nav_drawer.NavPayment;
 import com.lequiz.practice.nav_drawer.NavSettings;
 import com.lequiz.practice.nav_drawer.ProfileActivity;
 import com.lequiz.practice.nav_drawer.QuizFactory;
-import com.loopeer.shadow.ShadowView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-
 import java.util.Objects;
-
 import de.hdodenhof.circleimageview.CircleImageView;
-
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class HomeContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,8 +85,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     String firstName;
     FloatingActionButton homeBtn, randomBtn, jobBtn;
     public static float homeToolbarColor = 0.0f, randomToolbarColor = 0.0f, jobToolbarColor = 0.0f;
-    public static float homeTitleAlpha = 0.0f, randomTitleAlpha = 0.0f, jobTitleAlha = 0.0f;
+    public static float homeTitleAlpha = 0.0f, randomTitleAlpha = 0.0f, jobTitleAlpha = 0.0f;
     public int baseColor1;
+
 
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
@@ -102,6 +100,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         fa = this; // for only context
         mAuth = FirebaseAuth.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
         new FullScreenStatusOnly(this);
         baseColor1 = getResources().getColor(R.color.colorPrimary);
@@ -143,27 +142,25 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         toolbarLayout.setPadding(0, statusBarHeight, 0, 0);
 
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // bottom app bar
         title_text.setText(getText(R.string.home));
         loadFragment(fragmentHome);
 
-
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                title_text.setAlpha(homeTitleAlpha);
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
                 loadFragment(fragmentHome);
                 toolbar_card_view_2.setVisibility(View.VISIBLE);
                 title_text.setText(getText(R.string.home));
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
+                title_text.setAlpha(homeTitleAlpha);
             }
         });
 
         randomBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                title_text.setAlpha(jobTitleAlha);
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(jobToolbarColor, baseColor1));
                 loadFragment(fragmentRandom);
                 toolbar_card_view_2.setVisibility(View.INVISIBLE);
                 title_text.setText(getText(R.string.random_quiz));
@@ -176,8 +173,12 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 loadFragment(fragmentJobAlert);
                 toolbar_card_view_2.setVisibility(View.INVISIBLE);
                 title_text.setText(getText(R.string.job_alerts));
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(jobToolbarColor, baseColor1));
+                title_text.setAlpha(jobTitleAlpha);
             }
         });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         // implementing item of navigation drawer
@@ -208,12 +209,11 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                         userNameOnDrawar.setText(firstName);
                     } catch (NullPointerException f) {
                         String displayName = mUser.getDisplayName();
-                        try{
-                        int indexOfBlank = displayName.indexOf(" ");
-                        firstName = displayName.substring(0, indexOfBlank);
-                        userNameOnDrawar.setText(firstName);}
-                        catch(StringIndexOutOfBoundsException g)
-                        {
+                        try {
+                            int indexOfBlank = displayName.indexOf(" ");
+                            firstName = displayName.substring(0, indexOfBlank);
+                            userNameOnDrawar.setText(firstName);
+                        } catch (StringIndexOutOfBoundsException g) {
                             userNameOnDrawar.setText(displayName);
                         }
                     }
@@ -420,40 +420,29 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         FragmentManager manager = getSupportFragmentManager();
         final FragmentTransaction transaction = manager.beginTransaction();
 
-        if (fragment == fragmentHome) {
-            if (fragmentRandom.isAdded())
-                transaction.remove(fragmentRandom);
-            else
-            if (fragmentJobAlert.isAdded())
-                transaction.remove(fragmentJobAlert);
-
-            if (fragmentHome.isAdded()) {
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
-                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragmentHome);
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
-            }
-            else
-                transaction.replace(R.id.home_fragment_container, fragment);
-
-        } else {
-            if (fragmentHome.isAdded()) {
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
-                transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
-            }if (fragmentRandom.isAdded())
-                transaction.remove(fragmentRandom);
-            else
-            if (fragmentJobAlert.isAdded()) {
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(homeToolbarColor, baseColor1));
-                transaction.remove(fragmentJobAlert);
-            }
-
-            transaction.add(R.id.home_fragment_container, fragment);
+        if (!fragment.isAdded()) {
+            transaction.add(R.id.home_fragment_container, fragment).hide(fragment);
         }
+
+        if (fragment == fragmentHome) {
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentRandom);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentJobAlert);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+
+        } else if (fragment == fragmentRandom) {
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentJobAlert);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+
+        } else if (fragment == fragmentJobAlert) {
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentRandom);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
+            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+        }
+
 
         transaction.commit();
     }
-
 
 
     @Override
