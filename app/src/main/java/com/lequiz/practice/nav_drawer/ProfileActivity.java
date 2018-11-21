@@ -684,6 +684,28 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     public void profileEdit(View view)
     {
 
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        mBuilder.setTitle("Edit profile details");
+        View nView  = getLayoutInflater().inflate(R.layout.ui_profile_edit_details,null);
+
+        mBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(ProfileActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(ProfileActivity.this,"Canceled...",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        mBuilder.setView(nView);
+        mBuilder.create().show();
+
     }
 
 

@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.lequiz.practice.R;
+
 
 
 /**
@@ -15,6 +18,7 @@ import com.lequiz.practice.R;
 public class FragmentPlayRandom extends Fragment {
 
 
+    TextView getStarted;
 
     public FragmentPlayRandom() {
         // Required empty public constructor
@@ -28,8 +32,16 @@ public class FragmentPlayRandom extends Fragment {
         View inflaterView = inflater.inflate(R.layout.fragment_play_random, container, false);
 
 
+        getStarted = inflaterView.findViewById(R.id.play_random_quiz_get_started);
         HomeContainer.toolbar_card_view_2.setVisibility(View.INVISIBLE);
         HomeContainer.title_text.setText(null);
+
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"Wait Bhai... Work in progress...",Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 
@@ -37,5 +49,6 @@ public class FragmentPlayRandom extends Fragment {
 
         return inflaterView;
     }
+
 
 }

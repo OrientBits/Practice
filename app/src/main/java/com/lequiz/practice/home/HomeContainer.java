@@ -1,18 +1,14 @@
 package com.lequiz.practice.home;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.TransitionDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.bottomappbar.BottomAppBar;
-import android.support.design.widget.BottomNavigationView;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -27,18 +23,11 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,7 +36,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.lequiz.practice.OnBoarding;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
@@ -484,18 +472,22 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     }
 
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        mDrawerLayout.closeDrawers();
-    }
+
+
+
 
 
     @Override
     protected void onResume() {
         super.onResume();
         mDrawerLayout.closeDrawers();
+    }
+
+
+    @Override
+    protected void onStart() {
         new FullScreenStatusOnly(this);
+        super.onStart();
     }
 
 
