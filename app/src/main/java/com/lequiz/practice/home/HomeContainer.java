@@ -1,5 +1,8 @@
 package com.lequiz.practice.home;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -66,7 +69,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     static final Fragment fragmentHome = new FragmentHome();
     static final Fragment fragmentJobAlert = new FragmentJobAlert();
     static final Fragment fragmentRandom = new FragmentPlayRandom();
-    Fragment TempFragment = null;
+
     public static View mToolbarView;
     public static RelativeLayout toolbarLayout;
     boolean doubleBackToExitPressedOnce = false;
@@ -425,24 +428,36 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         }
 
         if (fragment == fragmentHome) {
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentRandom);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentJobAlert);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+            transaction.hide(fragmentRandom);
+            transaction.hide(fragmentJobAlert);
+            transaction.show(fragment);
 
         } else if (fragment == fragmentRandom) {
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentJobAlert);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+            transaction.hide(fragmentHome);
+            transaction.hide(fragmentJobAlert);
+            transaction.show(fragment);
 
         } else if (fragment == fragmentJobAlert) {
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentRandom);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).hide(fragmentHome);
-            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).show(fragment);
+            transaction.hide(fragmentRandom);
+            transaction.hide(fragmentHome);
+            transaction.show(fragment);
         }
 
 
         transaction.commit();
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override

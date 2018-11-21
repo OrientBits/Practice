@@ -77,7 +77,9 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         // RecyclerView
 
         recycler = inflaterView.findViewById(R.id.job_alerts_recycler_view);
-        recycler.setLayoutManager(new LinearLayoutManager(mContext));
+        recycler.setNestedScrollingEnabled(false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        recycler.setLayoutManager(layoutManager);
 
 
         jobOptions = new FirebaseRecyclerOptions.Builder<Jobs>().setQuery(jobAlertListRef,Jobs.class).build();
@@ -104,7 +106,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
         mAdapter.startListening();
         recycler.setAdapter(mAdapter);
 
-        recycler.setNestedScrollingEnabled(false);
+
 
 
 
