@@ -10,11 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.lequiz.practice.R;
 
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentPlayRandom extends Fragment {
 
 

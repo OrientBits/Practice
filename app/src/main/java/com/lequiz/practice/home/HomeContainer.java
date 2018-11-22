@@ -155,6 +155,9 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 loadFragment(fragmentRandom);
                 toolbar_card_view_2.setVisibility(View.INVISIBLE);
                 title_text.setText(getText(R.string.random_quiz));
+                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(randomToolbarColor, baseColor1));
+                title_text.setAlpha(randomTitleAlpha);
+
             }
         });
 
