@@ -105,17 +105,15 @@
             android:name=".nav_drawer.QuizFactory"
             android:label="@string/quiz_factory"
             android:parentActivityName=".nav_drawer.QuizFactory" />
+
         <activity
-            android:name=".RegisterUser"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".RegisterUser" />
         <activity
-            android:name=".Login"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".Login" />
+
         <activity android:name=".module.WebViewLayout" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        <activity android:name=".nav_drawer.GenderChooser"></activity>
+        <activity android:name=".nav_drawer.GenderChooser"/>
     </application>
 
 </manifest>
