@@ -2,6 +2,9 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
+        <item>@font/allura</item>
+        <item>@font/amaranth</item>
+        <item>@font/bad_script</item>
         <item>@font/carme</item>
         <item>@font/federant</item>
     </array>
