@@ -125,8 +125,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                     userXP+=" XP";
                     textViewXpOnOwnProfile.setText(userXP);
 
-
-
                     }
                     catch (NullPointerException e)
                     {
