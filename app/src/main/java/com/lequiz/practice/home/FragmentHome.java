@@ -446,6 +446,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 }
 
 
+
                 if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null )
 
                 {
