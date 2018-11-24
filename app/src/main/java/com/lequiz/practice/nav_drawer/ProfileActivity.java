@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     RelativeLayout toolbarLayout;
     private Uri imgToUpload;
     Uri profileImage;
-    TextView title_text,user_name, user_email,user_name_on_profile;
+    TextView title_text,user_name, user_email,user_name_on_profile, textViewXpOnOwnProfile;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
     FirebaseUser firebaseUser;
@@ -73,6 +73,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     String lastName;
     String fullName;
     String email;
+    String userXP;
 
     String[] countryCodeSelector = {"+91(Indian)","+92(Pakistan)","+88(Bangladesh)","+97(Nepal)"};
 
@@ -92,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         user_name = findViewById(R.id.profile_user_name);
         user_email = findViewById(R.id.user_email_on_profile);
        user_name_on_profile=findViewById(R.id.user_name_on_profile);
+       textViewXpOnOwnProfile = findViewById(R.id.xp_on_own_profile);
 
 
 
@@ -119,6 +121,10 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                     email = dataSnapshot.child("email").getValue().toString();
                     user_email.setText(email);
                     user_name_on_profile.setText(fullName);
+                    userXP=dataSnapshot.child("xp").getValue().toString();
+                    userXP+=" XP";
+                    textViewXpOnOwnProfile.setText(userXP);
+
 
 
                     }
