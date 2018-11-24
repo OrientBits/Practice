@@ -314,6 +314,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         currentUserRef.child("email").setValue(email);
         currentUserRef.child("isEmailVerified").setValue(emailVerified);}
 
+
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
