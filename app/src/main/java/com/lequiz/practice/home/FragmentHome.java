@@ -291,13 +291,15 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         int indexOfBlank=displayName.indexOf(" ");
         firstName = displayName.substring(0,indexOfBlank);
         userNameOnHome.setText(firstName);
-        lastName=displayName.substring(indexOfBlank+1);}
+        lastName=displayName.substring(indexOfBlank+1);
+
+        }
         catch(StringIndexOutOfBoundsException e )
         {
             displayName = mUser.getDisplayName();
+            firstName = displayName;
             userNameOnHome.setText(displayName);
-            currentUserRef.child("firstName").setValue(firstName);
-            currentUserRef.child("lastName").setValue(null);
+            lastName ="";
 
         }
 
