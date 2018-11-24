@@ -390,6 +390,10 @@ public class NavLeaderboard extends AppCompatActivity {
                             public void onError(Exception e) {
 
 
+
+
+
+
                                 Picasso.get()
                                         .load(model.getProfileImgUrl()).placeholder(R.drawable.default_profile_picture)
 
@@ -406,6 +410,7 @@ public class NavLeaderboard extends AppCompatActivity {
 
 
                                         });
+
 
                             }
 

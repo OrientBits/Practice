@@ -94,6 +94,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     long numberOfUsers;
 
 
+
     public FragmentHome() {
         // Required empty public constructor
     }
@@ -293,6 +294,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         userNameOnHome.setText(firstName);
         lastName=displayName.substring(indexOfBlank+1);
 
+
         }
         catch(StringIndexOutOfBoundsException e )
         {
@@ -434,7 +436,9 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 {
                     try{
                         // Fetching google photo
-                    profileImgUrl=mUser.getPhotoUrl().toString();}
+                    profileImgUrl=mUser.getPhotoUrl().toString();
+                    currentUserRef.child("profileImgUrl").setValue(profileImgUrl);
+                    }
                     catch(NullPointerException f)
                     {
 
@@ -533,7 +537,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                             }
                             catch(NullPointerException e)
                             {
-                                return;
+                               profileImgUrl=mAuth.getCurrentUser().getPhotoUrl().toString();
+                               currentUserRef.child("profileImgUrl").setValue(profileImgUrl);
                             }
 
 
