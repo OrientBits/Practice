@@ -135,8 +135,7 @@ public class NavLeaderboard extends AppCompatActivity {
                     {
                         fullName = mUser.getDisplayName();
                         textViewUserOwnName.setText(fullName);
-
-                    }
+                        }
                     try{
                         rank=dataSnapshot.child("ranking").getValue().toString();
                         textViewUserRank.setText(rank);
