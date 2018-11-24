@@ -142,8 +142,7 @@ public class NavLeaderboard extends AppCompatActivity {
                     }
                     catch (NullPointerException f)
                     {
-
-                    }
+                        }
 
 
 
