@@ -2,32 +2,41 @@ package com.lequiz.practice.adapters;
 
 public class NavLeaderboardWord {
 
-    private int imageId;
-    private String name;
-    private long xp;
-    private long ranking;
+    private String profileImgUrl;
+    private String firstName;
+    private String lastName;
+    private Long xp;
+    String uId;
 
-    public NavLeaderboardWord(int imageId, String name, long xp, long ranking) {
-        this.imageId = imageId;
-        this.name = name;
+
+    public NavLeaderboardWord(String profileImgUrl, String firstName, String lastName, Long xp, String uId) {
+        this.profileImgUrl = profileImgUrl;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.xp = xp;
-        this.ranking = ranking;
+        this.uId = uId;
     }
 
-    public int getImageId() {
-        return imageId;
+    public NavLeaderboardWord() {
     }
 
-    public String getName() {
-        return name;
+    public String getuId() {
+        return uId;
     }
 
-    public long getXp() {
+    public String getProfileImgUrl() {
+        return profileImgUrl;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Long getXp() {
         return xp;
     }
-
-    public long getRanking() {
-        return ranking;
-    }
-
 }

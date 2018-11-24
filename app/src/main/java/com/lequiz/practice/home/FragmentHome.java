@@ -73,6 +73,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
     MenuItem fav;
 
+
     DatabaseReference currentUserRef;
     TextView  wishes,userNameOnHome;
     protected CircleImageView profile_home;
@@ -87,6 +88,11 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
     String profileImgUrl;
     FirebaseUser mUser;
     String lastName;
+    String xp;
+    String userRank;
+    DatabaseReference childCounterRef;
+    long numberOfUsers;
+
 
 
     public FragmentHome() {
@@ -214,6 +220,66 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         currentUserRef = FirebaseDatabase.getInstance().getReference("Users").child(HomeContainer.mAuth.getCurrentUser().getUid());
+        childCounterRef = FirebaseDatabase.getInstance().getReference("Users");
+
+        childCounterRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                numberOfUsers=dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Creating a XP branch in firebase
+
+        if(mAuth.getCurrentUser()!=null)
+        {
+
+            // Saving uiD on Database
+
+            currentUserRef.child("uId").setValue(mAuth.getCurrentUser().getUid());
+            // Checking if the user has xp value or not
+
+            currentUserRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try
+                    {
+                        xp=dataSnapshot.child("xp").getValue().toString();}
+                        catch(NullPointerException e)
+                        {
+                            currentUserRef.child("xp").setValue(0);
+                       //     currentUserRef.child("leader_board_database").push().child("xp").setValue(0);
+                        }
+                        try{
+                               userRank=dataSnapshot.child("ranking").getValue().toString();
+
+                        }
+                        catch (NullPointerException f)
+                        {
+                            numberOfUsers=numberOfUsers+1;
+                            userRank=Long.toString(numberOfUsers);
+                            currentUserRef.child("ranking").setValue(userRank);
+                        }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+        }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -226,14 +292,18 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         int indexOfBlank=displayName.indexOf(" ");
         firstName = displayName.substring(0,indexOfBlank);
         userNameOnHome.setText(firstName);
-        lastName=displayName.substring(indexOfBlank+1);}
+        lastName=displayName.substring(indexOfBlank+1);
+
+
+        }
         catch(StringIndexOutOfBoundsException e )
         {
             displayName = mUser.getDisplayName();
+            firstName = displayName;
             userNameOnHome.setText(displayName);
-            currentUserRef.child("firstName").setValue(firstName);
-            currentUserRef.child("lastName").setValue(null);
-            }
+            lastName ="";
+
+        }
 
         String email = mUser.getEmail();
         boolean emailVerified = mUser.isEmailVerified();
@@ -245,6 +315,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         currentUserRef.child("lastName").setValue(lastName);
         currentUserRef.child("email").setValue(email);
         currentUserRef.child("isEmailVerified").setValue(emailVerified);}
+
+
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -364,7 +436,9 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 {
                     try{
                         // Fetching google photo
-                    profileImgUrl=mUser.getPhotoUrl().toString();}
+                    profileImgUrl=mUser.getPhotoUrl().toString();
+                    currentUserRef.child("profileImgUrl").setValue(profileImgUrl);
+                    }
                     catch(NullPointerException f)
                     {
 
@@ -463,7 +537,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                             }
                             catch(NullPointerException e)
                             {
-                                return;
+                               profileImgUrl=mAuth.getCurrentUser().getPhotoUrl().toString();
+                               currentUserRef.child("profileImgUrl").setValue(profileImgUrl);
                             }
 
 
