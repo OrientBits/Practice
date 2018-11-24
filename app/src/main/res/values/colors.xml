@@ -114,6 +114,8 @@
 
     <color name="violet_on_job_alert">#0DAAAA</color>
     <color name="pink_on_job_alert">#BD2D4B</color>
+    <color name="maroon_on_leaderboard">#9D0027</color>
+    <color name="sky_blue_on_leaderboard">#2892D9</color>
 
 
 </resources>
