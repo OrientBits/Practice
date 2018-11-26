@@ -1,6 +1,7 @@
 package com.lequiz.practice.nav_drawer;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,15 +11,22 @@ import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -37,6 +45,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.lequiz.practice.EditProfile;
 import com.lequiz.practice.R;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.module.Users;
@@ -46,6 +55,9 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -61,21 +73,26 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     RelativeLayout toolbarLayout;
     private Uri imgToUpload;
     Uri profileImage;
-    TextView title_text,user_name, user_email,user_name_on_profile, textViewXpOnOwnProfile;
+    TextView title_text,user_name, user_email,user_name_on_profile, textViewXpOnOwnProfile,textViewUserDob, textViewOnProfilePhoneNumber, textViewOnFancyName, genderOnProfileTextView;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
-    FirebaseUser firebaseUser;
     Uri imgProfile;
-    Bitmap bitmap;
     String profileImgUrl;
     FirebaseUser mUser;
     String firstName;
     String lastName;
     String fullName;
-    String email;
-    String userXP;
+    String email,status;
+    TextView userCustomStatusTextView;
+    String userDob;
+    String userXP, gender;
+    String phoneNumber, fancyName;
+    ImageView secondPencilIcon;
 
-    String[] countryCodeSelector = {"+91(Indian)","+92(Pakistan)","+88(Bangladesh)","+97(Nepal)"};
+
+
+
+
 
 
 
@@ -92,8 +109,23 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
         user_name = findViewById(R.id.profile_user_name);
         user_email = findViewById(R.id.user_email_on_profile);
-       user_name_on_profile=findViewById(R.id.user_name_on_profile);
-       textViewXpOnOwnProfile = findViewById(R.id.xp_on_own_profile);
+        user_name_on_profile=findViewById(R.id.user_name_on_profile);
+        textViewXpOnOwnProfile = findViewById(R.id.xp_on_own_profile);
+        textViewOnProfilePhoneNumber = findViewById(R.id.profile_user_phone_no);
+        textViewOnFancyName = findViewById(R.id.user_fancy_name_on_profile);
+        genderOnProfileTextView = findViewById(R.id.user_sex);
+        textViewUserDob = findViewById(R.id.user_DOB);
+        secondPencilIcon = findViewById(R.id.second_pencil_icon);
+        userCustomStatusTextView = findViewById(R.id.user_custom_status);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -115,7 +147,6 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
                     firstName = dataSnapshot.child("firstName").getValue().toString();
                     lastName = dataSnapshot.child("lastName").getValue().toString();
-
                     fullName= firstName+" "+lastName;
                     user_name.setText(fullName);
                     email = dataSnapshot.child("email").getValue().toString();
@@ -133,6 +164,9 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                         email=mUser.getEmail();
                         user_email.setText(email);
                         user_name_on_profile.setText(fullName);
+                        userXP=dataSnapshot.child("xp").getValue().toString();
+                        userXP+=" XP";
+                        textViewXpOnOwnProfile.setText(userXP);
 
                     }
 
@@ -141,6 +175,74 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            /// Fetching extra details from firebase
+
+            refToSpecificUser.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    try{
+                    phoneNumber=dataSnapshot.child("phoneNumber").getValue().toString();
+                    textViewOnProfilePhoneNumber.setText(phoneNumber);
+
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
+                    try{
+                        fancyName=dataSnapshot.child("fancyName").getValue().toString();
+                        textViewOnFancyName.setText(fancyName);
+
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
+                    try{
+                        gender=dataSnapshot.child("gender").getValue().toString();
+                        genderOnProfileTextView.setText(gender);
+
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
+                    try{
+                        userDob=dataSnapshot.child("birthday").getValue().toString();
+                        textViewUserDob.setText(userDob);
+
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
+                    try{
+                        status=dataSnapshot.child("status").getValue().toString();
+                        userCustomStatusTextView.setText(status);
+
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
+
+
+
+
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
 
                 }
             });
@@ -505,6 +607,20 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         mParallaxImageHeight = getResources().getDimensionPixelSize(R.dimen.image_height_home_part_1);
         new FullScreenStatusOnly(this);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Pencil icon onClick
+
+        secondPencilIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ProfileActivity.this, EditProfile.class));
+
+            }
+        });
+
+
+
 
 
 
@@ -656,61 +772,32 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     public void accountEdit(View view) {
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setTitle("Please enter phone number");
+     //   mBuilder.setTitle("Please enter phone number");
         View mView  = getLayoutInflater().inflate(R.layout.ui_profile_edit_account_details,null);
 
         final CountryCodePicker ccp = mView.findViewById(R.id.ccp);
         final AppCompatEditText edtPhoneNumber = mView.findViewById(R.id.profile_edit_phone_no);
+        if(phoneNumber!=null)
+        {
+            edtPhoneNumber.setText(phoneNumber);
+        }
 
         final TextView set_phone_no = findViewById(R.id.profile_user_phone_no);
 
-        mBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+        mBuilder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ccp.registerPhoneNumberTextView(edtPhoneNumber);
-                set_phone_no.setText(edtPhoneNumber.getText());
-                Toast.makeText(ProfileActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
+                refToSpecificUser.child("phoneNumber").setValue(edtPhoneNumber.getText());
+                Toast.makeText(ProfileActivity.this, "Phone number updated", Toast.LENGTH_SHORT).show();
             }
         });
-
-        mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(ProfileActivity.this,"Canceled...",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
         mBuilder.setView(mView);
         mBuilder.create().show();
     }
 
-    public void profileEdit(View view)
-    {
-
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setTitle("Edit profile details");
-        View nView  = getLayoutInflater().inflate(R.layout.ui_profile_edit_details,null);
-
-        mBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(ProfileActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(ProfileActivity.this,"Canceled...",Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
-        mBuilder.setView(nView);
-        mBuilder.create().show();
-
-    }
 
 
 }

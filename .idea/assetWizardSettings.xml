@@ -11,27 +11,12 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
-                        <option name="children">
-                          <map>
-                            <entry key="clipartAsset">
-                              <value>
-                                <PersistentState>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_work_black_24dp.xml" />
-                                    </map>
-                                  </option>
-                                </PersistentState>
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_nav_job_alerts" />
-                            <entry key="sourceFile" value="C:\Users\Ramshek Rana\Desktop\android\profile item\New folder\XMLID_1_.svg" />
+                            <entry key="outputName" value="right_sign_on_edit_profile" />
+                            <entry key="sourceFile" value="C:\Users\Rishabh\Desktop\Path 5179.svg" />
                           </map>
                         </option>
                       </PersistentState>

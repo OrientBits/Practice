@@ -286,8 +286,8 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         // Details were sent to database here, if signing in from google
         if(mUser.getDisplayName()!=null)
         {
-            System.out.println("Inside");
         String displayName = mUser.getDisplayName();
+        currentUserRef.child("googleSignIn").setValue(true);
         try{
         int indexOfBlank=displayName.indexOf(" ");
         firstName = displayName.substring(0,indexOfBlank);
@@ -330,6 +330,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
                 try
                 {
                 String fancyName = dataSnapshot.child("fancyName").getValue().toString();
+                userNameOnHome.setText(fancyName);
                 // Here we can set fancy name
                 }
                 catch(NullPointerException e)
@@ -444,6 +445,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
 
                     }
                 }
+
 
 
                 if(TextUtils.isEmpty(profileImgUrl) && profileImgUrl==null )

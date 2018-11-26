@@ -4,32 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
+    android:padding="20dp"
     android:orientation="vertical">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter your phone number"
+        android:textColor="@color/colorAccent"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
         <com.rilixtech.CountryCodePicker
             android:id="@+id/ccp"
+            app:ccp_textColor="@color/grayOnLearnSectionText"
+            android:layout_marginTop="30dp"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:ccp_defaultNameCode="IN"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="1.4dp"
+        android:background="@color/grayOnProgressHome"
+        android:layout_height="1dp"/>
+
+</LinearLayout>
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/profile_edit_phone_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="phone"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Mobile"
+            app:backgroundTint="@color/grayOnProgressHome"
             android:inputType="phone"/>
 
     </LinearLayout>
 
+</LinearLayout>
 </LinearLayout>

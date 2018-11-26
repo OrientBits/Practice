@@ -18,20 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".DispatcherActivity"
+        <activity
+            android:name=".DispatcherActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".home.HomeContainer"
             android:screenOrientation="portrait" />
-
         <activity android:name=".OnBoarding" />
-
         <activity
             android:name=".category.MathematicsActivity"
             android:label="@string/mathematics"
@@ -105,15 +104,18 @@
             android:name=".nav_drawer.QuizFactory"
             android:label="@string/quiz_factory"
             android:parentActivityName=".nav_drawer.QuizFactory" />
-
         <activity
-            android:name=".RegisterUser" />
+            android:name=".RegisterUser"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Login" />
-
+            android:name=".Login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".module.WebViewLayout" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        <activity android:name=".nav_drawer.GenderChooser"/>
+        <activity android:name=".nav_drawer.GenderChooser" />
+        <activity android:name=".EditProfile"></activity>
     </application>
 
 </manifest>
