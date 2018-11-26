@@ -254,6 +254,7 @@ public class EditProfile extends AppCompatActivity {
                     return;
                 }
 
+
                 refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
                 refToSpecificUser.child("firstName").setValue(textInputEditTextFirstName.getText().toString());
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
