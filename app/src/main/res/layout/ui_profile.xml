@@ -310,8 +310,8 @@
                                 android:focusable="true"
                                 android:foreground="?android:selectableItemBackground"
                                 android:gravity="end"
-                                android:onClick="profileEdit"
                                 android:padding="3dp"
+                                android:id="@+id/second_pencil_icon"
                                 android:src="@drawable/profile_pencil"
                                 tools:ignore="ContentDescription,HardcodedText" />
 
@@ -383,7 +383,7 @@
                                 tools:ignore="ContentDescription" />
 
                             <TextView
-                                android:id="@+id/user_fancy_name"
+                                android:id="@+id/user_fancy_name_on_profile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="25dp"
                                 android:layout_marginTop="5dp"
@@ -396,7 +396,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user_fancy_name"
+                                android:layout_below="@id/user_fancy_name_on_profile"
                                 android:layout_toEndOf="@id/profile_fancy_name"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
@@ -475,7 +475,7 @@
                                 android:layout_toEndOf="@id/sex_image_temp"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="0dp"
-                                android:text="Please specify your Gender"
+                                android:text="Please specify your gender"
                                 android:textSize="16sp" />
 
                             <TextView
@@ -488,6 +488,7 @@
                                 android:text="Gender"
                                 android:textColor="#463cdf"
                                 android:textSize="10dp"
+                                android:id="@+id/gender_on_profile"
                                 tools:ignore="HardcodedText,SpUsage" />
 
                         </RelativeLayout>

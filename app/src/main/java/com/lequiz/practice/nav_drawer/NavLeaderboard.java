@@ -50,6 +50,7 @@ public class NavLeaderboard extends AppCompatActivity {
     String profileImgUrl;
     String firstName;
     String lastName;
+    String fancyName;
     String fullName;
     String userXP;
     TextView textViewUserOwnName, textViewUserXP, textViewUserRank;
@@ -116,26 +117,45 @@ public class NavLeaderboard extends AppCompatActivity {
             databaseReferenceUsers.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    try {
 
-
-                        firstName = dataSnapshot.child("firstName").getValue().toString();
-                        lastName = dataSnapshot.child("lastName").getValue().toString();
+                    try
+                    {
+                        fancyName = dataSnapshot.child("fancyName").getValue().toString();
+                        textViewUserOwnName.setText(fancyName);
                         userXP="Total XP: ";
                         userXP += dataSnapshot.child("xp").getValue().toString();
 
                         textViewUserXP.setText(userXP);
-                        fullName= firstName+" "+lastName;
-                        textViewUserOwnName.setText(fullName);
-
-
 
                     }
                     catch (NullPointerException e)
                     {
-                        fullName = mUser.getDisplayName();
-                        textViewUserOwnName.setText(fullName);
+
+                        try {
+
+
+                            firstName = dataSnapshot.child("firstName").getValue().toString();
+                            lastName = dataSnapshot.child("lastName").getValue().toString();
+                            userXP="Total XP: ";
+                            userXP += dataSnapshot.child("xp").getValue().toString();
+
+                            textViewUserXP.setText(userXP);
+                            fullName= firstName+" "+lastName;
+                            textViewUserOwnName.setText(fullName);
+
+
+
                         }
+                        catch (NullPointerException f)
+                        {
+                            fullName = mUser.getDisplayName();
+                            textViewUserOwnName.setText(fullName);
+                            userXP="Total XP: ";
+                            userXP += dataSnapshot.child("xp").getValue().toString();
+                            textViewUserXP.setText(userXP);
+                        }
+                    }
+
                     try{
                         rank=dataSnapshot.child("ranking").getValue().toString();
                         textViewUserRank.setText(rank);
@@ -416,9 +436,17 @@ public class NavLeaderboard extends AppCompatActivity {
 
 
                         });
+               if(model.getFancyName()!=null)
+               {
+                    String fancyName = model.getFancyName();
+                    holder.userName.setText(fancyName);}
 
-                String fullName = model.getFirstName()+" "+model.getLastName();
-                holder.userName.setText(fullName);
+                else
+                {
+                    String fullName = model.getFirstName()+" "+model.getLastName();
+                    holder.userName.setText(fullName);
+                }
+
                 try{
                 Long xp = model.getXp();
                 String mXP = "+ ";

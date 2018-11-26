@@ -195,7 +195,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                     String fancyName = dataSnapshot.child("fancyName").getValue().toString();
 
                     // Here we can set fancy name
-
+                    userNameOnDrawar.setText(fancyName);
 
                 } catch (NullPointerException e) {
                     try {
