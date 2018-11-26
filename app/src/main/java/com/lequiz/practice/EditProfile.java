@@ -245,11 +245,6 @@ public class EditProfile extends AppCompatActivity {
                     textInputEditTextFirstName.setError("last name can't be empty");
                     return;
                 }
-                if(TextUtils.isEmpty(textInputEditTextFancyName.getText()))
-                {
-                    textInputEditTextFancyName.setError("Fancy name can't be empty");
-                    return;
-                }
 
 
                 if(!Patterns.EMAIL_ADDRESS.matcher(textInputEditTextEmailOnProfileEditDialog.getText().toString()).matches())
