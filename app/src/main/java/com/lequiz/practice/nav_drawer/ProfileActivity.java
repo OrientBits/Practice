@@ -795,6 +795,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                 refToSpecificUser.child("phoneNumber").setValue(edtPhoneNumber.getText().toString());
                 Toast.makeText(ProfileActivity.this, "Phone number updated", Toast.LENGTH_SHORT).show();
             }
+
         });
         mBuilder.setView(mView);
         mBuilder.create().show();
