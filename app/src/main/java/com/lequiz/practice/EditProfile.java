@@ -274,6 +274,7 @@ public class EditProfile extends AppCompatActivity {
                             } else {
                                 refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
                             }}
+
                             catch (NullPointerException e)
                             {
 
