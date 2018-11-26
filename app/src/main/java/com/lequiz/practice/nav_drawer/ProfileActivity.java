@@ -96,6 +96,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
