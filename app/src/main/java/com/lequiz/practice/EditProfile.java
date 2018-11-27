@@ -274,6 +274,7 @@ public class EditProfile extends AppCompatActivity {
                                }
                                else {
 
+
                                    if (data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString())) {
                                        //do ur stuff
                                        Toast.makeText(EditProfile.this, "Fancy Name already exists", Toast.LENGTH_SHORT).show();
