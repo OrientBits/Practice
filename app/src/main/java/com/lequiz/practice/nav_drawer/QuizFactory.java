@@ -130,7 +130,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
 
 
 
-        databaseReferenceToQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReferenceToQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 databaseChildCount=dataSnapshot.getChildrenCount();
@@ -205,6 +205,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
                 databaseReferenceToQuestions.child(numberToMakeNode).child("category").setValue(quizFactoryCategory);
                 databaseReferenceToQuestions.child(numberToMakeNode).child("submittedOn").setValue(currentDateTimeString);
                 databaseReferenceToQuestions.child(numberToMakeNode).child("correctAnswer").setValue(correctOptionToSubmit);
+                databaseReferenceToQuestions.child(numberToMakeNode).child("approval").setValue(false);
                 databaseReferenceToQuestions.child(numberToMakeNode).child("option1").setValue(option1ToSubmitEditText.getText().toString());
                 databaseReferenceToQuestions.child(numberToMakeNode).child("option2").setValue(option2ToSubmitEditText.getText().toString());
                 databaseReferenceToQuestions.child(numberToMakeNode).child("option3").setValue(option3ToSubmitEditText.getText().toString());
