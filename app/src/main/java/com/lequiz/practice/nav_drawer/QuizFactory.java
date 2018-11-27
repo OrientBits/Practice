@@ -52,6 +52,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
     DatabaseReference databaseReferenceToQuestions;
     DatabaseReference databaseReferenceToSpecificUsers;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
