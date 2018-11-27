@@ -37,6 +37,7 @@ public class EditProfile extends AppCompatActivity {
     String gender,status;
     FirebaseUser mUser;
     FirebaseAuth mAuth;
+    DatabaseReference currentUserRef;
     String firstName, lastName, fullName, email, fancyName, userDob;
     ImageView rightOnEditProfileImageView;
     DatePickerDialog datePickerDialogBirthday;
@@ -53,7 +54,7 @@ public class EditProfile extends AppCompatActivity {
 
         if(mAuth.getCurrentUser()!=null){
         refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + mAuth.getCurrentUser().getUid());
-
+        currentUserRef = FirebaseDatabase.getInstance().getReference("Users");
             refToSpecificUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -254,11 +255,38 @@ public class EditProfile extends AppCompatActivity {
                     return;
                 }
 
-                refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
+
+
                 refToSpecificUser.child("firstName").setValue(textInputEditTextFirstName.getText().toString());
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
                 refToSpecificUser.child("email").setValue(textInputEditTextEmailOnProfileEditDialog.getText().toString());
                 refToSpecificUser.child("gender").setValue(gender);
+                currentUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        for(DataSnapshot data: dataSnapshot.getChildren()){
+                           try{
+
+                            if (data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString())) {
+                                //do ur stuff
+                                Toast.makeText(EditProfile.this, "Fancy Name already exists",Toast.LENGTH_SHORT).show();
+                            } else {
+                                refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
+                            }}
+                            catch (NullPointerException e)
+                            {
+
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 refToSpecificUser.child("status").setValue(textInputEditTextStatus.getText().toString());
 
 

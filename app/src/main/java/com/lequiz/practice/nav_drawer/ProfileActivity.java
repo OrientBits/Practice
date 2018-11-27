@@ -787,10 +787,15 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         mBuilder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                if(TextUtils.isEmpty(edtPhoneNumber.getText()))
+                {
+                    return;
+                }
                 ccp.registerPhoneNumberTextView(edtPhoneNumber);
-                refToSpecificUser.child("phoneNumber").setValue(edtPhoneNumber.getText());
+                refToSpecificUser.child("phoneNumber").setValue(edtPhoneNumber.getText().toString());
                 Toast.makeText(ProfileActivity.this, "Phone number updated", Toast.LENGTH_SHORT).show();
             }
+
         });
         mBuilder.setView(mView);
         mBuilder.create().show();
