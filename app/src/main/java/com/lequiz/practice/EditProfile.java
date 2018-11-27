@@ -261,7 +261,6 @@ public class EditProfile extends AppCompatActivity {
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
                 refToSpecificUser.child("email").setValue(textInputEditTextEmailOnProfileEditDialog.getText().toString());
                 refToSpecificUser.child("gender").setValue(gender);
-
                 currentUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
