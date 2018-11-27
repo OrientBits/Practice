@@ -155,7 +155,6 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
         submitButtonOnQuizFactory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (TextUtils.isEmpty(questionToSubmitEditText.getText()))
                 {
                     questionToSubmitEditText.setError("Option1 is required");
