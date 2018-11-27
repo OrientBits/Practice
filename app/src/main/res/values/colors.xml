@@ -117,6 +117,8 @@
     <color name="maroon_on_leaderboard">#9D0027</color>
     <color name="sky_blue_on_leaderboard">#2892D9</color>
 
+   <color name="style_color_for_quiz_factory">#D60F70</color>
+
 
 </resources>
 

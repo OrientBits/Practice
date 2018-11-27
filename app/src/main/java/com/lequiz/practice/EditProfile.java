@@ -261,19 +261,32 @@ public class EditProfile extends AppCompatActivity {
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
                 refToSpecificUser.child("email").setValue(textInputEditTextEmailOnProfileEditDialog.getText().toString());
                 refToSpecificUser.child("gender").setValue(gender);
+
                 currentUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for(DataSnapshot data: dataSnapshot.getChildren()){
                            try{
+                               if(textInputEditTextFancyName.equals(""))
+                               {
+                                   return;
+                               }
+                               else {
 
-                            if (data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString())) {
-                                //do ur stuff
-                                Toast.makeText(EditProfile.this, "Fancy Name already exists",Toast.LENGTH_SHORT).show();
-                            } else {
-                                refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
-                            }}
+
+                                   if (data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString())) {
+                                       //do ur stuff
+                                       Toast.makeText(EditProfile.this, "Fancy Name already exists", Toast.LENGTH_SHORT).show();
+                                   } else {
+
+
+                                       refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
+                                   }
+                               }
+
+                           }
+
                             catch (NullPointerException e)
                             {
 
