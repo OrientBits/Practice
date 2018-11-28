@@ -307,7 +307,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                                                                     .into(circleImageView, new Callback() {
                                                                         @Override
                                                                         public void onSuccess() {
-                                                                            Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
+                                                                         //   Toast.makeText(getApplicationContext(), "Profile pic fetched successfully", Toast.LENGTH_SHORT).show();
                                                                         }
                                                                         @Override
                                                                         public void onError(Exception e) {

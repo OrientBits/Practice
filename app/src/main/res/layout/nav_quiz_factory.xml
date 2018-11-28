@@ -126,7 +126,6 @@
                             android:id="@+id/editText1_for_correct"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:hint="Option 1"
                             android:textSize="17sp"
                             android:inputType="textCapSentences"
@@ -210,10 +209,12 @@
                 </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/radio_for_correct_answers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
                         <RadioButton
+                            android:id="@+id/radio_button_option1"
                             android:layout_marginTop="35dp"
                             android:buttonTint="@color/colorAccent"
                             android:layout_width="wrap_content"
@@ -221,6 +222,7 @@
 
                             />
                         <RadioButton
+                            android:id="@+id/radio_button_option2"
                             android:layout_marginTop="35dp"
                             android:layout_width="wrap_content"
                             android:buttonTint="@color/colorAccent"
@@ -228,6 +230,7 @@
 
                             />
                         <RadioButton
+                            android:id="@+id/radio_button_option3"
                             android:layout_marginTop="35dp"
                             android:layout_width="wrap_content"
                             android:buttonTint="@color/colorAccent"
@@ -235,6 +238,7 @@
 
                             />
                         <RadioButton
+                            android:id="@+id/radio_button_option4"
                             android:layout_marginTop="35dp"
                             android:layout_width="wrap_content"
                             android:buttonTint="@color/colorAccent"
@@ -249,6 +253,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/submit_button_on_quiz_factory"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_gravity="end"

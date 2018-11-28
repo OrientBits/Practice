@@ -261,16 +261,15 @@ public class EditProfile extends AppCompatActivity {
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
                 refToSpecificUser.child("email").setValue(textInputEditTextEmailOnProfileEditDialog.getText().toString());
                 refToSpecificUser.child("gender").setValue(gender);
-
                 currentUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for(DataSnapshot data: dataSnapshot.getChildren()){
                            try{
-                               if(textInputEditTextFancyName.equals(""))
+                               if(textInputEditTextFancyName.equals("") || TextUtils.isEmpty(textInputEditTextFancyName.getText().toString()))
                                {
-                                   return;
+                                   Toast.makeText(EditProfile.this, "Fancy name must not be empty", Toast.LENGTH_SHORT).show();
                                }
                                else {
 
