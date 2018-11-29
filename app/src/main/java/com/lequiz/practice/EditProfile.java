@@ -1,21 +1,32 @@
 package com.lequiz.practice;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,9 +36,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -36,16 +51,21 @@ public class EditProfile extends AppCompatActivity {
     int day, month, year;
     Calendar calendar;
     String gender,status;
+    private double latitude, longitude;
+    String finalAddress;
+    private FusedLocationProviderClient client;
     FirebaseUser mUser;
     FirebaseAuth mAuth;
     DatabaseReference currentUserRef;
-    String firstName, lastName, fullName, email, fancyName, userDob;
+    String firstName,location, lastName, fullName, email, fancyName, userDob;
     ImageView rightOnEditProfileImageView;
     DatePickerDialog datePickerDialogBirthday;
     ArrayAdapter<String> arrayAdapter;
     private DatabaseReference refToSpecificUser;
+    TextInputEditText locationEditText;
     TextInputEditText textInputEditTextFancyName, textInputEditTextStatus, textInputEditTextFirstName, textInputEditTextLastName, textInputEditTextEmailOnProfileEditDialog;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +73,16 @@ public class EditProfile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
+
         new FullScreenStatusOnly(this);
+        try{
+        client = LocationServices.getFusedLocationProviderClient(this);}
+        catch (Exception e)
+        {
+
+        }
+
+
 
         if(mAuth.getCurrentUser()!=null){
         refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + mAuth.getCurrentUser().getUid());
@@ -138,6 +167,14 @@ public class EditProfile extends AppCompatActivity {
                     {
 
                     }
+                    try{
+                        location=dataSnapshot.child("location").getValue().toString();
+                        locationEditText.setText(location);
+                    }
+                    catch (NullPointerException e)
+                    {
+
+                    }
 
 
 
@@ -181,7 +218,54 @@ public class EditProfile extends AppCompatActivity {
         spinnerGenderSelector.setAdapter(arrayAdapter);
         textInputEditTextStatus = findViewById(R.id.status_on_edit_profile);
         rightOnEditProfileImageView = findViewById(R.id.save_right_on_edit_profile);
+        locationEditText = findViewById(R.id.text_input_location_edit_profile);
 
+        locationEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (locationEditText.getRight() - locationEditText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+                        requestPermission();
+                        Toast.makeText(EditProfile.this,"Auto Detecting Location",Toast.LENGTH_SHORT).show();
+                        if (ActivityCompat.checkSelfPermission(EditProfile.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(EditProfile.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+
+
+                        }
+                        client.getLastLocation().addOnSuccessListener(EditProfile.this, new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(Location location) {
+
+                                if(location!=null)
+                                {
+                                    latitude= location.getLatitude();
+                                    longitude= location.getLongitude();
+                                    getExactLocation();
+
+                                }
+
+                            }
+                        });
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+//
         spinnerGenderSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -313,6 +397,26 @@ public class EditProfile extends AppCompatActivity {
         });
 
 
+
+    }
+
+    private void getExactLocation() {
+
+        Geocoder geocoder = new Geocoder(EditProfile.this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            finalAddress = addresses.get(0).getAddressLine(0);
+            locationEditText.setText(finalAddress);
+            refToSpecificUser.child("location").setValue(finalAddress);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void requestPermission() {
+
+        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION},1);
 
     }
 }

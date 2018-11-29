@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_filter_7_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/maps/ic_my_location_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="0076ff" />
-                            <entry key="outputName" value="current_affairs_bullet" />
+                            <entry key="color" value="f25c4b" />
+                            <entry key="outputName" value="ic_location" />
                             <entry key="sourceFile" value="C:\Users\Rishabh\Downloads\status_icon_ediit_profile.svg" />
                           </map>
                         </option>

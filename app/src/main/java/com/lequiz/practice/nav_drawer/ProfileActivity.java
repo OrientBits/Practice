@@ -73,7 +73,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     RelativeLayout toolbarLayout;
     private Uri imgToUpload;
     Uri profileImage;
-    TextView title_text,user_name, user_email,user_name_on_profile, textViewXpOnOwnProfile,textViewUserDob, textViewOnProfilePhoneNumber, textViewOnFancyName, genderOnProfileTextView;
+    TextView title_text,user_name, userLocationOnProfile, user_email,user_name_on_profile, textViewXpOnOwnProfile,textViewUserDob, textViewOnProfilePhoneNumber, textViewOnFancyName, genderOnProfileTextView;
     CardView toolbar_card_view_2;
     FirebaseAuth mAuth;
     Uri imgProfile;
@@ -84,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
     String fullName;
     String email,status;
     TextView userCustomStatusTextView;
-    String userDob;
+    String userDob,location;
     String userXP, gender;
     String phoneNumber, fancyName;
     ImageView secondPencilIcon;
@@ -117,6 +117,7 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
         textViewUserDob = findViewById(R.id.user_DOB);
         secondPencilIcon = findViewById(R.id.second_pencil_icon);
         userCustomStatusTextView = findViewById(R.id.user_custom_status);
+        userLocationOnProfile = findViewById(R.id.user_location);
 
 
 
@@ -231,7 +232,14 @@ public class ProfileActivity extends AppCompatActivity implements ObservableScro
                     {
 
                     }
+                    try{
+                        location=dataSnapshot.child("location").getValue().toString();
+                        userLocationOnProfile.setText(location);
+                    }
+                    catch (NullPointerException e)
+                    {
 
+                    }
 
 
 
