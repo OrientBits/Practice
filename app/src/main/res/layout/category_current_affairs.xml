@@ -256,10 +256,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="@color/grayOnLearnSectionText"
-                        android:textSize="11sp"
+                        android:textSize="11sp" />
 
-
-                        />
                 </LinearLayout>
 
 

@@ -20,6 +20,7 @@
 
     <!-- Category name for Current_affairs [CHAR LIMIT=20] -->
     <string name="current_Affairs">Current Affairs</string>
+    <string name="weekly_current_affairs">Weekly current affairs</string>
 
     <!--Category name for Mathematics-->
     <string name="mathematics">Mathematics</string>

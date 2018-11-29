@@ -116,7 +116,9 @@
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity android:name=".nav_drawer.GenderChooser" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".category.WeeklyCurrentAffairs"></activity>
+        <activity android:name=".category.WeeklyCurrentAffairs"
+            android:parentActivityName=".category.WeeklyCurrentAffairs"
+            android:label="@string/weekly_current_affairs"/>
     </application>
 
 </manifest>
