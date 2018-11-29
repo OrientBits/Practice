@@ -2,6 +2,7 @@ package com.lequiz.practice.category;
 
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -64,6 +65,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
     String fancyName;
     String lastName;
     String heyUserNameMaker;
+    RelativeLayout relativeWeeklyUpdatesCard;
 
 
     private static final String NEWS_REQUEST_URL =
@@ -79,6 +81,18 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
         mEmptyStateTextView = findViewById(R.id.empty_view);
+        relativeWeeklyUpdatesCard = findViewById(R.id.relative_card_view_current_affairs_weekly_bullet);
+
+        relativeWeeklyUpdatesCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ///////////// Relative CardView weekly onClick
+
+                startActivity(new Intent(CurrentAffairsActivity.this, WeeklyCurrentAffairs.class));
+
+            }
+        });
 
         //UserName Initialization
 
