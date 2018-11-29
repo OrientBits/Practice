@@ -169,19 +169,19 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
                 }
                 if (TextUtils.isEmpty(option2ToSubmitEditText.getText()))
                 {
-                    option1ToSubmitEditText.setError("Option2 is required");
+                    option2ToSubmitEditText.setError("Option2 is required");
                     option1ToSubmitEditText.requestFocus();
                     return;
                 }
                 if (TextUtils.isEmpty(option3ToSubmitEditText.getText()))
                 {
-                    option1ToSubmitEditText.setError("Option3 is required");
+                    option3ToSubmitEditText.setError("Option3 is required");
                     option1ToSubmitEditText.requestFocus();
                     return;
                 }
                 if (TextUtils.isEmpty(option4ToSubmitEditText.getText()))
                 {
-                    option1ToSubmitEditText.setError("Option4 is required");
+                    option4ToSubmitEditText.setError("Option4 is required");
                     option1ToSubmitEditText.requestFocus();
                     return;
                 }
