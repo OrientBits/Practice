@@ -149,7 +149,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="7"
+                        android:padding="7dp"
                         android:src="@drawable/current_affairs_bullet"
                         android:layout_gravity="center"
                         tools:ignore="ContentDescription" />
@@ -187,13 +187,11 @@
 
             </RelativeLayout>
 
-
-
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative_card_view_current_affairs"
-                android:layout_marginTop="85dp">
+                android:layout_marginTop="82dp">
 
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmer_layout_container_current_affairs"
