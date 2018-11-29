@@ -178,6 +178,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
                     option3ToSubmitEditText.setError("Option3 is required");
                     option1ToSubmitEditText.requestFocus();
                     return;
+
                 }
                 if (TextUtils.isEmpty(option4ToSubmitEditText.getText()))
                 {
