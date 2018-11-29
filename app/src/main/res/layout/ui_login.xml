@@ -16,9 +16,14 @@
         android:layout_gravity="center"
         android:visibility="invisible" />
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -191,6 +196,10 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

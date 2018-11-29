@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lequiz.practice.base.FullScreenStatusOnly;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,6 +52,8 @@ public class EditProfile extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
         mAuth = FirebaseAuth.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        new FullScreenStatusOnly(this);
 
         if(mAuth.getCurrentUser()!=null){
         refToSpecificUser = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lequiz-4abd1.firebaseio.com/Users/" + mAuth.getCurrentUser().getUid());

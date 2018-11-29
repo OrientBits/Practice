@@ -564,7 +564,11 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
                 break;
 
             case R.id.about_us:
-                // this section will be linked with Website directly
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://github.com/"));
+                startActivity(intent);
                 break;
         }
 
