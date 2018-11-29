@@ -185,6 +185,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
                     option4ToSubmitEditText.setError("Option4 is required");
                     option1ToSubmitEditText.requestFocus();
                     return;
+
                 }
                 if(noRadioSelected)
                 {
