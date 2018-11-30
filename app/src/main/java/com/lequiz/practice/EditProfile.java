@@ -349,6 +349,7 @@ public class EditProfile extends AppCompatActivity {
                 refToSpecificUser.child("lastName").setValue(textInputEditTextLastName.getText().toString());
                 refToSpecificUser.child("email").setValue(textInputEditTextEmailOnProfileEditDialog.getText().toString());
                 refToSpecificUser.child("gender").setValue(gender);
+                refToSpecificUser.child("location").setValue(locationEditText.getText().toString());
                 currentUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -358,7 +359,7 @@ public class EditProfile extends AppCompatActivity {
                             try{
                                 if(data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString()))
                                 {
-                                    Toast.makeText(EditProfile.this, "fancyName already exists",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EditProfile.this, "Fancyname Already Exists",Toast.LENGTH_SHORT).show();
                                     fancyNameExists=true;
                                 }
                                 else
@@ -389,9 +390,6 @@ public class EditProfile extends AppCompatActivity {
                     }
                 });
                 refToSpecificUser.child("status").setValue(textInputEditTextStatus.getText().toString());
-
-
-
 
                 Toast.makeText(EditProfile.this, "Saved successfully", Toast.LENGTH_SHORT).show();
 
