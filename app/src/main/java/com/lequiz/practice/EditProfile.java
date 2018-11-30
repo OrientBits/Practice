@@ -56,6 +56,7 @@ public class EditProfile extends AppCompatActivity {
     private FusedLocationProviderClient client;
     FirebaseUser mUser;
     FirebaseAuth mAuth;
+    boolean fancyNameExists;
     DatabaseReference currentUserRef;
     String firstName,location, lastName, fullName, email, fancyName, userDob;
     ImageView rightOnEditProfileImageView;
@@ -353,30 +354,30 @@ public class EditProfile extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         for(DataSnapshot data: dataSnapshot.getChildren()){
-                           try{
-                               if(textInputEditTextFancyName.equals("") || TextUtils.isEmpty(textInputEditTextFancyName.getText().toString()))
-                               {
-                                   Toast.makeText(EditProfile.this, "Fancy name must not be empty", Toast.LENGTH_SHORT).show();
-                               }
-                               else {
 
+                            try{
+                                if(data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString()))
+                                {
+                                    Toast.makeText(EditProfile.this, "fancyName already exists",Toast.LENGTH_SHORT).show();
+                                    fancyNameExists=true;
+                                }
+                                else
+                                {
 
-                                   if (data.child("fancyName").getValue().toString().equals(textInputEditTextFancyName.getText().toString())) {
-                                       //do ur stuff
-                                       Toast.makeText(EditProfile.this, "Fancy Name already exists", Toast.LENGTH_SHORT).show();
-                                   } else {
-
-
-                                       refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
-                                   }
-                               }
-
-                           }
-
+                                }
+                            }
                             catch (NullPointerException e)
                             {
 
                             }
+
+
+
+
+                        }
+                        if(!fancyNameExists)
+                        {
+                            refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
                         }
 
                     }
@@ -387,6 +388,8 @@ public class EditProfile extends AppCompatActivity {
                     }
                 });
                 refToSpecificUser.child("status").setValue(textInputEditTextStatus.getText().toString());
+
+
 
 
                 Toast.makeText(EditProfile.this, "Saved successfully", Toast.LENGTH_SHORT).show();
