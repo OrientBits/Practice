@@ -378,6 +378,7 @@ public class EditProfile extends AppCompatActivity {
                         if(!fancyNameExists)
                         {
                             refToSpecificUser.child("fancyName").setValue(textInputEditTextFancyName.getText().toString());
+
                         }
 
                     }
