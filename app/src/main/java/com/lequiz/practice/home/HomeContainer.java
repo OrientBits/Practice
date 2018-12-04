@@ -242,7 +242,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
 
-                    profileImgUrl = dataSnapshot.child("profileImgUrl").getValue().toString();
+                    profileImgUrl = dataSnapshot.child("profileImgUrl").getValue(String.class);
                 } catch (NullPointerException e) {
                     try {
                         // Fetching google photo
@@ -456,11 +456,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
         transaction.commit();
     }
-
-
-
-
-
 
 
 
