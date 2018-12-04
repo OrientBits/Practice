@@ -702,6 +702,7 @@ public class FragmentHome extends Fragment implements ObservableScrollViewCallba
         inflater.inflate(R.menu.menu_main, menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.notifications){

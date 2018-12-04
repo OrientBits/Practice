@@ -54,13 +54,14 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class HomeContainer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    static final Fragment fragmentHome = new FragmentHome();
-    static final Fragment fragmentJobAlert = new FragmentJobAlert();
-    static final Fragment fragmentRandom = new FragmentPlayRandom();
+    static  Fragment fragmentHome;
+    static  Fragment fragmentJobAlert;
+    static  Fragment fragmentRandom;
+    Fragment previousFragment;
 
     public static View mToolbarView;
     public static RelativeLayout toolbarLayout;
-    boolean doubleBackToExitPressedOnce = false;
+    boolean doubleBackToExitPressedOnce = false,isFragmentInitialized=false;
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mToggle;
     protected CircleImageView profile_home;
@@ -80,6 +81,7 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     public int baseColor1;
 
 
+
     @SuppressLint("StaticFieldLeak")
     public static Activity fa; // finish activity
 
@@ -88,9 +90,18 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home_container);
+
+        if (!isFragmentInitialized){
+            fragmentHome = new FragmentHome();
+            fragmentJobAlert = new FragmentJobAlert();
+            fragmentRandom = new FragmentPlayRandom();
+            isFragmentInitialized = true;
+        }
+
         fa = this; // for only context
         mAuth = FirebaseAuth.getInstance();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
 
         new FullScreenStatusOnly(this);
@@ -419,19 +430,27 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         }
 
         if (fragment == fragmentHome) {
+          //  transaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
             transaction.hide(fragmentRandom);
             transaction.hide(fragmentJobAlert);
             transaction.show(fragment);
+            this.previousFragment = fragment;
 
         } else if (fragment == fragmentRandom) {
+//            if (previousFragment == fragmentHome)
+//            transaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
+//            else
+//                transaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
             transaction.hide(fragmentHome);
             transaction.hide(fragmentJobAlert);
             transaction.show(fragment);
 
         } else if (fragment == fragmentJobAlert) {
+            //transaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
             transaction.hide(fragmentRandom);
             transaction.hide(fragmentHome);
             transaction.show(fragment);
+            this.previousFragment = fragment;
         }
 
 

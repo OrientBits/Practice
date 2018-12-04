@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,11 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lequiz.practice.base.FullScreenStatusOnly;
 import com.lequiz.practice.R;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 public class QuizFactory extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -41,7 +38,6 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
     String questionToSubmit;
     FirebaseAuth mAuth;
     String currentDateTimeString;
-    String fullNameOfTheUserWhoSubmitted;
     boolean noRadioSelected=true;
     long databaseChildCount;
     Button submitButtonOnQuizFactory;
@@ -72,13 +68,13 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 try{
-                    fancyName=dataSnapshot.child("fancyName").getValue().toString();
+                    fancyName=dataSnapshot.child("fancyName").getValue(String.class);
                     fullName=fancyName;
                 }
                 catch (NullPointerException e)
                 {
                     try{
-                    firstName = dataSnapshot.child("firstname").getValue().toString();
+                    firstName = dataSnapshot.child("firstname").getValue(String.class);
                     fullName = firstName;
                     }
                     catch (NullPointerException f)
@@ -87,7 +83,7 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
                     }
                     try
                     {
-                        lastName = dataSnapshot.child("lastName").getValue().toString();
+                        lastName = dataSnapshot.child("lastName").getValue(String.class);
                         fullName+=lastName;
                     }
                     catch (NullPointerException g)
@@ -220,6 +216,9 @@ public class QuizFactory extends AppCompatActivity implements AdapterView.OnItem
 
             }
         });
+
+
+
 
 
         radioGroupForCorrectAnswers.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
