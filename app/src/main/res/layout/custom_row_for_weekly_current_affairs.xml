@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:textColor="#516685"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text=" Gurupriya bridge: Proposed in 1982, opened in
+ 2018, this Odisha bridge bears testimony to decades of frustration"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="#5B81B0"
+            android:id="@+id/desc_text_view"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+
+</android.support.design.card.MaterialCardView>
