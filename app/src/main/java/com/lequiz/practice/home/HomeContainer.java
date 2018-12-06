@@ -3,7 +3,11 @@ package com.lequiz.practice.home;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -25,6 +29,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +62,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
     static  Fragment fragmentHome;
     static  Fragment fragmentJobAlert;
-    static  Fragment fragmentRandom;
     Fragment previousFragment;
 
     public static View mToolbarView;
@@ -94,7 +99,6 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
         if (!isFragmentInitialized){
             fragmentHome = new FragmentHome();
             fragmentJobAlert = new FragmentJobAlert();
-            fragmentRandom = new FragmentPlayRandom();
             isFragmentInitialized = true;
         }
 
@@ -160,17 +164,29 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
             }
         });
 
+
+
+
         randomBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(fragmentRandom);
-                toolbar_card_view_2.setVisibility(View.INVISIBLE);
-                title_text.setText(getText(R.string.random_quiz));
-                mToolbarView.setBackgroundColor(ScrollUtils.getColorWithAlpha(randomToolbarColor, baseColor1));
-                title_text.setAlpha(randomTitleAlpha);
+                Dialog dialog = new Dialog(HomeContainer.this, android.R.style.Theme_Dialog);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.play_random_dialog_layout);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
 
             }
         });
+
+
+
+
+
+
+
+
 
         jobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -431,23 +447,12 @@ public class HomeContainer extends AppCompatActivity implements NavigationView.O
 
         if (fragment == fragmentHome) {
           //  transaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
-            transaction.hide(fragmentRandom);
             transaction.hide(fragmentJobAlert);
             transaction.show(fragment);
             this.previousFragment = fragment;
 
-        } else if (fragment == fragmentRandom) {
-//            if (previousFragment == fragmentHome)
-//            transaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
-//            else
-//                transaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_to_right);
-            transaction.hide(fragmentHome);
-            transaction.hide(fragmentJobAlert);
-            transaction.show(fragment);
-
-        } else if (fragment == fragmentJobAlert) {
+        }  else if (fragment == fragmentJobAlert) {
             //transaction.setCustomAnimations(R.anim.enter_from_right,R.anim.exit_to_left);
-            transaction.hide(fragmentRandom);
             transaction.hide(fragmentHome);
             transaction.show(fragment);
             this.previousFragment = fragment;

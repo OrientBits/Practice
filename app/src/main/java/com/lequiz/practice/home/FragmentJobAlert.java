@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -25,9 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lequiz.practice.R;
 import com.lequiz.practice.module.JobViewHolder;
 import com.lequiz.practice.module.Jobs;
-
-import static com.lequiz.practice.R.id.job_alerts_recycler_view;
-import static com.lequiz.practice.R.id.parent;
 
 
 public class FragmentJobAlert extends Fragment implements ObservableScrollViewCallbacks {
@@ -49,8 +45,7 @@ public class FragmentJobAlert extends Fragment implements ObservableScrollViewCa
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View inflaterView = inflater.inflate(R.layout.fragment_job_alert, container, false);
 

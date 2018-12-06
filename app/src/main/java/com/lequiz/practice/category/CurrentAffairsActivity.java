@@ -209,9 +209,7 @@ public class CurrentAffairsActivity extends AppCompatActivity implements LoaderM
         recyclerView.setNestedScrollingEnabled(false);
 
         // Adding divider
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
 
         // Heading Text Gradient

@@ -51,8 +51,8 @@ public class WeeklyCurrentAffairs extends AppCompatActivity implements Observabl
         setContentView(R.layout.activity_weekly_current_affairs);
 
         recyclerView = findViewById(R.id.weekly_current_affairs_recycler_view);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
+        //recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
