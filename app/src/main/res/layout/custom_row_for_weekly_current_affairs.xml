@@ -24,6 +24,7 @@
             android:text=" Gurupriya bridge: Proposed in 1982, opened in
  2018, this Odisha bridge bears testimony to decades of frustration"/>
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
